@@ -1,0 +1,3 @@
+Vivado Simulator 2014.2
+Time resolution is 1 ps
+WARNING: File firmware/firmware.hex referenced on D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sim_1/imports/picorv32-master/testbench.v at line 182 cannot be opened for reading. Please ensure that this file is available in the current working directory.

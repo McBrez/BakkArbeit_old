@@ -1,0 +1,1 @@
+--debug "typical" --relax -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "testbench_behav" --prj "D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.sim/sim_1/behav/testbench.prj" "xil_defaultlib.testbench" "xil_defaultlib.glbl" 

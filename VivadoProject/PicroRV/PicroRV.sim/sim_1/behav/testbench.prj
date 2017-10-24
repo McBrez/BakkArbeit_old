@@ -1,0 +1,4 @@
+verilog xil_defaultlib  "D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v"
+verilog xil_defaultlib  "D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sim_1/imports/picorv32-master/testbench.v"
+verilog xil_defaultlib "D:/Vivado/Vivado/2014.2/data/verilog/src/glbl.v"
+nosort

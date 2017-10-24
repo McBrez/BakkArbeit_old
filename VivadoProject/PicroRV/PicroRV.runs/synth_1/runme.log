@@ -1,0 +1,1002 @@
+
+*** Running vivado
+    with args -log design_1_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_wrapper.tcl
+
+
+****** Vivado v2017.2 (64-bit)
+  **** SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+  **** IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source design_1_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado2017/Vivado/2017.2/data/ip'.
+Command: synth_design -top design_1_wrapper -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020-clg484'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020-clg484'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10564 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 310.855 ; gain = 78.625
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_wrapper' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+WARNING: [Synth 8-4446] all outputs are unconnected for this instance and logic may be removed [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:21]
+INFO: [Synth 8-638] synthesizing module 'design_1' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/hdl/design_1.v:13]
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_bram_ctrl_0_0' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_0/synth/design_1_axi_bram_ctrl_0_0.vhd:92]
+	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
+	Parameter C_MEMORY_DEPTH bound to: 8192 - type: integer 
+	Parameter C_BRAM_ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 15 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4LITE - type: string 
+	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 0 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 1 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_SELECT_XPM bound to: 0 - type: integer 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+INFO: [Synth 8-3491] module 'axi_bram_ctrl' declared at 'd:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:23727' bound to instance 'U0' of component 'axi_bram_ctrl' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_0/synth/design_1_axi_bram_ctrl_0_0.vhd:224]
+INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:23897]
+	Parameter C_BRAM_INST_MODE bound to: EXTERNAL - type: string 
+	Parameter C_MEMORY_DEPTH bound to: 8192 - type: integer 
+	Parameter C_BRAM_ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 15 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4LITE - type: string 
+	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 0 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 1 - type: integer 
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_SELECT_XPM bound to: 0 - type: integer 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'axi_bram_ctrl_top' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:22901]
+	Parameter C_BRAM_ADDR_WIDTH bound to: 13 - type: integer 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 15 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_ID_WIDTH bound to: 1 - type: integer 
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4LITE - type: string 
+	Parameter C_S_AXI_SUPPORTS_NARROW_BURST bound to: 0 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 1 - type: integer 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'axi_lite' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7102]
+	Parameter C_S_AXI_PROTOCOL bound to: AXI4LITE - type: string 
+	Parameter C_S_AXI_ADDR_WIDTH bound to: 15 - type: integer 
+	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_SINGLE_PORT_BRAM bound to: 1 - type: integer 
+	Parameter C_S_AXI_CTRL_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter C_S_AXI_CTRL_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter C_ECC bound to: 0 - type: integer 
+	Parameter C_ECC_TYPE bound to: 0 - type: integer 
+	Parameter C_ECC_WIDTH bound to: 0 - type: integer 
+	Parameter C_FAULT_INJECT bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_RESET_VALUE bound to: 0 - type: integer 
+	Parameter C_ENABLE_AXI_CTRL_REG_IF bound to: 0 - type: integer 
+	Parameter C_CE_FAILING_REGISTERS bound to: 0 - type: integer 
+	Parameter C_UE_FAILING_REGISTERS bound to: 0 - type: integer 
+	Parameter C_ECC_STATUS_REGISTERS bound to: 0 - type: integer 
+	Parameter C_ECC_ONOFF_REGISTER bound to: 0 - type: integer 
+	Parameter C_CE_COUNTER_WIDTH bound to: 0 - type: integer 
+WARNING: [Synth 8-6014] Unused sequential element axi_arready_cmb_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8167]
+WARNING: [Synth 8-6014] Unused sequential element bram_en_b_cmb_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8175]
+WARNING: [Synth 8-6014] Unused sequential element axi_arready_reg_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8393]
+WARNING: [Synth 8-6014] Unused sequential element axi_rvalid_set_r_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8394]
+WARNING: [Synth 8-6014] Unused sequential element axi_rlast_set_r_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8395]
+WARNING: [Synth 8-6014] Unused sequential element bvalid_cnt_inc_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7757]
+WARNING: [Synth 8-6014] Unused sequential element axi_rlast_set_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7865]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[14].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[13].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[12].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[11].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[10].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[9].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[8].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[7].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[6].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[5].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[4].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[3].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+WARNING: [Synth 8-6014] Unused sequential element GEN_ADDR[2].GEN_ADDR_SNG_PORT.bram_addr_a_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7588]
+INFO: [Synth 8-256] done synthesizing module 'axi_lite' (1#1) [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7102]
+INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl_top' (2#1) [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:22901]
+INFO: [Synth 8-256] done synthesizing module 'axi_bram_ctrl' (3#1) [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:23897]
+INFO: [Synth 8-256] done synthesizing module 'design_1_axi_bram_ctrl_0_0' (4#1) [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_axi_bram_ctrl_0_0/synth/design_1_axi_bram_ctrl_0_0.vhd:92]
+WARNING: [Synth 8-350] instance 'axi_bram_ctrl_0' of module 'design_1_axi_bram_ctrl_0_0' requires 28 connections, but only 25 given [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/hdl/design_1.v:47]
+INFO: [Synth 8-638] synthesizing module 'design_1_blk_mem_gen_0_2' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_2/synth/design_1_blk_mem_gen_0_2.vhd:70]
+	Parameter C_FAMILY bound to: zynq - type: string 
+	Parameter C_XDEVICEFAMILY bound to: zynq - type: string 
+	Parameter C_ELABORATION_DIR bound to: ./ - type: string 
+	Parameter C_INTERFACE_TYPE bound to: 0 - type: integer 
+	Parameter C_AXI_TYPE bound to: 1 - type: integer 
+	Parameter C_AXI_SLAVE_TYPE bound to: 0 - type: integer 
+	Parameter C_USE_BRAM_BLOCK bound to: 0 - type: integer 
+	Parameter C_ENABLE_32BIT_ADDRESS bound to: 0 - type: integer 
+	Parameter C_CTRL_ECC_ALGO bound to: NONE - type: string 
+	Parameter C_HAS_AXI_ID bound to: 0 - type: integer 
+	Parameter C_AXI_ID_WIDTH bound to: 4 - type: integer 
+	Parameter C_MEM_TYPE bound to: 0 - type: integer 
+	Parameter C_BYTE_SIZE bound to: 9 - type: integer 
+	Parameter C_ALGORITHM bound to: 1 - type: integer 
+	Parameter C_PRIM_TYPE bound to: 1 - type: integer 
+	Parameter C_LOAD_INIT_FILE bound to: 0 - type: integer 
+	Parameter C_INIT_FILE_NAME bound to: no_coe_file_loaded - type: string 
+	Parameter C_INIT_FILE bound to: NONE - type: string 
+	Parameter C_USE_DEFAULT_DATA bound to: 0 - type: integer 
+	Parameter C_DEFAULT_DATA bound to: 0 - type: string 
+	Parameter C_HAS_RSTA bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_A bound to: CE - type: string 
+	Parameter C_RSTRAM_A bound to: 0 - type: integer 
+	Parameter C_INITA_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENA bound to: 1 - type: integer 
+	Parameter C_HAS_REGCEA bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEA bound to: 0 - type: integer 
+	Parameter C_WEA_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_A bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_A bound to: 32 - type: integer 
+	Parameter C_READ_WIDTH_A bound to: 32 - type: integer 
+	Parameter C_WRITE_DEPTH_A bound to: 8192 - type: integer 
+	Parameter C_READ_DEPTH_A bound to: 8192 - type: integer 
+	Parameter C_ADDRA_WIDTH bound to: 13 - type: integer 
+	Parameter C_HAS_RSTB bound to: 0 - type: integer 
+	Parameter C_RST_PRIORITY_B bound to: CE - type: string 
+	Parameter C_RSTRAM_B bound to: 0 - type: integer 
+	Parameter C_INITB_VAL bound to: 0 - type: string 
+	Parameter C_HAS_ENB bound to: 0 - type: integer 
+	Parameter C_HAS_REGCEB bound to: 0 - type: integer 
+	Parameter C_USE_BYTE_WEB bound to: 0 - type: integer 
+	Parameter C_WEB_WIDTH bound to: 1 - type: integer 
+	Parameter C_WRITE_MODE_B bound to: WRITE_FIRST - type: string 
+	Parameter C_WRITE_WIDTH_B bound to: 32 - type: integer 
+	Parameter C_READ_WIDTH_B bound to: 32 - type: integer 
+	Parameter C_WRITE_DEPTH_B bound to: 8192 - type: integer 
+	Parameter C_READ_DEPTH_B bound to: 8192 - type: integer 
+	Parameter C_ADDRB_WIDTH bound to: 13 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_A bound to: 1 - type: integer 
+	Parameter C_HAS_MEM_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_MUX_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_MUX_PIPELINE_STAGES bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_INPUT_REGS_A bound to: 0 - type: integer 
+	Parameter C_HAS_SOFTECC_OUTPUT_REGS_B bound to: 0 - type: integer 
+	Parameter C_USE_SOFTECC bound to: 0 - type: integer 
+	Parameter C_USE_ECC bound to: 0 - type: integer 
+	Parameter C_EN_ECC_PIPE bound to: 0 - type: integer 
+	Parameter C_HAS_INJECTERR bound to: 0 - type: integer 
+	Parameter C_SIM_COLLISION_CHECK bound to: ALL - type: string 
+	Parameter C_COMMON_CLK bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_COLL bound to: 0 - type: integer 
+	Parameter C_EN_SLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_USE_URAM bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRA_CHG bound to: 0 - type: integer 
+	Parameter C_EN_RDADDRB_CHG bound to: 0 - type: integer 
+	Parameter C_EN_DEEPSLEEP_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SHUTDOWN_PIN bound to: 0 - type: integer 
+	Parameter C_EN_SAFETY_CKT bound to: 0 - type: integer 
+	Parameter C_DISABLE_WARN_BHV_RANGE bound to: 0 - type: integer 
+	Parameter C_COUNT_36K_BRAM bound to: 7 - type: string 
+	Parameter C_COUNT_18K_BRAM bound to: 1 - type: string 
+	Parameter C_EST_POWER_SUMMARY bound to: Estimated Power for IP     :     11.408575 mW - type: string 
+INFO: [Synth 8-3491] module 'blk_mem_gen_v8_3_6' declared at 'd:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/4158/hdl/blk_mem_gen_v8_3_vhsyn_rfs.vhd:195260' bound to instance 'U0' of component 'blk_mem_gen_v8_3_6' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_2/synth/design_1_blk_mem_gen_0_2.vhd:232]
+WARNING: [Synth 8-6014] Unused sequential element i_reg was removed. 
+WARNING: [Synth 8-6014] Unused sequential element i_reg was removed. 
+INFO: [Synth 8-256] done synthesizing module 'design_1_blk_mem_gen_0_2' (15#1) [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_blk_mem_gen_0_2/synth/design_1_blk_mem_gen_0_2.vhd:70]
+INFO: [Synth 8-638] synthesizing module 'design_1_picorv32_axi_0_0' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_picorv32_axi_0_0/synth/design_1_picorv32_axi_0_0.v:58]
+INFO: [Synth 8-638] synthesizing module 'picorv32_axi' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:2177]
+	Parameter ENABLE_COUNTERS bound to: 1'b1 
+	Parameter ENABLE_COUNTERS64 bound to: 1'b1 
+	Parameter ENABLE_REGS_16_31 bound to: 1'b1 
+	Parameter ENABLE_REGS_DUALPORT bound to: 1'b1 
+	Parameter TWO_STAGE_SHIFT bound to: 1'b1 
+	Parameter BARREL_SHIFTER bound to: 1'b0 
+	Parameter TWO_CYCLE_COMPARE bound to: 1'b0 
+	Parameter TWO_CYCLE_ALU bound to: 1'b0 
+	Parameter COMPRESSED_ISA bound to: 1'b0 
+	Parameter CATCH_MISALIGN bound to: 1'b1 
+	Parameter CATCH_ILLINSN bound to: 1'b1 
+	Parameter ENABLE_PCPI bound to: 1'b0 
+	Parameter ENABLE_MUL bound to: 1'b0 
+	Parameter ENABLE_FAST_MUL bound to: 1'b0 
+	Parameter ENABLE_DIV bound to: 1'b0 
+	Parameter ENABLE_IRQ bound to: 1'b0 
+	Parameter ENABLE_IRQ_QREGS bound to: 1'b1 
+	Parameter ENABLE_IRQ_TIMER bound to: 1'b1 
+	Parameter ENABLE_TRACE bound to: 1'b0 
+	Parameter REGS_INIT_ZERO bound to: 1'b0 
+	Parameter MASKED_IRQ bound to: 0 - type: integer 
+	Parameter LATCHED_IRQ bound to: -1 - type: integer 
+	Parameter PROGADDR_RESET bound to: 0 - type: integer 
+	Parameter PROGADDR_IRQ bound to: 16 - type: integer 
+INFO: [Synth 8-638] synthesizing module 'picorv32_axi_adapter' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:2346]
+INFO: [Synth 8-256] done synthesizing module 'picorv32_axi_adapter' (16#1) [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:2346]
+INFO: [Synth 8-638] synthesizing module 'picorv32' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:44]
+	Parameter ENABLE_COUNTERS bound to: 1'b1 
+	Parameter ENABLE_COUNTERS64 bound to: 1'b1 
+	Parameter ENABLE_REGS_16_31 bound to: 1'b1 
+	Parameter ENABLE_REGS_DUALPORT bound to: 1'b1 
+	Parameter LATCHED_MEM_RDATA bound to: 1'b0 
+	Parameter TWO_STAGE_SHIFT bound to: 1'b1 
+	Parameter BARREL_SHIFTER bound to: 1'b0 
+	Parameter TWO_CYCLE_COMPARE bound to: 1'b0 
+	Parameter TWO_CYCLE_ALU bound to: 1'b0 
+	Parameter COMPRESSED_ISA bound to: 1'b0 
+	Parameter CATCH_MISALIGN bound to: 1'b1 
+	Parameter CATCH_ILLINSN bound to: 1'b1 
+	Parameter ENABLE_PCPI bound to: 1'b0 
+	Parameter ENABLE_MUL bound to: 1'b0 
+	Parameter ENABLE_FAST_MUL bound to: 1'b0 
+	Parameter ENABLE_DIV bound to: 1'b0 
+	Parameter ENABLE_IRQ bound to: 1'b0 
+	Parameter ENABLE_IRQ_QREGS bound to: 1'b1 
+	Parameter ENABLE_IRQ_TIMER bound to: 1'b1 
+	Parameter ENABLE_TRACE bound to: 1'b0 
+	Parameter REGS_INIT_ZERO bound to: 1'b0 
+	Parameter MASKED_IRQ bound to: 0 - type: integer 
+	Parameter LATCHED_IRQ bound to: -1 - type: integer 
+	Parameter PROGADDR_RESET bound to: 0 - type: integer 
+	Parameter PROGADDR_IRQ bound to: 16 - type: integer 
+	Parameter STACKADDR bound to: -1 - type: integer 
+	Parameter irq_timer bound to: 0 - type: integer 
+	Parameter irq_ebreak bound to: 1 - type: integer 
+	Parameter irq_buserror bound to: 2 - type: integer 
+	Parameter irqregs_offset bound to: 32 - type: integer 
+	Parameter regfile_size bound to: 32 - type: integer 
+	Parameter regindex_bits bound to: 5 - type: integer 
+	Parameter WITH_PCPI bound to: 1'b0 
+	Parameter TRACE_BRANCH bound to: 36'b000100000000000000000000000000000000 
+	Parameter TRACE_ADDR bound to: 36'b001000000000000000000000000000000000 
+	Parameter TRACE_IRQ bound to: 36'b100000000000000000000000000000000000 
+	Parameter cpu_state_trap bound to: 8'b10000000 
+	Parameter cpu_state_fetch bound to: 8'b01000000 
+	Parameter cpu_state_ld_rs1 bound to: 8'b00100000 
+	Parameter cpu_state_ld_rs2 bound to: 8'b00010000 
+	Parameter cpu_state_exec bound to: 8'b00001000 
+	Parameter cpu_state_shift bound to: 8'b00000100 
+	Parameter cpu_state_stmem bound to: 8'b00000010 
+	Parameter cpu_state_ldmem bound to: 8'b00000001 
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:341]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1038]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1168]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1168]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1185]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1185]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1185]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1226]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1226]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1226]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1349]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1349]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1361]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1361]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1361]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1447]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1447]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1447]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1447]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1447]
+WARNING: [Synth 8-151] case item 1'b0 is unreachable [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1447]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1487]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1487]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1575]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1604]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1674]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1674]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1682]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1682]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1697]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1697]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1722]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1722]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1739]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1739]
+WARNING: [Synth 8-6014] Unused sequential element alu_shr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1161]
+WARNING: [Synth 8-6014] Unused sequential element pcpi_int_wait_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:267]
+WARNING: [Synth 8-6014] Unused sequential element mem_la_firstword_reg_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:330]
+WARNING: [Synth 8-6014] Unused sequential element last_mem_valid_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:331]
+WARNING: [Synth 8-6014] Unused sequential element next_insn_opcode_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:371]
+WARNING: [Synth 8-6014] Unused sequential element mem_la_secondword_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:509]
+WARNING: [Synth 8-6014] Unused sequential element prefetched_high_word_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:510]
+WARNING: [Synth 8-6014] Unused sequential element new_ascii_instr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:635]
+WARNING: [Synth 8-6014] Unused sequential element q_ascii_instr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:709]
+WARNING: [Synth 8-6014] Unused sequential element q_insn_imm_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:710]
+WARNING: [Synth 8-6014] Unused sequential element q_insn_opcode_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:711]
+WARNING: [Synth 8-6014] Unused sequential element q_insn_rs1_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:712]
+WARNING: [Synth 8-6014] Unused sequential element q_insn_rs2_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:713]
+WARNING: [Synth 8-6014] Unused sequential element q_insn_rd_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:714]
+WARNING: [Synth 8-6014] Unused sequential element dbg_next_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:715]
+WARNING: [Synth 8-6014] Unused sequential element cached_ascii_instr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:718]
+WARNING: [Synth 8-6014] Unused sequential element cached_insn_imm_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:719]
+WARNING: [Synth 8-6014] Unused sequential element cached_insn_opcode_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:721]
+WARNING: [Synth 8-6014] Unused sequential element cached_insn_rs1_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:724]
+WARNING: [Synth 8-6014] Unused sequential element cached_insn_rs2_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:725]
+WARNING: [Synth 8-6014] Unused sequential element cached_insn_rd_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:726]
+WARNING: [Synth 8-6014] Unused sequential element dbg_insn_addr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:730]
+WARNING: [Synth 8-6014] Unused sequential element dbg_ascii_instr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:735]
+WARNING: [Synth 8-6014] Unused sequential element dbg_insn_imm_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:736]
+WARNING: [Synth 8-6014] Unused sequential element dbg_insn_opcode_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:737]
+WARNING: [Synth 8-6014] Unused sequential element dbg_insn_rs1_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:738]
+WARNING: [Synth 8-6014] Unused sequential element dbg_insn_rs2_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:739]
+WARNING: [Synth 8-6014] Unused sequential element dbg_insn_rd_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:740]
+WARNING: [Synth 8-6014] Unused sequential element dbg_ascii_state_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1103]
+WARNING: [Synth 8-6014] Unused sequential element clear_prefetched_high_word_q_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1204]
+WARNING: [Synth 8-6014] Unused sequential element clear_prefetched_high_word_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1207]
+WARNING: [Synth 8-6014] Unused sequential element decoded_rs_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1253]
+WARNING: [Synth 8-6014] Unused sequential element set_mem_do_rinst_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1270]
+WARNING: [Synth 8-6014] Unused sequential element set_mem_do_rdata_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1271]
+WARNING: [Synth 8-6014] Unused sequential element set_mem_do_wdata_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1272]
+WARNING: [Synth 8-6014] Unused sequential element alu_out_0_q_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1274]
+WARNING: [Synth 8-6014] Unused sequential element alu_wait_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1277]
+WARNING: [Synth 8-6014] Unused sequential element alu_wait_2_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1278]
+WARNING: [Synth 8-6014] Unused sequential element next_irq_pending_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1297]
+WARNING: [Synth 8-6014] Unused sequential element decoder_trigger_q_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1310]
+WARNING: [Synth 8-6014] Unused sequential element decoder_pseudo_trigger_q_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1312]
+WARNING: [Synth 8-6014] Unused sequential element latched_trace_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1328]
+WARNING: [Synth 8-6014] Unused sequential element irq_active_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1334]
+WARNING: [Synth 8-6014] Unused sequential element irq_delay_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1335]
+WARNING: [Synth 8-6014] Unused sequential element irq_mask_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1336]
+WARNING: [Synth 8-6014] Unused sequential element irq_state_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1338]
+WARNING: [Synth 8-6014] Unused sequential element timer_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1340]
+WARNING: [Synth 8-6014] Unused sequential element current_pc_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1358]
+WARNING: [Synth 8-6014] Unused sequential element irq_pending_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1793]
+INFO: [Synth 8-4471] merging register 'trace_valid_reg' into 'do_waitirq_reg' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1315]
+WARNING: [Synth 8-6014] Unused sequential element trace_valid_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1315]
+WARNING: [Synth 8-6014] Unused sequential element pcpi_int_rd_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:266]
+INFO: [Synth 8-256] done synthesizing module 'picorv32' (17#1) [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:44]
+WARNING: [Synth 8-350] instance 'picorv32_core' of module 'picorv32' requires 27 connections, but only 22 given [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:2310]
+INFO: [Synth 8-256] done synthesizing module 'picorv32_axi' (18#1) [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:2177]
+INFO: [Synth 8-256] done synthesizing module 'design_1_picorv32_axi_0_0' (19#1) [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ip/design_1_picorv32_axi_0_0/synth/design_1_picorv32_axi_0_0.v:58]
+WARNING: [Synth 8-350] instance 'picorv32_axi_0' of module 'design_1_picorv32_axi_0_0' requires 32 connections, but only 24 given [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/hdl/design_1.v:80]
+INFO: [Synth 8-256] done synthesizing module 'design_1' (20#1) [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/hdl/design_1.v:13]
+INFO: [Synth 8-256] done synthesizing module 'design_1_wrapper' (21#1) [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/hdl/design_1_wrapper.v:12]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_wr
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[31]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[30]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[29]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[28]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[27]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[26]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[25]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[24]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[23]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[22]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[21]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[20]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[19]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[18]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[17]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[16]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[15]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[14]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[13]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[12]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[11]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[10]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[9]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[8]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[7]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[6]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[5]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[4]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[3]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[2]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[1]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_rd[0]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_wait
+WARNING: [Synth 8-3331] design picorv32 has unconnected port pcpi_ready
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[31]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[30]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[29]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[28]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[27]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[26]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[25]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[24]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[23]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[22]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[21]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[20]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[19]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[18]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[17]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[16]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[15]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[14]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[13]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[12]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[11]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[10]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[9]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[8]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[7]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[6]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[5]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[4]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[3]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[2]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[1]
+WARNING: [Synth 8-3331] design picorv32 has unconnected port irq[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_RST[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_LAT_RST
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_REG_RST
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MUX_REGCE[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port MEM_REGCE
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port WE
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[12]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[11]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[10]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[9]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[8]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[7]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[6]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[5]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[4]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[3]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[2]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[1]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port ADDR_IN[0]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[31]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[30]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[29]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[28]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[27]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[26]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[25]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[24]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[23]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[22]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[21]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[20]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[19]
+WARNING: [Synth 8-3331] design blk_mem_gen_mux__parameterized0 has unconnected port SBITERRIN[18]
+INFO: [Common 17-14] Message 'Synth 8-3331' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:01:06 ; elapsed = 00:01:08 . Memory (MB): peak = 523.551 ; gain = 291.320
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:01:07 ; elapsed = 00:01:09 . Memory (MB): peak = 523.551 ; gain = 291.320
+---------------------------------------------------------------------------------
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/constrs_1/new/picorv32_axi.xdc]
+Finished Parsing XDC File [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/constrs_1/new/picorv32_axi.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/constrs_1/new/picorv32_axi.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/design_1_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/design_1_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 673.055 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:01:21 ; elapsed = 00:01:25 . Memory (MB): peak = 673.055 ; gain = 440.824
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:01:21 ; elapsed = 00:01:25 . Memory (MB): peak = 673.055 ; gain = 440.824
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property DONT_TOUCH = true for design_1_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/axi_bram_ctrl_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/blk_mem_gen_0. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for design_1_i/picorv32_axi_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:01:21 ; elapsed = 00:01:25 . Memory (MB): peak = 673.055 ; gain = 440.824
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4471] merging register 'GEN_R.axi_rlast_int_reg' into 'GEN_R.axi_rvalid_int_reg' [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7521]
+WARNING: [Synth 8-6014] Unused sequential element GEN_R.axi_rlast_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:7521]
+INFO: [Synth 8-802] inferred FSM for state register 'lite_sm_cs_reg' in module 'axi_lite'
+WARNING: [Synth 8-6014] Unused sequential element lite_sm_cs_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8391]
+INFO: [Synth 8-5544] ROM "lite_sm_ns" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "lite_sm_ns" won't be mapped to Block RAM because address size (1) smaller than threshold (5)
+INFO: [Synth 8-4471] merging register 'instr_waitirq_reg' into 'instr_retirq_reg' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:797]
+INFO: [Synth 8-4471] merging register 'compressed_instr_reg' into 'instr_retirq_reg' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:817]
+INFO: [Synth 8-4471] merging register 'instr_setq_reg' into 'instr_getq_reg' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1009]
+INFO: [Synth 8-4471] merging register 'instr_maskirq_reg' into 'instr_getq_reg' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1010]
+INFO: [Synth 8-4471] merging register 'instr_timer_reg' into 'instr_getq_reg' [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1011]
+WARNING: [Synth 8-6014] Unused sequential element instr_waitirq_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:797]
+WARNING: [Synth 8-6014] Unused sequential element compressed_instr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:817]
+WARNING: [Synth 8-6014] Unused sequential element instr_setq_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1009]
+WARNING: [Synth 8-6014] Unused sequential element instr_maskirq_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1010]
+WARNING: [Synth 8-6014] Unused sequential element instr_timer_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1011]
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1156]
+INFO: [Synth 8-5546] ROM "cpu_state" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "reg_op1" won't be mapped to RAM because it is too sparse
+WARNING: [Synth 8-6014] Unused sequential element count_cycle_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1290]
+WARNING: [Synth 8-6014] Unused sequential element count_instr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1324]
+WARNING: [Synth 8-6014] Unused sequential element lite_sm_cs_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8391]
+WARNING: [Synth 8-6014] Unused sequential element lite_sm_cs_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8391]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                    idle |                           000001 |                              000
+             sng_wr_data |                           000100 |                              001
+                 rd_data |                           000010 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'lite_sm_cs_reg' using encoding 'one-hot' in module 'axi_lite'
+WARNING: [Synth 8-6014] Unused sequential element lite_sm_cs_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:8391]
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:01:23 ; elapsed = 00:01:27 . Memory (MB): peak = 673.055 ; gain = 440.824
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
+	   2 Input      3 Bit       Adders := 1     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               36 Bit    Registers := 1     
+	               32 Bit    Registers := 13    
+	               13 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 1     
+	                3 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 91    
++---RAMs : 
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 27    
+	   9 Input     32 Bit        Muxes := 4     
+	   8 Input     32 Bit        Muxes := 3     
+	   4 Input     32 Bit        Muxes := 7     
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 2     
+	   8 Input      8 Bit        Muxes := 1     
+	   9 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   5 Input      6 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   9 Input      5 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 3     
+	   3 Input      4 Bit        Muxes := 2     
+	   5 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   2 Input      2 Bit        Muxes := 1     
+	   9 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 43    
+	   3 Input      1 Bit        Muxes := 6     
+	   9 Input      1 Bit        Muxes := 25    
+	   4 Input      1 Bit        Muxes := 9     
+	   8 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module axi_lite 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      3 Bit       Adders := 1     
++---Registers : 
+	                3 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   5 Input      6 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 16    
+	   3 Input      1 Bit        Muxes := 4     
+Module axi_bram_ctrl_top 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 2     
+Module bindec 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+Module blk_mem_gen_mux 
+Detailed RTL Component Info : 
++---Registers : 
+	               13 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 2     
+Module blk_mem_gen_mux__parameterized0 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+Module picorv32_axi_adapter 
+Detailed RTL Component Info : 
++---Registers : 
+	                1 Bit    Registers := 4     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module picorv32 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 4     
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 2     
++---XORs : 
+	   2 Input     32 Bit         XORs := 1     
++---Registers : 
+	               36 Bit    Registers := 1     
+	               32 Bit    Registers := 13    
+	                8 Bit    Registers := 1     
+	                5 Bit    Registers := 6     
+	                4 Bit    Registers := 1     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 77    
++---RAMs : 
+	             1024 Bit         RAMs := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 25    
+	   9 Input     32 Bit        Muxes := 4     
+	   8 Input     32 Bit        Muxes := 3     
+	   4 Input     32 Bit        Muxes := 7     
+	   2 Input     16 Bit        Muxes := 1     
+	   4 Input      8 Bit        Muxes := 2     
+	   8 Input      8 Bit        Muxes := 1     
+	   9 Input      8 Bit        Muxes := 1     
+	   2 Input      8 Bit        Muxes := 1     
+	   8 Input      5 Bit        Muxes := 1     
+	   2 Input      5 Bit        Muxes := 1     
+	   9 Input      5 Bit        Muxes := 2     
+	   3 Input      4 Bit        Muxes := 1     
+	   5 Input      4 Bit        Muxes := 1     
+	   4 Input      4 Bit        Muxes := 1     
+	   2 Input      4 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 3     
+	   9 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   9 Input      1 Bit        Muxes := 25    
+	   2 Input      1 Bit        Muxes := 20    
+	   4 Input      1 Bit        Muxes := 9     
+	   8 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-6014] Unused sequential element U0/gext_inst.abcv4_0_ext_inst/GEN_AXI4LITE.GEN_SIM_ONLY.S_AXI_BID_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:23202]
+WARNING: [Synth 8-6014] Unused sequential element U0/gext_inst.abcv4_0_ext_inst/GEN_AXI4LITE.GEN_SIM_ONLY.S_AXI_RID_int_reg was removed.  [d:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/bd/design_1/ipshared/9183/hdl/axi_bram_ctrl_v4_0_rfs.vhd:23203]
+WARNING: [Synth 8-6014] Unused sequential element count_cycle_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1290]
+WARNING: [Synth 8-6014] Unused sequential element count_instr_reg was removed.  [D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.srcs/sources_1/imports/picorv32-master/picorv32.v:1324]
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/reg_next_pc_reg[0]' (FD) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/reg_pc_reg[0]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/decoded_imm_uj_reg[0] )
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/reg_next_pc_reg[1]' (FD) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/reg_pc_reg[0]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[1]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs2_reg[1]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[2]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs2_reg[2]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[3]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs2_reg[3]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[4]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs2_reg[4]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[11]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs2_reg[0]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[15]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs1_reg[0]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[16]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs1_reg[1]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[17]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs1_reg[2]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[18]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs1_reg[3]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[19]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_rs1_reg[4]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[20]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[21]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[21]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[22]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[22]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[23]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[23]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[24]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[24]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[25]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[25]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[26]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[26]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[27]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[27]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[28]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[28]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[29]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[29]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[30]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[30]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/decoded_imm_uj_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/instr_getq_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/instr_retirq_reg )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/cpu_state_reg[4] )
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/reg_pc_reg[0]' (FD) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/reg_pc_reg[1]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/reg_pc_reg[1]' (FD) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/do_waitirq_reg'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/pcpi_timeout_reg' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/do_waitirq_reg )
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[0]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[1]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[2]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[3]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[4]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[5]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[6]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[7]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[8]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[9]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[10]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[11]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[12]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[13]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[14]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[15]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[16]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[17]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[18]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[19]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[20]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[21]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[22]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[23]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[24]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[25]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[26]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[27]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[28]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[29]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[30]' (FDRE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/eoi_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/eoi_reg[31] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/pcpi_valid_reg )
+INFO: [Synth 8-3886] merging instance 'design_1_i/picorv32_axi_0/inst/picorv32_core/mem_addr_reg[0]' (FDE) to 'design_1_i/picorv32_axi_0/inst/picorv32_core/mem_addr_reg[1]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/mem_addr_reg[1] )
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (design_1_i/picorv32_axi_0/\inst/picorv32_core/latched_compr_reg )
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/instr_getq_reg) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/instr_retirq_reg) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/cpu_state_reg[4]) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/latched_compr_reg) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/decoded_imm_uj_reg[0]) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/do_waitirq_reg) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/instr_ecall_ebreak_reg) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/mem_addr_reg[1]) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/pcpi_valid_reg) is unused and will be removed from module design_1_picorv32_axi_0_0.
+INFO: [Synth 8-3332] Sequential element (inst/picorv32_core/eoi_reg[31]) is unused and will be removed from module design_1_picorv32_axi_0_0.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:30 ; elapsed = 00:01:33 . Memory (MB): peak = 673.055 ; gain = 440.824
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Distributed RAM: Preliminary Mapping  Report (see note below)
++--------------------------+--------------------------------+-----------+----------------------+---------------+
+|Module Name               | RTL Object                     | Inference | Size (Depth x Width) | Primitives    | 
++--------------------------+--------------------------------+-----------+----------------------+---------------+
+|design_1_i/picorv32_axi_0 | inst/picorv32_core/cpuregs_reg | Implied   | 32 x 32              | RAM32M x 12   | 
++--------------------------+--------------------------------+-----------+----------------------+---------------+
+
+Note: The table above is a preliminary report that shows the Distributed RAMs at the current stage of the synthesis flow. Some Distributed RAMs may be reimplemented as non Distributed RAM primitives later in the synthesis flow. Multiple instantiated RAMs are reported only once.
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:43 ; elapsed = 00:01:47 . Memory (MB): peak = 676.129 ; gain = 443.898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:43 ; elapsed = 00:01:47 . Memory (MB): peak = 678.133 ; gain = 445.902
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:44 ; elapsed = 00:01:48 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----------+------+
+|      |Cell       |Count |
++------+-----------+------+
+|1     |BUFG       |     1|
+|2     |CARRY4     |    83|
+|3     |LUT1       |   160|
+|4     |LUT2       |    96|
+|5     |LUT3       |   119|
+|6     |LUT4       |   192|
+|7     |LUT5       |   251|
+|8     |LUT6       |   368|
+|9     |RAM32M     |    12|
+|10    |RAMB18E1   |     1|
+|11    |RAMB36E1   |     1|
+|12    |RAMB36E1_1 |     6|
+|13    |FDRE       |   570|
+|14    |FDSE       |    22|
+|15    |IBUF       |     2|
++------+-----------+------+
+
+Report Instance Areas: 
++------+-------------------------------------------------+-----------------------------------------+------+
+|      |Instance                                         |Module                                   |Cells |
++------+-------------------------------------------------+-----------------------------------------+------+
+|1     |top                                              |                                         |  1884|
+|2     |  design_1_i                                     |design_1                                 |  1881|
+|3     |    axi_bram_ctrl_0                              |design_1_axi_bram_ctrl_0_0               |    48|
+|4     |      U0                                         |axi_bram_ctrl                            |    48|
+|5     |        \gext_inst.abcv4_0_ext_inst              |axi_bram_ctrl_top                        |    48|
+|6     |          \GEN_AXI4LITE.I_AXI_LITE               |axi_lite                                 |    48|
+|7     |    blk_mem_gen_0                                |design_1_blk_mem_gen_0_2                 |    40|
+|8     |      U0                                         |blk_mem_gen_v8_3_6                       |    40|
+|9     |        inst_blk_mem_gen                         |blk_mem_gen_v8_3_6_synth                 |    40|
+|10    |          \gnbram.gnativebmg.native_blk_mem_gen  |blk_mem_gen_top                          |    40|
+|11    |            \valid.cstr                          |blk_mem_gen_generic_cstr                 |    40|
+|12    |              \has_mux_a.A                       |blk_mem_gen_mux                          |    30|
+|13    |              \ramloop[0].ram.r                  |blk_mem_gen_prim_width                   |     1|
+|14    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper                 |     1|
+|15    |              \ramloop[1].ram.r                  |blk_mem_gen_prim_width__parameterized0   |     1|
+|16    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized0 |     1|
+|17    |              \ramloop[2].ram.r                  |blk_mem_gen_prim_width__parameterized1   |     2|
+|18    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized1 |     2|
+|19    |              \ramloop[3].ram.r                  |blk_mem_gen_prim_width__parameterized2   |     1|
+|20    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized2 |     1|
+|21    |              \ramloop[4].ram.r                  |blk_mem_gen_prim_width__parameterized3   |     1|
+|22    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized3 |     1|
+|23    |              \ramloop[5].ram.r                  |blk_mem_gen_prim_width__parameterized4   |     1|
+|24    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized4 |     1|
+|25    |              \ramloop[6].ram.r                  |blk_mem_gen_prim_width__parameterized5   |     1|
+|26    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized5 |     1|
+|27    |              \ramloop[7].ram.r                  |blk_mem_gen_prim_width__parameterized6   |     2|
+|28    |                \prim_noinit.ram                 |blk_mem_gen_prim_wrapper__parameterized6 |     2|
+|29    |    picorv32_axi_0                               |design_1_picorv32_axi_0_0                |  1793|
+|30    |      inst                                       |picorv32_axi                             |  1793|
+|31    |        axi_adapter                              |picorv32_axi_adapter                     |     7|
+|32    |        picorv32_core                            |picorv32                                 |  1786|
++------+-------------------------------------------------+-----------------------------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:45 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 291 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:29 ; elapsed = 00:01:39 . Memory (MB): peak = 701.125 ; gain = 319.391
+Synthesis Optimization Complete : Time (s): cpu = 00:01:46 ; elapsed = 00:01:49 . Memory (MB): peak = 701.125 ; gain = 468.895
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 105 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+WARNING: [Netlist 29-101] Netlist 'design_1_wrapper' is not ideal for floorplanning, since the cellview 'picorv32' contains a large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 12 instances were transformed.
+  RAM32M => RAM32M (RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMD32, RAMS32, RAMS32): 12 instances
+
+159 Infos, 202 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:48 ; elapsed = 00:01:55 . Memory (MB): peak = 701.125 ; gain = 472.578
+INFO: [Common 17-1381] The checkpoint 'D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.runs/synth_1/design_1_wrapper.dcp' has been generated.
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.045 . Memory (MB): peak = 701.125 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Aug  9 07:45:50 2017...

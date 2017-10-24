@@ -1,0 +1,95 @@
+/*
+
+Vivado v2017.2 (64-bit)
+SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+IP Build 1909766 on Thu Jun 15 19:58:00 MDT 2017
+
+Process ID: 16240
+License: Customer
+
+Current time: 	10/24/17 7:40:38 PM CEST
+Time zone: 	Central European Time (Europe/Berlin)
+
+OS: Windows 10
+OS Version: 10.0
+OS Architecture: amd64
+Available processors (cores): 4
+
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 2
+Available disk space: 2 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	D:/Vivado2017/Vivado/2017.2/tps/win64/jre
+JVM executable location: 	D:/Vivado2017/Vivado/2017.2/tps/win64/jre/bin/java.exe
+Java library paths: D:/Vivado2017/Vivado/2017.2/bin/unwrapped/win64.o;C:/WINDOWS/Sun/Java/bin;C:/WINDOWS/system32;C:/WINDOWS;D:/Vivado2017/Vivado/2017.2/bin;D:/Vivado2017/Vivado/2017.2/lib/win64.o;D:/Vivado2017/Vivado/2017.2/tps/win64/jre/bin/server;D:/Vivado2017/Vivado/2017.2/tps/win64/jre/bin;D:/Vivado2017/SDK/2017.2/bin;D:/Vivado2017/Vivado/2017.2/ids_lite/ISE/bin/nt64;D:/Vivado2017/Vivado/2017.2/ids_lite/ISE/lib/nt64;D:/Vivado2017/Vivado_HLS/2017.2/bin;C:/ProgramData/Oracle/Java/javapath;C:/Program Files/Java/jdk1.8.0_45/bin;C:/Windows/system32;C:/Windows;C:/Windows/System32/Wbem;C:/Windows/System32/WindowsPowerShell/v1.0/;C:/Program Files (x86)/AMD/ATI.ACE/Core-Static;C:/Program Files (x86)/ATI Technologies/ATI.ACE/Core-Static;C:/Program Files/FileBot/;C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common;C:/Program Files (x86)/Nordic Semiconductor/nrf5x/bin/;D:/Program Files/TortoiseGit/bin;C:/cygwin64/bin;D:/Program Files (x86)/GNU Tools ARM Embedded/6 2017-q2-update/bin;C:/Users/David/AppData/Local/Microsoft/WindowsApps;;D:/Vivado2017/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/bin;D:/Vivado2017/Vivado/2017.2/tps/mingw/6.2.0/win64.o/nt/libexec/gcc/x86_64-w64-mingw32/6.2.0;.
+
+User name: 	David
+User home directory: C:/Users/David
+User working directory: D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV
+User country: 	AT
+User language: 	de
+User locale: 	de_AT
+
+RDI_BASEROOT: D:/Vivado2017/Vivado
+HDI_APPROOT: D:/Vivado2017/Vivado/2017.2
+RDI_DATADIR: D:/Vivado2017/Vivado/2017.2/data
+RDI_BINDIR: D:/Vivado2017/Vivado/2017.2/bin
+
+User preferences location: C:/Users/David/AppData/Roaming/Xilinx/Vivado
+Vivado preferences directory: C:/Users/David/AppData/Roaming/Xilinx/Vivado/2017.2/vivado.xml
+Vivado layouts directory: C:/Users/David/AppData/Roaming/Xilinx/Vivado/2017.2/layouts
+PlanAhead jar location: 	D:/Vivado2017/Vivado/2017.2/lib/classes/planAhead.jar
+Vivado Look & Feel: 	[Synthetica - the extended Synth Look and Feel. - ui.g.i.H]
+Engine tmp dir: 	D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/.Xil/Vivado-16240-FREISMUTHDESK
+
+GUI allocated memory:	170 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 454 MB
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// TclEventType: PROJECT_OPEN_DIALOG
+// bs:g (cg:JFrame):  Open Project : addNotify
+// Opening Vivado Project: D:\Dropbox\Studium\Bakk Arbeit\VivadoProject\PicroRV\PicroRV.xpr. Version: Vivado v2017.2 
+// [GUI Memory]: 56 MB (+56505kb) [00:00:12]
+// [Engine Memory]: 443 MB (+313104kb) [00:00:12]
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project {D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.xpr} 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: RUN_CURRENT
+// HMemoryUtils.trashcanNow. Engine heap size: 463 MB. GUI used memory: 37 MB. Current time: 10/24/17 7:40:40 PM CEST
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 521 MB (+58304kb) [00:00:23]
+// [GUI Memory]: 63 MB (+3981kb) [00:00:25]
+// Tcl Message: open_project {D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV/PicroRV.xpr} 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Vivado2017/Vivado/2017.2/data/ip'. 
+// Project name: PicroRV; location: D:/Dropbox/Studium/Bakk Arbeit/VivadoProject/PicroRV; part: xc7z020clg484-1
+// [GUI Memory]: 67 MB (+708kb) [00:00:27]
+// Tcl Message: open_project: Time (s): cpu = 00:00:11 ; elapsed = 00:00:14 . Memory (MB): peak = 755.770 ; gain = 76.832 
+// TclEventType: DG_ANALYSIS_MSG_RESET
+dismissDialog("Open Project"); // bs:g (cg:JFrame)
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+// [GUI Memory]: 70 MB (+81kb) [00:02:01]
+// [GUI Memory]: 74 MB (+228kb) [00:12:11]
+// [GUI Memory]: 78 MB (+305kb) [00:20:02]
+// [Engine Memory]: 552 MB (+5258kb) [00:21:47]
+// [GUI Memory]: 82 MB (+672kb) [00:29:07]
+// HMemoryUtils.trashcanNow. Engine heap size: 552 MB. GUI used memory: 42 MB. Current time: 10/24/17 8:10:41 PM CEST
