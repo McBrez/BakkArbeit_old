@@ -1,0 +1,21 @@
+{
+   guistr: "# # String gsaved with Nlview 6.6.8  2016-12-21 bk=1.3817 VDI=40 GEI=35 GUI=JA:1.6
+#  -string -flagsOSRD
+preplace port resetn -pg 1 -y 20 -defaultsOSRD
+preplace port clk -pg 1 -y -90 -defaultsOSRD
+preplace port trap -pg 1 -y -80 -defaultsOSRD
+preplace inst UART_datagenerator_0 -pg 1 -lvl 1 -y -30 -defaultsOSRD
+preplace inst blk_mem_gen_0 -pg 1 -lvl 3 -y -250 -defaultsOSRD
+preplace inst picorv32_axi_0 -pg 1 -lvl 4 -y 60 -defaultsOSRD
+preplace inst axi_bram_ctrl_0 -pg 1 -lvl 2 -y -370 -defaultsOSRD
+preplace inst processing_system7_0 -pg 1 -lvl 1 -y -300 -defaultsOSRD
+preplace netloc axi_bram_ctrl_0_BRAM_PORTA 1 2 1 580
+preplace netloc picorv32_axi_0_mem_axi 1 1 4 300J -300 NJ -300 NJ -300 1140
+preplace netloc UART_datagenerator_0_out 1 1 1 270
+preplace netloc resetn_1 1 0 4 -140 40 290J 20 NJ 20 N
+preplace netloc clk_1 1 0 4 -140J -420 280J -290 590J -310 790
+preplace netloc picorv32_axi_0_trap 1 4 1 1150
+levelinfo -pg 1 -160 70 440 690 970 1170 -top -590 -bot 790
+",
+}
+0
