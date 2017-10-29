@@ -24,7 +24,7 @@ else
 fi
 export LD_LIBRARY_PATH
 
-HD_PWD='D:/BakkArbeit_git/VivadoProject/PicroRV/PicroRV.runs/synth_1'
+HD_PWD='D:/BakkArbeit/git/VivadoProject/PicroRV/PicroRV.runs/synth_1'
 cd "$HD_PWD"
 
 HD_LOG=runme.log

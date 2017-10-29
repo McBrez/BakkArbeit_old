@@ -21,16 +21,14 @@
 
 
 module UART_datagenerator(
-    input clk,
+    input wire clk,
     output reg out
     );
-    
-    integer internal = 0;
-    
+       
 always@(posedge clk)
 begin
-    out = internal;
-    internal = ~internal;
+    out = ~out;
+
 end
  
 

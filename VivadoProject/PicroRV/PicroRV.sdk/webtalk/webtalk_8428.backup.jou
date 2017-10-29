@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2017.2 (64-bit)
+# SW Build 1909853 on Thu Jun 15 18:39:09 MDT 2017
+# 
+# Start of session at: Sun Oct 29 22:07:57 2017
+# Process ID: 8428
+# Current directory: D:/BakkArbeit/git/VivadoProject/PicroRV/PicroRV.sdk/webtalk
+# Command line: wbtcv.exe -mode batch -source sdk_webtalk.tcl
+# Log file: D:/BakkArbeit/git/VivadoProject/PicroRV/PicroRV.sdk/webtalk/webtalk.log
+# Journal file: D:/BakkArbeit/git/VivadoProject/PicroRV/PicroRV.sdk/webtalk\webtalk.jou
+#-----------------------------------------------------------
+source sdk_webtalk.tcl

@@ -1,0 +1,8 @@
+22:41:11 **** Auto Build of configuration Debug for project Interface_test_app1 ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Für das Ziel »main-build« ist nichts zu tun.
+
+22:41:11 Build Finished (took 510ms)
+
