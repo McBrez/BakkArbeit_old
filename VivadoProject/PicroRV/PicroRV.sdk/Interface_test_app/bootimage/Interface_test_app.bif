@@ -1,6 +1,0 @@
-//arch = zynq; split = false; format = BIN
-the_ROM_image:
-{
-	[bootloader]D:\BakkArbeit\git\VivadoProject\PicroRV\PicroRV.sdk\Interface_test_app\Debug\Interface_test_app.elf
-	D:\BakkArbeit\git\VivadoProject\PicroRV\PicroRV.sdk\design_1_wrapper_hw_platform_0\design_1_wrapper.bit
-}
