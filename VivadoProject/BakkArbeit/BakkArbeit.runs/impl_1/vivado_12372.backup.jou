@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Fri Nov  3 18:47:18 2017
+# Process ID: 12372
+# Current directory: D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.runs/impl_1
+# Command line: vivado.exe -log BakkArbeit_Blockdesign_wrapper.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source BakkArbeit_Blockdesign_wrapper.tcl -notrace
+# Log file: D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.runs/impl_1/BakkArbeit_Blockdesign_wrapper.vdi
+# Journal file: D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source BakkArbeit_Blockdesign_wrapper.tcl -notrace

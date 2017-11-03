@@ -1,0 +1,6 @@
+//arch = zynq; split = false; format = BIN
+the_ROM_image:
+{
+	D:\BakkArbeit\git\VivadoProject\BakkArbeit\BakkArbeit.sdk\BakkArbeit_Blockdesign_wrapper_hw_platform_0\BakkArbeit_Blockdesign_wrapper.bit
+	D:\BakkArbeit\git\VivadoProject\BakkArbeit\BakkArbeit.sdk\uzuzhapp\Debug\uzuzhapp.elf
+}

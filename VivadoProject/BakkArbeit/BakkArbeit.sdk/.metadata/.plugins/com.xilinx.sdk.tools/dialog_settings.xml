@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="BakkArbeit_Blockdesign_wrapper_hw_platform_0" key="programflash.hwplatform"/>
+	<item value="true" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-verifyFlash"/>
+	<item value="Local" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-target"/>
+	<item value="true" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-blankCheck"/>
+	<item value="Auto Detect" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-device"/>
+	<item value="qspi_single" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-flashType"/>
+	<item value="D:\BakkArbeit\git\VivadoProject\BakkArbeit\BakkArbeit.sdk\uzuz\Debug\uzuz.elf" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-fsblFile"/>
+	<item value="D:\BakkArbeit\git\VivadoProject\BakkArbeit\BakkArbeit.sdk\uzuzhapp\bootimage\BOOT.bin" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-imgFile"/>
+	<item value="" key="BakkArbeit_Blockdesign_wrapper_hw_platform_0-offSet"/>
+</section>

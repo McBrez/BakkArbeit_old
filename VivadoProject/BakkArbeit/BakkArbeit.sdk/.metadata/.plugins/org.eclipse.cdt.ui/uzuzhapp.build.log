@@ -1,0 +1,8 @@
+19:07:51 **** Auto Build of configuration Release for project uzuzhapp ****
+make pre-build main-build 
+a9-linaro-pre-build-step
+ 
+make: Für das Ziel »main-build« ist nichts zu tun.
+
+19:07:51 Build Finished (took 313ms)
+
