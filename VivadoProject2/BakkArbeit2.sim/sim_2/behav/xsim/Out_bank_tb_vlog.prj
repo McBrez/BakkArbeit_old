@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/ec67/hdl" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/d5d3/hdl/verilog" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/e0a2/hdl" --include "../../../../BakkArbeit2.srcs/sim_1/imports/Desktop" --include "D:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
+"../../../../BakkArbeit2.srcs/sources_1/new/Out_bank.v" \
+"../../../../BakkArbeit2.srcs/sources_1/imports/Desktop/Memory.v" \
+"../../../../BakkArbeit2.ip_user_files/bd/BakkArbeit_Blockdesign/ip/BakkArbeit_Blockdesign_processing_system7_0_0/sim/BakkArbeit_Blockdesign_processing_system7_0_0.v" \
+"../../../../BakkArbeit2.ip_user_files/bd/BakkArbeit_Blockdesign/sim/BakkArbeit_Blockdesign.v" \
+"../../../../BakkArbeit2.srcs/sim_2/new/Out_bank_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

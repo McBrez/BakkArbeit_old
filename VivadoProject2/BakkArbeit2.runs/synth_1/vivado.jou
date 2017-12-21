@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Mon Dec 18 21:32:57 2017
+# Process ID: 16224
+# Current directory: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1
+# Command line: vivado.exe -log Out_bank.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source Out_bank.tcl
+# Log file: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/Out_bank.vds
+# Journal file: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source Out_bank.tcl -notrace

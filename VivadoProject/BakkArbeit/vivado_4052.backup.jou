@@ -1,0 +1,15 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Sun Nov  5 18:41:13 2017
+# Process ID: 4052
+# Current directory: D:/BakkArbeit/git/VivadoProject/BakkArbeit
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3024 D:\BakkArbeit\git\VivadoProject\BakkArbeit\BakkArbeit.xpr
+# Log file: D:/BakkArbeit/git/VivadoProject/BakkArbeit/vivado.log
+# Journal file: D:/BakkArbeit/git/VivadoProject/BakkArbeit\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.xpr
+launch_sdk -workspace D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.sdk -hwspec D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.sdk/BakkArbeit_Blockdesign_wrapper.hdf
+update_compile_order -fileset sources_1

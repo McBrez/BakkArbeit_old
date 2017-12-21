@@ -1,37 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1509730742">
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1513182162">
   <File Type="PA-TCL" Name="BakkArbeit_Blockdesign_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="BakkArbeit_Blockdesign_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="BakkArbeit_Blockdesign_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="BakkArbeit_Blockdesign_wrapper.vds"/>
   <File Type="RDS-UTIL" Name="BakkArbeit_Blockdesign_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="BakkArbeit_Blockdesign_wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="BakkArbeit_Blockdesign_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="BakkArbeit_Blockdesign_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="BakkArbeit_Blockdesign_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="C:/Users/David/Desktop/sources_1/new/UART_datagenerator.v">
+    <File Path="$PSRCDIR/sources_1/imports/new/UART_datagenerator.v">
       <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/David/Desktop/sources_1/new/UART_datagenerator.v"/>
+        <Attr Name="ImportTime" Val="1509657659"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/imports/picorv32-master/picorv32.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../picorv32-master/picorv32.v"/>
+        <Attr Name="ImportTime" Val="1511024096"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/bd/BakkArbeit_Blockdesign/hdl/BakkArbeit_Blockdesign_wrapper.v">
       <FileInfo>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/IO_bank.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Address_Decoder.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/mem_content.txt">
+      <FileInfo SFType="MEM">
+        <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
-    <File Path="C:/Users/David/Desktop/sources_1/imports/picorv32-master/picorv32.v">
+    <File Path="$PSRCDIR/sources_1/imports/Desktop/Memory.v">
       <FileInfo>
-        <Attr Name="UserDisabled" Val="1"/>
+        <Attr Name="ImportPath" Val="C:/Users/David/Desktop/Memory.v"/>
+        <Attr Name="ImportTime" Val="1513104819"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sim_1/imports/Desktop/Memory_tb.v">
+      <FileInfo>
+        <Attr Name="ImportPath" Val="C:/Users/David/Desktop/Memory_tb.v"/>
+        <Attr Name="ImportTime" Val="1513109627"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -59,6 +97,5 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="BakkArbeit_Blockdesign_UART_datagenerator_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="BakkArbeit_Blockdesign_processing_system7_0_0"/>
 </GenRun>

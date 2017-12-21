@@ -1,0 +1,1107 @@
+
+*** Running vivado
+    with args -log BakkArbeit_Blockdesign_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source BakkArbeit_Blockdesign_wrapper.tcl
+
+
+****** Vivado v2017.3 (64-bit)
+  **** SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+  **** IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source BakkArbeit_Blockdesign_wrapper.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.3/data/ip'.
+add_files: Time (s): cpu = 00:00:02 ; elapsed = 00:00:06 . Memory (MB): peak = 297.590 ; gain = 27.305
+Command: synth_design -top BakkArbeit_Blockdesign_wrapper -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4048 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 403.008 ; gain = 98.141
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'BakkArbeit_Blockdesign_wrapper' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/hdl/BakkArbeit_Blockdesign_wrapper.v:12]
+INFO: [Synth 8-638] synthesizing module 'BakkArbeit_Blockdesign' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/synth/BakkArbeit_Blockdesign.v:13]
+INFO: [Synth 8-638] synthesizing module 'BakkArbeit_Blockdesign_processing_system7_0_0' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/realtime/BakkArbeit_Blockdesign_processing_system7_0_0_stub.v:6]
+INFO: [Synth 8-256] done synthesizing module 'BakkArbeit_Blockdesign_processing_system7_0_0' (1#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/realtime/BakkArbeit_Blockdesign_processing_system7_0_0_stub.v:6]
+WARNING: [Synth 8-350] instance 'processing_system7_0' of module 'BakkArbeit_Blockdesign_processing_system7_0_0' requires 68 connections, but only 35 given [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/synth/BakkArbeit_Blockdesign.v:85]
+WARNING: [Synth 8-3848] Net UART_TXD in module/entity BakkArbeit_Blockdesign does not have driver. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/synth/BakkArbeit_Blockdesign.v:59]
+INFO: [Synth 8-256] done synthesizing module 'BakkArbeit_Blockdesign' (2#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/synth/BakkArbeit_Blockdesign.v:13]
+INFO: [Synth 8-256] done synthesizing module 'BakkArbeit_Blockdesign_wrapper' (3#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/hdl/BakkArbeit_Blockdesign_wrapper.v:12]
+WARNING: [Synth 8-3331] design BakkArbeit_Blockdesign has unconnected port UART_TXD
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 444.461 ; gain = 139.594
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 444.461 ; gain = 139.594
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc] for cell 'BakkArbeit_Blockdesign_i/processing_system7_0'
+Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc] for cell 'BakkArbeit_Blockdesign_i/processing_system7_0'
+Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:1]
+WARNING: [Vivado 12-584] No ports matched 'out_single'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
+WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:4]
+Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+WARNING: [Project 1-498] One or more constraints failed evaluation while reading constraint file [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc] and the design contains unresolved black boxes. These constraints will be read post-synthesis (as long as their source constraint file is marked as used_in_implementation) and should be applied correctly then. You should review the constraints listed in the file [.Xil/BakkArbeit_Blockdesign_wrapper_propImpl.xdc] and check the run log file to verify that these constraints were correctly applied.
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/BakkArbeit_Blockdesign_wrapper_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/BakkArbeit_Blockdesign_wrapper_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.024 . Memory (MB): peak = 690.148 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 690.148 ; gain = 385.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:34 . Memory (MB): peak = 690.148 ; gain = 385.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 2).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 3).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[10]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 4).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[10]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 5).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[11]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 6).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[11]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 7).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[12]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 8).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[12]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 9).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[13]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 10).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[13]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 11).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[14]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 12).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[14]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 13).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 14).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 15).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 16).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 17).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 18).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 19).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[4]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 20).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[4]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 21).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[5]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 22).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[5]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 23).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[6]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 24).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[6]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 25).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[7]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 26).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[7]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 27).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[8]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 28).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[8]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 29).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_addr[9]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 30).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_addr[9]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 31).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ba[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 32).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ba[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 33).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ba[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 34).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ba[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 35).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ba[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 36).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ba[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 37).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_cas_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 38).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_cas_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 39).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_cke. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 40).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_cke. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 41).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_cs_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 42).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_cs_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 43).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ck_p. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 44).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ck_p. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 45).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ck_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 46).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ck_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 47).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dm[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 48).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dm[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 49).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dm[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 50).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dm[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 51).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dm[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 52).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dm[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 53).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dm[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 54).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dm[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 55).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_p[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 56).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_p[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 57).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_p[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 58).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_p[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 59).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_p[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 60).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_p[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 61).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_p[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 62).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_p[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 63).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_n[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 64).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_n[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 65).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_n[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 66).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_n[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 67).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_n[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 68).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_n[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 69).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dqs_n[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 70).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dqs_n[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 71).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 72).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 73).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[10]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 74).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[10]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 75).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[11]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 76).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[11]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 77).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[12]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 78).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[12]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 79).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[13]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 80).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[13]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 81).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[14]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 82).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[14]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 83).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[15]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 84).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[15]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 85).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[16]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 86).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[16]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 87).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[17]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 88).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[17]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 89).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[18]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 90).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[18]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 91).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[19]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 92).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[19]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 93).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 94).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 95).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[20]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 96).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[20]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 97).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[21]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 98).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[21]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 99).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[22]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 100).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[22]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 101).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[23]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 102).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[23]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 103).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[24]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 104).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[24]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 105).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[25]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 106).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[25]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 107).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[26]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 108).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[26]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 109).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[27]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 110).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[27]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 111).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[28]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 112).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[28]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 113).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[29]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 114).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[29]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 115).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 116).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 117).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[30]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 118).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[30]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 119).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[31]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 120).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[31]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 121).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 122).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 123).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[4]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 124).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[4]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 125).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[5]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 126).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[5]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 127).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[6]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 128).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[6]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 129).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[7]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 130).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[7]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 131).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[8]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 132).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[8]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 133).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_dq[9]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 134).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_dq[9]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 135).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_reset_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 136).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_reset_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 137).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_odt. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 138).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_odt. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 139).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_ras_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 140).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_ras_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 141).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_ddr_vrn. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 142).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ddr_vrn. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 143).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_ddr_vrp. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 144).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ddr_vrp. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 145).
+Applied set_property IO_BUFFER_TYPE = NONE for DDR_we_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 146).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for DDR_we_n. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 147).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 148).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[0]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 149).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[10]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 150).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[10]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 151).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[11]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 152).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[11]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 153).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[12]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 154).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[12]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 155).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[13]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 156).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[13]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 157).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[14]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 158).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[14]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 159).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[15]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 160).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[15]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 161).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[16]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 162).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[16]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 163).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[17]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 164).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[17]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 165).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[18]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 166).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[18]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 167).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[19]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 168).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[19]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 169).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 170).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[1]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 171).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[20]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 172).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[20]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 173).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[21]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 174).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[21]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 175).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[22]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 176).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[22]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 177).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[23]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 178).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[23]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 179).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[24]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 180).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[24]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 181).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[25]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 182).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[25]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 183).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[26]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 184).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[26]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 185).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[27]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 186).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[27]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 187).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[28]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 188).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[28]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 189).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[29]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 190).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[29]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 191).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 192).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[2]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 193).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[30]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 194).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[30]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 195).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[31]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 196).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[31]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 197).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[32]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 198).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[32]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 199).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[33]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 200).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[33]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 201).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[34]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 202).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[34]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 203).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[35]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 204).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[35]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 205).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[36]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 206).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[36]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 207).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[37]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 208).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[37]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 209).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[38]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 210).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[38]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 211).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[39]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 212).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[39]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 213).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 214).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[3]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 215).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[40]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 216).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[40]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 217).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[41]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 218).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[41]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 219).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[42]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 220).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[42]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 221).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[43]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 222).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[43]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 223).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[44]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 224).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[44]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 225).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[45]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 226).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[45]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 227).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[46]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 228).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[46]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 229).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[47]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 230).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[47]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 231).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[48]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 232).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[48]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 233).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[49]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 234).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[49]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 235).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[4]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 236).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[4]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 237).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[50]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 238).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[50]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 239).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[51]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 240).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[51]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 241).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[52]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 242).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[52]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 243).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[53]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 244).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[53]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 245).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[5]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 246).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[5]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 247).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[6]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 248).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[6]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 249).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[7]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 250).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[7]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 251).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[8]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 252).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[8]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 253).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_mio[9]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 254).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_mio[9]. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 255).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_ps_clk. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 256).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ps_clk. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 257).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_ps_porb. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 258).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ps_porb. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 259).
+Applied set_property IO_BUFFER_TYPE = NONE for FIXED_IO_ps_srstb. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 260).
+Applied set_property CLOCK_BUFFER_TYPE = NONE for FIXED_IO_ps_srstb. (constraint file  D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/.Xil/Vivado-12584-FREISMUTHDESK/dcp3/BakkArbeit_Blockdesign_processing_system7_0_0_in_context.xdc, line 261).
+Applied set_property DONT_TOUCH = true for BakkArbeit_Blockdesign_i. (constraint file  auto generated constraint, line ).
+Applied set_property DONT_TOUCH = true for BakkArbeit_Blockdesign_i/processing_system7_0. (constraint file  auto generated constraint, line ).
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:27 ; elapsed = 00:00:34 . Memory (MB): peak = 690.148 ; gain = 385.281
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:27 ; elapsed = 00:00:34 . Memory (MB): peak = 690.148 ; gain = 385.281
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-3331] design BakkArbeit_Blockdesign has unconnected port UART_TXD
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:28 ; elapsed = 00:00:35 . Memory (MB): peak = 690.148 ; gain = 385.281
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5578] Moved timing constraint from pin 'BakkArbeit_Blockdesign_i/processing_system7_0/FCLK_CLK0' to pin 'BakkArbeit_Blockdesign_i/processing_system7_0/bbstub_FCLK_CLK0/O'
+INFO: [Synth 8-5819] Moved 1 constraints on hierarchical pins to their respective driving/loading pins
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:50 . Memory (MB): peak = 729.723 ; gain = 424.855
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:50 . Memory (MB): peak = 729.723 ; gain = 424.855
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:42 ; elapsed = 00:00:50 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++------+----------------------------------------------+----------+
+|      |BlackBox name                                 |Instances |
++------+----------------------------------------------+----------+
+|1     |BakkArbeit_Blockdesign_processing_system7_0_0 |         1|
++------+----------------------------------------------+----------+
+
+Report Cell Usage: 
++------+----------------------------------------------+------+
+|      |Cell                                          |Count |
++------+----------------------------------------------+------+
+|1     |BakkArbeit_Blockdesign_processing_system7_0_0 |     1|
+|2     |IBUF                                          |     1|
+|3     |OBUFT                                         |     1|
++------+----------------------------------------------+------+
+
+Report Instance Areas: 
++------+---------------------------+-----------------------+------+
+|      |Instance                   |Module                 |Cells |
++------+---------------------------+-----------------------+------+
+|1     |top                        |                       |   321|
+|2     |  BakkArbeit_Blockdesign_i |BakkArbeit_Blockdesign |   319|
++------+---------------------------+-----------------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 1 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:37 . Memory (MB): peak = 738.863 ; gain = 188.309
+Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:51 . Memory (MB): peak = 738.863 ; gain = 433.996
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+23 Infos, 8 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:54 . Memory (MB): peak = 753.383 ; gain = 455.793
+INFO: [Common 17-1381] The checkpoint 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/BakkArbeit_Blockdesign_wrapper.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file BakkArbeit_Blockdesign_wrapper_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.125 . Memory (MB): peak = 753.383 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 18 20:17:56 2017...
+
+*** Running vivado
+    with args -log Out_bank.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Out_bank.tcl
+
+
+****** Vivado v2017.3 (64-bit)
+  **** SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+  **** IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source Out_bank.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.3/data/ip'.
+Command: synth_design -top Out_bank -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 11904 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 403.164 ; gain = 97.547
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Out_bank' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:89]
+ERROR: [Synth 8-439] module 'UART_Block' not found [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:107]
+ERROR: [Synth 8-285] failed synthesizing module 'Out_bank' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:89]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:09 . Memory (MB): peak = 444.621 ; gain = 139.004
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+6 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 18 21:24:00 2017...
+
+*** Running vivado
+    with args -log Out_bank.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Out_bank.tcl
+
+
+****** Vivado v2017.3 (64-bit)
+  **** SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+  **** IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source Out_bank.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.3/data/ip'.
+Command: synth_design -top Out_bank -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10776 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 402.563 ; gain = 97.598
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Out_bank' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:89]
+INFO: [Synth 8-638] synthesizing module 'UART_block' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:22]
+	Parameter IDLE bound to: 2'b00 
+	Parameter START bound to: 2'b01 
+	Parameter SEND bound to: 2'b10 
+	Parameter STOP bound to: 2'b11 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:64]
+INFO: [Synth 8-256] done synthesizing module 'UART_block' (1#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:22]
+ERROR: [Synth 8-685] variable 'UART_out' should not be used in output port connection [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:112]
+ERROR: [Synth 8-285] failed synthesizing module 'Out_bank' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:89]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 444.645 ; gain = 139.680
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+INFO: [Common 17-83] Releasing license: Synthesis
+9 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 18 21:28:28 2017...
+
+*** Running vivado
+    with args -log Out_bank.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Out_bank.tcl
+
+
+****** Vivado v2017.3 (64-bit)
+  **** SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+  **** IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source Out_bank.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.3/data/ip'.
+Command: synth_design -top Out_bank -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 1924 
+ERROR: [Synth 8-2576] procedural assignment to a non-register UART_out is not permitted [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:124]
+INFO: [Synth 8-2350] module Out_bank ignored due to previous errors [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:89]
+Failed to read verilog 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v'
+INFO: [Common 17-83] Releasing license: Synthesis
+6 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 18 21:31:49 2017...
+
+*** Running vivado
+    with args -log Out_bank.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Out_bank.tcl
+
+
+****** Vivado v2017.3 (64-bit)
+  **** SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+  **** IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source Out_bank.tcl -notrace
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.3/data/ip'.
+Command: synth_design -top Out_bank -part xc7z020clg484-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 7644 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 402.832 ; gain = 96.977
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Out_bank' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:89]
+INFO: [Synth 8-638] synthesizing module 'UART_block' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:22]
+	Parameter IDLE bound to: 2'b00 
+	Parameter START bound to: 2'b01 
+	Parameter SEND bound to: 2'b10 
+	Parameter STOP bound to: 2'b11 
+INFO: [Synth 8-155] case statement is not full and has no default [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:64]
+INFO: [Synth 8-256] done synthesizing module 'UART_block' (1#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:22]
+INFO: [Synth 8-256] done synthesizing module 'Out_bank' (2#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:89]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 444.914 ; gain = 139.059
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 444.914 ; gain = 139.059
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'out_single'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/Out_bank_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/Out_bank_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/dont_touch.xdc]
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.006 . Memory (MB): peak = 771.371 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5544] ROM "mem_rdata" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "mem_ready" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:25 ; elapsed = 00:00:27 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   5 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 5     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module Out_bank 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
+	                8 Bit    Registers := 1     
+	                1 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 5     
+Module UART_block 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-3333] propagating constant 1 across sequential element (trap_reg)
+WARNING: [Synth 8-3332] Sequential element (uart/state_reg[1]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/state_reg[1]__0) is unused and will be removed from module Out_bank.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 1st driver pin 'uart/state_reg[1]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:58]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net Q with 2nd driver pin 'GND' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:58]
+CRITICAL WARNING: [Synth 8-5559] multi-driven net Q is connected to constant driver, other driver is ignored [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:58]
+WARNING: [Synth 8-3332] Sequential element (uart/state_reg[1]__1) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (trap_reg) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[7]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[6]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[5]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[4]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[3]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[2]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[1]) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (tx_reg_reg[0]) is unused and will be removed from module Out_bank.
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5966] Removing register instance (\uart/tx_busy_reg__1 ) from module (Out_bank) as it has self-loop and (\uart/tx_busy_reg__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:50]
+INFO: [Synth 8-5966] Removing register instance (\uart/tx_busy_reg ) from module (Out_bank) as it has self-loop and (\uart/tx_busy_reg__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:83]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[31] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[31]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[30] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[30]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[29] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[29]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[28] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[28]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[27] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[27]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[26] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[26]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[25] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[25]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[24] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[24]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[23] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[23]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[22] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[22]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[21] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[21]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[20] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[20]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[19] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[19]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[18] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[18]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[17] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[17]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[16] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[16]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[15] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[15]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[14] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[14]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[13] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[13]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[12] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[12]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[11] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[11]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[10] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[10]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[9] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[9]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[8] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[8]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[7] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[7]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[6] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[6]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[5] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[5]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[4] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[4]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[3] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[3]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[2] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[2]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[1] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[1]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+INFO: [Synth 8-5966] Removing register instance (\uart/UART_index_reg[0] ) from module (Out_bank) as it has self-loop and (\uart/UART_index_reg[0]__0 ) is actual driver [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:71]
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[31]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[30]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[29]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[28]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[27]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[26]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[25]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[24]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[23]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[22]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[21]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[20]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[19]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[18]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[17]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[16]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[15]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[14]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[13]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[12]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[11]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[10]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[9]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[8]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[7]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[6]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[5]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[4]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[3]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[2]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[1]__0) is unused and will be removed from module Out_bank.
+WARNING: [Synth 8-3332] Sequential element (uart/UART_index_reg[0]__0) is unused and will be removed from module Out_bank.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:40 ; elapsed = 00:00:42 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+CRITICAL WARNING: [Synth 8-3352] multi-driven net UART_out_OBUF with 1st driver pin 'uart/UART_out_reg/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:66]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net UART_out_OBUF with 2nd driver pin 'uart/UART_out_reg__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:49]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net uart/state[0] with 1st driver pin 'uart/state_reg[0]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:64]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net uart/state[0] with 2nd driver pin 'uart/state_reg[0]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:58]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net uart/state[0] with 3rd driver pin 'uart/state_reg[0]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:51]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[31] with 1st driver pin 'out_registers_reg[31]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[31] with 2nd driver pin 'out_registers_reg[31]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[30] with 1st driver pin 'out_registers_reg[30]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[30] with 2nd driver pin 'out_registers_reg[30]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[29] with 1st driver pin 'out_registers_reg[29]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[29] with 2nd driver pin 'out_registers_reg[29]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[28] with 1st driver pin 'out_registers_reg[28]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[28] with 2nd driver pin 'out_registers_reg[28]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[27] with 1st driver pin 'out_registers_reg[27]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[27] with 2nd driver pin 'out_registers_reg[27]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[26] with 1st driver pin 'out_registers_reg[26]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[26] with 2nd driver pin 'out_registers_reg[26]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[25] with 1st driver pin 'out_registers_reg[25]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[25] with 2nd driver pin 'out_registers_reg[25]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[24] with 1st driver pin 'out_registers_reg[24]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[24] with 2nd driver pin 'out_registers_reg[24]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[23] with 1st driver pin 'out_registers_reg[23]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[23] with 2nd driver pin 'out_registers_reg[23]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[22] with 1st driver pin 'out_registers_reg[22]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[22] with 2nd driver pin 'out_registers_reg[22]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[21] with 1st driver pin 'out_registers_reg[21]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[21] with 2nd driver pin 'out_registers_reg[21]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[20] with 1st driver pin 'out_registers_reg[20]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[20] with 2nd driver pin 'out_registers_reg[20]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[19] with 1st driver pin 'out_registers_reg[19]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[19] with 2nd driver pin 'out_registers_reg[19]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[18] with 1st driver pin 'out_registers_reg[18]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[18] with 2nd driver pin 'out_registers_reg[18]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[17] with 1st driver pin 'out_registers_reg[17]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[17] with 2nd driver pin 'out_registers_reg[17]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[16] with 1st driver pin 'out_registers_reg[16]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[16] with 2nd driver pin 'out_registers_reg[16]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[15] with 1st driver pin 'out_registers_reg[15]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[15] with 2nd driver pin 'out_registers_reg[15]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[14] with 1st driver pin 'out_registers_reg[14]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[14] with 2nd driver pin 'out_registers_reg[14]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[13] with 1st driver pin 'out_registers_reg[13]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[13] with 2nd driver pin 'out_registers_reg[13]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[12] with 1st driver pin 'out_registers_reg[12]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[12] with 2nd driver pin 'out_registers_reg[12]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[11] with 1st driver pin 'out_registers_reg[11]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[11] with 2nd driver pin 'out_registers_reg[11]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[10] with 1st driver pin 'out_registers_reg[10]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[10] with 2nd driver pin 'out_registers_reg[10]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[9] with 1st driver pin 'out_registers_reg[9]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[9] with 2nd driver pin 'out_registers_reg[9]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[8] with 1st driver pin 'out_registers_reg[8]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[8] with 2nd driver pin 'out_registers_reg[8]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[7] with 1st driver pin 'out_registers_reg[7]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[7] with 2nd driver pin 'out_registers_reg[7]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[6] with 1st driver pin 'out_registers_reg[6]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[6] with 2nd driver pin 'out_registers_reg[6]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[5] with 1st driver pin 'out_registers_reg[5]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[5] with 2nd driver pin 'out_registers_reg[5]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[4] with 1st driver pin 'out_registers_reg[4]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[4] with 2nd driver pin 'out_registers_reg[4]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[3] with 1st driver pin 'out_registers_reg[3]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[3] with 2nd driver pin 'out_registers_reg[3]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[2] with 1st driver pin 'out_registers_reg[2]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[2] with 2nd driver pin 'out_registers_reg[2]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[1] with 1st driver pin 'out_registers_reg[1]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[1] with 2nd driver pin 'out_registers_reg[1]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[0] with 1st driver pin 'out_registers_reg[0]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:155]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net out_registers_OBUF[0] with 2nd driver pin 'out_registers_reg[0]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:123]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_ready_OBUF with 1st driver pin 'mem_ready_reg/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:170]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_ready_OBUF with 2nd driver pin 'mem_ready_reg__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:134]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_ready_OBUF with 3rd driver pin 'mem_ready_reg__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:122]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net tx_send with 1st driver pin 'tx_send_reg__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:111]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net tx_send with 2nd driver pin 'tx_send_reg/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Out_bank.v:171]
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|       36|Failed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |BUFG |     3|
+|2     |LUT2 |     1|
+|3     |LUT3 |     1|
+|4     |LUT4 |     1|
+|5     |LUT5 |     2|
+|6     |LUT6 |     1|
+|7     |FDRE |   107|
+|8     |IBUF |    40|
+|9     |OBUF |    67|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-----------+------+
+|      |Instance |Module     |Cells |
++------+---------+-----------+------+
+|1     |top      |           |   223|
+|2     |  uart   |UART_block |     9|
++------+---------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 77 critical warnings and 44 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 771.371 ; gain = 139.059
+Synthesis Optimization Complete : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 771.371 ; gain = 465.516
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 40 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+57 Infos, 49 Warnings, 82 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 771.371 ; gain = 473.793
+INFO: [Common 17-1381] The checkpoint 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/Out_bank.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file Out_bank_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.055 . Memory (MB): peak = 771.371 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 18 21:33:53 2017...

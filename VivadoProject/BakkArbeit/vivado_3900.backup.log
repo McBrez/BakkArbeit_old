@@ -1,0 +1,96 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Mon Dec 11 16:26:57 2017
+# Process ID: 3900
+# Current directory: D:/BakkArbeit/git/VivadoProject/BakkArbeit
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13632 D:\BakkArbeit\git\VivadoProject\BakkArbeit\BakkArbeit.xpr
+# Log file: D:/BakkArbeit/git/VivadoProject/BakkArbeit/vivado.log
+# Journal file: D:/BakkArbeit/git/VivadoProject/BakkArbeit\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.3/data/ip'.
+open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:24 . Memory (MB): peak = 821.063 ; gain = 111.172
+update_compile_order -fileset sources_1
+open_bd_design {D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd}
+Adding cell -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding cell -- xilinx.com:module_ref:UART_datagenerator:1.0 - UART_datagenerator_0
+Successfully read diagram <BakkArbeit_Blockdesign> from BD file <D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd>
+open_bd_design: Time (s): cpu = 00:00:10 ; elapsed = 00:00:15 . Memory (MB): peak = 874.148 ; gain = 52.473
+add_files -norecurse D:/BakkArbeit/git/picorv32-master/picorv32.v
+update_compile_order -fileset sources_1
+set_property top picorv32 [current_fileset]
+update_compile_order -fileset sources_1
+set_property top BakkArbeit_Blockdesign_wrapper [current_fileset]
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+set_property is_enabled true [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+export_ip_user_files -of_objects  [get_files D:/BakkArbeit/git/picorv32-master/picorv32.v] -no_script -reset -force -quiet
+remove_files  D:/BakkArbeit/git/picorv32-master/picorv32.v
+export_ip_user_files -of_objects  [get_files C:/Users/David/Desktop/sources_1/imports/picorv32-master/picorv32.v] -no_script -reset -force -quiet
+remove_files  C:/Users/David/Desktop/sources_1/imports/picorv32-master/picorv32.v
+add_files -norecurse D:/BakkArbeit/git/picorv32-master/picorv32.v
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+set_property is_enabled true [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+update_compile_order -fileset sources_1
+file mkdir D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v] -no_script -reset -force -quiet
+remove_files  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v
+open_bd_design {D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd}
+create_bd_cell -type module -reference picorv32 picorv32_0
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'cpuregs' has a dependency on the module local parameter or undefined parameter 'regfile_size'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'decoded_rd' has a dependency on the module local parameter or undefined parameter 'regindex_bits'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'decoded_rs1' has a dependency on the module local parameter or undefined parameter 'regindex_bits'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'decoded_rs2' has a dependency on the module local parameter or undefined parameter 'regindex_bits'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'latched_rd' has a dependency on the module local parameter or undefined parameter 'regindex_bits'.
+WARNING: [IP_Flow 19-587] [HDL Parser] HDL port or parameter 'decoded_rs' has a dependency on the module local parameter or undefined parameter 'regindex_bits'.
+WARNING: [IP_Flow 19-4747] Not inferring AXIMM interface 'mem' due to missing master read-channel signals ARADDR ARVALID ARREADY RVALID RREADY.
+WARNING: [IP_Flow 19-4747] Not inferring AXIMM interface 'mem_la' due to missing master write-channel signals AWADDR AWVALID AWREADY WVALID WREADY BVALID BREADY.
+INFO: [IP_Flow 19-4753] Inferred signal 'reset' from port 'resetn' as interface 'resetn'.
+INFO: [IP_Flow 19-4728] Bus Interface 'resetn': Added interface parameter 'POLARITY' with value 'ACTIVE_LOW'.
+INFO: [IP_Flow 19-4753] Inferred signal 'clock' from port 'clk' as interface 'clk'.
+INFO: [IP_Flow 19-4753] Inferred signal 'interrupt' from port 'irq' as interface 'irq'.
+INFO: [IP_Flow 19-4728] Bus Interface 'irq': Added interface parameter 'SENSITIVITY' with value 'LEVEL_HIGH'.
+INFO: [IP_Flow 19-4728] Bus Interface 'clk': Added interface parameter 'ASSOCIATED_RESET' with value 'resetn'.
+WARNING: [IP_Flow 19-3153] Bus Interface 'clk': ASSOCIATED_BUSIF bus parameter is missing.
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+create_bd_cell: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 939.027 ; gain = 0.395
+connect_bd_net [get_bd_ports PL_clk] [get_bd_pins picorv32_0/clk]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+create_bd_cell: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1134.152 ; gain = 195.125
+endgroup
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+WARNING: [IP_Flow 19-4067] Ignoring invalid widget type specified checkbox.Providing a default widget
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/IO_bank.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/IO_bank.v
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Memory.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Memory.v
+update_compile_order -fileset sources_1
+save_bd_design
+Wrote  : <D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd> 
+Wrote  : <D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/ui/bd_224e604a.ui> 
+update_compile_order -fileset sources_1
+open_bd_design {D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd}
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Address_Decoder.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Address_Decoder.v
+update_compile_order -fileset sources_1
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt
+set_property file_type {Memory File} [get_files  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt]
+exit
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 11 22:18:49 2017...
+INFO: [filemgmt 56-326] User Interrupt. Could not getCurrentGraph()
+INFO: [filemgmt 56-326] User Interrupt. Could not getCurrentGraph()

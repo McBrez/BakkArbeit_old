@@ -1,0 +1,12 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib "D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/imports/Desktop/Memory.v" --include "../../../../BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/ec67/hdl" --include "../../../../BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/d5d3/hdl/verilog" --include "../../../../BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/e0a2/hdl" --include "../../../../BakkArbeit.srcs/sim_1/imports/Desktop" --include "../../../../BakkArbeit.srcs/sources_1/imports/Desktop" --include "D:/Xilinx/Vivado/2017.3/data/xilinx_vip/include" \
+"../../../../BakkArbeit.ip_user_files/bd/BakkArbeit_Blockdesign/ip/BakkArbeit_Blockdesign_processing_system7_0_0/sim/BakkArbeit_Blockdesign_processing_system7_0_0.v" \
+"../../../../BakkArbeit.srcs/sources_1/imports/Desktop/Memory.v" \
+"../../../../BakkArbeit.ip_user_files/bd/BakkArbeit_Blockdesign/sim/BakkArbeit_Blockdesign.v" \
+"../../../../BakkArbeit.srcs/sim_1/imports/Desktop/Memory_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

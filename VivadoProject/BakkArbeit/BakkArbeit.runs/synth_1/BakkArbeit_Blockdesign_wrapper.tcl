@@ -16,10 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_param xicom.use_bs_reader 1
-set_param synth.incrementalSynthesisCache C:/Users/David/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-7976-FREISMUTHDESK/incrSyn
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -34,7 +30,16 @@ set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
 set_property ip_output_repo d:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_verilog -library xil_defaultlib D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/hdl/BakkArbeit_Blockdesign_wrapper.v
+read_mem D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt
+read_verilog -library xil_defaultlib {
+  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/imports/new/UART_datagenerator.v
+  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/imports/picorv32-master/picorv32.v
+  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/hdl/BakkArbeit_Blockdesign_wrapper.v
+  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/IO_bank.v
+  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Address_Decoder.v
+  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/imports/Desktop/Memory.v
+  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sim_1/imports/Desktop/Memory_tb.v
+}
 add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd
 set_property used_in_implementation false [get_files -all d:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/ip/BakkArbeit_Blockdesign_processing_system7_0_0/BakkArbeit_Blockdesign_processing_system7_0_0.xdc]
 set_property used_in_implementation false [get_files -all D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign_ooc.xdc]

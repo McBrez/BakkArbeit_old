@@ -1,0 +1,66 @@
+#-----------------------------------------------------------
+# Vivado v2017.3 (64-bit)
+# SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
+# IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+# Start of session at: Mon Dec 11 16:26:57 2017
+# Process ID: 3900
+# Current directory: D:/BakkArbeit/git/VivadoProject/BakkArbeit
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent13632 D:\BakkArbeit\git\VivadoProject\BakkArbeit\BakkArbeit.xpr
+# Log file: D:/BakkArbeit/git/VivadoProject/BakkArbeit/vivado.log
+# Journal file: D:/BakkArbeit/git/VivadoProject/BakkArbeit\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.xpr
+update_compile_order -fileset sources_1
+open_bd_design {D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd}
+add_files -norecurse D:/BakkArbeit/git/picorv32-master/picorv32.v
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top picorv32 [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+# Disabling source management mode.  This is to allow the top design properties to be set without GUI intervention.
+set_property source_mgmt_mode None [current_project]
+set_property top BakkArbeit_Blockdesign_wrapper [current_fileset]
+# Re-enabling previously disabled source management mode.
+set_property source_mgmt_mode All [current_project]
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+set_property is_enabled true [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+export_ip_user_files -of_objects  [get_files D:/BakkArbeit/git/picorv32-master/picorv32.v] -no_script -reset -force -quiet
+remove_files  D:/BakkArbeit/git/picorv32-master/picorv32.v
+export_ip_user_files -of_objects  [get_files C:/Users/David/Desktop/sources_1/imports/picorv32-master/picorv32.v] -no_script -reset -force -quiet
+remove_files  C:/Users/David/Desktop/sources_1/imports/picorv32-master/picorv32.v
+add_files -norecurse D:/BakkArbeit/git/picorv32-master/picorv32.v
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+set_property is_enabled true [get_files  D:/BakkArbeit/git/picorv32-master/picorv32.v]
+update_compile_order -fileset sources_1
+file mkdir D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v] -no_script -reset -force -quiet
+remove_files  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/picorv32_core.v
+open_bd_design {D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd}
+create_bd_cell -type module -reference picorv32 picorv32_0
+connect_bd_net [get_bd_ports PL_clk] [get_bd_pins picorv32_0/clk]
+startgroup
+create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0
+endgroup
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/IO_bank.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/IO_bank.v
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Memory.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Memory.v
+update_compile_order -fileset sources_1
+save_bd_design
+update_compile_order -fileset sources_1
+open_bd_design {D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd}
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Address_Decoder.v w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Address_Decoder.v
+update_compile_order -fileset sources_1
+close [ open D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt w ]
+add_files D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt
+set_property file_type {Memory File} [get_files  D:/BakkArbeit/git/VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt]
