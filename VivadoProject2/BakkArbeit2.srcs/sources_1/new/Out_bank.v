@@ -93,7 +93,7 @@ module Out_bank(
     output reg [31:0] mem_rdata,
     input wire [31:0] mem_wdata,
     input wire [3:0] mem_wstrb,
-    input wire bankSwitch,
+    input wire bankSwitch,              //0 = UART  1 = Memory
     output reg [31:0] out_registers,
     output wire UART_out,
     output reg mem_ready,

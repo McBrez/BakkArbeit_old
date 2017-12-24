@@ -57,10 +57,10 @@ set_property used_in_implementation false [get_files D:/BakkArbeit/git/VivadoPro
 read_xdc dont_touch.xdc
 set_property used_in_implementation false [get_files dont_touch.xdc]
 
-synth_design -top Out_bank -part xc7z020clg484-1
+synth_design -top Address_Decoder -part xc7z020clg484-1
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef Out_bank.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file Out_bank_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb"
+write_checkpoint -force -noxdef Address_Decoder.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file Address_Decoder_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb"
