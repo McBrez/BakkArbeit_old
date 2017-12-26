@@ -1,37 +1,61 @@
 
 *** Running vivado
-    with args -log Address_Decoder.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Address_Decoder.tcl
+    with args -log AddressDecoderTB.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source AddressDecoderTB.tcl
 
 
-****** Vivado v2017.3 (64-bit)
-  **** SW Build 2018833 on Wed Oct  4 19:58:22 MDT 2017
-  **** IP Build 2016188 on Wed Oct  4 21:52:56 MDT 2017
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
-source Address_Decoder.tcl -notrace
-INFO: [IP_Flow 19-234] Refreshing IP repositories
-INFO: [IP_Flow 19-1704] No user IP repositories specified
-INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'D:/Xilinx/Vivado/2017.3/data/ip'.
-Command: synth_design -top Address_Decoder -part xc7z020clg484-1
+source AddressDecoderTB.tcl -notrace
+Command: synth_design -top AddressDecoderTB -part xc7z020clg484-1
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 8048 
+INFO: Helper process launched with PID 11620 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 402.254 ; gain = 96.629
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 345.340 ; gain = 101.570
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'Address_Decoder' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:23]
-	Parameter MEMORY_STARTADDRESS bound to: 0 - type: integer 
-	Parameter MEMORY_ENDADDRESS bound to: 1023 - type: integer 
-	Parameter IO_STARTADDRESS bound to: 1024 - type: integer 
-	Parameter IO_ENDADDRESS bound to: 1025 - type: integer 
-	Parameter MX_STATE_MEM bound to: 0 - type: integer 
-	Parameter MX_STATE_IO bound to: 1 - type: integer 
-INFO: [Synth 8-256] done synthesizing module 'Address_Decoder' (1#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:23]
-WARNING: [Synth 8-3331] design Address_Decoder has unconnected port mem_instr
+INFO: [Synth 8-638] synthesizing module 'AddressDecoderTB' [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:1]
+WARNING: [Synth 8-85] always block has no event control specified [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:25]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:31]
+INFO: [Synth 8-256] done synthesizing module 'AddressDecoderTB' (1#1) [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:1]
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[31] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[30] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[29] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[28] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[27] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[26] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[25] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[24] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[23] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[22] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[21] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[20] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[19] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[18] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[17] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[16] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[15] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[14] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[13] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[12] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[11] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[10] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[9] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[8] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[7] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[6] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[5] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[4] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[3] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[2] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[1] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[0] driven by constant 0
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 444.340 ; gain = 138.715
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 396.941 ; gain = 153.172
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -41,63 +65,60 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 444.340 ; gain = 138.715
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 396.941 ; gain = 153.172
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
-WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:1]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:1]
+Parsing XDC File [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'out_single'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'out_single'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
+WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:4]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:4]
+WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
+WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
+WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
-Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
-Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/dont_touch.xdc]
-Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/dont_touch.xdc]
+Finished Parsing XDC File [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/AddressDecoderTB_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/AddressDecoderTB_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.096 . Memory (MB): peak = 771.785 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 754.664 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:25 ; elapsed = 00:00:30 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5545] ROM "bankSwitch" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "resetn" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mem_valid" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "mem_wdata" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:31]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:30 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -109,15 +130,17 @@ Report RTL Partitions:
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
-	                4 Bit    Registers := 2     
+	               32 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 2     
+	   7 Input     32 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -125,17 +148,19 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module Address_Decoder 
+Module AddressDecoderTB 
 Detailed RTL Component Info : 
-+---Adders : 
-	   2 Input     32 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
-	                4 Bit    Registers := 2     
+	               32 Bit    Registers := 2     
+	                4 Bit    Registers := 1     
 	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input     32 Bit        Muxes := 2     
+	   7 Input     32 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 1     
+	   7 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   7 Input      1 Bit        Muxes := 4     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -151,44 +176,108 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5545] ROM "bankSwitch" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-3331] design Address_Decoder has unconnected port mem_instr
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[0]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[1]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[2]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[3]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[4]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[5]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[6]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[7]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[8]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[9]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[10]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[11]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[12]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[13]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[14]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[15]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[16]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[17]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[18]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[19]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[20]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[21]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[22]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[23]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[24]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[25]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[26]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[27]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[28]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[29]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[30]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3886] merging instance 'mem_wdata_io_reg[31]' (FD_1) to 'trap_reg'
-INFO: [Synth 8-3333] propagating constant 0 across sequential element (trap_reg)
-WARNING: [Synth 8-3332] Sequential element (trap_reg) is unused and will be removed from module Address_Decoder.
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:31]
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[31] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[30] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[29] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[28] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[27] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[26] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[25] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[24] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[23] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[22] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[21] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[20] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[19] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[18] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[17] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[16] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[15] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[14] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[13] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[12] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[11] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[10] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[9] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[8] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[7] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[6] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[5] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[4] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[3] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[2] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[1] driven by constant 0
+WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[0] driven by constant 0
+INFO: [Synth 8-3886] merging instance 'mem_wstrb_reg[0]' (FDE) to 'mem_wstrb_reg[3]'
+INFO: [Synth 8-3886] merging instance 'mem_wstrb_reg[1]' (FDE) to 'mem_wstrb_reg[3]'
+INFO: [Synth 8-3886] merging instance 'mem_wstrb_reg[2]' (FDE) to 'mem_wstrb_reg[3]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[1]' (FDE) to 'mem_addr_reg[2]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[2]' (FDE) to 'mem_addr_reg[3]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[3]' (FDE) to 'mem_addr_reg[4]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[4]' (FDE) to 'mem_addr_reg[5]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[5]' (FDE) to 'mem_addr_reg[6]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[6]' (FDE) to 'mem_addr_reg[7]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[7]' (FDE) to 'mem_addr_reg[8]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[8]' (FDE) to 'mem_addr_reg[9]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[9]' (FDE) to 'mem_addr_reg[11]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[11]' (FDE) to 'mem_addr_reg[16]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[12]' (FDE) to 'mem_addr_reg[13]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[13]' (FDE) to 'mem_addr_reg[14]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[14]' (FDE) to 'mem_addr_reg[15]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mem_addr_reg[15] )
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[16]' (FDE) to 'mem_addr_reg[17]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[17]' (FDE) to 'mem_addr_reg[18]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[18]' (FDE) to 'mem_addr_reg[19]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[19]' (FDE) to 'mem_addr_reg[20]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[20]' (FDE) to 'mem_addr_reg[21]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[21]' (FDE) to 'mem_addr_reg[22]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[22]' (FDE) to 'mem_addr_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[23]' (FDE) to 'mem_addr_reg[24]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[24]' (FDE) to 'mem_addr_reg[25]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[25]' (FDE) to 'mem_addr_reg[26]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[26]' (FDE) to 'mem_addr_reg[27]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[27]' (FDE) to 'mem_addr_reg[28]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[28]' (FDE) to 'mem_addr_reg[29]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[29]' (FDE) to 'mem_addr_reg[30]'
+INFO: [Synth 8-3886] merging instance 'mem_addr_reg[30]' (FDE) to 'mem_addr_reg[31]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mem_addr_reg[31] )
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[0]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[1]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[2]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[3]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[4]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[5]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[6]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[7]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[8]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[9]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[10]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[11]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[12]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[13]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[14]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[15]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[16]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[17]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[18]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[19]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[20]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[21]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[22]' (FDE) to 'mem_wdata_reg[23]'
+INFO: [Synth 8-3333] propagating constant 0 across sequential element (\mem_wdata_reg[23] )
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[24]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[25]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[26]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[27]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[28]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[29]' (FDE) to 'mem_wdata_reg[31]'
+INFO: [Synth 8-3886] merging instance 'mem_wdata_reg[30]' (FDE) to 'mem_wdata_reg[31]'
+WARNING: [Synth 8-3332] Sequential element (mem_wdata_reg[23]) is unused and will be removed from module AddressDecoderTB.
+WARNING: [Synth 8-3332] Sequential element (mem_addr_reg[31]) is unused and will be removed from module AddressDecoderTB.
+WARNING: [Synth 8-3332] Sequential element (mem_addr_reg[15]) is unused and will be removed from module AddressDecoderTB.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:31 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 754.664 ; gain = 510.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -200,13 +289,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 754.664 ; gain = 510.895
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 754.664 ; gain = 510.895
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -218,7 +307,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:46 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -242,121 +331,22 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_ready_OBUF with 1st driver pin 'mem_ready_reg/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:127]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_ready_OBUF with 2nd driver pin 'mem_ready_reg__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:120]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_ready_OBUF with 3rd driver pin 'mem_ready_reg__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:87]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_ready_OBUF with 4th driver pin 'mem_ready_reg__2/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:78]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[31] with 1st driver pin 'mem_rdata_reg[31]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[31] with 2nd driver pin 'mem_rdata_reg[31]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[31] with 3rd driver pin 'mem_rdata_reg[31]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[30] with 1st driver pin 'mem_rdata_reg[30]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[30] with 2nd driver pin 'mem_rdata_reg[30]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[30] with 3rd driver pin 'mem_rdata_reg[30]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[29] with 1st driver pin 'mem_rdata_reg[29]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[29] with 2nd driver pin 'mem_rdata_reg[29]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[29] with 3rd driver pin 'mem_rdata_reg[29]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[28] with 1st driver pin 'mem_rdata_reg[28]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[28] with 2nd driver pin 'mem_rdata_reg[28]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[28] with 3rd driver pin 'mem_rdata_reg[28]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[27] with 1st driver pin 'mem_rdata_reg[27]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[27] with 2nd driver pin 'mem_rdata_reg[27]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[27] with 3rd driver pin 'mem_rdata_reg[27]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[26] with 1st driver pin 'mem_rdata_reg[26]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[26] with 2nd driver pin 'mem_rdata_reg[26]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[26] with 3rd driver pin 'mem_rdata_reg[26]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[25] with 1st driver pin 'mem_rdata_reg[25]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[25] with 2nd driver pin 'mem_rdata_reg[25]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[25] with 3rd driver pin 'mem_rdata_reg[25]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[24] with 1st driver pin 'mem_rdata_reg[24]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[24] with 2nd driver pin 'mem_rdata_reg[24]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[24] with 3rd driver pin 'mem_rdata_reg[24]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[23] with 1st driver pin 'mem_rdata_reg[23]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[23] with 2nd driver pin 'mem_rdata_reg[23]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[23] with 3rd driver pin 'mem_rdata_reg[23]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[22] with 1st driver pin 'mem_rdata_reg[22]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[22] with 2nd driver pin 'mem_rdata_reg[22]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[22] with 3rd driver pin 'mem_rdata_reg[22]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[21] with 1st driver pin 'mem_rdata_reg[21]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[21] with 2nd driver pin 'mem_rdata_reg[21]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[21] with 3rd driver pin 'mem_rdata_reg[21]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[20] with 1st driver pin 'mem_rdata_reg[20]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[20] with 2nd driver pin 'mem_rdata_reg[20]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[20] with 3rd driver pin 'mem_rdata_reg[20]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[19] with 1st driver pin 'mem_rdata_reg[19]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[19] with 2nd driver pin 'mem_rdata_reg[19]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[19] with 3rd driver pin 'mem_rdata_reg[19]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[18] with 1st driver pin 'mem_rdata_reg[18]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[18] with 2nd driver pin 'mem_rdata_reg[18]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[18] with 3rd driver pin 'mem_rdata_reg[18]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[17] with 1st driver pin 'mem_rdata_reg[17]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[17] with 2nd driver pin 'mem_rdata_reg[17]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[17] with 3rd driver pin 'mem_rdata_reg[17]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[16] with 1st driver pin 'mem_rdata_reg[16]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[16] with 2nd driver pin 'mem_rdata_reg[16]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[16] with 3rd driver pin 'mem_rdata_reg[16]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[15] with 1st driver pin 'mem_rdata_reg[15]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[15] with 2nd driver pin 'mem_rdata_reg[15]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[15] with 3rd driver pin 'mem_rdata_reg[15]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[14] with 1st driver pin 'mem_rdata_reg[14]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[14] with 2nd driver pin 'mem_rdata_reg[14]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[14] with 3rd driver pin 'mem_rdata_reg[14]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[13] with 1st driver pin 'mem_rdata_reg[13]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[13] with 2nd driver pin 'mem_rdata_reg[13]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[13] with 3rd driver pin 'mem_rdata_reg[13]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[12] with 1st driver pin 'mem_rdata_reg[12]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[12] with 2nd driver pin 'mem_rdata_reg[12]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[12] with 3rd driver pin 'mem_rdata_reg[12]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[11] with 1st driver pin 'mem_rdata_reg[11]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[11] with 2nd driver pin 'mem_rdata_reg[11]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[11] with 3rd driver pin 'mem_rdata_reg[11]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[10] with 1st driver pin 'mem_rdata_reg[10]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[10] with 2nd driver pin 'mem_rdata_reg[10]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[10] with 3rd driver pin 'mem_rdata_reg[10]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[9] with 1st driver pin 'mem_rdata_reg[9]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[9] with 2nd driver pin 'mem_rdata_reg[9]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[9] with 3rd driver pin 'mem_rdata_reg[9]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[8] with 1st driver pin 'mem_rdata_reg[8]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[8] with 2nd driver pin 'mem_rdata_reg[8]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[8] with 3rd driver pin 'mem_rdata_reg[8]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[7] with 1st driver pin 'mem_rdata_reg[7]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[7] with 2nd driver pin 'mem_rdata_reg[7]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[7] with 3rd driver pin 'mem_rdata_reg[7]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[6] with 1st driver pin 'mem_rdata_reg[6]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[6] with 2nd driver pin 'mem_rdata_reg[6]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[6] with 3rd driver pin 'mem_rdata_reg[6]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[5] with 1st driver pin 'mem_rdata_reg[5]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[5] with 2nd driver pin 'mem_rdata_reg[5]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[5] with 3rd driver pin 'mem_rdata_reg[5]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[4] with 1st driver pin 'mem_rdata_reg[4]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[4] with 2nd driver pin 'mem_rdata_reg[4]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[4] with 3rd driver pin 'mem_rdata_reg[4]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[3] with 1st driver pin 'mem_rdata_reg[3]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[3] with 2nd driver pin 'mem_rdata_reg[3]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[3] with 3rd driver pin 'mem_rdata_reg[3]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[2] with 1st driver pin 'mem_rdata_reg[2]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[2] with 2nd driver pin 'mem_rdata_reg[2]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[2] with 3rd driver pin 'mem_rdata_reg[2]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[1] with 1st driver pin 'mem_rdata_reg[1]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[1] with 2nd driver pin 'mem_rdata_reg[1]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[1] with 3rd driver pin 'mem_rdata_reg[1]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[0] with 1st driver pin 'mem_rdata_reg[0]/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:128]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[0] with 2nd driver pin 'mem_rdata_reg[0]__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:121]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_rdata_OBUF[0] with 3rd driver pin 'mem_rdata_reg[0]__1/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v:75]
-INFO: [Common 17-14] Message 'Synth 8-3352' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_valid_OBUF with 1st driver pin 'mem_valid_reg/Q' [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:80]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_valid_OBUF with 2nd driver pin 'mem_valid_reg__0/Q' [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:40]
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
 |      |Item              |Errors |Warnings |Status |Description       |
 +------+------------------+-------+---------+-------+------------------+
-|1     |multi_driven_nets |      0|       68|Failed |Multi driven nets |
+|1     |multi_driven_nets |      0|        1|Failed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -368,25 +358,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -402,45 +392,43 @@ Report Cell Usage:
 +------+-------+------+
 |      |Cell   |Count |
 +------+-------+------+
-|1     |BUFG   |     4|
-|2     |CARRY4 |     6|
-|3     |LUT1   |    23|
-|4     |LUT2   |     1|
-|5     |LUT3   |     2|
-|6     |LUT4   |    12|
-|7     |LUT5   |    30|
-|8     |LUT6   |     5|
-|9     |FDRE   |   271|
-|10    |FDSE   |     4|
-|11    |IBUF   |   136|
-|12    |OBUF   |   173|
+|1     |BUFG   |     2|
+|2     |CARRY4 |     8|
+|3     |LUT1   |     2|
+|4     |LUT2   |     2|
+|5     |LUT4   |     3|
+|6     |LUT5   |     3|
+|7     |LUT6   |     4|
+|8     |FDRE   |    39|
+|9     |IBUF   |     1|
+|10    |OBUF   |   103|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   667|
+|1     |top      |       |   167|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 170 critical warnings and 2 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:26 ; elapsed = 00:00:36 . Memory (MB): peak = 771.785 ; gain = 138.715
-Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:47 . Memory (MB): peak = 771.785 ; gain = 466.160
+Synthesis finished with 0 errors, 2 critical warnings and 37 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 772.285 ; gain = 170.793
+Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
 INFO: [Project 1-571] Translating synthesized netlist
-INFO: [Netlist 29-17] Analyzing 142 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-52 Infos, 10 Warnings, 107 Critical Warnings and 0 Errors encountered.
+82 Infos, 75 Warnings, 7 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:45 ; elapsed = 00:00:50 . Memory (MB): peak = 771.785 ; gain = 474.426
-INFO: [Common 17-1381] The checkpoint 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/Address_Decoder.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file Address_Decoder_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.186 . Memory (MB): peak = 771.785 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Sun Dec 24 13:45:38 2017...
+synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 776.281 ; gain = 545.785
+INFO: [Common 17-1381] The checkpoint 'C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.runs/synth_1/AddressDecoderTB.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file AddressDecoderTB_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.072 . Memory (MB): peak = 776.281 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Mon Dec 25 13:53:26 2017...
