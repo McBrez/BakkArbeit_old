@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="AddressDecoderTB_BD" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1514206629"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1514206629"/>
-    <Generation Name="SIMULATION" State="STALE" Timestamp="1514206629"/>
-    <Generation Name="HW_HANDOFF" State="STALE" Timestamp="1514206629"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1514666422"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1514666422"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1514666423"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1514666423"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\AddressDecoderTB_BD_AddressDecoderTB_0_0\AddressDecoderTB_BD_AddressDecoderTB_0_0.xci" Type="IP">
         <Instance HierarchyPath="AddressDecoderTB_0"/>
@@ -15,7 +15,7 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\AddressDecoderTB_BD_Address_Decoder_0_0_1\AddressDecoderTB_BD_Address_Decoder_0_0.xci" Type="IP">
+      <File Name="ip\AddressDecoderTB_BD_Address_Decoder_0_0\AddressDecoderTB_BD_Address_Decoder_0_0.xci" Type="IP">
         <Instance HierarchyPath="Address_Decoder_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
@@ -23,7 +23,18 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\AddressDecoderTB_BD_Memory_0_0_1\AddressDecoderTB_BD_Memory_0_0.xci" Type="IP">
+      <File Name="synth\AddressDecoderTB_BD.v" Type="Verilog">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+      </File>
+      <File Name="sim\AddressDecoderTB_BD.v" Type="Verilog">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\AddressDecoderTB_BD_Memory_0_0\AddressDecoderTB_BD_Memory_0_0.xci" Type="IP">
         <Instance HierarchyPath="Memory_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
@@ -31,13 +42,35 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\AddressDecoderTB_BD_Out_bank_0_0_1\AddressDecoderTB_BD_Out_bank_0_0.xci" Type="IP">
+      <File Name="ip\AddressDecoderTB_BD_Out_bank_0_0\AddressDecoderTB_BD_Out_bank_0_0.xci" Type="IP">
         <Instance HierarchyPath="Out_bank_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="AddressDecoderTB_BD_ooc.xdc" Type="XDC">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="OUT_OF_CONTEXT"/>
+      </File>
+      <File Name="hw_handoff\AddressDecoderTB_BD.hwh" Type="HwHandoff">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="hw_handoff\AddressDecoderTB_BD_bd.tcl">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
+      </File>
+      <File Name="synth\AddressDecoderTB_BD.hwdef">
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="HW_HANDOFF"/>
       </File>
     </FileCollection>
   </CompositeFile>

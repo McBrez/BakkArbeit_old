@@ -15,7 +15,6 @@ module AddressDecoderTB (
         clk = 0;
         resetn = 0;
         mem_wdata = 0;
-        mem_rdata = 0;
         mem_addr = 0;
         mem_wstrb = 0;
         mem_valid = 0;

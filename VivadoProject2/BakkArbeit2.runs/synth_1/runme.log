@@ -14,48 +14,48 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 11620 
+INFO: Helper process launched with PID 13412 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 345.340 ; gain = 101.570
+Starting RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 391.074 ; gain = 100.766
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'AddressDecoderTB' [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:1]
-WARNING: [Synth 8-85] always block has no event control specified [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:25]
-INFO: [Synth 8-155] case statement is not full and has no default [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:31]
-INFO: [Synth 8-256] done synthesizing module 'AddressDecoderTB' (1#1) [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:1]
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[31] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[30] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[29] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[28] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[27] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[26] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[25] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[24] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[23] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[22] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[21] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[20] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[19] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[18] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[17] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[16] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[15] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[14] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[13] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[12] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[11] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[10] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[9] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[8] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[7] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[6] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[5] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[4] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[3] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[2] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[1] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[0] driven by constant 0
+INFO: [Synth 8-638] synthesizing module 'AddressDecoderTB' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:1]
+WARNING: [Synth 8-85] always block has no event control specified [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:24]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:30]
+INFO: [Synth 8-256] done synthesizing module 'AddressDecoderTB' (1#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:1]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[31]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[30]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[29]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[28]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[27]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[26]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[25]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[24]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[23]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[22]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[21]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[20]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[19]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[18]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[17]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[16]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[15]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[14]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[13]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[12]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[11]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[10]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[9]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[8]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[7]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[6]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[5]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[4]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[3]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[2]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[1]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 396.941 ; gain = 153.172
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 442.566 ; gain = 152.258
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -65,60 +65,60 @@ Report Check Netlist:
 |1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
 +------+------------------+-------+---------+-------+------------------+
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 396.941 ; gain = 153.172
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 442.566 ; gain = 152.258
 ---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7z020clg484-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
 
 Processing XDC Constraints
 Initializing timing engine
-Parsing XDC File [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
-WARNING: [Vivado 12-584] No ports matched 'out_single'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
+Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+WARNING: [Vivado 12-584] No ports matched 'out_single'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:3]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
+WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:6]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
+WARNING: [Vivado 12-584] No ports matched 'PL_clk'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:7]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
+WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:9]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
-CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
+WARNING: [Vivado 12-584] No ports matched 'UART_TXD'. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
+CRITICAL WARNING: [Common 17-55] 'set_property' expects at least one object. [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc:10]
 Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
-Finished Parsing XDC File [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
-INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/AddressDecoderTB_propImpl.xdc].
+Finished Parsing XDC File [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/AddressDecoderTB_propImpl.xdc].
 Resolution: To avoid this warning, move constraints listed in [.Xil/AddressDecoderTB_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
 Completed Processing XDC Constraints
 
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
-Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 754.664 ; gain = 0.000
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 801.164 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
+Finished Constraint Validation : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 801.164 ; gain = 510.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg484-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 801.164 ; gain = 510.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 801.164 ; gain = 510.855
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-5545] ROM "resetn" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "mem_valid" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
 INFO: [Synth 8-5545] ROM "mem_wdata" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
-WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:31]
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:30]
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:26 ; elapsed = 00:00:27 . Memory (MB): peak = 754.664 ; gain = 510.895
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:30 ; elapsed = 00:00:31 . Memory (MB): peak = 801.164 ; gain = 510.855
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -176,39 +176,39 @@ Finished Part Resource Summary
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:31]
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[31] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[30] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[29] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[28] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[27] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[26] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[25] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[24] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[23] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[22] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[21] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[20] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[19] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[18] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[17] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[16] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[15] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[14] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[13] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[12] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[11] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[10] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[9] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[8] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[7] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[6] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[5] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[4] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[3] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[2] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[1] driven by constant 0
-WARNING: [Synth 8-3917] design AddressDecoderTB has port mem_rdata[0] driven by constant 0
+WARNING: [Synth 8-6014] Unused sequential element state_reg was removed.  [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:30]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[31]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[30]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[29]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[28]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[27]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[26]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[25]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[24]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[23]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[22]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[21]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[20]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[19]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[18]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[17]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[16]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[15]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[14]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[13]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[12]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[11]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[10]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[9]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[8]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[7]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[6]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[5]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[4]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[3]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[2]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[1]
+WARNING: [Synth 8-3331] design AddressDecoderTB has unconnected port mem_rdata[0]
 INFO: [Synth 8-3886] merging instance 'mem_wstrb_reg[0]' (FDE) to 'mem_wstrb_reg[3]'
 INFO: [Synth 8-3886] merging instance 'mem_wstrb_reg[1]' (FDE) to 'mem_wstrb_reg[3]'
 INFO: [Synth 8-3886] merging instance 'mem_wstrb_reg[2]' (FDE) to 'mem_wstrb_reg[3]'
@@ -277,7 +277,7 @@ WARNING: [Synth 8-3332] Sequential element (mem_wdata_reg[23]) is unused and wil
 WARNING: [Synth 8-3332] Sequential element (mem_addr_reg[31]) is unused and will be removed from module AddressDecoderTB.
 WARNING: [Synth 8-3332] Sequential element (mem_addr_reg[15]) is unused and will be removed from module AddressDecoderTB.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 754.664 ; gain = 510.895
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:31 ; elapsed = 00:00:33 . Memory (MB): peak = 801.164 ; gain = 510.855
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -289,13 +289,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 754.664 ; gain = 510.895
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 801.164 ; gain = 510.855
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 754.664 ; gain = 510.895
+Finished Timing Optimization : Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 801.164 ; gain = 510.855
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -307,7 +307,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:41 ; elapsed = 00:00:42 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished Technology Mapping : Time (s): cpu = 00:00:47 ; elapsed = 00:00:49 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -331,10 +331,10 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_valid_OBUF with 1st driver pin 'mem_valid_reg/Q' [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:80]
-CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_valid_OBUF with 2nd driver pin 'mem_valid_reg__0/Q' [C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:40]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_valid_OBUF with 1st driver pin 'mem_valid_reg/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:79]
+CRITICAL WARNING: [Synth 8-3352] multi-driven net mem_valid_OBUF with 2nd driver pin 'mem_valid_reg__0/Q' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v:39]
 
 Report Check Netlist: 
 +------+------------------+-------+---------+-------+------------------+
@@ -346,7 +346,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -358,25 +358,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -401,24 +401,24 @@ Report Cell Usage:
 |7     |LUT6   |     4|
 |8     |FDRE   |    39|
 |9     |IBUF   |     1|
-|10    |OBUF   |   103|
+|10    |OBUF   |    71|
 +------+-------+------+
 
 Report Instance Areas: 
 +------+---------+-------+------+
 |      |Instance |Module |Cells |
 +------+---------+-------+------+
-|1     |top      |       |   167|
+|1     |top      |       |   135|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 2 critical warnings and 37 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:25 ; elapsed = 00:00:35 . Memory (MB): peak = 772.285 ; gain = 170.793
-Synthesis Optimization Complete : Time (s): cpu = 00:00:43 ; elapsed = 00:00:44 . Memory (MB): peak = 772.285 ; gain = 528.516
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:28 ; elapsed = 00:00:40 . Memory (MB): peak = 819.672 ; gain = 170.766
+Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 819.672 ; gain = 529.363
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement
-INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
 INFO: [Project 1-111] Unisim Transformation Summary:
@@ -427,8 +427,8 @@ No Unisim elements were transformed.
 INFO: [Common 17-83] Releasing license: Synthesis
 82 Infos, 75 Warnings, 7 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:46 ; elapsed = 00:00:47 . Memory (MB): peak = 776.281 ; gain = 545.785
-INFO: [Common 17-1381] The checkpoint 'C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.runs/synth_1/AddressDecoderTB.dcp' has been generated.
+synth_design: Time (s): cpu = 00:00:50 ; elapsed = 00:00:55 . Memory (MB): peak = 819.672 ; gain = 542.125
+INFO: [Common 17-1381] The checkpoint 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/AddressDecoderTB.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file AddressDecoderTB_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.072 . Memory (MB): peak = 776.281 ; gain = 0.000
-INFO: [Common 17-206] Exiting Vivado at Mon Dec 25 13:53:26 2017...
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.076 . Memory (MB): peak = 819.672 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Sat Dec 30 20:33:04 2017...

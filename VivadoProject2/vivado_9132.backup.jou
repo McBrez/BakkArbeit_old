@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Dec 29 17:12:48 2017
+# Process ID: 9132
+# Current directory: C:/DEV/BakkArbeit/VivadoProject2
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent9156 C:\DEV\BakkArbeit\VivadoProject2\BakkArbeit2.xpr
+# Log file: C:/DEV/BakkArbeit/VivadoProject2/vivado.log
+# Journal file: C:/DEV/BakkArbeit/VivadoProject2\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.xpr
+update_compile_order -fileset sources_1

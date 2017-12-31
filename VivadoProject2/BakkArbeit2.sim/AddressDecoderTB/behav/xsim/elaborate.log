@@ -1,0 +1,23 @@
+Vivado Simulator 2017.4
+Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto a8f85004b33d4ad8b3597e46429d7909 --incr --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot AddressDecoderTB_BD_wrapper_behav xil_defaultlib.AddressDecoderTB_BD_wrapper xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v" Line 1. Module AddressDecoderTB doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.AddressDecoderTB
+Compiling module xil_defaultlib.AddressDecoderTB_BD_AddressDecod...
+Compiling module xil_defaultlib.Address_Decoder
+Compiling module xil_defaultlib.AddressDecoderTB_BD_Address_Deco...
+Compiling module xil_defaultlib.Memory
+Compiling module xil_defaultlib.AddressDecoderTB_BD_Memory_0_0
+Compiling module xil_defaultlib.UART_block
+Compiling module xil_defaultlib.Out_bank
+Compiling module xil_defaultlib.AddressDecoderTB_BD_Out_bank_0_0
+Compiling module xil_defaultlib.AddressDecoderTB_BD
+Compiling module xil_defaultlib.AddressDecoderTB_BD_wrapper
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot AddressDecoderTB_BD_wrapper_behav
