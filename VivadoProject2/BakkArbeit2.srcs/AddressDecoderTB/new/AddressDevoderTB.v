@@ -36,7 +36,7 @@ module AddressDecoderTB (
             //Read from start of memory
             1:begin
                 mem_addr <= 0;
-                mem_valid <= 0;
+                mem_valid <= 1;
                 mem_wstrb <= 0;
             end
             
@@ -51,13 +51,13 @@ module AddressDecoderTB (
             //read from start of memory 
             3:begin
                 mem_addr <= 0;
-                mem_valid <= 0;
+                mem_valid <= 1;
                 mem_wstrb <= 0;
             end
             
             //write to outregs
             4:begin
-                mem_addr <= 32'h0x400;
+                mem_addr <= 32'h800;
                 mem_wdata <= 32'b11111111_00000000_11111111_00000000;
                 mem_wstrb <= 4'b1111;
                 mem_valid <= 1;
@@ -65,9 +65,17 @@ module AddressDecoderTB (
             
             //write to uart
             5:begin
-                mem_addr <= 32'h401;
+                mem_addr <= 32'h801;
                 mem_wdata <= 32'b11111111_00000000_11111111_00000000;
                 mem_wstrb <= 4'b1111;
+                mem_valid <= 1;
+            end
+            
+            //read UART state
+            6:begin
+                mem_addr <= 32'h801;
+                mem_wdata <= 32'b11111111_00000000_11111111_00000000;
+                mem_wstrb <= 4'b0000;
                 mem_valid <= 1;
             end
             

@@ -38,7 +38,7 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:30273d24</spirit:value>
+            <spirit:value>7:43b1364f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -53,11 +53,11 @@
         <spirit:parameters>
           <spirit:parameter>
             <spirit:name>GENtimestamp</spirit:name>
-            <spirit:value>Sat Dec 30 20:05:13 UTC 2017</spirit:value>
+            <spirit:value>Sun Dec 31 17:34:04 UTC 2017</spirit:value>
           </spirit:parameter>
           <spirit:parameter>
             <spirit:name>outputProductCRC</spirit:name>
-            <spirit:value>7:30273d24</spirit:value>
+            <spirit:value>7:43b1364f</spirit:value>
           </spirit:parameter>
         </spirit:parameters>
       </spirit:view>
@@ -397,17 +397,17 @@
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>MEMORY_ENDADDRESS</spirit:name>
         <spirit:displayName>Memory Endaddress</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MEMORY_ENDADDRESS" spirit:bitStringLength="32">0x000003FF</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.MEMORY_ENDADDRESS" spirit:bitStringLength="32">0x000007FF</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>IO_STARTADDRESS</spirit:name>
         <spirit:displayName>Io Startaddress</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IO_STARTADDRESS" spirit:bitStringLength="32">0x00000400</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IO_STARTADDRESS" spirit:bitStringLength="32">0x00000800</spirit:value>
       </spirit:modelParameter>
       <spirit:modelParameter spirit:dataType="integer">
         <spirit:name>IO_ENDADDRESS</spirit:name>
         <spirit:displayName>Io Endaddress</spirit:displayName>
-        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IO_ENDADDRESS" spirit:bitStringLength="32">0x00000401</spirit:value>
+        <spirit:value spirit:format="bitString" spirit:resolve="generated" spirit:id="MODELPARAM_VALUE.IO_ENDADDRESS" spirit:bitStringLength="32">0x00000801</spirit:value>
       </spirit:modelParameter>
     </spirit:modelParameters>
   </spirit:model>
@@ -438,17 +438,17 @@
     <spirit:parameter>
       <spirit:name>MEMORY_ENDADDRESS</spirit:name>
       <spirit:displayName>Memory Endaddress</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.MEMORY_ENDADDRESS" spirit:bitStringLength="32">0x000003FF</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.MEMORY_ENDADDRESS" spirit:bitStringLength="32">0x000007FF</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>IO_STARTADDRESS</spirit:name>
       <spirit:displayName>Io Startaddress</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.IO_STARTADDRESS" spirit:bitStringLength="32">0x00000400</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.IO_STARTADDRESS" spirit:bitStringLength="32">0x00000800</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>IO_ENDADDRESS</spirit:name>
       <spirit:displayName>Io Endaddress</spirit:displayName>
-      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.IO_ENDADDRESS" spirit:bitStringLength="32">0x00000401</spirit:value>
+      <spirit:value spirit:format="bitString" spirit:resolve="user" spirit:id="PARAM_VALUE.IO_ENDADDRESS" spirit:bitStringLength="32">0x00000801</spirit:value>
     </spirit:parameter>
     <spirit:parameter>
       <spirit:name>Component_Name</spirit:name>
@@ -459,6 +459,11 @@
     <xilinx:coreExtensions>
       <xilinx:displayName>Address_Decoder_v1_0</xilinx:displayName>
       <xilinx:coreRevision>1</xilinx:coreRevision>
+      <xilinx:configElementInfos>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IO_ENDADDRESS" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.IO_STARTADDRESS" xilinx:valueSource="user"/>
+        <xilinx:configElementInfo xilinx:referenceId="PARAM_VALUE.MEMORY_ENDADDRESS" xilinx:valueSource="user"/>
+      </xilinx:configElementInfos>
     </xilinx:coreExtensions>
     <xilinx:packagingInfo>
       <xilinx:xilinxVersion>2017.4</xilinx:xilinxVersion>

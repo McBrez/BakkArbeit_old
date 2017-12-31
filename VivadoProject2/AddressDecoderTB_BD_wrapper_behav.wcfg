@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="AddressDecoderTB_BD_wrapper_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="AddressDecoderTB_BD_wrapper" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="97356060fs"></ZoomStartTime>
+      <ZoomEndTime time="182128789fs"></ZoomEndTime>
+      <Cursor1Time time="168000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="167"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="15" />
+   <wvobject type="divider" fp_name="divider10">
+      <obj_property name="label">TB</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/inst/mem_wdata" type="array">
+      <obj_property name="ElementShortName">mem_wdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/inst/mem_rdata" type="array">
+      <obj_property name="ElementShortName">mem_rdata[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_rdata[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/inst/mem_addr" type="array">
+      <obj_property name="ElementShortName">mem_addr[31:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_addr[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/inst/mem_wstrb" type="array">
+      <obj_property name="ElementShortName">mem_wstrb[3:0]</obj_property>
+      <obj_property name="ObjectShortName">mem_wstrb[3:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/inst/mem_valid" type="logic">
+      <obj_property name="ElementShortName">mem_valid</obj_property>
+      <obj_property name="ObjectShortName">mem_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/inst/mem_ready" type="logic">
+      <obj_property name="ElementShortName">mem_ready</obj_property>
+      <obj_property name="ObjectShortName">mem_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/inst/state" type="array">
+      <obj_property name="ElementShortName">state[31:0]</obj_property>
+      <obj_property name="ObjectShortName">state[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/AddressDecoderTB_0/resetn" type="logic">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider9">
+      <obj_property name="label">AddressDecoder</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="group38" type="group">
+      <obj_property name="label">AddressDecoder</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_valid" type="logic">
+         <obj_property name="ElementShortName">mem_valid</obj_property>
+         <obj_property name="ObjectShortName">mem_valid</obj_property>
+      </wvobject>
+      <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_ready" type="logic">
+         <obj_property name="ElementShortName">mem_ready</obj_property>
+         <obj_property name="ObjectShortName">mem_ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_addr" type="array">
+         <obj_property name="ElementShortName">mem_addr[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_addr[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_wdata" type="array">
+         <obj_property name="ElementShortName">mem_wdata[31:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_wdata[31:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_wstrb" type="array">
+         <obj_property name="ElementShortName">mem_wstrb[3:0]</obj_property>
+         <obj_property name="ObjectShortName">mem_wstrb[3:0]</obj_property>
+      </wvobject>
+      <wvobject fp_name="group40" type="group">
+         <obj_property name="label">AC_IO</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_rdata_io" type="array">
+            <obj_property name="ElementShortName">mem_rdata_io[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_rdata_io[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_wdata_io" type="array">
+            <obj_property name="ElementShortName">mem_wdata_io[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_wdata_io[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_valid_io" type="logic">
+            <obj_property name="ElementShortName">mem_valid_io</obj_property>
+            <obj_property name="ObjectShortName">mem_valid_io</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_ready_io" type="logic">
+            <obj_property name="ElementShortName">mem_ready_io</obj_property>
+            <obj_property name="ObjectShortName">mem_ready_io</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_addr_io" type="array">
+            <obj_property name="ElementShortName">mem_addr_io[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_addr_io[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_wstrb_io" type="array">
+            <obj_property name="ElementShortName">mem_wstrb_io[3:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_wstrb_io[3:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/bankSwitch" type="logic">
+            <obj_property name="ElementShortName">bankSwitch</obj_property>
+            <obj_property name="ObjectShortName">bankSwitch</obj_property>
+         </wvobject>
+      </wvobject>
+      <wvobject fp_name="group39" type="group">
+         <obj_property name="label">AC_Memory</obj_property>
+         <obj_property name="DisplayName">label</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_rdata_memory" type="array">
+            <obj_property name="ElementShortName">mem_rdata_memory[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_rdata_memory[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_wdata_memory" type="array">
+            <obj_property name="ElementShortName">mem_wdata_memory[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_wdata_memory[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_valid_memory" type="logic">
+            <obj_property name="ElementShortName">mem_valid_memory</obj_property>
+            <obj_property name="ObjectShortName">mem_valid_memory</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_ready_memory" type="logic">
+            <obj_property name="ElementShortName">mem_ready_memory</obj_property>
+            <obj_property name="ObjectShortName">mem_ready_memory</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_addr_memory" type="array">
+            <obj_property name="ElementShortName">mem_addr_memory[31:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_addr_memory[31:0]</obj_property>
+         </wvobject>
+         <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Address_Decoder_0/mem_wstrb_memory" type="array">
+            <obj_property name="ElementShortName">mem_wstrb_memory[3:0]</obj_property>
+            <obj_property name="ObjectShortName">mem_wstrb_memory[3:0]</obj_property>
+         </wvobject>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Out_bank_0/inst/uart/UART_out" type="logic">
+      <obj_property name="ElementShortName">UART_out</obj_property>
+      <obj_property name="ObjectShortName">UART_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Out_bank_0/inst/uart/tx_reg" type="array">
+      <obj_property name="ElementShortName">tx_reg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_reg[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/AddressDecoderTB_BD_wrapper/AddressDecoderTB_BD_i/Out_bank_0/inst/uart/tx_busy" type="logic">
+      <obj_property name="ElementShortName">tx_busy</obj_property>
+      <obj_property name="ObjectShortName">tx_busy</obj_property>
+   </wvobject>
+</wave_config>

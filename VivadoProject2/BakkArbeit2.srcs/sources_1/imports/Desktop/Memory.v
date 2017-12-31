@@ -27,20 +27,12 @@ initial begin
     $readmemh("mem_content.txt", mem);
     mem_ready = 0;
     trap = 0;
-    
-    for(i = 0 ; i < 32 ; i=i+1) begin 
-        mem[i] = 0;
-    end
 end
 
 //reset
 always@(negedge resetn) begin
     mem_ready = 0;
     trap = 0;
-    
-    for(i = 0 ; i < 32 ; i=i+1) begin 
-        mem[i] = 0;
-    end
 end 
 
 always@(negedge mem_valid)

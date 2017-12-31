@@ -88,8 +88,7 @@ module Address_Decoder #(
         
         // is address in address room of memory? 
         if ( mem_addr >= MEMORY_STARTADDRESS && mem_addr <= MEMORY_ENDADDRESS) begin
-                mem_addr_internal <= mem_addr - MEMORY_STARTADDRESS;
-                mem_addr_memory <= mem_addr_internal;
+                mem_addr_memory <= mem_addr - MEMORY_STARTADDRESS;
                 mem_wdata_memory <= mem_wdata;
                 mem_wstrb_memory <= mem_wstrb;
                 mem_valid_memory <= 1;
@@ -98,12 +97,11 @@ module Address_Decoder #(
         
         //is address in address room of io?
         if ( mem_addr >= IO_STARTADDRESS && mem_addr <= IO_ENDADDRESS) begin
-                mem_addr_internal <= mem_addr - IO_STARTADDRESS;
-                mem_addr_io <= mem_addr_internal;
                 mem_wstrb_io <= mem_wstrb;
                 mem_valid_io <= 1;
+                mem_wdata_io <= mem_wdata;
                 
-                if(mem_addr_io == 0) begin
+                if((mem_addr - IO_STARTADDRESS) == 0) begin
                     bankSwitch <= 0; 
                 end
                 else begin
@@ -119,6 +117,7 @@ module Address_Decoder #(
         if( multiplex_state == MX_STATE_MEM) begin
             mem_ready <= 1;
             mem_rdata <= mem_rdata_memory;
+            mem_valid_memory <= 0;
         end
     end
     
@@ -126,6 +125,7 @@ module Address_Decoder #(
         if(multiplex_state == MX_STATE_IO) begin
             mem_ready <= 1;
             mem_rdata <= mem_rdata_io;
+            mem_valid_io <= 0;
         end
     end
     

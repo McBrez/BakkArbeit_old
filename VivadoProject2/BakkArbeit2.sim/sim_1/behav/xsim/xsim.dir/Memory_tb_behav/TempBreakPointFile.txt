@@ -1,3 +1,0 @@
-Breakpoint File Version 1.0
-27 true D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sim_1/imports/Desktop/Memory.v
-121 true D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sim_1/imports/Desktop/Memory_tb.v

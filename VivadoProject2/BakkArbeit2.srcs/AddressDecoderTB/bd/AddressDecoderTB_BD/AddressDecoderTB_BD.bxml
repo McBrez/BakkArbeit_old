@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="AddressDecoderTB_BD" CanBeSetAsTop="true" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1514666422"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1514666422"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1514666423"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1514666423"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1514741644"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1514741644"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1514741644"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1514741644"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\AddressDecoderTB_BD_AddressDecoderTB_0_0\AddressDecoderTB_BD_AddressDecoderTB_0_0.xci" Type="IP">
         <Instance HierarchyPath="AddressDecoderTB_0"/>

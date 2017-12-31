@@ -105,9 +105,9 @@ output wire [3 : 0] mem_wstrb_io;
 
   Address_Decoder #(
     .MEMORY_STARTADDRESS(32'H00000000),
-    .MEMORY_ENDADDRESS(32'H000003FF),
-    .IO_STARTADDRESS(32'H00000400),
-    .IO_ENDADDRESS(32'H00000401)
+    .MEMORY_ENDADDRESS(32'H000007FF),
+    .IO_STARTADDRESS(32'H00000800),
+    .IO_ENDADDRESS(32'H00000801)
   ) inst (
     .resetn(resetn),
     .mem_valid(mem_valid),

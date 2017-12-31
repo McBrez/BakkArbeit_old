@@ -1,9 +1,9 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/ec67/hdl" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/d5d3/hdl/verilog" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/e0a2/hdl" --include "../../../../BakkArbeit2.srcs/sim_1/imports/Desktop" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+verilog xil_defaultlib  --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/ec67/hdl" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/d5d3/hdl/verilog" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/e0a2/hdl" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "../../../../BakkArbeit2.srcs/AddressDecoderTB/new/AddressDevoderTB.v" \
 "../../../../BakkArbeit2.srcs/sources_1/new/Address_Decoder.v" \
 "../../../../BakkArbeit2.srcs/sources_1/imports/Desktop/Memory.v" \
-"../../../../BakkArbeit2.srcs/sources_1/new/Out_bank.v" \
+"../../../../BakkArbeit2.srcs/sources_1/imports/new/Out_bank.v" \
 "../../../../BakkArbeit2.ip_user_files/bd/AddressDecoderTB_BD/ip/AddressDecoderTB_BD_AddressDecoderTB_0_0/sim/AddressDecoderTB_BD_AddressDecoderTB_0_0.v" \
 "../../../../BakkArbeit2.ip_user_files/bd/AddressDecoderTB_BD/ip/AddressDecoderTB_BD_Address_Decoder_0_0/sim/AddressDecoderTB_BD_Address_Decoder_0_0.v" \
 "../../../../BakkArbeit2.ip_user_files/bd/AddressDecoderTB_BD/sim/AddressDecoderTB_BD.v" \
