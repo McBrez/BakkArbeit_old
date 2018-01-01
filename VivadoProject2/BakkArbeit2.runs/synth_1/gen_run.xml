@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1514662319">
-  <File Type="PA-TCL" Name="AddressDecoderTB.tcl"/>
-  <File Type="REPORTS-TCL" Name="AddressDecoderTB_reports.tcl"/>
-  <File Type="RDS-RDS" Name="AddressDecoderTB.vds"/>
-  <File Type="RDS-UTIL" Name="AddressDecoderTB_utilization_synth.rpt"/>
+<GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1514836050">
+  <File Type="PA-TCL" Name="PicoRV32_BD_wrapper.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="PicoRV32_BD_wrapper_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="PicoRV32_BD_wrapper_reports.tcl"/>
+  <File Type="RDS-RDS" Name="PicoRV32_BD_wrapper.vds"/>
+  <File Type="RDS-UTIL" Name="PicoRV32_BD_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="BakkArbeit_Blockdesign_wrapper_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="AddressDecoderTB.dcp"/>
+  <File Type="RDS-DCP" Name="PicoRV32_BD_wrapper.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="PicoRV32_BD_wrapper_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="PicoRV32_BD_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
-    <File Path="$PSRCDIR/AddressDecoderTB/new/AddressDevoderTB.v">
+    <File Path="$PSRCDIR/sources_1/imports/picorv32-master/picorv32.v">
       <FileInfo>
+        <Attr Name="Library" Val="xil_defaultlib"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../picorv32-master/picorv32.v"/>
+        <Attr Name="ImportTime" Val="1511024096"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -18,17 +24,15 @@
     <File Path="$PSRCDIR/sources_1/new/Address_Decoder.v">
       <FileInfo>
         <Attr Name="Library" Val="xil_defaultlib"/>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PPRDIR/../VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/Address_Decoder.v"/>
         <Attr Name="ImportTime" Val="1513022133"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
     <File Path="$PSRCDIR/sources_1/imports/new/Out_bank.v">
       <FileInfo>
-        <Attr Name="Library" Val="xil_defaultlib"/>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="$PSRCDIR/sources_1/new/Out_bank.v"/>
         <Attr Name="ImportTime" Val="1514117658"/>
         <Attr Name="UsedIn" Val="synthesis"/>
@@ -38,9 +42,30 @@
     </File>
     <File Path="$PSRCDIR/sources_1/imports/Desktop/Memory.v">
       <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="ImportPath" Val="C:/Users/David/Desktop/Memory.v"/>
-        <Attr Name="ImportTime" Val="1513104819"/>
+        <Attr Name="ImportTime" Val="1514733162"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/PicoRV32_BD/PicoRV32_BD.bd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/bd/PicoRV32_BD/hdl/PicoRV32_BD_wrapper.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/AddressDecoderTB/new/AddressDevoderTB.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -55,34 +80,6 @@
         <Attr Name="UsedIn" Val="implementation"/>
       </FileInfo>
     </File>
-    <File Path="$PSRCDIR/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd"/>
-        <Attr Name="ImportTime" Val="1513106463"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/imports/picorv32-master/picorv32.v">
-      <FileInfo>
-        <Attr Name="Library" Val="xil_defaultlib"/>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../picorv32-master/picorv32.v"/>
-        <Attr Name="ImportTime" Val="1511024096"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/bd/BakkArbeit_Blockdesign/hdl/BakkArbeit_Blockdesign_wrapper.v">
-      <FileInfo>
-        <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="$PPRDIR/../VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/bd/BakkArbeit_Blockdesign/hdl/BakkArbeit_Blockdesign_wrapper.v"/>
-        <Attr Name="ImportTime" Val="1513106466"/>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-      </FileInfo>
-    </File>
     <File Path="$PSRCDIR/sources_1/new/mem_content.txt">
       <FileInfo SFType="MEM">
         <Attr Name="ImportPath" Val="$PPRDIR/../VivadoProject/BakkArbeit/BakkArbeit.srcs/sources_1/new/mem_content.txt"/>
@@ -93,7 +90,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="AddressDecoderTB"/>
+      <Option Name="TopModule" Val="PicoRV32_BD_wrapper"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
@@ -115,4 +112,10 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Address_Decoder_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Out_bank_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_xlconstant_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_picorv32_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Memory_0_0"/>
 </GenRun>

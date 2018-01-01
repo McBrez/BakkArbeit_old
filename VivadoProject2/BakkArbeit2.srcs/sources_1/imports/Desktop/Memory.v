@@ -15,11 +15,9 @@ module Memory#(
     );
 reg [31:0] mem[0 : MEMDEPTH - 1];
 reg [31:0]tempReg;
-reg doWrite = 0;
 integer i;
 integer addr;
-integer StartBit;
-integer EndBit;
+reg [31:0] writeMask;
 
 
 // INIT of Memory. The code to be executed has to be put here. 
@@ -27,6 +25,7 @@ initial begin
     $readmemh("mem_content.txt", mem);
     mem_ready = 0;
     trap = 0;
+
 end
 
 //reset
@@ -46,58 +45,51 @@ always@(posedge mem_valid or posedge mem_instr) begin
   case(mem_wstrb)
     //Read 
     4'b0000: begin
-        addr = mem_addr;
-        mem_rdata = mem[addr];
-        doWrite = 0;
+        addr <= mem_addr;
+        mem_rdata <= mem[addr];
+        mem_ready <= 1;
     end
     
     //Write Byte 0
     4'b0001: begin
-        StartBit = 0;
-        EndBit = 7;
-        doWrite = 1;
+        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_00000000_00000000_11111111);
+        mem_ready <= 1;
     end
     
     //Write Byte 1
     4'b0010: begin
-        StartBit = 8;
-        EndBit = 15;
-        doWrite = 1;
+        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_00000000_11111111_00000000);
+        mem_ready <= 1;
     end
     
     //Write Byte 2
     4'b0100: begin
-        StartBit = 16;
-        EndBit = 23;
-        doWrite = 1;
+        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_11111111_00000000_00000000);
+        mem_ready <= 1;
     end
     
     //Write Byte 3
     4'b1000: begin
-        StartBit = 24;
-        EndBit = 31;
-        doWrite = 1;
+        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b11111111_00000000_00000000_00000000);
+        mem_ready <= 1;
     end
     
     //Write upper 2 Bytes
     4'b1100: begin
-        StartBit = 16;
-        EndBit = 31;
-        doWrite = 1;
+        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b11111111_11111111_00000000_00000000);
+        mem_ready <= 1;
     end
     
     //Write lower 2 Bytes
     4'b0011: begin
-        StartBit = 0;
-        EndBit = 15;
-        doWrite = 1;
+        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_00000000_11111111_11111111);
+        mem_ready <= 1;
     end
     
     //Write all Bytes
     4'b1111: begin
-        StartBit = 0;
-        EndBit = 31;
-        doWrite = 1;
+        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b11111111_11111111_11111111_11111111);
+        mem_ready <= 1;
    end
    
     //invalid write operation
@@ -109,16 +101,6 @@ always@(posedge mem_valid or posedge mem_instr) begin
 // Has a trap occured?    
   if(trap == 1) begin 
     mem_ready = 0;
-  end
-  else begin
-    if(doWrite == 1) begin 
-    //Write Bits of Memory according to mem_wstrb
-    addr = mem_addr;
-    for(i = StartBit ; i <= EndBit ; i = i + 1) begin
-        mem[mem_addr][i] = mem_wdata[i];
-    end
-   end
-   mem_ready = 1;
   end
 end
 

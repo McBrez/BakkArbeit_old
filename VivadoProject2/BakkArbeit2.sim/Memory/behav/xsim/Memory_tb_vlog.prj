@@ -1,5 +1,5 @@
 # compile verilog/system verilog design source files
-verilog xil_defaultlib  --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/ec67/hdl" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/d5d3/hdl/verilog" --include "../../../../BakkArbeit2.srcs/sources_1/bd/BakkArbeit_Blockdesign/ipshared/e0a2/hdl" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+verilog xil_defaultlib  --include "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" --include "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" --include "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "../../../../BakkArbeit2.srcs/sources_1/imports/Desktop/Memory.v" \
 "../../../../BakkArbeit2.srcs/Memory/new/Memory_TB.v" \
 
