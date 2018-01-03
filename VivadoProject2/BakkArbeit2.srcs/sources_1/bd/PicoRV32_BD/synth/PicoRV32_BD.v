@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Mon Jan  1 20:47:18 2018
+//Date        : Wed Jan  3 23:30:26 2018
 //Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 //Command     : generate_target PicoRV32_BD.bd
 //Design      : PicoRV32_BD
@@ -110,6 +110,7 @@ module PicoRV32_BD
   assign clk_1 = clk;
   PicoRV32_BD_Address_Decoder_0_0 Address_Decoder_0
        (.bankSwitch(Address_Decoder_0_bankSwitch),
+        .clk(processing_system7_0_FCLK_CLK0),
         .mem_addr(picorv32_0_mem_addr),
         .mem_addr_memory(Address_Decoder_0_mem_addr_memory),
         .mem_instr(picorv32_0_mem_instr),
@@ -129,7 +130,8 @@ module PicoRV32_BD
         .mem_wstrb_memory(Address_Decoder_0_mem_wstrb_memory),
         .resetn(xlconstant_0_dout));
   PicoRV32_BD_Memory_0_0 Memory_0
-       (.mem_addr(Address_Decoder_0_mem_addr_memory),
+       (.clk(processing_system7_0_FCLK_CLK0),
+        .mem_addr(Address_Decoder_0_mem_addr_memory),
         .mem_instr(1'b0),
         .mem_rdata(Memory_0_mem_rdata),
         .mem_ready(Memory_0_mem_ready),

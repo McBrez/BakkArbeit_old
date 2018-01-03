@@ -57,4 +57,4 @@ synth_design -top PicoRV32_BD_wrapper -part xc7z020clg484-1
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
 write_checkpoint -force -noxdef PicoRV32_BD_wrapper.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file PicoRV32_BD_wrapper_utilization_synth.rpt -pb BakkArbeit_Blockdesign_wrapper_utilization_synth.pb"
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file PicoRV32_BD_wrapper_utilization_synth.rpt -pb PicoRV32_BD_wrapper_utilization_synth.pb"

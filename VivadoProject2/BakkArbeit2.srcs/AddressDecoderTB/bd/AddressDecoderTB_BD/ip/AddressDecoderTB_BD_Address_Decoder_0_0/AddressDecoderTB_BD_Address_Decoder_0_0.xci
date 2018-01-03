@@ -9,6 +9,10 @@
       <spirit:instanceName>AddressDecoderTB_BD_Address_Decoder_0_0</spirit:instanceName>
       <spirit:componentRef spirit:vendor="xilinx.com" spirit:library="module_ref" spirit:name="Address_Decoder" spirit:version="1.0"/>
       <spirit:configurableElementValues>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.ASSOCIATED_BUSIF"/>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.CLK_DOMAIN"/>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.FREQ_HZ">100000000</spirit:configurableElementValue>
+        <spirit:configurableElementValue spirit:referenceId="BUSIFPARAM_VALUE.CLK.PHASE">0.000</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IO_ENDADDRESS">0x00000801</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.IO_STARTADDRESS">0x00000800</spirit:configurableElementValue>
         <spirit:configurableElementValue spirit:referenceId="MODELPARAM_VALUE.MEMORY_ENDADDRESS">0x000007FF</spirit:configurableElementValue>

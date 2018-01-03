@@ -639,7 +639,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net picorv32_0_mem_valid [get_bd_pins Address_Decoder_0/mem_valid] [get_bd_pins picorv32_0/mem_valid]
   connect_bd_net -net picorv32_0_mem_wdata [get_bd_pins Address_Decoder_0/mem_wdata] [get_bd_pins picorv32_0/mem_wdata]
   connect_bd_net -net picorv32_0_mem_wstrb [get_bd_pins Address_Decoder_0/mem_wstrb] [get_bd_pins picorv32_0/mem_wstrb]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Out_bank_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Memory_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
   connect_bd_net -net xlconstant_0_dout [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Memory_0/resetn] [get_bd_pins Out_bank_0/resetn] [get_bd_pins picorv32_0/resetn] [get_bd_pins xlconstant_0/dout]
 
   # Create address segments

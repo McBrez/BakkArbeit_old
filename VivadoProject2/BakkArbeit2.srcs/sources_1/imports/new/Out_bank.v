@@ -44,24 +44,16 @@ module UART_block
         state = IDLE;
         UART_index = 0;
     end
-    
-    always@(negedge resetn) begin
-        UART_out = 1;
-        tx_busy = 0;
-        state = IDLE;
-        UART_index = 0;
-    end
-    
-    //on positive edge of tx_send, start sending. if module is busy, don't change state. 
-    always@(posedge tx_send) begin
-        if(!tx_busy) begin
-            state <= START;
-            tx_busy <= 1;
-        end
-    end
-    
+            
     always@(posedge clk) begin
         case(state)
+            IDLE: begin
+                if(tx_send == 1) begin
+                    state <= START;
+                    tx_busy <= 1;
+                end
+            end
+            
             START: begin
                 UART_out <= 0;
                 state <= SEND;
@@ -101,8 +93,12 @@ module Out_bank(
     );
     
     reg [7:0] tx_reg;
-    reg tx_send;
-    wire tx_busy;
+    reg     module_state;
+    reg     tx_send;
+    wire    tx_busy;
+    
+    localparam  MODULE_STATE_IDLE   =   1'b0;
+    localparam  MODULE_STATE_RESET  =   1'b1;
     
     UART_block uart(
         .resetn     (resetn     ),
@@ -114,61 +110,64 @@ module Out_bank(
     );
     
     initial begin
-        mem_ready = 0;
-        out_registers = 0;
-    end
-    
-    always@(negedge resetn) begin
         mem_ready <= 0;
         out_registers <= 0;
+        module_state = 1'b0;
     end
-    
-    always@(posedge mem_valid) begin
-    //send to UART or Pins? 
-        if(bankSwitch) begin
-            //read or write? 
-            case(mem_wstrb)
-                //write state of Uart module into outgoing registers
-                4'b0000: begin
-                    mem_rdata <= tx_busy;
-                    mem_ready <= 1;
-                end
+        
+    always@(posedge clk) begin
+        case(module_state)
+            
+            MODULE_STATE_IDLE:begin
+                if(mem_valid == 1) begin 
+                //send to UART or Pins? 
+                    if(bankSwitch) begin
+                       //read or write? 
+                         case(mem_wstrb)
+                           //write state of Uart module into outgoing registers
+                           4'b0000: begin
+                               mem_rdata <= tx_busy;
+                               mem_ready <= 1;
+                           end
+                           
+                           default begin
+                               //check if uart is busy.
+                               if(tx_busy) begin
+                                   //send trap
+                                   trap <= 1;
+                                   mem_ready <= 1;
+                               end
+                               else begin
+                                   tx_reg <= mem_wdata;
+                                   tx_send <= 1; 
+                                   mem_ready <= 1; 
+                               end
+                           end
+                       endcase
+                   end
+                   else begin
+                       case(mem_wstrb)
+                           4'b0000: begin
+                               mem_rdata <= out_registers;
+                               mem_ready <= 1;
+                           end
+                           
+                           default begin 
+                               out_registers <= mem_wdata;
+                               mem_ready <= 1;
+                           end
+                       endcase
+                   end    
                 
-                default begin
-                    //check if uart is busy.
-                    if(tx_busy) begin
-                        //send trap
-                        trap <= 1;
-                        mem_ready <= 1;
-                    end
-                    else begin
-                        tx_reg <= mem_wdata;
-                        tx_send <= 1; 
-                        mem_ready <= 1; 
-                    end
+                module_state <= MODULE_STATE_RESET;
                 end
-            endcase
-        end
-        else begin
-            case(mem_wstrb)
-                4'b0000: begin
-                    mem_rdata <= out_registers;
-                    mem_ready <= 1;
-                end
-                
-                default begin 
-                    out_registers <= mem_wdata;
-                    mem_ready <= 1;
-                end
-            endcase
-        end
-    end
-    
-    
-    
-    always@(negedge mem_valid) begin
-        mem_ready <= 0;
-        tx_send <= 0;
-    end
-    
+            end
+            
+            MODULE_STATE_RESET:begin
+                mem_ready <= 0;
+                tx_send <= 0;
+                module_state <= MODULE_STATE_IDLE;
+            end
+        endcase
+    end    
 endmodule

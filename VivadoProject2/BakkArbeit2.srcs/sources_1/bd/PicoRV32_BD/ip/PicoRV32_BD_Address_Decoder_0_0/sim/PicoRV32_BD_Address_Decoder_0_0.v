@@ -54,6 +54,7 @@
 
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module PicoRV32_BD_Address_Decoder_0_0 (
+  clk,
   resetn,
   mem_valid,
   mem_instr,
@@ -78,6 +79,9 @@ module PicoRV32_BD_Address_Decoder_0_0 (
   mem_wstrb_io
 );
 
+(* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN PicoRV32_BD_processing_system7_0_0_FCLK_CLK0" *)
+(* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *)
+input wire clk;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW" *)
 (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *)
 input wire resetn;
@@ -109,6 +113,7 @@ output wire [3 : 0] mem_wstrb_io;
     .IO_STARTADDRESS(32'H00000400),
     .IO_ENDADDRESS(32'H00000401)
   ) inst (
+    .clk(clk),
     .resetn(resetn),
     .mem_valid(mem_valid),
     .mem_instr(mem_instr),

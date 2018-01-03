@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Mon Jan  1 20:47:19 2018" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jan  3 23:30:26 2018" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="PicoRV32_BD" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -101,6 +101,11 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="resetn" SIGIS="rst" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
@@ -210,6 +215,11 @@
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>
       <PORTS>
+        <PORT CLKFREQUENCY="100000000" DIR="I" NAME="clk" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="processing_system7_0" PORT="FCLK_CLK0"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="I" NAME="resetn" SIGIS="rst" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="xlconstant_0" PORT="dout"/>
@@ -1400,7 +1410,9 @@
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="picorv32_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Address_Decoder_0" PORT="clk"/>
             <CONNECTION INSTANCE="Out_bank_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Memory_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="FCLK_RESET0_N" SIGIS="rst"/>
@@ -1565,10 +1577,10 @@
       <PORTS>
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Address_Decoder_0" PORT="resetn"/>
             <CONNECTION INSTANCE="picorv32_0" PORT="resetn"/>
-            <CONNECTION INSTANCE="Out_bank_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="Address_Decoder_0" PORT="resetn"/>
             <CONNECTION INSTANCE="Memory_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="Out_bank_0" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
