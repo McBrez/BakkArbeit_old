@@ -19,6 +19,16 @@ integer i;
 integer addr;
 reg [31:0] writeMask;
 
+//static masks that are used during memory write operations.
+localparam  wstrb_mask_0001 = 32'b00000000_00000000_00000000_11111111;
+localparam  wstrb_mask_0010 = 32'b00000000_00000000_11111111_00000000;
+localparam  wstrb_mask_0100 = 32'b00000000_11111111_00000000_00000000;
+localparam  wstrb_mask_1000 = 32'b11111111_00000000_00000000_00000000;
+localparam  wstrb_mask_0011 = 32'b00000000_00000000_11111111_11111111;
+localparam  wstrb_mask_1100 = 32'b11111111_11111111_00000000_00000000;
+localparam  wstrb_mask_1111 = 32'b11111111_11111111_11111111_11111111;
+            
+
 
 // INIT of Memory. The code to be executed has to be put here. 
 initial begin
@@ -52,43 +62,43 @@ always@(posedge mem_valid or posedge mem_instr) begin
     
     //Write Byte 0
     4'b0001: begin
-        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_00000000_00000000_11111111);
+        mem[mem_addr] <= ( mem[mem_addr] & ~wstrb_mask_0001 ) | ( mem_wdata & wstrb_mask_0001 );
         mem_ready <= 1;
     end
     
     //Write Byte 1
     4'b0010: begin
-        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_00000000_11111111_00000000);
+        mem[mem_addr] <= ( mem[mem_addr] & ~wstrb_mask_0010 ) | ( mem_wdata & wstrb_mask_0010 );
         mem_ready <= 1;
     end
     
     //Write Byte 2
     4'b0100: begin
-        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_11111111_00000000_00000000);
+        mem[mem_addr] <= ( mem[mem_addr] & ~wstrb_mask_0100 ) | ( mem_wdata & wstrb_mask_0100 );
         mem_ready <= 1;
     end
     
     //Write Byte 3
     4'b1000: begin
-        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b11111111_00000000_00000000_00000000);
+        mem[mem_addr] <= ( mem[mem_addr] & ~wstrb_mask_1000 ) | ( mem_wdata & wstrb_mask_1000 );
         mem_ready <= 1;
     end
     
     //Write upper 2 Bytes
     4'b1100: begin
-        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b11111111_11111111_00000000_00000000);
+        mem[mem_addr] <= ( mem[mem_addr] & ~wstrb_mask_1100 ) | ( mem_wdata & wstrb_mask_1100 );
         mem_ready <= 1;
     end
     
     //Write lower 2 Bytes
     4'b0011: begin
-        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b00000000_00000000_11111111_11111111);
+        mem[mem_addr] <= ( mem[mem_addr] & ~wstrb_mask_0011 ) | ( mem_wdata & wstrb_mask_0011 );
         mem_ready <= 1;
     end
     
     //Write all Bytes
     4'b1111: begin
-        mem[mem_addr] <= mem[mem_addr] | (mem_wdata & 32'b11111111_11111111_11111111_11111111);
+        mem[mem_addr] <= ( mem[mem_addr] & ~wstrb_mask_1111 ) | ( mem_wdata & wstrb_mask_1111 );
         mem_ready <= 1;
    end
    
