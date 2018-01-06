@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Fri Jan  5 20:25:37 2018" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sat Jan  6 21:47:36 2018" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="Address_decoder_TB_BD" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -17,15 +17,15 @@
       <PORTS>
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="clk" SIGIS="clk" SIGNAME="AddressDecoderTB_0_clk">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Address_Decoder_0" PORT="clk"/>
             <CONNECTION INSTANCE="Out_bank_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Address_Decoder_0" PORT="clk"/>
             <CONNECTION INSTANCE="Memory_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
         <PORT DIR="O" NAME="resetn" SIGIS="rst" SIGNAME="AddressDecoderTB_0_resetn">
           <CONNECTIONS>
-            <CONNECTION INSTANCE="Address_Decoder_0" PORT="resetn"/>
             <CONNECTION INSTANCE="Out_bank_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="Address_Decoder_0" PORT="resetn"/>
             <CONNECTION INSTANCE="Memory_0" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
@@ -182,7 +182,7 @@
     <MODULE FULLNAME="/Memory_0" HWVERSION="1.0" INSTANCE="Memory_0" IPTYPE="PERIPHERAL" IS_ENABLE="1" MODCLASS="PERIPHERAL" MODTYPE="Memory" VLNV="xilinx.com:module_ref:Memory:1.0">
       <DOCUMENTS/>
       <PARAMETERS>
-        <PARAMETER NAME="MEMDEPTH" VALUE="2048"/>
+        <PARAMETER NAME="MEMDEPTH" VALUE="1024"/>
         <PARAMETER NAME="Component_Name" VALUE="Address_decoder_TB_BD_Memory_0_0"/>
         <PARAMETER NAME="EDK_IPTYPE" VALUE="PERIPHERAL"/>
       </PARAMETERS>

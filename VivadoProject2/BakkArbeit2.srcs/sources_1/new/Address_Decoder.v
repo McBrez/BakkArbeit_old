@@ -86,8 +86,6 @@ module Address_Decoder #(
         
             MODULE_STATE_IDLE:begin
                 
-                mem_ready <= 0;
-                
                 if(mem_valid == 1) begin
                     // is address in address room of memory? 
                     if ( mem_addr >= MEMORY_STARTADDRESS && mem_addr <= MEMORY_ENDADDRESS) begin
@@ -116,6 +114,9 @@ module Address_Decoder #(
                         multiplex_state <= 1;
                     end
                 end               
+                else begin
+                    mem_ready <= 0;
+                end
             end
             
             MODULE_STATE_WAITING:begin

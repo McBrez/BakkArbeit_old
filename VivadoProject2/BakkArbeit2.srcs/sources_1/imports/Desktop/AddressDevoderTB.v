@@ -47,6 +47,7 @@ module AddressDecoderTB (
             //init
             TEST_STATE_INIT:begin
                 resetn <= 1;
+                test_state <= TEST_STATE_READMEMBEGIN;
             end
             
             //Read from start of memory
@@ -56,7 +57,7 @@ module AddressDecoderTB (
                     
                     WAIT_STATE_ASSERTED:begin
                         mem_wstrb <= 4'b0000;
-                        mem_valid <= 0;
+                        mem_valid <= 1;
                         mem_addr <= 32'b0;
                         
                         wait_state <= WAIT_STATE_LISTENING;
@@ -70,12 +71,68 @@ module AddressDecoderTB (
                     end
                     
                 endcase
-                
-                
-                mem_addr <= 0;
-                mem_valid <= 1;
-                mem_wstrb <= 0;
             end            
+            
+            //Write to start of memory
+            TEST_STATE_WRITEMEMBEGIN:begin
+                case(wait_state)
+                    WAIT_STATE_ASSERTED:begin
+                        mem_wstrb <= 4'b0011;
+                        mem_valid <= 1;
+                        mem_addr <= 32'b0;
+                        mem_wdata <= 32'b01010101_10101010_01010101_10101010;
+                                            
+                        wait_state <= WAIT_STATE_LISTENING;
+                    end
+                    
+                    WAIT_STATE_LISTENING:begin
+                        if(mem_ready == 1) begin
+                            wait_state <= WAIT_STATE_ASSERTED;
+                            test_state <= TEST_STATE_WRITEOUTREGS;
+                        end
+                    end
+                endcase
+            end
+        
+            //Write to outregs
+            TEST_STATE_WRITEOUTREGS:begin
+                case(wait_state)
+                    WAIT_STATE_ASSERTED:begin
+                        mem_wstrb <= 4'b1111;
+                        mem_valid <= 1;
+                        mem_addr <= 32'h400;
+                        mem_wdata <= 32'b01010101_10101010_01010101_10101010;
+                        
+                        wait_state <= WAIT_STATE_LISTENING;
+                    end
+                    
+                    WAIT_STATE_LISTENING:begin
+                        if(mem_ready == 1) begin
+                            wait_state <= WAIT_STATE_ASSERTED;
+                            test_state <= TEST_STATE_WRITEUART;
+                        end
+                    end
+                endcase
+            end
+            
+            //Write to UART
+            TEST_STATE_WRITEUART:begin
+                case(wait_state)
+                    WAIT_STATE_ASSERTED:begin
+                        mem_wstrb <= 4'b1111;
+                        mem_valid <= 1;
+                        mem_addr <= 32'h401;
+                        mem_wdata <= 32'b01010101_10101010_01010101_01010101;
+                        
+                        wait_state <= WAIT_STATE_LISTENING;
+                    end
+                    
+                    WAIT_STATE_LISTENING:begin
+                        wait_state <= WAIT_STATE_ASSERTED;
+                        test_state <= TEST_STATE_READUART;
+                    end
+                endcase
+            end
         endcase 
     end
     

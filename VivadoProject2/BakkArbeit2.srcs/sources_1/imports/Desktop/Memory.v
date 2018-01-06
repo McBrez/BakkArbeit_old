@@ -54,8 +54,7 @@ always@(posedge clk) begin
             case(mem_wstrb)
             //Read 
             4'b0000: begin
-                addr <= mem_addr;
-                mem_rdata <= mem[addr];
+                mem_rdata <= mem[mem_addr];
                 mem_ready <= 1;
             end
             

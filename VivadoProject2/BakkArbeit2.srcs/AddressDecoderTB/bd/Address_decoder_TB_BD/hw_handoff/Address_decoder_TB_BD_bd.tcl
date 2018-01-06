@@ -198,7 +198,10 @@ proc create_root_design { parentCell } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property -dict [ list \
+   CONFIG.MEMDEPTH {1024} \
+ ] $Memory_0
+
   # Create instance: Out_bank_0, and set properties
   set block_name Out_bank
   set block_cell_name Out_bank_0

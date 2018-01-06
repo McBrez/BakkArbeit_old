@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="115200001fs"></ZoomEndTime>
-      <Cursor1Time time="0fs"></Cursor1Time>
+      <ZoomStartTime time="151333334fs"></ZoomStartTime>
+      <ZoomEndTime time="473333335fs"></ZoomEndTime>
+      <Cursor1Time time="295000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="202"></NameColumnWidth>
-      <ValueColumnWidth column_width="129"></ValueColumnWidth>
+      <NameColumnWidth column_width="144"></NameColumnWidth>
+      <ValueColumnWidth column_width="125"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="10" />
+   <WVObjectSize size="24" />
    <wvobject type="divider" fp_name="divider10">
       <obj_property name="label">TB</obj_property>
       <obj_property name="DisplayName">label</obj_property>
@@ -59,11 +59,9 @@
    <wvobject fp_name="group38" type="group">
       <obj_property name="label">AddressDecoder</obj_property>
       <obj_property name="DisplayName">label</obj_property>
-      <obj_property name="isExpanded"></obj_property>
       <wvobject fp_name="group40" type="group">
          <obj_property name="label">AC_IO</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Address_Decoder_0/bankSwitch" type="logic">
             <obj_property name="ElementShortName">bankSwitch</obj_property>
             <obj_property name="ObjectShortName">bankSwitch</obj_property>
@@ -96,7 +94,6 @@
       <wvobject fp_name="group39" type="group">
          <obj_property name="label">AC_Memory</obj_property>
          <obj_property name="DisplayName">label</obj_property>
-         <obj_property name="isExpanded"></obj_property>
          <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Address_Decoder_0/mem_rdata_memory" type="array">
             <obj_property name="ElementShortName">mem_rdata_memory[31:0]</obj_property>
             <obj_property name="ObjectShortName">mem_rdata_memory[31:0]</obj_property>
@@ -122,5 +119,63 @@
             <obj_property name="ObjectShortName">mem_wstrb_memory[3:0]</obj_property>
          </wvobject>
       </wvobject>
+   </wvobject>
+   <wvobject type="divider" fp_name="divider51">
+      <obj_property name="label">out</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/UART_out" type="logic">
+      <obj_property name="ElementShortName">UART_out</obj_property>
+      <obj_property name="ObjectShortName">UART_out</obj_property>
+      <obj_property name="CustomSignalColor">#FF0080</obj_property>
+      <obj_property name="UseCustomSignalColor">true</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/tx_busy" type="logic">
+      <obj_property name="ElementShortName">tx_busy</obj_property>
+      <obj_property name="ObjectShortName">tx_busy</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/resetn" type="logic">
+      <obj_property name="ElementShortName">resetn</obj_property>
+      <obj_property name="ObjectShortName">resetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/tx_reg" type="array">
+      <obj_property name="ElementShortName">tx_reg[7:0]</obj_property>
+      <obj_property name="ObjectShortName">tx_reg[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/tx_send" type="logic">
+      <obj_property name="ElementShortName">tx_send</obj_property>
+      <obj_property name="ObjectShortName">tx_send</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/UART_index" type="array">
+      <obj_property name="ElementShortName">UART_index[31:0]</obj_property>
+      <obj_property name="ObjectShortName">UART_index[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/state" type="array">
+      <obj_property name="ElementShortName">state[1:0]</obj_property>
+      <obj_property name="ObjectShortName">state[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/IDLE" type="array">
+      <obj_property name="ElementShortName">IDLE[1:0]</obj_property>
+      <obj_property name="ObjectShortName">IDLE[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/START" type="array">
+      <obj_property name="ElementShortName">START[1:0]</obj_property>
+      <obj_property name="ObjectShortName">START[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/SEND" type="array">
+      <obj_property name="ElementShortName">SEND[1:0]</obj_property>
+      <obj_property name="ObjectShortName">SEND[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Address_decoder_TB_BD_wrapper/Address_decoder_TB_BD_i/Out_bank_0/inst/uart/STOP" type="array">
+      <obj_property name="ElementShortName">STOP[1:0]</obj_property>
+      <obj_property name="ObjectShortName">STOP[1:0]</obj_property>
    </wvobject>
 </wave_config>
