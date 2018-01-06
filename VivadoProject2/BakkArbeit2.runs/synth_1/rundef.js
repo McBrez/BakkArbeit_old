@@ -23,7 +23,7 @@ eval( EAInclude(ISEJScriptLib) );
 
 
 ISEStep( "vivado",
-         "-log PicoRV32_BD_wrapper.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source PicoRV32_BD_wrapper.tcl" );
+         "-log AddressDecoderTB.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source AddressDecoderTB.tcl" );
 
 
 

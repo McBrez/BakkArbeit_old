@@ -38,7 +38,7 @@ localparam  wstrb_mask_1111 = 32'b11111111_11111111_11111111_11111111;
 
 // INIT of Memory. The code to be executed has to be put here. 
 initial begin
-    $readmemh("mem_content.txt", mem);
+    $readmemh("memory_content.dat", mem);
     mem_ready = 0;
     trap = 0;
     module_state = 1'b0;
@@ -50,7 +50,7 @@ always@(posedge clk) begin
   case(module_state)
   
     MODULE_STATE_IDLE:begin
-        if(mem_valid == 1)
+        if(mem_valid == 1) begin
             case(mem_wstrb)
             //Read 
             4'b0000: begin
@@ -108,7 +108,8 @@ always@(posedge clk) begin
           endcase
             
             module_state <= MODULE_STATE_RESET; 
-        end  
+        end 
+    end 
     MODULE_STATE_RESET:begin
         mem_ready <= 0;
         trap <= 0;

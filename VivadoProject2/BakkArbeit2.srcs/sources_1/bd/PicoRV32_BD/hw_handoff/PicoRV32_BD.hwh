@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Wed Jan  3 23:30:26 2018" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jan  4 22:16:04 2018" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="PicoRV32_BD" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -1579,8 +1579,8 @@
           <CONNECTIONS>
             <CONNECTION INSTANCE="picorv32_0" PORT="resetn"/>
             <CONNECTION INSTANCE="Address_Decoder_0" PORT="resetn"/>
-            <CONNECTION INSTANCE="Memory_0" PORT="resetn"/>
             <CONNECTION INSTANCE="Out_bank_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="Memory_0" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>
       </PORTS>
