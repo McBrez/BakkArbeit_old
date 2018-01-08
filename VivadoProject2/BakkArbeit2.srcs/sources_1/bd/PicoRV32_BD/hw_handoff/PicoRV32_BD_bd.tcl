@@ -620,6 +620,7 @@ proc create_root_design { parentCell } {
   # Create port connections
   connect_bd_net -net Address_Decoder_0_bankSwitch [get_bd_pins Address_Decoder_0/bankSwitch] [get_bd_pins Out_bank_0/bankSwitch]
   connect_bd_net -net Address_Decoder_0_mem_addr_memory [get_bd_pins Address_Decoder_0/mem_addr_memory] [get_bd_pins Memory_0/mem_addr]
+  connect_bd_net -net Address_Decoder_0_mem_rdata [get_bd_pins Address_Decoder_0/mem_rdata] [get_bd_pins picorv32_0/mem_rdata]
   connect_bd_net -net Address_Decoder_0_mem_ready [get_bd_pins Address_Decoder_0/mem_ready] [get_bd_pins picorv32_0/mem_ready]
   connect_bd_net -net Address_Decoder_0_mem_valid_io [get_bd_pins Address_Decoder_0/mem_valid_io] [get_bd_pins Out_bank_0/mem_valid]
   connect_bd_net -net Address_Decoder_0_mem_valid_memory [get_bd_pins Address_Decoder_0/mem_valid_memory] [get_bd_pins Memory_0/mem_valid]

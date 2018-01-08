@@ -115,9 +115,9 @@
     <Step Id="synth_design"/>
   </Strategy>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_processing_system7_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_picorv32_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_xlconstant_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Address_Decoder_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_picorv32_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Out_bank_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Address_Decoder_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Memory_0_0"/>
 </GenRun>

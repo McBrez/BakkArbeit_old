@@ -20,7 +20,7 @@ preplace netloc Address_Decoder_0_bankSwitch 1 3 1 1480
 preplace netloc Address_Decoder_0_mem_wdata_memory 1 1 3 450 820 NJ 820 1430
 preplace netloc Address_Decoder_0_mem_valid_io 1 3 1 1490
 preplace netloc Memory_0_mem_ready 1 2 1 910
-preplace netloc Address_Decoder_0_mem_ready 1 1 3 470 -20 NJ -20 1410
+preplace netloc Address_Decoder_0_mem_ready 1 1 3 470 -20 NJ -20 1500
 preplace netloc Address_Decoder_0_mem_valid_memory 1 1 3 470 870 NJ 870 1440
 preplace netloc xlconstant_0_dout 1 1 3 420J 530 890 780 1460
 preplace netloc clk_1 1 0 1 0
@@ -29,6 +29,7 @@ preplace netloc processing_system7_0_FIXED_IO 1 1 4 430J 0 NJ 0 NJ 0 1870J
 preplace netloc picorv32_0_mem_addr 1 2 1 900
 preplace netloc Out_bank_0_out_registers 1 4 1 NJ
 preplace netloc picorv32_0_mem_wdata 1 2 1 880
+preplace netloc Address_Decoder_0_mem_rdata 1 1 3 470 440 NJ 440 1410
 preplace netloc Out_bank_0_mem_ready 1 2 3 940 790 NJ 790 1880
 preplace netloc Address_Decoder_0_mem_wstrb_io 1 3 1 1450
 preplace netloc picorv32_0_mem_instr 1 2 1 930

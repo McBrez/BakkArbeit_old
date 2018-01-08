@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Thu Jan  4 22:16:04 2018" VIVADOVERSION="2017.4">
+<EDKSYSTEM EDWVERSION="1.2" TIMESTAMP="Sun Jan  7 11:01:28 2018" VIVADOVERSION="2017.4">
 
   <SYSTEMINFO ARCH="zynq" BOARD="em.avnet.com:zed:part0:1.3" DEVICE="7z020" NAME="PicoRV32_BD" PACKAGE="clg484" SPEEDGRADE="-1"/>
 
@@ -141,7 +141,11 @@
             <CONNECTION INSTANCE="picorv32_0" PORT="mem_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="O" LEFT="31" NAME="mem_rdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="O" LEFT="31" NAME="mem_rdata" RIGHT="0" SIGIS="undef" SIGNAME="Address_Decoder_0_mem_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="picorv32_0" PORT="mem_rdata"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="trap" SIGIS="undef"/>
         <PORT DIR="O" NAME="bankSwitch" SIGIS="undef" SIGNAME="Address_Decoder_0_bankSwitch">
           <CONNECTIONS>
@@ -395,7 +399,11 @@
             <CONNECTION INSTANCE="Address_Decoder_0" PORT="mem_wstrb"/>
           </CONNECTIONS>
         </PORT>
-        <PORT DIR="I" LEFT="31" NAME="mem_rdata" RIGHT="0" SIGIS="undef"/>
+        <PORT DIR="I" LEFT="31" NAME="mem_rdata" RIGHT="0" SIGIS="undef" SIGNAME="Address_Decoder_0_mem_rdata">
+          <CONNECTIONS>
+            <CONNECTION INSTANCE="Address_Decoder_0" PORT="mem_rdata"/>
+          </CONNECTIONS>
+        </PORT>
         <PORT DIR="O" NAME="mem_la_read" SIGIS="undef"/>
         <PORT DIR="O" NAME="mem_la_write" SIGIS="undef"/>
         <PORT DIR="O" LEFT="31" NAME="mem_la_addr" RIGHT="0" SIGIS="undef"/>
@@ -1410,8 +1418,8 @@
         <PORT CLKFREQUENCY="100000000" DIR="O" NAME="FCLK_CLK0" SIGIS="clk" SIGNAME="processing_system7_0_FCLK_CLK0">
           <CONNECTIONS>
             <CONNECTION INSTANCE="picorv32_0" PORT="clk"/>
-            <CONNECTION INSTANCE="Address_Decoder_0" PORT="clk"/>
             <CONNECTION INSTANCE="Out_bank_0" PORT="clk"/>
+            <CONNECTION INSTANCE="Address_Decoder_0" PORT="clk"/>
             <CONNECTION INSTANCE="Memory_0" PORT="clk"/>
           </CONNECTIONS>
         </PORT>
@@ -1578,8 +1586,8 @@
         <PORT DIR="O" LEFT="0" NAME="dout" RIGHT="0" SIGIS="undef" SIGNAME="xlconstant_0_dout">
           <CONNECTIONS>
             <CONNECTION INSTANCE="picorv32_0" PORT="resetn"/>
-            <CONNECTION INSTANCE="Address_Decoder_0" PORT="resetn"/>
             <CONNECTION INSTANCE="Out_bank_0" PORT="resetn"/>
+            <CONNECTION INSTANCE="Address_Decoder_0" PORT="resetn"/>
             <CONNECTION INSTANCE="Memory_0" PORT="resetn"/>
           </CONNECTIONS>
         </PORT>

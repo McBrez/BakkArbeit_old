@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="PicoRV32_BD" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="RESET" Timestamp="1515270395"/>
-    <Generation Name="IMPLEMENTATION" State="RESET" Timestamp="1515270395"/>
-    <Generation Name="SIMULATION" State="RESET" Timestamp="1515270395"/>
-    <Generation Name="HW_HANDOFF" State="RESET" Timestamp="1515270395"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1515319288"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1515319288"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1515319288"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1515319288"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\PicoRV32_BD_picorv32_0_0\PicoRV32_BD_picorv32_0_0.xci" Type="IP">
         <Instance HierarchyPath="picorv32_0"/>

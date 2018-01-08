@@ -1,8 +1,8 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Thu Jan  4 22:16:03 2018
-//Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
+//Date        : Sun Jan  7 11:01:28 2018
+//Host        : FREISMUTHLAPTOP running 64-bit major release  (build 9200)
 //Command     : generate_target PicoRV32_BD.bd
 //Design      : PicoRV32_BD
 //Purpose     : IP block netlist
@@ -62,6 +62,7 @@ module PicoRV32_BD
 
   wire Address_Decoder_0_bankSwitch;
   wire [31:0]Address_Decoder_0_mem_addr_memory;
+  wire [31:0]Address_Decoder_0_mem_rdata;
   wire Address_Decoder_0_mem_ready;
   wire Address_Decoder_0_mem_valid_io;
   wire Address_Decoder_0_mem_valid_memory;
@@ -114,6 +115,7 @@ module PicoRV32_BD
         .mem_addr(picorv32_0_mem_addr),
         .mem_addr_memory(Address_Decoder_0_mem_addr_memory),
         .mem_instr(picorv32_0_mem_instr),
+        .mem_rdata(Address_Decoder_0_mem_rdata),
         .mem_rdata_io(Out_bank_0_mem_rdata),
         .mem_rdata_memory(Memory_0_mem_rdata),
         .mem_ready(Address_Decoder_0_mem_ready),
@@ -155,7 +157,7 @@ module PicoRV32_BD
         .irq({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .mem_addr(picorv32_0_mem_addr),
         .mem_instr(picorv32_0_mem_instr),
-        .mem_rdata({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
+        .mem_rdata(Address_Decoder_0_mem_rdata),
         .mem_ready(Address_Decoder_0_mem_ready),
         .mem_valid(picorv32_0_mem_valid),
         .mem_wdata(picorv32_0_mem_wdata),
