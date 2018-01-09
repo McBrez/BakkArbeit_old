@@ -8,38 +8,38 @@ preplace port FIXED_IO -pg 1 -y 430 -defaultsOSRD
 preplace port clk -pg 1 -y 260 -defaultsOSRD
 preplace portBus OUT_Port -pg 1 -y 890 -defaultsOSRD
 preplace inst Address_Decoder_0 -pg 1 -lvl 3 -y 610 -defaultsOSRD
-preplace inst xlconstant_0 -pg 1 -lvl 1 -y 510 -defaultsOSRD
 preplace inst Memory_0 -pg 1 -lvl 2 -y 980 -defaultsOSRD
 preplace inst Out_bank_0 -pg 1 -lvl 4 -y 910 -defaultsOSRD
 preplace inst picorv32_0 -pg 1 -lvl 2 -y 220 -defaultsOSRD
+preplace inst complete_design_TB_0 -pg 1 -lvl 1 -y 470 -defaultsOSRD
 preplace inst processing_system7_0 -pg 1 -lvl 1 -y 120 -defaultsOSRD
-preplace netloc processing_system7_0_DDR 1 1 4 420J -10 NJ -10 NJ -10 1880J
-preplace netloc Memory_0_mem_rdata 1 2 1 900
+preplace netloc processing_system7_0_DDR 1 1 4 420J -10 NJ -10 NJ -10 1900J
+preplace netloc Memory_0_mem_rdata 1 2 1 920
 preplace netloc Out_bank_0_UART_out 1 4 1 NJ
-preplace netloc Address_Decoder_0_bankSwitch 1 3 1 1480
-preplace netloc Address_Decoder_0_mem_wdata_memory 1 1 3 450 820 NJ 820 1430
-preplace netloc Address_Decoder_0_mem_valid_io 1 3 1 1490
-preplace netloc Memory_0_mem_ready 1 2 1 910
-preplace netloc Address_Decoder_0_mem_ready 1 1 3 470 -20 NJ -20 1500
-preplace netloc Address_Decoder_0_mem_valid_memory 1 1 3 470 870 NJ 870 1440
-preplace netloc xlconstant_0_dout 1 1 3 420J 530 890 780 1460
+preplace netloc Address_Decoder_0_bankSwitch 1 3 1 1500
+preplace netloc Address_Decoder_0_mem_wdata_memory 1 1 3 440 830 NJ 830 1470
+preplace netloc Address_Decoder_0_mem_valid_io 1 3 1 1520
+preplace netloc Memory_0_mem_ready 1 2 1 930
+preplace netloc Address_Decoder_0_mem_ready 1 1 3 460 770 NJ 770 1450
+preplace netloc Address_Decoder_0_mem_valid_memory 1 1 3 460 810 NJ 810 1430
+preplace netloc xlconstant_0_dout 1 1 3 430J 530 900 850 1490
 preplace netloc clk_1 1 0 1 0
 preplace netloc picorv32_0_mem_wstrb 1 2 1 870
-preplace netloc processing_system7_0_FIXED_IO 1 1 4 430J 0 NJ 0 NJ 0 1870J
-preplace netloc picorv32_0_mem_addr 1 2 1 900
+preplace netloc processing_system7_0_FIXED_IO 1 1 4 430J 0 NJ 0 NJ 0 1890J
+preplace netloc picorv32_0_mem_addr 1 2 1 890
 preplace netloc Out_bank_0_out_registers 1 4 1 NJ
 preplace netloc picorv32_0_mem_wdata 1 2 1 880
-preplace netloc Address_Decoder_0_mem_rdata 1 1 3 470 440 NJ 440 1410
-preplace netloc Out_bank_0_mem_ready 1 2 3 940 790 NJ 790 1880
-preplace netloc Address_Decoder_0_mem_wstrb_io 1 3 1 1450
-preplace netloc picorv32_0_mem_instr 1 2 1 930
-preplace netloc picorv32_0_mem_valid 1 2 1 940
-preplace netloc processing_system7_0_FCLK_CLK0 1 1 3 430 510 920J 770 1470J
-preplace netloc Address_Decoder_0_mem_addr_memory 1 1 3 460 860 NJ 860 1420
-preplace netloc Address_Decoder_0_mem_wstrb_memory 1 1 3 440 810 NJ 810 1410
-preplace netloc Out_bank_0_mem_rdata 1 2 3 930 800 NJ 800 1870
-preplace netloc Address_Decoder_0_mem_wdata_io 1 3 1 1500
-levelinfo -pg 1 -20 210 680 1180 1690 1910 -top -100 -bot 1090
+preplace netloc Address_Decoder_0_mem_rdata 1 1 3 470 780 NJ 780 1440
+preplace netloc Out_bank_0_mem_ready 1 2 3 950 820 1510J 810 1890
+preplace netloc Address_Decoder_0_mem_wstrb_io 1 3 1 1480
+preplace netloc picorv32_0_mem_instr 1 2 1 940
+preplace netloc picorv32_0_mem_valid 1 2 1 950
+preplace netloc processing_system7_0_FCLK_CLK0 1 0 4 0 540 420 510 910J 880 NJ
+preplace netloc Address_Decoder_0_mem_addr_memory 1 1 3 470 870 NJ 870 1460
+preplace netloc Address_Decoder_0_mem_wstrb_memory 1 1 3 450 840 NJ 840 1420
+preplace netloc Out_bank_0_mem_rdata 1 2 3 940 790 NJ 790 1900
+preplace netloc Address_Decoder_0_mem_wdata_io 1 3 1 1530
+levelinfo -pg 1 -20 210 680 1190 1710 1920 -top -150 -bot 1090
 ",
 }
 {

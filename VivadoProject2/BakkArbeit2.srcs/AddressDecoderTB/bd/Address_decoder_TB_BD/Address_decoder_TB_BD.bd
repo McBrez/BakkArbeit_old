@@ -30,22 +30,22 @@
     <spirit:version>1.00.a</spirit:version>
     <spirit:componentInstances>
       <spirit:componentInstance>
-        <spirit:instanceName>Out_bank_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="Out_bank" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:instanceName>AddressDecoderTB_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="AddressDecoderTB" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Address_decoder_TB_BD_Out_bank_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">Out_bank</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Address_decoder_TB_BD_AddressDecoderTB_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">AddressDecoderTB</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>Address_Decoder_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="Address_Decoder" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:instanceName>Out_bank_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="Out_bank" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Address_decoder_TB_BD_Address_Decoder_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">Address_Decoder</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Address_decoder_TB_BD_Out_bank_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">Out_bank</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
@@ -64,11 +64,11 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>AddressDecoderTB_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="AddressDecoderTB" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:instanceName>Address_Decoder_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="Address_Decoder" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Address_decoder_TB_BD_AddressDecoderTB_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">AddressDecoderTB</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">Address_decoder_TB_BD_Address_Decoder_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">Address_Decoder</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
@@ -80,15 +80,15 @@
         <spirit:name>AddressDecoderTB_0_clk</spirit:name>
         <spirit:internalPortReference spirit:componentRef="AddressDecoderTB_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>AddressDecoderTB_0_resetn</spirit:name>
         <spirit:internalPortReference spirit:componentRef="AddressDecoderTB_0" spirit:portRef="resetn"/>
         <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="resetn"/>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="resetn"/>
         <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="resetn"/>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="resetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>Address_Decoder_0_mem_rdata</spirit:name>

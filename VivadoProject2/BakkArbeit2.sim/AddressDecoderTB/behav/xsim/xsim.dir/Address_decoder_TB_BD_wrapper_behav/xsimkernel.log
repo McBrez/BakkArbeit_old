@@ -1,7 +1,7 @@
-Running: xsim.dir/Address_decoder_TB_BD_wrapper_behav/xsimk.exe -simmode gui -wdb Address_decoder_TB_BD_wrapper_behav.wdb -simrunnum 0 -socket 50302
+Running: xsim.dir/Address_decoder_TB_BD_wrapper_behav/xsimk.exe -simmode gui -wdb Address_decoder_TB_BD_wrapper_behav.wdb -simrunnum 0 -socket 54742
 Design successfully loaded
-Design Loading Memory Usage: 6708 KB (Peak: 6708 KB)
-Design Loading CPU Usage: 15 ms
+Design Loading Memory Usage: 6320 KB (Peak: 6320 KB)
+Design Loading CPU Usage: 0 ms
 Simulation completed
-Simulation Memory Usage: 15600 KB (Peak: 15600 KB)
-Simulation CPU Usage: 31499 ms
+Simulation Memory Usage: 7100 KB (Peak: 7100 KB)
+Simulation CPU Usage: 15 ms

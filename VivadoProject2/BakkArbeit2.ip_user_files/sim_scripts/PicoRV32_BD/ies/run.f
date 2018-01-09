@@ -1,10 +1,10 @@
 -makelib ies_lib/xil_defaultlib -sv \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_memory/hdl/xpm_memory.sv" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_cdc/hdl/xpm_cdc.sv" \
 -endlib
 -makelib ies_lib/xpm \
-  "C:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
+  "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_VCOMP.vhd" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_picorv32_0_0/sim/PicoRV32_BD_picorv32_0_0.v" \
@@ -30,12 +30,7 @@
   "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/sim/PicoRV32_BD_Out_bank_0_0.v" \
   "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_Memory_0_0/sim/PicoRV32_BD_Memory_0_0.v" \
   "../../../bd/PicoRV32_BD/sim/PicoRV32_BD.v" \
--endlib
--makelib ies_lib/xlconstant_v1_1_3 \
-  "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/0750/hdl/xlconstant_v1_1_vl_rfs.v" \
--endlib
--makelib ies_lib/xil_defaultlib \
-  "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_xlconstant_0_0/sim/PicoRV32_BD_xlconstant_0_0.v" \
+  "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_complete_design_TB_0_0/sim/PicoRV32_BD_complete_design_TB_0_0.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

@@ -82,7 +82,7 @@ output wire [31 : 0] mem_rdata;
 output wire trap;
 
   Memory #(
-    .MEMDEPTH(2048)
+    .MEMDEPTH(1024)
   ) inst (
     .clk(clk),
     .resetn(resetn),

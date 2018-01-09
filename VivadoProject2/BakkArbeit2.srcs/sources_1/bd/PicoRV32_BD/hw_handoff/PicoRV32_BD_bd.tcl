@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# Address_Decoder, Memory, Out_bank, picorv32
+# Address_Decoder, Memory, Out_bank, complete_design_TB, picorv32
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -204,6 +204,17 @@ proc create_root_design { parentCell } {
      return 1
    }
   
+  # Create instance: complete_design_TB_0, and set properties
+  set block_name complete_design_TB
+  set block_cell_name complete_design_TB_0
+  if { [catch {set complete_design_TB_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $complete_design_TB_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: picorv32_0, and set properties
   set block_name picorv32
   set block_cell_name picorv32_0
@@ -214,7 +225,11 @@ proc create_root_design { parentCell } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property -dict [ list \
+   CONFIG.LATCHED_MEM_RDATA {1} \
+   CONFIG.REGS_INIT_ZERO {1} \
+ ] $picorv32_0
+
   # Create instance: processing_system7_0, and set properties
   set processing_system7_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:processing_system7:5.5 processing_system7_0 ]
   set_property -dict [ list \
@@ -610,9 +625,6 @@ proc create_root_design { parentCell } {
    CONFIG.preset {ZedBoard} \
  ] $processing_system7_0
 
-  # Create instance: xlconstant_0, and set properties
-  set xlconstant_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:xlconstant:1.1 xlconstant_0 ]
-
   # Create interface connections
   connect_bd_intf_net -intf_net processing_system7_0_DDR [get_bd_intf_ports DDR] [get_bd_intf_pins processing_system7_0/DDR]
   connect_bd_intf_net -intf_net processing_system7_0_FIXED_IO [get_bd_intf_ports FIXED_IO] [get_bd_intf_pins processing_system7_0/FIXED_IO]
@@ -640,8 +652,8 @@ proc create_root_design { parentCell } {
   connect_bd_net -net picorv32_0_mem_valid [get_bd_pins Address_Decoder_0/mem_valid] [get_bd_pins picorv32_0/mem_valid]
   connect_bd_net -net picorv32_0_mem_wdata [get_bd_pins Address_Decoder_0/mem_wdata] [get_bd_pins picorv32_0/mem_wdata]
   connect_bd_net -net picorv32_0_mem_wstrb [get_bd_pins Address_Decoder_0/mem_wstrb] [get_bd_pins picorv32_0/mem_wstrb]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Memory_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Memory_0/resetn] [get_bd_pins Out_bank_0/resetn] [get_bd_pins picorv32_0/resetn] [get_bd_pins xlconstant_0/dout]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Memory_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins complete_design_TB_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+  connect_bd_net -net xlconstant_0_dout [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Memory_0/resetn] [get_bd_pins Out_bank_0/resetn] [get_bd_pins complete_design_TB_0/resetn] [get_bd_pins picorv32_0/resetn]
 
   # Create address segments
 

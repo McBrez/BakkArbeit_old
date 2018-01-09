@@ -60,6 +60,7 @@ module Address_Decoder #(
     reg     multiplex_state;        // stores the current multiplex state. 0 = multiplex to memory, 1 = multiplex to io bank
     reg     module_state;           // stores the current waiting state of the module.
     wire    mem_ready_peripheral;   // is OR-wired to mem_ready_io and mem_ready_memory. 
+    reg     last_mem_valid;
     
     localparam  MX_STATE_MEM    =   1'b0;
     localparam  MX_STATE_IO     =   1'b1;
@@ -78,6 +79,7 @@ module Address_Decoder #(
         mem_wdata_io = 0;
         mem_valid_io = 0;
         module_state = 1'b0;
+        last_mem_valid = 0;
     end
         
     always@(posedge clk) begin
@@ -85,8 +87,9 @@ module Address_Decoder #(
         case(module_state)
         
             MODULE_STATE_IDLE:begin
+                mem_ready <= 0;
                 
-                if(mem_valid == 1) begin
+                if( last_mem_valid == 0 && mem_valid == 1 ) begin
                     // is address in address room of memory? 
                     if ( mem_addr >= MEMORY_STARTADDRESS && mem_addr <= MEMORY_ENDADDRESS) begin
                         mem_addr_memory <= mem_addr - MEMORY_STARTADDRESS;
@@ -114,9 +117,8 @@ module Address_Decoder #(
                         multiplex_state <= 1;
                     end
                 end               
-                else begin
-                    mem_ready <= 0;
-                end
+                
+                last_mem_valid <= mem_valid;
             end
             
             MODULE_STATE_WAITING:begin

@@ -1,6 +1,6 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: C:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto a8f85004b33d4ad8b3597e46429d7909 --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Address_decoder_TB_BD_wrapper_behav xil_defaultlib.Address_decoder_TB_BD_wrapper xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto a8f85004b33d4ad8b3597e46429d7909 --debug typical --relax --mt 2 -L xil_defaultlib -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot Address_decoder_TB_BD_wrapper_behav xil_defaultlib.Address_decoder_TB_BD_wrapper xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -11,7 +11,7 @@ Compiling module xil_defaultlib.AddressDecoderTB
 Compiling module xil_defaultlib.Address_decoder_TB_BD_AddressDec...
 Compiling module xil_defaultlib.Address_Decoder
 Compiling module xil_defaultlib.Address_decoder_TB_BD_Address_De...
-Compiling module xil_defaultlib.Memory
+Compiling module xil_defaultlib.Memory(MEMDEPTH=1024)
 Compiling module xil_defaultlib.Address_decoder_TB_BD_Memory_0_0
 Compiling module xil_defaultlib.UART_block
 Compiling module xil_defaultlib.Out_bank
