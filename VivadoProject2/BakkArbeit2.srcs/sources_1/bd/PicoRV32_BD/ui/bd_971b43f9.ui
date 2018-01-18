@@ -39,7 +39,7 @@ preplace netloc Address_Decoder_0_mem_addr_memory 1 1 3 470 870 NJ 870 1460
 preplace netloc Address_Decoder_0_mem_wstrb_memory 1 1 3 450 840 NJ 840 1420
 preplace netloc Out_bank_0_mem_rdata 1 2 3 940 790 NJ 790 1900
 preplace netloc Address_Decoder_0_mem_wdata_io 1 3 1 1530
-levelinfo -pg 1 -20 210 680 1190 1710 1920 -top -150 -bot 1090
+levelinfo -pg 1 -20 210 680 1190 1710 1930 -top -150 -bot 1090
 ",
 }
 {

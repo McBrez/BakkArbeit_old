@@ -325,9 +325,9 @@ WARNING: [XSIM 43-4127] File "/wrk/2017.4/nightly/2017_12_15_2086221/packages/cu
 Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
-Compiling module xil_defaultlib.Address_Decoder
+Compiling module xil_defaultlib.Address_Decoder(MEMORY_STARTADDR...
 Compiling module xil_defaultlib.PicoRV32_BD_Address_Decoder_0_0
-Compiling module xil_defaultlib.Memory
+Compiling module xil_defaultlib.Memory(MEMDEPTH=65536)
 Compiling module xil_defaultlib.PicoRV32_BD_Memory_0_0
 Compiling module xil_defaultlib.UART_block
 Compiling module xil_defaultlib.Out_bank

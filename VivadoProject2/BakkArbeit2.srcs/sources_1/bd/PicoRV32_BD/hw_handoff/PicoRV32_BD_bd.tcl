@@ -181,7 +181,13 @@ proc create_root_design { parentCell } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property -dict [ list \
+   CONFIG.IO_ENDADDRESS {0x0000FFFF} \
+   CONFIG.IO_STARTADDRESS {0x0000FFF8} \
+   CONFIG.MEMORY_ENDADDRESS {0x0003FFFF} \
+   CONFIG.MEMORY_STARTADDRESS {0x00010000} \
+ ] $Address_Decoder_0
+
   # Create instance: Memory_0, and set properties
   set block_name Memory
   set block_cell_name Memory_0
@@ -192,7 +198,10 @@ proc create_root_design { parentCell } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
-  
+    set_property -dict [ list \
+   CONFIG.MEMDEPTH {65536} \
+ ] $Memory_0
+
   # Create instance: Out_bank_0, and set properties
   set block_name Out_bank
   set block_cell_name Out_bank_0
@@ -227,7 +236,10 @@ proc create_root_design { parentCell } {
    }
     set_property -dict [ list \
    CONFIG.LATCHED_MEM_RDATA {1} \
+   CONFIG.PROGADDR_IRQ {0x00000010} \
+   CONFIG.PROGADDR_RESET {0x00010000} \
    CONFIG.REGS_INIT_ZERO {1} \
+   CONFIG.STACKADDR {0x0003FFF0} \
  ] $picorv32_0
 
   # Create instance: processing_system7_0, and set properties

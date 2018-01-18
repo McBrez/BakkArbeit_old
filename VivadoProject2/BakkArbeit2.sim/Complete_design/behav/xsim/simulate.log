@@ -18,4 +18,3 @@ XilinxAXIVIP: Found at Path: PicoRV32_BD_wrapper.PicoRV32_BD_i.processing_system
 [0] : *ZYNQ_VIP_INFO : S_AXI_HP3 : Port is DISABLED.
 XilinxAXIVIP: Found at Path: PicoRV32_BD_wrapper.PicoRV32_BD_i.processing_system7_0.inst.S_AXI_ACP.slave
 [0] : *ZYNQ_VIP_INFO : S_AXI_ACP : Port is DISABLED.
-Stopped at time : 1095500 ps : File "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/processing_system7_vip_v1_0/hdl/processing_system7_vip_v1_0_vl_rfs.sv" Line 4053

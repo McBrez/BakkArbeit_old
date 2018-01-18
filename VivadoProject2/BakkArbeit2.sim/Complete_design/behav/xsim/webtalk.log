@@ -2,13 +2,13 @@
 # Webtalk v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Tue Jan  9 20:08:00 2018
-# Process ID: 13516
+# Start of session at: Thu Jan 18 23:36:52 2018
+# Process ID: 8524
 # Current directory: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim
 # Command line: wbtcv.exe -mode batch -source D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/webtalk.log
 # Journal file: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
 source D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Tue Jan  9 20:08:05 2018. For additional details about this file, please refer to the WebTalk help file at D:/Xilinx/Vivado/2017.4/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Tue Jan  9 20:08:05 2018...
+INFO: [Common 17-186] 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu Jan 18 23:36:56 2018. For additional details about this file, please refer to the WebTalk help file at D:/Xilinx/Vivado/2017.4/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu Jan 18 23:36:56 2018...

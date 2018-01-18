@@ -1,6 +1,6 @@
 webtalk_init -webtalk_dir D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/
 webtalk_register_client -client project
-webtalk_add_data -client project -key date_generated -value "Tue Jan  9 20:13:03 2018" -context "software_version_and_target_device"
+webtalk_add_data -client project -key date_generated -value "Thu Jan 18 23:55:20 2018" -context "software_version_and_target_device"
 webtalk_add_data -client project -key product_version -value "XSIM v2017.4 (64-bit)" -context "software_version_and_target_device"
 webtalk_add_data -client project -key build_version -value "2086221" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_platform -value "WIN64" -context "software_version_and_target_device"
@@ -14,7 +14,7 @@ webtalk_add_data -client project -key target_package -value "not_applicable" -co
 webtalk_add_data -client project -key target_speed -value "not_applicable" -context "software_version_and_target_device"
 webtalk_add_data -client project -key random_id -value "d1699385a5fc59239bad36c6266085fc" -context "software_version_and_target_device"
 webtalk_add_data -client project -key project_id -value "a8f85004b33d4ad8b3597e46429d7909" -context "software_version_and_target_device"
-webtalk_add_data -client project -key project_iteration -value "4" -context "software_version_and_target_device"
+webtalk_add_data -client project -key project_iteration -value "6" -context "software_version_and_target_device"
 webtalk_add_data -client project -key os_name -value "Microsoft Windows 8 or later , 64-bit" -context "user_environment"
 webtalk_add_data -client project -key os_release -value "major release  (build 9200)" -context "user_environment"
 webtalk_add_data -client project -key cpu_name -value "AMD FX(tm)-4170 Quad-Core Processor            " -context "user_environment"
@@ -22,11 +22,12 @@ webtalk_add_data -client project -key cpu_speed -value "4521 MHz" -context "user
 webtalk_add_data -client project -key total_processors -value "1" -context "user_environment"
 webtalk_add_data -client project -key system_ram -value "17.000 GB" -context "user_environment"
 webtalk_register_client -client xsim
+webtalk_add_data -client xsim -key runall -value "true" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key Command -value "xsim" -context "xsim\\command_line_options"
 webtalk_add_data -client xsim -key trace_waveform -value "true" -context "xsim\\usage"
-webtalk_add_data -client xsim -key runtime -value "1260500 ps" -context "xsim\\usage"
-webtalk_add_data -client xsim -key iteration -value "2" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Time -value "0.44_sec" -context "xsim\\usage"
-webtalk_add_data -client xsim -key Simulation_Memory -value "40248_KB" -context "xsim\\usage"
-webtalk_transmit -clientid 2378195690 -regid "" -xml D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
+webtalk_add_data -client xsim -key runtime -value "159392500 ps" -context "xsim\\usage"
+webtalk_add_data -client xsim -key iteration -value "1" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Time -value "1.23_sec" -context "xsim\\usage"
+webtalk_add_data -client xsim -key Simulation_Memory -value "44252_KB" -context "xsim\\usage"
+webtalk_transmit -clientid 3950582658 -regid "" -xml D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.xml -html D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.html -wdm D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/usage_statistics_ext_xsim.wdm -intro "<H3>XSIM Usage Report</H3><BR>"
 webtalk_terminate

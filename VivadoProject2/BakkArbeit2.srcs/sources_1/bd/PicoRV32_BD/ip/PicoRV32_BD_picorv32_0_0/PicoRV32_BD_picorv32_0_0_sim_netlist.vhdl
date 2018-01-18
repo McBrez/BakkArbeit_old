@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Tue Jan  9 16:39:31 2018
+-- Date        : Tue Jan 16 22:15:34 2018
 -- Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_picorv32_0_0/PicoRV32_BD_picorv32_0_0_sim_netlist.vhdl
@@ -12758,13 +12758,13 @@ reg_next_pc0_carry_i_4: unisim.vcomponents.LUT4
       I3 => decoded_imm_uj(1),
       O => reg_next_pc1_in(1)
     );
-\reg_next_pc_reg[10]\: unisim.vcomponents.FDRE
+\reg_next_pc_reg[10]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => \cpu_state_reg_n_0_[6]\,
       D => reg_next_pc1_in(10),
       Q => \reg_next_pc_reg_n_0_[10]\,
-      R => trap_i_1_n_0
+      S => trap_i_1_n_0
     );
 \reg_next_pc_reg[11]\: unisim.vcomponents.FDRE
      port map (
@@ -18538,13 +18538,13 @@ reg_out0_carry_i_4: unisim.vcomponents.LUT2
       I5 => \reg_next_pc_reg_n_0_[9]\,
       O => current_pc(9)
     );
-\reg_pc_reg[10]\: unisim.vcomponents.FDRE
+\reg_pc_reg[10]\: unisim.vcomponents.FDSE
      port map (
       C => clk,
       CE => \cpu_state_reg_n_0_[6]\,
       D => current_pc(10),
       Q => \reg_pc_reg_n_0_[10]\,
-      R => trap_i_1_n_0
+      S => trap_i_1_n_0
     );
 \reg_pc_reg[11]\: unisim.vcomponents.FDRE
      port map (

@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Tue Jan  9 16:39:31 2018
+| Date         : Tue Jan 16 22:15:34 2018
 | Host         : FREISMUTHDESK running 64-bit major release  (build 9200)
 | Command      : report_utilization -file PicoRV32_BD_picorv32_0_0_utilization_synth.rpt -pb PicoRV32_BD_picorv32_0_0_utilization_synth.pb
 | Design       : PicoRV32_BD_picorv32_0_0
@@ -58,8 +58,8 @@ Table of Contents
 | 0     |          Yes |           - |            - |
 | 0     |          Yes |           - |          Set |
 | 0     |          Yes |           - |        Reset |
-| 21    |          Yes |         Set |            - |
-| 553   |          Yes |       Reset |            - |
+| 23    |          Yes |         Set |            - |
+| 551   |          Yes |       Reset |            - |
 +-------+--------------+-------------+--------------+
 
 
@@ -148,7 +148,7 @@ Table of Contents
 +----------+------+---------------------+
 | Ref Name | Used | Functional Category |
 +----------+------+---------------------+
-| FDRE     |  553 |        Flop & Latch |
+| FDRE     |  551 |        Flop & Latch |
 | LUT6     |  333 |                 LUT |
 | LUT5     |  216 |                 LUT |
 | LUT4     |  188 |                 LUT |
@@ -157,7 +157,7 @@ Table of Contents
 | CARRY4   |   83 |          CarryLogic |
 | RAMD32   |   72 |  Distributed Memory |
 | RAMS32   |   24 |  Distributed Memory |
-| FDSE     |   21 |        Flop & Latch |
+| FDSE     |   23 |        Flop & Latch |
 | LUT1     |    5 |                 LUT |
 +----------+------+---------------------+
 

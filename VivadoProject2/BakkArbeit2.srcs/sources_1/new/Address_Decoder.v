@@ -92,7 +92,7 @@ module Address_Decoder #(
                 if( last_mem_valid == 0 && mem_valid == 1 ) begin
                     // is address in address room of memory? 
                     if ( mem_addr >= MEMORY_STARTADDRESS && mem_addr <= MEMORY_ENDADDRESS) begin
-                        mem_addr_memory <= mem_addr - MEMORY_STARTADDRESS;
+                        mem_addr_memory <= mem_addr;
                         mem_wdata_memory <= mem_wdata;
                         mem_wstrb_memory <= mem_wstrb;
                         mem_valid_memory <= 1;
@@ -101,7 +101,7 @@ module Address_Decoder #(
                     end
                 
                     //is address in address room of io?
-                    if ( mem_addr >= IO_STARTADDRESS && mem_addr <= IO_ENDADDRESS) begin
+                    else if ( mem_addr >= IO_STARTADDRESS && mem_addr <= IO_ENDADDRESS) begin
                         mem_wstrb_io <= mem_wstrb;
                         mem_valid_io <= 1;
                         mem_wdata_io <= mem_wdata;
@@ -116,28 +116,42 @@ module Address_Decoder #(
                         module_state = MODULE_STATE_WAITING;    
                         multiplex_state <= 1;
                     end
+                    
+                    else begin
+                    //send trap
+                    trap <= 1;
+                    module_state <= MODULE_STATE_WAITING;
+                    end
                 end               
                 
                 last_mem_valid <= mem_valid;
             end
             
             MODULE_STATE_WAITING:begin
-            
-                if(mem_ready_peripheral == 1) begin
-                    if( multiplex_state == MX_STATE_MEM) begin
-                        mem_ready <= 1;
-                        mem_rdata <= mem_rdata_memory;
-                        mem_valid_memory <= 0;
+                if(trap != 1) begin
+                    if(mem_ready_peripheral == 1) begin
+                        if( multiplex_state == MX_STATE_MEM) begin
+                            mem_ready <= 1;
+                            mem_rdata <= mem_rdata_memory;
+                            mem_valid_memory <= 0;
+                        end
+                      
+                        if(multiplex_state == MX_STATE_IO) begin
+                            mem_ready <= 1;
+                            mem_rdata <= mem_rdata_io;
+                            mem_valid_io <= 0;
+                        end
+                        module_state = MODULE_STATE_IDLE;
                     end
-                  
-                    if(multiplex_state == MX_STATE_IO) begin
-                        mem_ready <= 1;
-                        mem_rdata <= mem_rdata_io;
-                        mem_valid_io <= 0;
-                    end
-                    
+                end
+                else begin
+                //send mem_ready, so processor core continues. set mem_rdata to 0, since this is interpreted as trap from the riscv core
+                    trap <= 0;
+                    mem_ready <= 1;
+                    mem_rdata <= 0;
                     module_state = MODULE_STATE_IDLE;
                 end
+                    
             end
                     
         endcase

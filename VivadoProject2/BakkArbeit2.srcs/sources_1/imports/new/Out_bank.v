@@ -95,10 +95,13 @@ module Out_bank(
     reg [7:0] tx_reg;
     reg     module_state;
     reg     tx_send;
+    reg     last_tx_busy;
+    reg     last_mem_valid;
     wire    tx_busy;
     
-    localparam  MODULE_STATE_IDLE   =   1'b0;
-    localparam  MODULE_STATE_RESET  =   1'b1;
+    localparam  MODULE_STATE_IDLE       = 2'b00;
+    localparam  MODULE_STATE_UART_SEND  = 2'b01;
+    localparam  MODULE_STATE_RESET      = 2'b10;
     
     UART_block uart(
         .resetn     (resetn     ),
@@ -113,13 +116,15 @@ module Out_bank(
         mem_ready <= 0;
         out_registers <= 0;
         module_state = 1'b0;
+        last_tx_busy = 0;
+        last_mem_valid = 0;
     end
         
     always@(posedge clk) begin
         case(module_state)
             
             MODULE_STATE_IDLE:begin
-                if(mem_valid == 1) begin 
+                if(last_mem_valid == 0 && mem_valid == 1) begin 
                 //send to UART or Pins? 
                     if(bankSwitch) begin
                        //read or write? 
@@ -135,12 +140,11 @@ module Out_bank(
                                if(tx_busy) begin
                                    //send trap
                                    trap <= 1;
-                                   mem_ready <= 1;
                                end
                                else begin
                                    tx_reg <= mem_wdata;
                                    tx_send <= 1; 
-                                   mem_ready <= 1; 
+                                   module_state <= MODULE_STATE_UART_SEND;
                                end
                            end
                        endcase
@@ -154,12 +158,19 @@ module Out_bank(
                            
                            default begin 
                                out_registers <= mem_wdata;
-                               mem_ready <= 1;
+                               mem_ready <= 1;                               
                            end
                        endcase
+                       module_state <= MODULE_STATE_RESET;
                    end    
-                
-                module_state <= MODULE_STATE_RESET;
+                end
+            end
+            
+            MODULE_STATE_UART_SEND:begin
+                tx_send <= 0;
+                if(last_tx_busy == 1 && tx_busy == 0) begin
+                    mem_ready <= 1;
+                    module_state <= MODULE_STATE_RESET;
                 end
             end
             
@@ -169,5 +180,7 @@ module Out_bank(
                 module_state <= MODULE_STATE_IDLE;
             end
         endcase
+        last_tx_busy <= tx_busy;
+        last_mem_valid <= mem_valid;
     end    
 endmodule

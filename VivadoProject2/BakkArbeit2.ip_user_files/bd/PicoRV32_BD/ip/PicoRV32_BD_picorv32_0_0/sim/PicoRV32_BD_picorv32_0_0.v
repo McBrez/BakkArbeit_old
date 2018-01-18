@@ -141,9 +141,9 @@ output wire [35 : 0] trace_data;
     .REGS_INIT_ZERO(1),
     .MASKED_IRQ(32'H00000000),
     .LATCHED_IRQ(32'HFFFFFFFF),
-    .PROGADDR_RESET(32'H00000000),
+    .PROGADDR_RESET(32'H00010000),
     .PROGADDR_IRQ(32'H00000010),
-    .STACKADDR(32'HFFFFFFFF)
+    .STACKADDR(32'H0003FFF0)
   ) inst (
     .clk(clk),
     .resetn(resetn),
