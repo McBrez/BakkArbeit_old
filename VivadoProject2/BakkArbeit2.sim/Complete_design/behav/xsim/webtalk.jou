@@ -2,8 +2,8 @@
 # Webtalk v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Jan 18 23:36:52 2018
-# Process ID: 8524
+# Start of session at: Sun Jan 21 23:05:10 2018
+# Process ID: 5164
 # Current directory: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim
 # Command line: wbtcv.exe -mode batch -source D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/xsim.dir/PicoRV32_BD_wrapper_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.sim/Complete_design/behav/xsim/webtalk.log

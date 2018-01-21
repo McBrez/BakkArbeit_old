@@ -93,7 +93,7 @@ module Out_bank(
     );
     
     reg [7:0] tx_reg;
-    reg     module_state;
+    reg [1:0] module_state;
     reg     tx_send;
     reg     last_tx_busy;
     reg     last_mem_valid;
@@ -118,6 +118,8 @@ module Out_bank(
         module_state = 1'b0;
         last_tx_busy = 0;
         last_mem_valid = 0;
+        mem_rdata <= 0;
+        trap <= 0;
     end
         
     always@(posedge clk) begin
