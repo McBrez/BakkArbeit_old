@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="PicoRV32_BD" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1516567219"/>
-    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1516567219"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1516567220"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1516567220"/>
+    <Generation Name="SYNTHESIS" State="STALE" Timestamp="1517005876"/>
+    <Generation Name="IMPLEMENTATION" State="STALE" Timestamp="1517005876"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1517005889"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1517005889"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\PicoRV32_BD_picorv32_0_0\PicoRV32_BD_picorv32_0_0.xci" Type="IP">
         <Instance HierarchyPath="picorv32_0"/>
@@ -39,14 +39,6 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\PicoRV32_BD_Memory_0_0\PicoRV32_BD_Memory_0_0.xci" Type="IP">
-        <Instance HierarchyPath="Memory_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
       <File Name="synth\PicoRV32_BD.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
@@ -58,8 +50,16 @@
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SIMULATION"/>
       </File>
-      <File Name="ip\PicoRV32_BD_complete_design_TB_0_0\PicoRV32_BD_complete_design_TB_0_0.xci" Type="IP">
-        <Instance HierarchyPath="complete_design_TB_0"/>
+      <File Name="ip\PicoRV32_BD_blk_mem_gen_0_0\PicoRV32_BD_blk_mem_gen_0_0.xci" Type="IP">
+        <Instance HierarchyPath="blk_mem_gen_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
+      <File Name="ip\PicoRV32_BD_memory_wrapper_0_0\PicoRV32_BD_memory_wrapper_0_0.xci" Type="IP">
+        <Instance HierarchyPath="memory_wrapper_0"/>
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
         <Library Name="xil_defaultlib"/>
         <UsedIn Val="SYNTHESIS"/>

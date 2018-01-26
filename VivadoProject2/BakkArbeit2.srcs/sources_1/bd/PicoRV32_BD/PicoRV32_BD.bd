@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
-<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0xDB5E6A4B4BC638F1" bd:device="xc7z020clg484-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2017.4" bd:top="PicoRV32_BD" bd:version="1.00.a">
+<bd:repository xmlns:bd="http://www.xilinx.com/bd" bd:BoundaryCRC="0x6638AE0A963B48AB" bd:device="xc7z020clg484-1" bd:isValidated="true" bd:synthFlowMode="Hierarchical" bd:tool_version="2017.4" bd:top="PicoRV32_BD" bd:version="1.00.a">
 
   <spirit:component xmlns:spirit="http://www.spiritconsortium.org/XMLSchema/SPIRIT/1685-2009">
     <spirit:vendor>xilinx.com</spirit:vendor>
@@ -251,6 +251,35 @@
           </spirit:parameter>
         </spirit:parameters>
       </spirit:busInterface>
+      <spirit:busInterface>
+        <spirit:name>RST.RESETN</spirit:name>
+        <spirit:displayName>Reset</spirit:displayName>
+        <spirit:description>Reset</spirit:description>
+        <spirit:busType spirit:library="signal" spirit:name="reset" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:abstractionType spirit:library="signal" spirit:name="reset_rtl" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:slave/>
+        <spirit:portMaps>
+          <spirit:portMap>
+            <spirit:logicalPort>
+              <spirit:name>RST</spirit:name>
+            </spirit:logicalPort>
+            <spirit:physicalPort>
+              <spirit:name>resetn</spirit:name>
+            </spirit:physicalPort>
+          </spirit:portMap>
+        </spirit:portMaps>
+        <spirit:parameters>
+          <spirit:parameter>
+            <spirit:name>POLARITY</spirit:name>
+            <spirit:value>ACTIVE_LOW</spirit:value>
+            <spirit:vendorExtensions>
+              <bd:configElementInfos>
+                <bd:configElementInfo bd:valueSource="default"/>
+              </bd:configElementInfos>
+            </spirit:vendorExtensions>
+          </spirit:parameter>
+        </spirit:parameters>
+      </spirit:busInterface>
     </spirit:busInterfaces>
     <spirit:model>
       <spirit:views>
@@ -279,6 +308,12 @@
         </spirit:port>
         <spirit:port>
           <spirit:name>clk</spirit:name>
+          <spirit:wire>
+            <spirit:direction>in</spirit:direction>
+          </spirit:wire>
+        </spirit:port>
+        <spirit:port>
+          <spirit:name>resetn</spirit:name>
           <spirit:wire>
             <spirit:direction>in</spirit:direction>
           </spirit:wire>
@@ -567,23 +602,12 @@
         <spirit:componentRef spirit:library="module_ref" spirit:name="picorv32" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_picorv32_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="LATCHED_MEM_RDATA">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="LATCHED_MEM_RDATA">0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="REGS_INIT_ZERO">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PROGADDR_RESET">0x00010000</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PROGADDR_IRQ">0x00000010</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="STACKADDR">0x0003FFF0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceName">picorv32</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>complete_design_TB_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="complete_design_TB" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_complete_design_TB_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">complete_design_TB</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
@@ -605,18 +629,6 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
-        <spirit:instanceName>Memory_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="Memory" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_Memory_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="MEMDEPTH">65536</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">Memory</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
         <spirit:instanceName>Out_bank_0</spirit:instanceName>
         <spirit:componentRef spirit:library="module_ref" spirit:name="Out_bank" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -627,18 +639,39 @@
           <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
         </spirit:configurableElementValues>
       </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>blk_mem_gen_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="ip" spirit:name="blk_mem_gen" spirit:vendor="xilinx.com" spirit:version="8.4"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_blk_mem_gen_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_32bit_Address">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Width_A">32</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Write_Depth_A">65536</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Read_Width_A">32</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Enable_A">Use_ENA_Pin</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Register_PortA_Output_of_Memory_Primitives">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Register_PortA_Output_of_Memory_Core">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Load_Init_File">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Coe_File">../../../../../../../../../VirtualBox VMs/Ubuntu/SharedFolder/out.coe</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Fill_Remaining_Memory_Locations">true</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="Use_RSTA_Pin">false</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="use_bram_block">Stand_Alone</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
+        <spirit:instanceName>memory_wrapper_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="memory_wrapper" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_memory_wrapper_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">memory_wrapper</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
     </spirit:componentInstances>
     <spirit:interconnections/>
     <spirit:adHocConnections>
-      <spirit:adHocConnection>
-        <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK0"/>
-        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="complete_design_TB_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="clk"/>
-      </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>picorv32_0_mem_valid</spirit:name>
         <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="mem_valid"/>
@@ -710,52 +743,85 @@
         <spirit:externalPortReference spirit:portRef="OUT_Port"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>Memory_0_mem_ready</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="mem_ready"/>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_ready_memory"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>Memory_0_mem_rdata</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="mem_rdata"/>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_rdata_memory"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>Address_Decoder_0_mem_valid_memory</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_valid_memory"/>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="mem_valid"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>Address_Decoder_0_mem_addr_memory</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_addr_memory"/>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="mem_addr"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>Address_Decoder_0_mem_wdata_memory</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_wdata_memory"/>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="mem_wdata"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
-        <spirit:name>Address_Decoder_0_mem_wstrb_memory</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_wstrb_memory"/>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="mem_wstrb"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>clk_1</spirit:name>
         <spirit:externalPortReference spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="M_AXI_GP0_ACLK"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
-        <spirit:name>xlconstant_0_dout</spirit:name>
-        <spirit:internalPortReference spirit:componentRef="complete_design_TB_0" spirit:portRef="resetn"/>
-        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="resetn"/>
-        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="resetn"/>
-        <spirit:internalPortReference spirit:componentRef="Memory_0" spirit:portRef="resetn"/>
-        <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="resetn"/>
-      </spirit:adHocConnection>
-      <spirit:adHocConnection>
         <spirit:name>Address_Decoder_0_mem_rdata</spirit:name>
         <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_rdata"/>
         <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="mem_rdata"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>sim_rst_gen_0_rst</spirit:name>
+        <spirit:externalPortReference spirit:portRef="resetn"/>
+        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="resetn"/>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="resetn"/>
+        <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="resetn"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>memory_wrapper_0_addra</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="addra"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="addra"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>memory_wrapper_0_dina</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="dina"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="dina"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>memory_wrapper_0_ena</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="ena"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="ena"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>memory_wrapper_0_wea</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="wea"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="wea"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>blk_mem_gen_0_douta</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="douta"/>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="douta"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Address_Decoder_0_mem_wdata_memory</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_wdata_memory"/>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="mem_wdata_memory"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Address_Decoder_0_mem_valid_memory</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_valid_memory"/>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="mem_valid_memory"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Address_Decoder_0_mem_addr_memory</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_addr_memory"/>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="mem_addr_memory"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>Address_Decoder_0_mem_wstrb_memory</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_wstrb_memory"/>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="mem_wstrb_memory"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>memory_wrapper_0_mem_rdata_memory</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="mem_rdata_memory"/>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_rdata_memory"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>memory_wrapper_0_mem_ready_memory</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="mem_ready_memory"/>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="mem_ready_memory"/>
+      </spirit:adHocConnection>
+      <spirit:adHocConnection>
+        <spirit:name>processing_system7_0_FCLK_CLK0</spirit:name>
+        <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK0"/>
+        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="clka"/>
+        <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
     <spirit:hierConnections>

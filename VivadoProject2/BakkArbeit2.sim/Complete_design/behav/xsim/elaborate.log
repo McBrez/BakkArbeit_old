@@ -1,6 +1,6 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto a8f85004b33d4ad8b3597e46429d7909 --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L smartconnect_v1_0 -L axi_protocol_checker_v2_0_1 -L axi_vip_v1_1_1 -L processing_system7_vip_v1_0_3 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot PicoRV32_BD_wrapper_behav xil_defaultlib.PicoRV32_BD_wrapper xil_defaultlib.glbl -log elaborate.log 
+Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto a8f85004b33d4ad8b3597e46429d7909 --debug typical --relax --mt 2 -L xil_defaultlib -L axi_infrastructure_v1_1_0 -L smartconnect_v1_0 -L axi_protocol_checker_v2_0_1 -L axi_vip_v1_1_1 -L processing_system7_vip_v1_0_3 -L blk_mem_gen_v8_4_1 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip -L xpm --snapshot complete_design_TB_behav xil_defaultlib.complete_design_TB xil_defaultlib.glbl -log elaborate.log 
 Using 2 slave threads.
 Starting static elaboration
 WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 6 for port m_axi_bid [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/processing_system7_vip_v1_0/hdl/processing_system7_vip_v1_0_vl_rfs.sv:4598]
@@ -9,6 +9,7 @@ WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 6 for
 WARNING: [VRFC 10-278] actual bit length 12 differs from formal bit length 6 for port m_axi_rid [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/processing_system7_vip_v1_0/hdl/processing_system7_vip_v1_0_vl_rfs.sv:6572]
 WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 64 for port m_axi_rdata [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/processing_system7_vip_v1_0/hdl/processing_system7_vip_v1_0_vl_rfs.sv:6573]
 WARNING: [VRFC 10-278] actual bit length 32 differs from formal bit length 64 for port m_axi_rdata [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/processing_system7_vip_v1_0/hdl/processing_system7_vip_v1_0_vl_rfs.sv:4617]
+WARNING: [VRFC 10-1783] select index 62 into current_contents is out of bounds [/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/blk_mem_gen_v8_4/simulation/blk_mem_gen_v8_4.v:2420]
 Completed static elaboration
 WARNING: [XSIM 43-4127] File "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/axi_protocol_checker_v2_0/hdl/axi_protocol_checker_v2_0_vl_rfs.sv" Line 4703 : The "System Verilog Property Declaration" is not supported yet for simulation. The statement will be ignored.
 WARNING: [XSIM 43-4127] File "/wrk/2017.4/nightly/2017_12_15_2086221/packages/customer/vivado/data/ip/xilinx/axi_protocol_checker_v2_0/hdl/axi_protocol_checker_v2_0_vl_rfs.sv" Line 4706 : The "System Verilog Assertion" is not supported yet for simulation. The statement will be ignored.
@@ -327,14 +328,18 @@ Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.Address_Decoder(MEMORY_STARTADDR...
 Compiling module xil_defaultlib.PicoRV32_BD_Address_Decoder_0_0
-Compiling module xil_defaultlib.Memory(MEMDEPTH=65536)
-Compiling module xil_defaultlib.PicoRV32_BD_Memory_0_0
 Compiling module xil_defaultlib.UART_block
 Compiling module xil_defaultlib.Out_bank
 Compiling module xil_defaultlib.PicoRV32_BD_Out_bank_0_0
-Compiling module xil_defaultlib.complete_design_TB
-Compiling module xil_defaultlib.PicoRV32_BD_complete_design_TB_0...
-Compiling module xil_defaultlib.picorv32(LATCHED_MEM_RDATA=1'b1,...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_output_stage(...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_softecc_outpu...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1_mem_module(C_...
+Compiling module blk_mem_gen_v8_4_1.blk_mem_gen_v8_4_1(C_FAMILY="zyn...
+Compiling module xil_defaultlib.PicoRV32_BD_blk_mem_gen_0_0
+Compiling module xil_defaultlib.memory_wrapper
+Compiling module xil_defaultlib.PicoRV32_BD_memory_wrapper_0_0
+Compiling module xil_defaultlib.picorv32(REGS_INIT_ZERO=1'b1,PRO...
 Compiling module xil_defaultlib.PicoRV32_BD_picorv32_0_0
 Compiling module processing_system7_vip_v1_0_3.processing_system7_vip_v1_0_3_ge...
 Compiling module processing_system7_vip_v1_0_3.processing_system7_vip_v1_0_3_ge...
@@ -409,9 +414,10 @@ Compiling module processing_system7_vip_v1_0_3.processing_system7_vip_v1_0_3(C_.
 Compiling module xil_defaultlib.PicoRV32_BD_processing_system7_0...
 Compiling module xil_defaultlib.PicoRV32_BD
 Compiling module xil_defaultlib.PicoRV32_BD_wrapper
+Compiling module xil_defaultlib.complete_design_TB
 Compiling module xil_defaultlib.glbl
 Compiling package xilinx_vip.axi_vip_pkg
 Compiling package xilinx_vip.xil_common_vip_pkg
 Compiling package std.std
 Compiling package smartconnect_v1_0.sc_util_v1_0_2_pkg
-Built simulation snapshot PicoRV32_BD_wrapper_behav
+Built simulation snapshot complete_design_TB_behav

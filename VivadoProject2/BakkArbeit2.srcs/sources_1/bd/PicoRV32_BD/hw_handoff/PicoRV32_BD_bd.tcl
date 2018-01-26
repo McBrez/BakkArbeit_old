@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# Address_Decoder, Memory, Out_bank, complete_design_TB, picorv32
+# Address_Decoder, Out_bank, memory_wrapper, picorv32
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -170,6 +170,7 @@ proc create_root_design { parentCell } {
   set OUT_Port [ create_bd_port -dir O -from 31 -to 0 -type data OUT_Port ]
   set UART_out [ create_bd_port -dir O -type data UART_out ]
   set clk [ create_bd_port -dir I -type clk clk ]
+  set resetn [ create_bd_port -dir I -type rst resetn ]
 
   # Create instance: Address_Decoder_0, and set properties
   set block_name Address_Decoder
@@ -188,20 +189,6 @@ proc create_root_design { parentCell } {
    CONFIG.MEMORY_STARTADDRESS {0x00010000} \
  ] $Address_Decoder_0
 
-  # Create instance: Memory_0, and set properties
-  set block_name Memory
-  set block_cell_name Memory_0
-  if { [catch {set Memory_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
-     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   } elseif { $Memory_0 eq "" } {
-     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
-     return 1
-   }
-    set_property -dict [ list \
-   CONFIG.MEMDEPTH {65536} \
- ] $Memory_0
-
   # Create instance: Out_bank_0, and set properties
   set block_name Out_bank
   set block_cell_name Out_bank_0
@@ -213,13 +200,35 @@ proc create_root_design { parentCell } {
      return 1
    }
   
-  # Create instance: complete_design_TB_0, and set properties
-  set block_name complete_design_TB
-  set block_cell_name complete_design_TB_0
-  if { [catch {set complete_design_TB_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+  # Create instance: blk_mem_gen_0, and set properties
+  set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
+  set_property -dict [ list \
+   CONFIG.Byte_Size {8} \
+   CONFIG.Coe_File {../../../../../../../../../VirtualBox VMs/Ubuntu/SharedFolder/out.coe} \
+   CONFIG.EN_SAFETY_CKT {false} \
+   CONFIG.Enable_32bit_Address {true} \
+   CONFIG.Enable_A {Use_ENA_Pin} \
+   CONFIG.Fill_Remaining_Memory_Locations {true} \
+   CONFIG.Load_Init_File {true} \
+   CONFIG.Read_Width_A {32} \
+   CONFIG.Read_Width_B {32} \
+   CONFIG.Register_PortA_Output_of_Memory_Core {false} \
+   CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
+   CONFIG.Use_Byte_Write_Enable {true} \
+   CONFIG.Use_RSTA_Pin {false} \
+   CONFIG.Write_Depth_A {65536} \
+   CONFIG.Write_Width_A {32} \
+   CONFIG.Write_Width_B {32} \
+   CONFIG.use_bram_block {Stand_Alone} \
+ ] $blk_mem_gen_0
+
+  # Create instance: memory_wrapper_0, and set properties
+  set block_name memory_wrapper
+  set block_cell_name memory_wrapper_0
+  if { [catch {set memory_wrapper_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
      catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
-   } elseif { $complete_design_TB_0 eq "" } {
+   } elseif { $memory_wrapper_0 eq "" } {
      catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
      return 1
    }
@@ -235,7 +244,7 @@ proc create_root_design { parentCell } {
      return 1
    }
     set_property -dict [ list \
-   CONFIG.LATCHED_MEM_RDATA {1} \
+   CONFIG.LATCHED_MEM_RDATA {0} \
    CONFIG.PROGADDR_IRQ {0x00000010} \
    CONFIG.PROGADDR_RESET {0x00010000} \
    CONFIG.REGS_INIT_ZERO {1} \
@@ -643,29 +652,34 @@ proc create_root_design { parentCell } {
 
   # Create port connections
   connect_bd_net -net Address_Decoder_0_bankSwitch [get_bd_pins Address_Decoder_0/bankSwitch] [get_bd_pins Out_bank_0/bankSwitch]
-  connect_bd_net -net Address_Decoder_0_mem_addr_memory [get_bd_pins Address_Decoder_0/mem_addr_memory] [get_bd_pins Memory_0/mem_addr]
+  connect_bd_net -net Address_Decoder_0_mem_addr_memory [get_bd_pins Address_Decoder_0/mem_addr_memory] [get_bd_pins memory_wrapper_0/mem_addr_memory]
   connect_bd_net -net Address_Decoder_0_mem_rdata [get_bd_pins Address_Decoder_0/mem_rdata] [get_bd_pins picorv32_0/mem_rdata]
   connect_bd_net -net Address_Decoder_0_mem_ready [get_bd_pins Address_Decoder_0/mem_ready] [get_bd_pins picorv32_0/mem_ready]
   connect_bd_net -net Address_Decoder_0_mem_valid_io [get_bd_pins Address_Decoder_0/mem_valid_io] [get_bd_pins Out_bank_0/mem_valid]
-  connect_bd_net -net Address_Decoder_0_mem_valid_memory [get_bd_pins Address_Decoder_0/mem_valid_memory] [get_bd_pins Memory_0/mem_valid]
+  connect_bd_net -net Address_Decoder_0_mem_valid_memory [get_bd_pins Address_Decoder_0/mem_valid_memory] [get_bd_pins memory_wrapper_0/mem_valid_memory]
   connect_bd_net -net Address_Decoder_0_mem_wdata_io [get_bd_pins Address_Decoder_0/mem_wdata_io] [get_bd_pins Out_bank_0/mem_wdata]
-  connect_bd_net -net Address_Decoder_0_mem_wdata_memory [get_bd_pins Address_Decoder_0/mem_wdata_memory] [get_bd_pins Memory_0/mem_wdata]
+  connect_bd_net -net Address_Decoder_0_mem_wdata_memory [get_bd_pins Address_Decoder_0/mem_wdata_memory] [get_bd_pins memory_wrapper_0/mem_wdata_memory]
   connect_bd_net -net Address_Decoder_0_mem_wstrb_io [get_bd_pins Address_Decoder_0/mem_wstrb_io] [get_bd_pins Out_bank_0/mem_wstrb]
-  connect_bd_net -net Address_Decoder_0_mem_wstrb_memory [get_bd_pins Address_Decoder_0/mem_wstrb_memory] [get_bd_pins Memory_0/mem_wstrb]
-  connect_bd_net -net Memory_0_mem_rdata [get_bd_pins Address_Decoder_0/mem_rdata_memory] [get_bd_pins Memory_0/mem_rdata]
-  connect_bd_net -net Memory_0_mem_ready [get_bd_pins Address_Decoder_0/mem_ready_memory] [get_bd_pins Memory_0/mem_ready]
+  connect_bd_net -net Address_Decoder_0_mem_wstrb_memory [get_bd_pins Address_Decoder_0/mem_wstrb_memory] [get_bd_pins memory_wrapper_0/mem_wstrb_memory]
   connect_bd_net -net Out_bank_0_UART_out [get_bd_ports UART_out] [get_bd_pins Out_bank_0/UART_out]
   connect_bd_net -net Out_bank_0_mem_rdata [get_bd_pins Address_Decoder_0/mem_rdata_io] [get_bd_pins Out_bank_0/mem_rdata]
   connect_bd_net -net Out_bank_0_mem_ready [get_bd_pins Address_Decoder_0/mem_ready_io] [get_bd_pins Out_bank_0/mem_ready]
   connect_bd_net -net Out_bank_0_out_registers [get_bd_ports OUT_Port] [get_bd_pins Out_bank_0/out_registers]
+  connect_bd_net -net blk_mem_gen_0_douta [get_bd_pins blk_mem_gen_0/douta] [get_bd_pins memory_wrapper_0/douta]
   connect_bd_net -net clk_1 [get_bd_ports clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+  connect_bd_net -net memory_wrapper_0_addra [get_bd_pins blk_mem_gen_0/addra] [get_bd_pins memory_wrapper_0/addra]
+  connect_bd_net -net memory_wrapper_0_dina [get_bd_pins blk_mem_gen_0/dina] [get_bd_pins memory_wrapper_0/dina]
+  connect_bd_net -net memory_wrapper_0_ena [get_bd_pins blk_mem_gen_0/ena] [get_bd_pins memory_wrapper_0/ena]
+  connect_bd_net -net memory_wrapper_0_mem_rdata_memory [get_bd_pins Address_Decoder_0/mem_rdata_memory] [get_bd_pins memory_wrapper_0/mem_rdata_memory]
+  connect_bd_net -net memory_wrapper_0_mem_ready_memory [get_bd_pins Address_Decoder_0/mem_ready_memory] [get_bd_pins memory_wrapper_0/mem_ready_memory]
+  connect_bd_net -net memory_wrapper_0_wea [get_bd_pins blk_mem_gen_0/wea] [get_bd_pins memory_wrapper_0/wea]
   connect_bd_net -net picorv32_0_mem_addr [get_bd_pins Address_Decoder_0/mem_addr] [get_bd_pins picorv32_0/mem_addr]
   connect_bd_net -net picorv32_0_mem_instr [get_bd_pins Address_Decoder_0/mem_instr] [get_bd_pins picorv32_0/mem_instr]
   connect_bd_net -net picorv32_0_mem_valid [get_bd_pins Address_Decoder_0/mem_valid] [get_bd_pins picorv32_0/mem_valid]
   connect_bd_net -net picorv32_0_mem_wdata [get_bd_pins Address_Decoder_0/mem_wdata] [get_bd_pins picorv32_0/mem_wdata]
   connect_bd_net -net picorv32_0_mem_wstrb [get_bd_pins Address_Decoder_0/mem_wstrb] [get_bd_pins picorv32_0/mem_wstrb]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Memory_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins complete_design_TB_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
-  connect_bd_net -net xlconstant_0_dout [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Memory_0/resetn] [get_bd_pins Out_bank_0/resetn] [get_bd_pins complete_design_TB_0/resetn] [get_bd_pins picorv32_0/resetn]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins memory_wrapper_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+  connect_bd_net -net sim_rst_gen_0_rst [get_bd_ports resetn] [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Out_bank_0/resetn] [get_bd_pins picorv32_0/resetn]
 
   # Create address segments
 

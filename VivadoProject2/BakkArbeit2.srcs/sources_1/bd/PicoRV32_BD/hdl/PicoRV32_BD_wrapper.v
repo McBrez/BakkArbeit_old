@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Sun Jan 21 21:40:19 2018
+//Date        : Fri Jan 26 23:31:16 2018
 //Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 //Command     : generate_target PicoRV32_BD_wrapper.bd
 //Design      : PicoRV32_BD_wrapper
@@ -33,7 +33,8 @@ module PicoRV32_BD_wrapper
     FIXED_IO_ps_srstb,
     OUT_Port,
     UART_out,
-    clk);
+    clk,
+    resetn);
   inout [14:0]DDR_addr;
   inout [2:0]DDR_ba;
   inout DDR_cas_n;
@@ -58,6 +59,7 @@ module PicoRV32_BD_wrapper
   output [31:0]OUT_Port;
   output UART_out;
   input clk;
+  input resetn;
 
   wire [14:0]DDR_addr;
   wire [2:0]DDR_ba;
@@ -83,6 +85,7 @@ module PicoRV32_BD_wrapper
   wire [31:0]OUT_Port;
   wire UART_out;
   wire clk;
+  wire resetn;
 
   PicoRV32_BD PicoRV32_BD_i
        (.DDR_addr(DDR_addr),
@@ -108,5 +111,6 @@ module PicoRV32_BD_wrapper
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
         .OUT_Port(OUT_Port),
         .UART_out(UART_out),
-        .clk(clk));
+        .clk(clk),
+        .resetn(resetn));
 endmodule

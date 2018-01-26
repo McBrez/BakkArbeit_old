@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Sun Jan 21 21:40:19 2018
+//Date        : Fri Jan 26 23:31:16 2018
 //Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 //Command     : generate_target PicoRV32_BD.bd
 //Design      : PicoRV32_BD
@@ -9,7 +9,7 @@
 //--------------------------------------------------------------------------------
 `timescale 1 ps / 1 ps
 
-(* CORE_GENERATION_INFO = "PicoRV32_BD,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=PicoRV32_BD,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=5,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "PicoRV32_BD.hwdef" *) 
+(* CORE_GENERATION_INFO = "PicoRV32_BD,IP_Integrator,{x_ipVendor=xilinx.com,x_ipLibrary=BlockDiagram,x_ipName=PicoRV32_BD,x_ipVersion=1.00.a,x_ipLanguage=VERILOG,numBlks=6,numReposBlks=6,numNonXlnxBlks=0,numHierBlks=0,maxHierDepth=0,numSysgenBlks=0,numHlsBlks=0,numHdlrefBlks=4,numPkgbdBlks=0,bdsource=USER,da_ps7_cnt=1,synth_mode=OOC_per_IP}" *) (* HW_HANDOFF = "PicoRV32_BD.hwdef" *) 
 module PicoRV32_BD
    (DDR_addr,
     DDR_ba,
@@ -34,7 +34,8 @@ module PicoRV32_BD
     FIXED_IO_ps_srstb,
     OUT_Port,
     UART_out,
-    clk);
+    clk,
+    resetn);
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR ADDR" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DDR, AXI_ARBITRATION_SCHEME TDM, BURST_LENGTH 8, CAN_DEBUG false, CAS_LATENCY 11, CAS_WRITE_LATENCY 11, CS_ENABLED true, DATA_MASK_ENABLED true, DATA_WIDTH 8, MEMORY_TYPE COMPONENTS, MEM_ADDR_MAP ROW_COLUMN_BANK, SLOT Single, TIMEPERIOD_PS 1250" *) inout [14:0]DDR_addr;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR BA" *) inout [2:0]DDR_ba;
   (* X_INTERFACE_INFO = "xilinx.com:interface:ddrx:1.0 DDR CAS_N" *) inout DDR_cas_n;
@@ -59,6 +60,7 @@ module PicoRV32_BD
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.OUT_PORT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.OUT_PORT, LAYERED_METADATA undef" *) output [31:0]OUT_Port;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.UART_OUT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.UART_OUT, LAYERED_METADATA undef" *) output UART_out;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN PicoRV32_BD_clk, FREQ_HZ 100000000, PHASE 0.000" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, POLARITY ACTIVE_LOW" *) input resetn;
 
   wire Address_Decoder_0_bankSwitch;
   wire [31:0]Address_Decoder_0_mem_addr_memory;
@@ -70,13 +72,18 @@ module PicoRV32_BD
   wire [31:0]Address_Decoder_0_mem_wdata_memory;
   wire [3:0]Address_Decoder_0_mem_wstrb_io;
   wire [3:0]Address_Decoder_0_mem_wstrb_memory;
-  wire [31:0]Memory_0_mem_rdata;
-  wire Memory_0_mem_ready;
   wire Out_bank_0_UART_out;
   wire [31:0]Out_bank_0_mem_rdata;
   wire Out_bank_0_mem_ready;
   wire [31:0]Out_bank_0_out_registers;
+  wire [31:0]blk_mem_gen_0_douta;
   wire clk_1;
+  wire [31:0]memory_wrapper_0_addra;
+  wire [31:0]memory_wrapper_0_dina;
+  wire memory_wrapper_0_ena;
+  wire [31:0]memory_wrapper_0_mem_rdata_memory;
+  wire memory_wrapper_0_mem_ready_memory;
+  wire [3:0]memory_wrapper_0_wea;
   wire [31:0]picorv32_0_mem_addr;
   wire picorv32_0_mem_instr;
   wire picorv32_0_mem_valid;
@@ -104,11 +111,12 @@ module PicoRV32_BD
   wire processing_system7_0_FIXED_IO_PS_CLK;
   wire processing_system7_0_FIXED_IO_PS_PORB;
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
-  wire xlconstant_0_dout;
+  wire sim_rst_gen_0_rst;
 
   assign OUT_Port[31:0] = Out_bank_0_out_registers;
   assign UART_out = Out_bank_0_UART_out;
   assign clk_1 = clk;
+  assign sim_rst_gen_0_rst = resetn;
   PicoRV32_BD_Address_Decoder_0_0 Address_Decoder_0
        (.bankSwitch(Address_Decoder_0_bankSwitch),
         .clk(processing_system7_0_FCLK_CLK0),
@@ -117,10 +125,10 @@ module PicoRV32_BD
         .mem_instr(picorv32_0_mem_instr),
         .mem_rdata(Address_Decoder_0_mem_rdata),
         .mem_rdata_io(Out_bank_0_mem_rdata),
-        .mem_rdata_memory(Memory_0_mem_rdata),
+        .mem_rdata_memory(memory_wrapper_0_mem_rdata_memory),
         .mem_ready(Address_Decoder_0_mem_ready),
         .mem_ready_io(Out_bank_0_mem_ready),
-        .mem_ready_memory(Memory_0_mem_ready),
+        .mem_ready_memory(memory_wrapper_0_mem_ready_memory),
         .mem_valid(picorv32_0_mem_valid),
         .mem_valid_io(Address_Decoder_0_mem_valid_io),
         .mem_valid_memory(Address_Decoder_0_mem_valid_memory),
@@ -130,17 +138,7 @@ module PicoRV32_BD
         .mem_wstrb(picorv32_0_mem_wstrb),
         .mem_wstrb_io(Address_Decoder_0_mem_wstrb_io),
         .mem_wstrb_memory(Address_Decoder_0_mem_wstrb_memory),
-        .resetn(xlconstant_0_dout));
-  PicoRV32_BD_Memory_0_0 Memory_0
-       (.clk(processing_system7_0_FCLK_CLK0),
-        .mem_addr(Address_Decoder_0_mem_addr_memory),
-        .mem_instr(1'b0),
-        .mem_rdata(Memory_0_mem_rdata),
-        .mem_ready(Memory_0_mem_ready),
-        .mem_valid(Address_Decoder_0_mem_valid_memory),
-        .mem_wdata(Address_Decoder_0_mem_wdata_memory),
-        .mem_wstrb(Address_Decoder_0_mem_wstrb_memory),
-        .resetn(xlconstant_0_dout));
+        .resetn(sim_rst_gen_0_rst));
   PicoRV32_BD_Out_bank_0_0 Out_bank_0
        (.UART_out(Out_bank_0_UART_out),
         .bankSwitch(Address_Decoder_0_bankSwitch),
@@ -151,10 +149,27 @@ module PicoRV32_BD
         .mem_wdata(Address_Decoder_0_mem_wdata_io),
         .mem_wstrb(Address_Decoder_0_mem_wstrb_io),
         .out_registers(Out_bank_0_out_registers),
-        .resetn(xlconstant_0_dout));
-  PicoRV32_BD_complete_design_TB_0_0 complete_design_TB_0
-       (.clk(processing_system7_0_FCLK_CLK0),
-        .resetn(xlconstant_0_dout));
+        .resetn(sim_rst_gen_0_rst));
+  PicoRV32_BD_blk_mem_gen_0_0 blk_mem_gen_0
+       (.addra(memory_wrapper_0_addra),
+        .clka(processing_system7_0_FCLK_CLK0),
+        .dina(memory_wrapper_0_dina),
+        .douta(blk_mem_gen_0_douta),
+        .ena(memory_wrapper_0_ena),
+        .wea(memory_wrapper_0_wea));
+  PicoRV32_BD_memory_wrapper_0_0 memory_wrapper_0
+       (.addra(memory_wrapper_0_addra),
+        .clk(processing_system7_0_FCLK_CLK0),
+        .dina(memory_wrapper_0_dina),
+        .douta(blk_mem_gen_0_douta),
+        .ena(memory_wrapper_0_ena),
+        .mem_addr_memory(Address_Decoder_0_mem_addr_memory),
+        .mem_rdata_memory(memory_wrapper_0_mem_rdata_memory),
+        .mem_ready_memory(memory_wrapper_0_mem_ready_memory),
+        .mem_valid_memory(Address_Decoder_0_mem_valid_memory),
+        .mem_wdata_memory(Address_Decoder_0_mem_wdata_memory),
+        .mem_wstrb_memory(Address_Decoder_0_mem_wstrb_memory),
+        .wea(memory_wrapper_0_wea));
   PicoRV32_BD_picorv32_0_0 picorv32_0
        (.clk(processing_system7_0_FCLK_CLK0),
         .irq({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
@@ -169,7 +184,7 @@ module PicoRV32_BD
         .pcpi_ready(1'b0),
         .pcpi_wait(1'b0),
         .pcpi_wr(1'b0),
-        .resetn(xlconstant_0_dout));
+        .resetn(sim_rst_gen_0_rst));
   PicoRV32_BD_processing_system7_0_0 processing_system7_0
        (.DDR_Addr(DDR_addr[14:0]),
         .DDR_BankAddr(DDR_ba[2:0]),

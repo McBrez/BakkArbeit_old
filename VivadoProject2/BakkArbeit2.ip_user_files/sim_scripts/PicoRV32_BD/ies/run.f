@@ -28,9 +28,14 @@
 -makelib ies_lib/xil_defaultlib \
   "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_processing_system7_0_0/sim/PicoRV32_BD_processing_system7_0_0.v" \
   "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/sim/PicoRV32_BD_Out_bank_0_0.v" \
-  "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_Memory_0_0/sim/PicoRV32_BD_Memory_0_0.v" \
   "../../../bd/PicoRV32_BD/sim/PicoRV32_BD.v" \
-  "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_complete_design_TB_0_0/sim/PicoRV32_BD_complete_design_TB_0_0.v" \
+-endlib
+-makelib ies_lib/blk_mem_gen_v8_4_1 \
+  "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/67d8/simulation/blk_mem_gen_v8_4.v" \
+-endlib
+-makelib ies_lib/xil_defaultlib \
+  "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_blk_mem_gen_0_0/sim/PicoRV32_BD_blk_mem_gen_0_0.v" \
+  "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_memory_wrapper_0_0/sim/PicoRV32_BD_memory_wrapper_0_0.v" \
 -endlib
 -makelib ies_lib/xil_defaultlib \
   glbl.v

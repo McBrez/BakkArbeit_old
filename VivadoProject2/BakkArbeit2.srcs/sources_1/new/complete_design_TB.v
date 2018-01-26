@@ -21,7 +21,7 @@
 
 
 module complete_design_TB(
-                            input   wire    clk,
+                            output  reg     clk,
                             output  reg     resetn
     );
     
@@ -30,7 +30,13 @@ module complete_design_TB(
     initial begin
         count <= 0;
         resetn <= 0;
+        clk <= 0;
     end
+        
+    always begin
+        #5
+        clk = ~clk;
+    end    
         
     always@(posedge clk) begin
         if(count == 100) begin
@@ -38,6 +44,11 @@ module complete_design_TB(
         end
         count = count + 1;
     end
+    
+    PicoRV32_BD_wrapper DUT (
+    .resetn(resetn)
+    );
+    
     
     
 endmodule

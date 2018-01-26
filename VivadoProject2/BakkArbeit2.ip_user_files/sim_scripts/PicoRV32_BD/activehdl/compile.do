@@ -8,6 +8,7 @@ vlib activehdl/smartconnect_v1_0
 vlib activehdl/axi_protocol_checker_v2_0_1
 vlib activehdl/axi_vip_v1_1_1
 vlib activehdl/processing_system7_vip_v1_0_3
+vlib activehdl/blk_mem_gen_v8_4_1
 
 vmap xil_defaultlib activehdl/xil_defaultlib
 vmap xpm activehdl/xpm
@@ -16,6 +17,7 @@ vmap smartconnect_v1_0 activehdl/smartconnect_v1_0
 vmap axi_protocol_checker_v2_0_1 activehdl/axi_protocol_checker_v2_0_1
 vmap axi_vip_v1_1_1 activehdl/axi_vip_v1_1_1
 vmap processing_system7_vip_v1_0_3 activehdl/processing_system7_vip_v1_0_3
+vmap blk_mem_gen_v8_4_1 activehdl/blk_mem_gen_v8_4_1
 
 vlog -work xil_defaultlib  -sv2k12 "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "D:/Xilinx/Vivado/2017.4/data/ip/xpm/xpm_fifo/hdl/xpm_fifo.sv" \
@@ -47,9 +49,14 @@ vlog -work processing_system7_vip_v1_0_3  -sv2k12 "+incdir+../../../../BakkArbei
 vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
 "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_processing_system7_0_0/sim/PicoRV32_BD_processing_system7_0_0.v" \
 "../../../bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/sim/PicoRV32_BD_Out_bank_0_0.v" \
-"../../../bd/PicoRV32_BD/ip/PicoRV32_BD_Memory_0_0/sim/PicoRV32_BD_Memory_0_0.v" \
 "../../../bd/PicoRV32_BD/sim/PicoRV32_BD.v" \
-"../../../bd/PicoRV32_BD/ip/PicoRV32_BD_complete_design_TB_0_0/sim/PicoRV32_BD_complete_design_TB_0_0.v" \
+
+vlog -work blk_mem_gen_v8_4_1  -v2k5 "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+"../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/67d8/simulation/blk_mem_gen_v8_4.v" \
+
+vlog -work xil_defaultlib  -v2k5 "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" "+incdir+../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" "+incdir+D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+"../../../bd/PicoRV32_BD/ip/PicoRV32_BD_blk_mem_gen_0_0/sim/PicoRV32_BD_blk_mem_gen_0_0.v" \
+"../../../bd/PicoRV32_BD/ip/PicoRV32_BD_memory_wrapper_0_0/sim/PicoRV32_BD_memory_wrapper_0_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

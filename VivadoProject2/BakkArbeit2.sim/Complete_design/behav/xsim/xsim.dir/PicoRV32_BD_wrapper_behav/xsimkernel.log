@@ -1,7 +1,0 @@
-Running: xsim.dir/PicoRV32_BD_wrapper_behav/xsimk.exe -simmode gui -wdb PicoRV32_BD_wrapper_behav.wdb -simrunnum 0 -socket 51644
-Design successfully loaded
-Design Loading Memory Usage: 25928 KB (Peak: 25928 KB)
-Design Loading CPU Usage: 78 ms
-Simulation completed
-Simulation Memory Usage: 45428 KB (Peak: 45428 KB)
-Simulation CPU Usage: 1968 ms

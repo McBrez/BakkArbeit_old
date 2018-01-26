@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Tue Jan 16 22:15:34 2018
+// Date        : Wed Jan 24 18:42:10 2018
 // Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_picorv32_0_0/PicoRV32_BD_picorv32_0_0_sim_netlist.v
@@ -911,7 +911,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   wire instr_addi0;
   wire instr_and;
   wire instr_and0;
-  wire instr_and_i_2_n_0;
   wire instr_andi;
   wire instr_andi0;
   wire instr_auipc;
@@ -954,6 +953,9 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   wire instr_ori0;
   wire instr_rdcycle;
   wire instr_rdcycle0;
+  wire instr_rdcycle_i_2_n_0;
+  wire instr_rdcycle_i_3_n_0;
+  wire instr_rdcycle_i_4_n_0;
   wire instr_rdcycleh;
   wire instr_rdcycleh0;
   wire instr_rdcycleh_i_2_n_0;
@@ -962,7 +964,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   wire instr_rdinstr;
   wire instr_rdinstr0;
   wire instr_rdinstr_i_2_n_0;
-  wire instr_rdinstr_i_3_n_0;
   wire instr_rdinstrh;
   wire instr_rdinstrh0;
   wire instr_rdinstrh_i_2_n_0;
@@ -987,15 +988,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   wire instr_sltu;
   wire instr_sltu0;
   wire instr_sra;
-  wire instr_sra0;
-  wire instr_sra_i_2_n_0;
+  wire instr_sra_i_1_n_0;
   wire instr_srai;
   wire instr_srai0;
   wire instr_srl;
   wire instr_srl0;
   wire instr_srli;
-  wire instr_srli0;
-  wire instr_srli_i_2_n_0;
+  wire instr_srli_i_1_n_0;
   wire instr_sub;
   wire instr_sub0;
   wire instr_sw;
@@ -1031,7 +1030,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   wire is_sll_srl_sra;
   wire is_sll_srl_sra0;
   wire is_sll_srl_sra_i_3_n_0;
-  wire is_sll_srl_sra_i_4_n_0;
   wire is_slli_srli_srai;
   wire is_slli_srli_srai0;
   wire is_slti_blt_slt;
@@ -1049,6 +1047,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   wire latched_is_lu_i_1_n_0;
   wire latched_is_lu_reg_n_0;
   wire [4:0]latched_rd;
+  wire \latched_rd[0]_i_1_n_0 ;
+  wire \latched_rd[1]_i_1_n_0 ;
+  wire \latched_rd[2]_i_1_n_0 ;
+  wire \latched_rd[3]_i_1_n_0 ;
   wire \latched_rd[4]_i_1_n_0 ;
   wire \latched_rd[4]_i_2_n_0 ;
   wire latched_stalu_i_1_n_0;
@@ -2348,13 +2350,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .O(\NLW_alu_out_01_inferred__0/i__carry__2_O_UNCONNECTED [3:0]),
         .S({i__carry__2_i_5_n_0,i__carry__2_i_6_n_0,i__carry__2_i_7_n_0,i__carry__2_i_8_n_0}));
   LUT6 #(
-    .INIT(64'hFFFFFFFFF8F8FBF8)) 
+    .INIT(64'hFFFFFFFFFBF8F8F8)) 
     \alu_out_q[0]_i_1 
        (.I0(\alu_out0_inferred__2/i___29_carry_n_7 ),
         .I1(is_lui_auipc_jal_jalr_addi_add_sub),
         .I2(\alu_out_q[0]_i_2_n_0 ),
-        .I3(is_compare),
-        .I4(\alu_out_q[0]_i_3_n_0 ),
+        .I3(\alu_out_q[0]_i_3_n_0 ),
+        .I4(is_compare),
         .I5(\alu_out_q[0]_i_4_n_0 ),
         .O(alu_out[0]));
   LUT6 #(
@@ -2368,7 +2370,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(instr_xori),
         .O(\alu_out_q[0]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h0000FFFF55450045)) 
+    .INIT(64'hFFFF0000AABAFFBA)) 
     \alu_out_q[0]_i_3 
        (.I0(decoder_trigger_i_4_n_0),
         .I1(data4),
@@ -2377,7 +2379,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(alu_out_00_carry__1_n_1),
         .I5(instr_beq),
         .O(\alu_out_q[0]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'hA8A8A880)) 
     \alu_out_q[0]_i_4 
@@ -2398,13 +2400,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[10]_i_2_n_0 ),
         .O(alu_out[10]));
   LUT5 #(
-    .INIT(32'hAAA8A800)) 
+    .INIT(32'hA8A8A880)) 
     \alu_out_q[10]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(instr_ori),
-        .I2(instr_or),
-        .I3(\pcpi_rs2[31] [10]),
-        .I4(Q[10]),
+        .I1(\pcpi_rs2[31] [10]),
+        .I2(Q[10]),
+        .I3(instr_ori),
+        .I4(instr_or),
         .O(\alu_out_q[10]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2417,13 +2419,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[11]_i_2_n_0 ),
         .O(alu_out[11]));
   LUT5 #(
-    .INIT(32'hAAA8A800)) 
+    .INIT(32'hA8A8A880)) 
     \alu_out_q[11]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(instr_ori),
-        .I2(instr_or),
-        .I3(\pcpi_rs2[31] [11]),
-        .I4(Q[11]),
+        .I1(\pcpi_rs2[31] [11]),
+        .I2(Q[11]),
+        .I3(instr_ori),
+        .I4(instr_or),
         .O(\alu_out_q[11]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2436,13 +2438,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[12]_i_2_n_0 ),
         .O(alu_out[12]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[12]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [12]),
-        .I2(Q[12]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [12]),
+        .I4(Q[12]),
         .O(\alu_out_q[12]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2474,13 +2476,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[14]_i_2_n_0 ),
         .O(alu_out[14]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[14]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [14]),
-        .I2(Q[14]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [14]),
+        .I4(Q[14]),
         .O(\alu_out_q[14]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2512,13 +2514,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[16]_i_2_n_0 ),
         .O(alu_out[16]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[16]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [16]),
-        .I2(Q[16]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [16]),
+        .I4(Q[16]),
         .O(\alu_out_q[16]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2531,13 +2533,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[17]_i_2_n_0 ),
         .O(alu_out[17]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[17]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [17]),
-        .I2(Q[17]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [17]),
+        .I4(Q[17]),
         .O(\alu_out_q[17]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2664,13 +2666,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[23]_i_2_n_0 ),
         .O(alu_out[23]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[23]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [23]),
-        .I2(Q[23]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [23]),
+        .I4(Q[23]),
         .O(\alu_out_q[23]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2721,13 +2723,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[26]_i_2_n_0 ),
         .O(alu_out[26]));
   LUT5 #(
-    .INIT(32'hAAA8A800)) 
+    .INIT(32'hA8A8A880)) 
     \alu_out_q[26]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(instr_ori),
-        .I2(instr_or),
-        .I3(\pcpi_rs2[31] [26]),
-        .I4(Q[26]),
+        .I1(\pcpi_rs2[31] [26]),
+        .I2(Q[26]),
+        .I3(instr_ori),
+        .I4(instr_or),
         .O(\alu_out_q[26]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2740,13 +2742,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[27]_i_2_n_0 ),
         .O(alu_out[27]));
   LUT5 #(
-    .INIT(32'hAAA8A800)) 
+    .INIT(32'hA8A8A880)) 
     \alu_out_q[27]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(instr_ori),
-        .I2(instr_or),
-        .I3(\pcpi_rs2[31] [27]),
-        .I4(Q[27]),
+        .I1(\pcpi_rs2[31] [27]),
+        .I2(Q[27]),
+        .I3(instr_ori),
+        .I4(instr_or),
         .O(\alu_out_q[27]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2759,13 +2761,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[28]_i_2_n_0 ),
         .O(alu_out[28]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[28]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [28]),
-        .I2(Q[28]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [28]),
+        .I4(Q[28]),
         .O(\alu_out_q[28]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2778,13 +2780,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[29]_i_2_n_0 ),
         .O(alu_out[29]));
   LUT5 #(
-    .INIT(32'hAAA8A800)) 
+    .INIT(32'hA8A8A880)) 
     \alu_out_q[29]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(instr_ori),
-        .I2(instr_or),
-        .I3(\pcpi_rs2[31] [29]),
-        .I4(Q[29]),
+        .I1(\pcpi_rs2[31] [29]),
+        .I2(Q[29]),
+        .I3(instr_ori),
+        .I4(instr_or),
         .O(\alu_out_q[29]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2861,13 +2863,14 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\alu_out_q[31]_i_5_n_0 ),
         .I5(\alu_out_q[31]_i_6_n_0 ),
         .O(\alu_out_q[31]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \alu_out_q[31]_i_5 
        (.I0(instr_and),
         .I1(instr_andi),
         .O(\alu_out_q[31]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \alu_out_q[31]_i_6 
@@ -2980,13 +2983,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[8]_i_2_n_0 ),
         .O(alu_out[8]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[8]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [8]),
-        .I2(Q[8]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [8]),
+        .I4(Q[8]),
         .O(\alu_out_q[8]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF060606)) 
@@ -2999,13 +3002,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\alu_out_q[9]_i_2_n_0 ),
         .O(alu_out[9]));
   LUT5 #(
-    .INIT(32'hA8A8A880)) 
+    .INIT(32'hAAA8A800)) 
     \alu_out_q[9]_i_2 
        (.I0(\alu_out_q[31]_i_4_n_0 ),
-        .I1(\pcpi_rs2[31] [9]),
-        .I2(Q[9]),
-        .I3(instr_ori),
-        .I4(instr_or),
+        .I1(instr_ori),
+        .I2(instr_or),
+        .I3(\pcpi_rs2[31] [9]),
+        .I4(Q[9]),
         .O(\alu_out_q[9]_i_2_n_0 ));
   FDRE \alu_out_q_reg[0] 
        (.C(clk),
@@ -4207,7 +4210,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(\count_instr_reg[8]_i_1_n_6 ),
         .Q(\count_instr_reg_n_0_[9] ),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT4 #(
     .INIT(16'h4000)) 
     \cpu_state[0]_i_1 
@@ -4217,7 +4220,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\cpu_state_reg_n_0_[5] ),
         .O(cpu_state0_out[0]));
   LUT4 #(
-    .INIT(16'h0010)) 
+    .INIT(16'h0001)) 
     \cpu_state[1]_i_1 
        (.I0(is_lb_lh_lw_lbu_lhu),
         .I1(is_slli_srli_srai),
@@ -4234,13 +4237,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(is_sb_sh_sw),
         .O(\cpu_state[1]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h8888888880000000)) 
+    .INIT(64'h8888888800008000)) 
     \cpu_state[2]_i_1 
        (.I0(resetn),
         .I1(\cpu_state_reg_n_0_[5] ),
         .I2(\cpu_state[2]_i_2_n_0 ),
-        .I3(\cpu_state[3]_i_2_n_0 ),
-        .I4(is_sll_srl_sra),
+        .I3(is_sll_srl_sra),
+        .I4(\cpu_state[3]_i_2_n_0 ),
         .I5(is_slli_srli_srai),
         .O(cpu_state0_out[2]));
   LUT4 #(
@@ -4252,7 +4255,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(is_lui_auipc_jal),
         .O(\cpu_state[2]_i_2_n_0 ));
   LUT6 #(
-    .INIT(64'h00000200AAAAAAAA)) 
+    .INIT(64'h00000002AAAAAAAA)) 
     \cpu_state[3]_i_1 
        (.I0(\reg_op2[7]_i_1_n_0 ),
         .I1(is_lb_lh_lw_lbu_lhu),
@@ -4261,9 +4264,9 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state[3]_i_3_n_0 ),
         .I5(\cpu_state[3]_i_4_n_0 ),
         .O(cpu_state0_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
-    .INIT(32'h00000001)) 
+    .INIT(32'hFFFFFFFE)) 
     \cpu_state[3]_i_2 
        (.I0(instr_rdinstrh),
         .I1(instr_rdinstr),
@@ -4271,21 +4274,21 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(instr_rdcycle),
         .I4(\cpu_state[7]_i_6_n_0 ),
         .O(\cpu_state[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \cpu_state[3]_i_3 
        (.I0(is_sb_sh_sw),
         .I1(is_sll_srl_sra),
         .O(\cpu_state[3]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \cpu_state[3]_i_4 
        (.I0(is_lui_auipc_jal),
         .I1(is_jalr_addi_slti_sltiu_xori_ori_andi),
         .O(\cpu_state[3]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \cpu_state[5]_i_1 
@@ -4302,7 +4305,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[1] ),
         .I5(resetn),
         .O(cpu_state0_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \cpu_state[6]_i_2 
@@ -4311,7 +4314,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(instr_rdinstr),
         .I3(instr_rdinstrh),
         .O(\cpu_state[6]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \cpu_state[6]_i_3 
@@ -4330,10 +4333,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(64'h0000000000000001)) 
     \cpu_state[7]_i_10 
        (.I0(\cpu_state[7]_i_14_n_0 ),
-        .I1(instr_beq),
-        .I2(instr_blt),
+        .I1(instr_sh),
+        .I2(instr_lh),
         .I3(instr_sw),
-        .I4(instr_xori),
+        .I4(instr_xor),
         .I5(\cpu_state[7]_i_15_n_0 ),
         .O(\cpu_state[7]_i_10_n_0 ));
   LUT5 #(
@@ -4349,29 +4352,28 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   LUT5 #(
     .INIT(32'hFFFEFFFF)) 
     \cpu_state[7]_i_12 
-       (.I0(instr_slti),
-        .I1(instr_slt),
-        .I2(instr_and),
-        .I3(instr_andi),
+       (.I0(instr_and),
+        .I1(instr_andi),
+        .I2(instr_bne),
+        .I3(instr_bge),
         .I4(\reg_op1[0]_i_2_n_0 ),
         .O(\cpu_state[7]_i_12_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \cpu_state[7]_i_13 
        (.I0(instr_or),
-        .I1(instr_xor),
-        .I2(instr_lh),
-        .I3(instr_sb),
+        .I1(instr_xori),
+        .I2(instr_blt),
+        .I3(instr_beq),
         .I4(\cpu_state[7]_i_16_n_0 ),
         .O(\cpu_state[7]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \cpu_state[7]_i_14 
-       (.I0(instr_sh),
-        .I1(instr_sll),
+       (.I0(instr_sb),
+        .I1(instr_bltu),
         .I2(instr_bgeu),
-        .I3(instr_slli),
+        .I3(instr_ori),
         .O(\cpu_state[7]_i_14_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFFFFFFFE)) 
@@ -4379,18 +4381,18 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(instr_lhu),
         .I1(instr_lbu),
         .I2(instr_lw),
-        .I3(instr_lb),
-        .I4(instr_ori),
-        .I5(instr_sltu),
+        .I3(instr_sll),
+        .I4(instr_slli),
+        .I5(instr_sltiu),
         .O(\cpu_state[7]_i_15_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT4 #(
     .INIT(16'hFFFE)) 
     \cpu_state[7]_i_16 
-       (.I0(instr_bge),
-        .I1(instr_bne),
-        .I2(instr_bltu),
-        .I3(instr_sltiu),
+       (.I0(instr_slt),
+        .I1(instr_slti),
+        .I2(instr_sltu),
+        .I3(instr_lb),
         .O(\cpu_state[7]_i_16_n_0 ));
   LUT6 #(
     .INIT(64'hFF00FF00FFFFFF54)) 
@@ -4402,7 +4404,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[3] ),
         .I5(\decoded_rs2_rep[4]_i_2_n_0 ),
         .O(\cpu_state[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'h80)) 
     \cpu_state[7]_i_3 
@@ -4449,14 +4451,14 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\reg_sh_reg_n_0_[4] ),
         .I5(\reg_sh_reg_n_0_[3] ),
         .O(\cpu_state[7]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cpu_state[7]_i_8 
        (.I0(\cpu_state_reg_n_0_[3] ),
         .I1(is_beq_bne_blt_bge_bltu_bgeu),
         .O(\cpu_state[7]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \cpu_state[7]_i_9 
@@ -5106,13 +5108,13 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .WCLK(clk),
         .WE(cpuregs_reg_r1_0_31_0_5_i_1_n_0));
   LUT6 #(
-    .INIT(64'h00000000FF400040)) 
+    .INIT(64'h000000002E222222)) 
     \decoded_imm[0]_i_1 
-       (.I0(is_beq_bne_blt_bge_bltu_bgeu),
-        .I1(is_sb_sh_sw),
-        .I2(\mem_rdata_q_reg_n_0_[7] ),
-        .I3(\decoded_imm[4]_i_2_n_0 ),
-        .I4(\mem_rdata_q_reg_n_0_[20] ),
+       (.I0(\mem_rdata_q_reg_n_0_[20] ),
+        .I1(\decoded_imm[4]_i_2_n_0 ),
+        .I2(is_beq_bne_blt_bge_bltu_bgeu),
+        .I3(is_sb_sh_sw),
+        .I4(\mem_rdata_q_reg_n_0_[7] ),
         .I5(is_lui_auipc_jal_i_1_n_0),
         .O(decoded_imm[0]));
   LUT4 #(
@@ -5120,46 +5122,45 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[10]_i_1 
        (.I0(decoded_imm_uj[10]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
         .I3(\mem_rdata_q_reg_n_0_[30] ),
         .O(decoded_imm[10]));
   LUT6 #(
-    .INIT(64'h8F8F8F88888F8888)) 
+    .INIT(64'h88888888FF88F8F8)) 
     \decoded_imm[11]_i_1 
        (.I0(decoded_imm_uj[11]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
-        .I3(\decoded_imm[11]_i_3_n_0 ),
-        .I4(\mem_rdata_q_reg_n_0_[31] ),
-        .I5(\mem_rdata_q_reg_n_0_[7] ),
+        .I2(\mem_rdata_q_reg_n_0_[7] ),
+        .I3(\mem_rdata_q_reg_n_0_[31] ),
+        .I4(\decoded_imm[11]_i_2_n_0 ),
+        .I5(\decoded_imm[11]_i_3_n_0 ),
         .O(decoded_imm[11]));
-  LUT6 #(
-    .INIT(64'hAAAAAAAAAAAAAAAB)) 
-    \decoded_imm[11]_i_2 
-       (.I0(is_lui_auipc_jal_i_1_n_0),
-        .I1(is_lb_lh_lw_lbu_lhu),
-        .I2(is_alu_reg_imm),
-        .I3(instr_jalr),
-        .I4(is_beq_bne_blt_bge_bltu_bgeu),
-        .I5(is_sb_sh_sw),
-        .O(\decoded_imm[11]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT4 #(
-    .INIT(16'h0002)) 
-    \decoded_imm[11]_i_3 
+    .INIT(16'hFFFD)) 
+    \decoded_imm[11]_i_2 
        (.I0(is_beq_bne_blt_bge_bltu_bgeu),
         .I1(instr_jalr),
         .I2(is_alu_reg_imm),
         .I3(is_lb_lh_lw_lbu_lhu),
+        .O(\decoded_imm[11]_i_2_n_0 ));
+  LUT6 #(
+    .INIT(64'hAAAAAAAAAAAAAAAB)) 
+    \decoded_imm[11]_i_3 
+       (.I0(is_lui_auipc_jal_i_1_n_0),
+        .I1(is_beq_bne_blt_bge_bltu_bgeu),
+        .I2(is_sb_sh_sw),
+        .I3(is_lb_lh_lw_lbu_lhu),
+        .I4(is_alu_reg_imm),
+        .I5(instr_jalr),
         .O(\decoded_imm[11]_i_3_n_0 ));
   LUT5 #(
-    .INIT(32'hB8B8B888)) 
+    .INIT(32'hFFE000E0)) 
     \decoded_imm[12]_i_1 
-       (.I0(decoded_imm_uj[12]),
-        .I1(instr_jal),
+       (.I0(instr_lui),
+        .I1(instr_auipc),
         .I2(p_0_in[0]),
-        .I3(instr_auipc),
-        .I4(instr_lui),
+        .I3(instr_jal),
+        .I4(decoded_imm_uj[12]),
         .O(\decoded_imm[12]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hFFE000E0)) 
@@ -5180,22 +5181,22 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(p_0_in[2]),
         .O(\decoded_imm[14]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'hFFE000E0)) 
-    \decoded_imm[15]_i_1 
-       (.I0(instr_lui),
-        .I1(instr_auipc),
-        .I2(\mem_rdata_q_reg_n_0_[15] ),
-        .I3(instr_jal),
-        .I4(decoded_rs1_0[0]),
-        .O(\decoded_imm[15]_i_1_n_0 ));
-  LUT5 #(
     .INIT(32'hB8B8B888)) 
-    \decoded_imm[16]_i_1 
-       (.I0(decoded_rs1_0[1]),
+    \decoded_imm[15]_i_1 
+       (.I0(decoded_rs1_0[0]),
         .I1(instr_jal),
-        .I2(\mem_rdata_q_reg_n_0_[16] ),
+        .I2(\mem_rdata_q_reg_n_0_[15] ),
         .I3(instr_auipc),
         .I4(instr_lui),
+        .O(\decoded_imm[15]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFE000E0)) 
+    \decoded_imm[16]_i_1 
+       (.I0(instr_lui),
+        .I1(instr_auipc),
+        .I2(\mem_rdata_q_reg_n_0_[16] ),
+        .I3(instr_jal),
+        .I4(decoded_rs1_0[1]),
         .O(\decoded_imm[16]_i_1_n_0 ));
   LUT5 #(
     .INIT(32'hB8B8B888)) 
@@ -5207,15 +5208,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(instr_lui),
         .O(\decoded_imm[17]_i_1_n_0 ));
   LUT5 #(
-    .INIT(32'hB8B8B888)) 
+    .INIT(32'hFFE000E0)) 
     \decoded_imm[18]_i_1 
-       (.I0(decoded_rs1_0[3]),
-        .I1(instr_jal),
+       (.I0(instr_lui),
+        .I1(instr_auipc),
         .I2(\mem_rdata_q_reg_n_0_[18] ),
-        .I3(instr_auipc),
-        .I4(instr_lui),
+        .I3(instr_jal),
+        .I4(decoded_rs1_0[3]),
         .O(\decoded_imm[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'hB8B8B888)) 
     \decoded_imm[19]_i_1 
@@ -5230,10 +5231,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[1]_i_1 
        (.I0(decoded_imm_uj[1]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
-        .I3(\mem_rdata_q_reg_n_0_[21] ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
+        .I3(\mem_rdata_q_reg_n_0_[8] ),
         .I4(\decoded_imm[4]_i_2_n_0 ),
-        .I5(\mem_rdata_q_reg_n_0_[8] ),
+        .I5(\mem_rdata_q_reg_n_0_[21] ),
         .O(decoded_imm[1]));
   LUT5 #(
     .INIT(32'hFFE000E0)) 
@@ -5330,10 +5331,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[2]_i_1 
        (.I0(decoded_imm_uj[2]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
-        .I3(\mem_rdata_q_reg_n_0_[22] ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
+        .I3(\mem_rdata_q_reg_n_0_[9] ),
         .I4(\decoded_imm[4]_i_2_n_0 ),
-        .I5(\mem_rdata_q_reg_n_0_[9] ),
+        .I5(\mem_rdata_q_reg_n_0_[22] ),
         .O(decoded_imm[2]));
   LUT5 #(
     .INIT(32'hFFE000E0)) 
@@ -5347,7 +5348,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
   LUT4 #(
     .INIT(16'h0400)) 
     \decoded_imm[31]_i_1 
-       (.I0(\decoded_imm[11]_i_2_n_0 ),
+       (.I0(\decoded_imm[11]_i_3_n_0 ),
         .I1(\mem_rdata_q_reg_n_0_[31] ),
         .I2(decoder_pseudo_trigger_reg_n_0),
         .I3(decoder_trigger_reg_n_0),
@@ -5366,24 +5367,24 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[3]_i_1 
        (.I0(decoded_imm_uj[3]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
-        .I3(\mem_rdata_q_reg_n_0_[23] ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
+        .I3(\mem_rdata_q_reg_n_0_[10] ),
         .I4(\decoded_imm[4]_i_2_n_0 ),
-        .I5(\mem_rdata_q_reg_n_0_[10] ),
+        .I5(\mem_rdata_q_reg_n_0_[23] ),
         .O(decoded_imm[3]));
   LUT6 #(
     .INIT(64'h8F888F8F8F888888)) 
     \decoded_imm[4]_i_1 
        (.I0(decoded_imm_uj[4]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
-        .I3(\mem_rdata_q_reg_n_0_[24] ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
+        .I3(\mem_rdata_q_reg_n_0_[11] ),
         .I4(\decoded_imm[4]_i_2_n_0 ),
-        .I5(\mem_rdata_q_reg_n_0_[11] ),
+        .I5(\mem_rdata_q_reg_n_0_[24] ),
         .O(decoded_imm[4]));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
-    .INIT(8'hFE)) 
+    .INIT(8'h01)) 
     \decoded_imm[4]_i_2 
        (.I0(is_lb_lh_lw_lbu_lhu),
         .I1(is_alu_reg_imm),
@@ -5394,7 +5395,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[5]_i_1 
        (.I0(decoded_imm_uj[5]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
         .I3(\mem_rdata_q_reg_n_0_[25] ),
         .O(decoded_imm[5]));
   LUT4 #(
@@ -5402,7 +5403,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[6]_i_1 
        (.I0(decoded_imm_uj[6]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
         .I3(\mem_rdata_q_reg_n_0_[26] ),
         .O(decoded_imm[6]));
   LUT4 #(
@@ -5410,7 +5411,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[7]_i_1 
        (.I0(decoded_imm_uj[7]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
         .I3(\mem_rdata_q_reg_n_0_[27] ),
         .O(decoded_imm[7]));
   LUT4 #(
@@ -5418,7 +5419,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[8]_i_1 
        (.I0(decoded_imm_uj[8]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
         .I3(\mem_rdata_q_reg_n_0_[28] ),
         .O(decoded_imm[8]));
   LUT4 #(
@@ -5426,7 +5427,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     \decoded_imm[9]_i_1 
        (.I0(decoded_imm_uj[9]),
         .I1(instr_jal),
-        .I2(\decoded_imm[11]_i_2_n_0 ),
+        .I2(\decoded_imm[11]_i_3_n_0 ),
         .I3(\mem_rdata_q_reg_n_0_[29] ),
         .O(decoded_imm[9]));
   FDRE \decoded_imm_reg[0] 
@@ -5847,7 +5848,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(mem_do_rinst_reg_n_0),
         .I1(\decoded_rs2_rep[4]_i_2_n_0 ),
         .O(instr_lui0));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'hB)) 
     \decoded_rs2_rep[4]_i_2 
@@ -5890,7 +5891,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[3] ),
         .I5(is_beq_bne_blt_bge_bltu_bgeu),
         .O(decoder_trigger_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT5 #(
     .INIT(32'h0000FB0B)) 
     decoder_trigger_i_3
@@ -5910,7 +5911,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(instr_bgeu),
         .I5(decoder_trigger_i_5_n_0),
         .O(decoder_trigger_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'hE)) 
     decoder_trigger_i_5
@@ -6593,14 +6594,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(\pcpi_rs2[31] [1]),
         .I3(Q[1]),
         .O(i__carry_i_8_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
-  LUT4 #(
-    .INIT(16'h0001)) 
+  LUT6 #(
+    .INIT(64'h0000000000000010)) 
     instr_add_i_1
-       (.I0(p_0_in[2]),
-        .I1(p_0_in[0]),
-        .I2(p_0_in[1]),
-        .I3(instr_and_i_2_n_0),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[2]),
+        .I4(p_0_in[0]),
+        .I5(p_0_in[1]),
         .O(instr_add0));
   FDRE instr_add_reg
        (.C(clk),
@@ -6608,7 +6610,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_add0),
         .Q(instr_add),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'h0002)) 
     instr_addi_i_1
@@ -6623,32 +6625,23 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_addi0),
         .Q(instr_addi),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
-  LUT4 #(
-    .INIT(16'h0080)) 
+  LUT6 #(
+    .INIT(64'h1000000000000000)) 
     instr_and_i_1
-       (.I0(p_0_in[0]),
-        .I1(p_0_in[1]),
-        .I2(p_0_in[2]),
-        .I3(instr_and_i_2_n_0),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[0]),
+        .I4(p_0_in[1]),
+        .I5(p_0_in[2]),
         .O(instr_and0));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT5 #(
-    .INIT(32'hFFFEFFFF)) 
-    instr_and_i_2
-       (.I0(\mem_rdata_q_reg_n_0_[25] ),
-        .I1(\mem_rdata_q_reg_n_0_[31] ),
-        .I2(\mem_rdata_q_reg_n_0_[30] ),
-        .I3(instr_sra_i_2_n_0),
-        .I4(is_alu_reg_reg),
-        .O(instr_and_i_2_n_0));
   FDRE instr_and_reg
        (.C(clk),
         .CE(is_lui_auipc_jal_jalr_addi_add_sub0),
         .D(instr_and0),
         .Q(instr_and),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     instr_andi_i_1
@@ -6663,7 +6656,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_andi0),
         .Q(instr_andi),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT4 #(
     .INIT(16'h0100)) 
     instr_auipc_i_1
@@ -6678,7 +6671,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_auipc_i_1_n_0),
         .Q(instr_auipc),
         .R(instr_jal_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT4 #(
     .INIT(16'h0100)) 
     instr_beq_i_1
@@ -6693,7 +6686,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_beq_i_1_n_0),
         .Q(instr_beq),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     instr_bge_i_1
@@ -6708,7 +6701,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_bge_i_1_n_0),
         .Q(instr_bge),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'h8000)) 
     instr_bgeu_i_1
@@ -6723,7 +6716,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_bgeu_i_1_n_0),
         .Q(instr_bgeu),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair44" *) 
+  (* SOFT_HLUTNM = "soft_lutpair49" *) 
   LUT4 #(
     .INIT(16'h0400)) 
     instr_blt_i_1
@@ -6738,7 +6731,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_blt_i_1_n_0),
         .Q(instr_blt),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair56" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     instr_bltu_i_1
@@ -6753,7 +6746,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_bltu0),
         .Q(instr_bltu),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT4 #(
     .INIT(16'h0400)) 
     instr_bne_i_1
@@ -6777,7 +6770,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(mem_do_rinst_reg_n_0),
         .I4(\decoded_rs2_rep[4]_i_2_n_0 ),
         .O(instr_jal_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'h2000)) 
     instr_jal_i_2
@@ -6802,7 +6795,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(mem_rdata[6]),
         .I5(instr_jalr_i_2_n_0),
         .O(instr_jalr_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair49" *) 
+  (* SOFT_HLUTNM = "soft_lutpair43" *) 
   LUT2 #(
     .INIT(4'hB)) 
     instr_jalr_i_2
@@ -6815,7 +6808,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_jalr_i_1_n_0),
         .Q(instr_jalr),
         .R(instr_jal_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT3 #(
     .INIT(8'h01)) 
     instr_lb_i_1
@@ -6829,7 +6822,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_lb_i_1_n_0),
         .Q(instr_lb),
         .R(instr_lhu_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT3 #(
     .INIT(8'h04)) 
     instr_lbu_i_1
@@ -6843,7 +6836,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_lbu_i_1_n_0),
         .Q(instr_lbu),
         .R(instr_lhu_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  (* SOFT_HLUTNM = "soft_lutpair67" *) 
   LUT3 #(
     .INIT(8'h04)) 
     instr_lh_i_1
@@ -6864,7 +6857,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(decoder_trigger_reg_n_0),
         .I2(is_lb_lh_lw_lbu_lhu),
         .O(instr_lhu_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT3 #(
     .INIT(8'h40)) 
     instr_lhu_i_2
@@ -6878,7 +6871,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_lhu_i_2_n_0),
         .Q(instr_lhu),
         .R(instr_lhu_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT4 #(
     .INIT(16'h0008)) 
     instr_lui_i_1
@@ -6893,6 +6886,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_lui_i_1_n_0),
         .Q(instr_lui),
         .R(instr_jal_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair68" *) 
   LUT3 #(
     .INIT(8'h02)) 
     instr_lw_i_1
@@ -6906,14 +6900,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_lw_i_1_n_0),
         .Q(instr_lw),
         .R(instr_lhu_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
-  LUT4 #(
-    .INIT(16'h0400)) 
+  LUT6 #(
+    .INIT(64'h0000100000000000)) 
     instr_or_i_1
-       (.I0(instr_and_i_2_n_0),
-        .I1(p_0_in[1]),
-        .I2(p_0_in[0]),
-        .I3(p_0_in[2]),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[1]),
+        .I4(p_0_in[0]),
+        .I5(p_0_in[2]),
         .O(instr_or0));
   FDRE instr_or_reg
        (.C(clk),
@@ -6921,7 +6916,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_or0),
         .Q(instr_or),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT4 #(
     .INIT(16'h0800)) 
     instr_ori_i_1
@@ -6936,16 +6931,40 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_ori0),
         .Q(instr_ori),
         .R(trap_i_1_n_0));
-  LUT6 #(
-    .INIT(64'h0000000000000400)) 
+  LUT5 #(
+    .INIT(32'h00000002)) 
     instr_rdcycle_i_1
-       (.I0(\mem_rdata_q_reg_n_0_[28] ),
-        .I1(p_0_in[1]),
-        .I2(\mem_rdata_q_reg_n_0_[25] ),
-        .I3(instr_rdcycleh_i_2_n_0),
+       (.I0(instr_rdcycleh_i_2_n_0),
+        .I1(instr_rdcycle_i_2_n_0),
+        .I2(instr_rdcycle_i_3_n_0),
+        .I3(instr_rdcycle_i_4_n_0),
         .I4(instr_rdcycleh_i_3_n_0),
-        .I5(instr_rdinstr_i_2_n_0),
         .O(instr_rdcycle0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    instr_rdcycle_i_2
+       (.I0(\mem_rdata_q_reg_n_0_[19] ),
+        .I1(\mem_rdata_q_reg_n_0_[18] ),
+        .I2(\mem_rdata_q_reg_n_0_[17] ),
+        .I3(\mem_rdata_q_reg_n_0_[16] ),
+        .O(instr_rdcycle_i_2_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  LUT4 #(
+    .INIT(16'hFFFD)) 
+    instr_rdcycle_i_3
+       (.I0(\mem_rdata_q_reg_n_0_[30] ),
+        .I1(p_0_in[2]),
+        .I2(\mem_rdata_q_reg_n_0_[15] ),
+        .I3(p_0_in[0]),
+        .O(instr_rdcycle_i_3_n_0));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    instr_rdcycle_i_4
+       (.I0(\mem_rdata_q_reg_n_0_[26] ),
+        .I1(\mem_rdata_q_reg_n_0_[27] ),
+        .I2(\mem_rdata_q_reg_n_0_[28] ),
+        .I3(\mem_rdata_q_reg_n_0_[25] ),
+        .O(instr_rdcycle_i_4_n_0));
   FDRE instr_rdcycle_reg
        (.C(clk),
         .CE(is_lui_auipc_jal_jalr_addi_add_sub0),
@@ -6953,32 +6972,34 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .Q(instr_rdcycle),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'h0000000004000000)) 
+    .INIT(64'h0000000000000002)) 
     instr_rdcycleh_i_1
-       (.I0(\mem_rdata_q_reg_n_0_[28] ),
-        .I1(p_0_in[1]),
-        .I2(\mem_rdata_q_reg_n_0_[25] ),
-        .I3(instr_rdcycleh_i_2_n_0),
-        .I4(instr_rdinstrh_i_2_n_0),
+       (.I0(instr_rdcycleh_i_2_n_0),
+        .I1(instr_rdinstrh_i_4_n_0),
+        .I2(instr_rdinstrh_i_3_n_0),
+        .I3(\mem_rdata_q_reg_n_0_[25] ),
+        .I4(\mem_rdata_q_reg_n_0_[28] ),
         .I5(instr_rdcycleh_i_3_n_0),
         .O(instr_rdcycleh0));
-  LUT4 #(
-    .INIT(16'h0010)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT5 #(
+    .INIT(32'h00040000)) 
     instr_rdcycleh_i_2
-       (.I0(\mem_rdata_q_reg_n_0_[2] ),
-        .I1(\mem_rdata_q_reg_n_0_[3] ),
-        .I2(\mem_rdata_q_reg_n_0_[1] ),
-        .I3(instr_rdcycleh_i_4_n_0),
+       (.I0(instr_rdcycleh_i_4_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[1] ),
+        .I2(\mem_rdata_q_reg_n_0_[3] ),
+        .I3(\mem_rdata_q_reg_n_0_[2] ),
+        .I4(p_0_in[1]),
         .O(instr_rdcycleh_i_2_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFEFF)) 
+    .INIT(64'hFFFFFFFEFFFFFFFF)) 
     instr_rdcycleh_i_3
        (.I0(\mem_rdata_q_reg_n_0_[23] ),
         .I1(\mem_rdata_q_reg_n_0_[22] ),
         .I2(\mem_rdata_q_reg_n_0_[21] ),
-        .I3(\mem_rdata_q_reg_n_0_[31] ),
-        .I4(\mem_rdata_q_reg_n_0_[24] ),
-        .I5(\mem_rdata_q_reg_n_0_[29] ),
+        .I3(\mem_rdata_q_reg_n_0_[24] ),
+        .I4(\mem_rdata_q_reg_n_0_[29] ),
+        .I5(\mem_rdata_q_reg_n_0_[31] ),
         .O(instr_rdcycleh_i_3_n_0));
   LUT4 #(
     .INIT(16'h7FFF)) 
@@ -6994,91 +7015,84 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_rdcycleh0),
         .Q(instr_rdcycleh),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+  LUT6 #(
+    .INIT(64'h0000000000000002)) 
     instr_rdinstr_i_1
-       (.I0(instr_rdinstrh_i_3_n_0),
+       (.I0(instr_rdinstrh_i_2_n_0),
         .I1(instr_rdinstr_i_2_n_0),
+        .I2(\mem_rdata_q_reg_n_0_[19] ),
+        .I3(\mem_rdata_q_reg_n_0_[18] ),
+        .I4(\mem_rdata_q_reg_n_0_[17] ),
+        .I5(\mem_rdata_q_reg_n_0_[16] ),
         .O(instr_rdinstr0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     instr_rdinstr_i_2
-       (.I0(\mem_rdata_q_reg_n_0_[16] ),
-        .I1(\mem_rdata_q_reg_n_0_[19] ),
-        .I2(\mem_rdata_q_reg_n_0_[18] ),
-        .I3(\mem_rdata_q_reg_n_0_[17] ),
-        .I4(instr_rdinstr_i_3_n_0),
+       (.I0(instr_rdcycle_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[29] ),
+        .I2(\mem_rdata_q_reg_n_0_[28] ),
+        .I3(\mem_rdata_q_reg_n_0_[27] ),
+        .I4(\mem_rdata_q_reg_n_0_[26] ),
         .O(instr_rdinstr_i_2_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFEFFFFFFFF)) 
-    instr_rdinstr_i_3
-       (.I0(\mem_rdata_q_reg_n_0_[26] ),
-        .I1(\mem_rdata_q_reg_n_0_[27] ),
-        .I2(p_0_in[0]),
-        .I3(\mem_rdata_q_reg_n_0_[15] ),
-        .I4(p_0_in[2]),
-        .I5(\mem_rdata_q_reg_n_0_[30] ),
-        .O(instr_rdinstr_i_3_n_0));
   FDRE instr_rdinstr_reg
        (.C(clk),
         .CE(is_lui_auipc_jal_jalr_addi_add_sub0),
         .D(instr_rdinstr0),
         .Q(instr_rdinstr),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    instr_rdinstrh_i_1
-       (.I0(instr_rdinstrh_i_2_n_0),
-        .I1(instr_rdinstrh_i_3_n_0),
-        .O(instr_rdinstrh0));
   LUT5 #(
     .INIT(32'h00000002)) 
-    instr_rdinstrh_i_2
-       (.I0(instr_rdinstrh_i_4_n_0),
-        .I1(instr_rdinstrh_i_5_n_0),
-        .I2(\mem_rdata_q_reg_n_0_[15] ),
-        .I3(\mem_rdata_q_reg_n_0_[26] ),
-        .I4(\mem_rdata_q_reg_n_0_[17] ),
-        .O(instr_rdinstrh_i_2_n_0));
+    instr_rdinstrh_i_1
+       (.I0(instr_rdinstrh_i_2_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[28] ),
+        .I2(\mem_rdata_q_reg_n_0_[29] ),
+        .I3(instr_rdinstrh_i_3_n_0),
+        .I4(instr_rdinstrh_i_4_n_0),
+        .O(instr_rdinstrh0));
   LUT6 #(
-    .INIT(64'h0000000000020000)) 
-    instr_rdinstrh_i_3
-       (.I0(instr_rdcycleh_i_2_n_0),
+    .INIT(64'h0000000000000020)) 
+    instr_rdinstrh_i_2
+       (.I0(instr_rdinstrh_i_5_n_0),
         .I1(instr_rdinstrh_i_6_n_0),
-        .I2(\mem_rdata_q_reg_n_0_[25] ),
-        .I3(\mem_rdata_q_reg_n_0_[24] ),
-        .I4(\mem_rdata_q_reg_n_0_[21] ),
-        .I5(\mem_rdata_q_reg_n_0_[20] ),
-        .O(instr_rdinstrh_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
-  LUT3 #(
-    .INIT(8'h01)) 
-    instr_rdinstrh_i_4
-       (.I0(\mem_rdata_q_reg_n_0_[16] ),
-        .I1(\mem_rdata_q_reg_n_0_[19] ),
-        .I2(\mem_rdata_q_reg_n_0_[18] ),
-        .O(instr_rdinstrh_i_4_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+        .I2(\mem_rdata_q_reg_n_0_[21] ),
+        .I3(\mem_rdata_q_reg_n_0_[20] ),
+        .I4(\mem_rdata_q_reg_n_0_[25] ),
+        .I5(\mem_rdata_q_reg_n_0_[24] ),
+        .O(instr_rdinstrh_i_2_n_0));
   LUT4 #(
-    .INIT(16'hFFDF)) 
-    instr_rdinstrh_i_5
+    .INIT(16'hFFFD)) 
+    instr_rdinstrh_i_3
+       (.I0(\mem_rdata_q_reg_n_0_[27] ),
+        .I1(\mem_rdata_q_reg_n_0_[26] ),
+        .I2(\mem_rdata_q_reg_n_0_[15] ),
+        .I3(\mem_rdata_q_reg_n_0_[17] ),
+        .O(instr_rdinstrh_i_3_n_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFD)) 
+    instr_rdinstrh_i_4
        (.I0(\mem_rdata_q_reg_n_0_[30] ),
         .I1(p_0_in[2]),
-        .I2(\mem_rdata_q_reg_n_0_[27] ),
-        .I3(p_0_in[0]),
+        .I2(p_0_in[0]),
+        .I3(\mem_rdata_q_reg_n_0_[16] ),
+        .I4(\mem_rdata_q_reg_n_0_[18] ),
+        .I5(\mem_rdata_q_reg_n_0_[19] ),
+        .O(instr_rdinstrh_i_4_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT4 #(
+    .INIT(16'h0010)) 
+    instr_rdinstrh_i_5
+       (.I0(\mem_rdata_q_reg_n_0_[2] ),
+        .I1(\mem_rdata_q_reg_n_0_[3] ),
+        .I2(\mem_rdata_q_reg_n_0_[1] ),
+        .I3(instr_rdcycleh_i_4_n_0),
         .O(instr_rdinstrh_i_5_n_0));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFEFFF)) 
+  LUT4 #(
+    .INIT(16'hEFFF)) 
     instr_rdinstrh_i_6
-       (.I0(\mem_rdata_q_reg_n_0_[28] ),
-        .I1(\mem_rdata_q_reg_n_0_[29] ),
-        .I2(p_0_in[1]),
-        .I3(\mem_rdata_q_reg_n_0_[31] ),
-        .I4(\mem_rdata_q_reg_n_0_[22] ),
-        .I5(\mem_rdata_q_reg_n_0_[23] ),
+       (.I0(\mem_rdata_q_reg_n_0_[23] ),
+        .I1(\mem_rdata_q_reg_n_0_[22] ),
+        .I2(\mem_rdata_q_reg_n_0_[31] ),
+        .I3(p_0_in[1]),
         .O(instr_rdinstrh_i_6_n_0));
   FDRE instr_rdinstrh_reg
        (.C(clk),
@@ -7086,7 +7100,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_rdinstrh0),
         .Q(instr_rdinstrh),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT4 #(
     .INIT(16'h0100)) 
     instr_sb_i_1
@@ -7101,7 +7115,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_sb_i_1_n_0),
         .Q(instr_sb),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair44" *) 
   LUT4 #(
     .INIT(16'h0400)) 
     instr_sh_i_1
@@ -7116,14 +7130,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_sh_i_1_n_0),
         .Q(instr_sh),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
-  LUT4 #(
-    .INIT(16'h0004)) 
+  LUT6 #(
+    .INIT(64'h0000000000100000)) 
     instr_sll_i_1
-       (.I0(p_0_in[2]),
-        .I1(p_0_in[0]),
-        .I2(p_0_in[1]),
-        .I3(instr_and_i_2_n_0),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[2]),
+        .I4(p_0_in[0]),
+        .I5(p_0_in[1]),
         .O(instr_sll0));
   FDRE instr_sll_reg
        (.C(clk),
@@ -7131,15 +7146,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_sll0),
         .Q(instr_sll),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT5 #(
-    .INIT(32'h00000400)) 
+  LUT6 #(
+    .INIT(64'h0000000000000400)) 
     instr_slli_i_1
        (.I0(p_0_in[2]),
         .I1(p_0_in[0]),
         .I2(p_0_in[1]),
         .I3(is_alu_reg_imm),
-        .I4(instr_srli_i_2_n_0),
+        .I4(\mem_rdata_q_reg_n_0_[30] ),
+        .I5(is_sll_srl_sra_i_3_n_0),
         .O(instr_slli0));
   FDRE instr_slli_reg
        (.C(clk),
@@ -7147,14 +7162,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_slli0),
         .Q(instr_slli),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
-  LUT4 #(
-    .INIT(16'h0010)) 
+  LUT6 #(
+    .INIT(64'h0000001000000000)) 
     instr_slt_i_1
-       (.I0(p_0_in[2]),
-        .I1(p_0_in[0]),
-        .I2(p_0_in[1]),
-        .I3(instr_and_i_2_n_0),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[2]),
+        .I4(p_0_in[0]),
+        .I5(p_0_in[1]),
         .O(instr_slt0));
   FDRE instr_slt_reg
        (.C(clk),
@@ -7162,7 +7178,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_slt0),
         .Q(instr_slt),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT4 #(
     .INIT(16'h0200)) 
     instr_slti_i_1
@@ -7177,7 +7193,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_slti0),
         .Q(instr_slti),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     instr_sltiu_i_1
@@ -7192,14 +7208,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_sltiu0),
         .Q(instr_sltiu),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
-  LUT4 #(
-    .INIT(16'h0008)) 
+  LUT6 #(
+    .INIT(64'h0000000010000000)) 
     instr_sltu_i_1
-       (.I0(p_0_in[0]),
-        .I1(p_0_in[1]),
-        .I2(p_0_in[2]),
-        .I3(instr_and_i_2_n_0),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[0]),
+        .I4(p_0_in[1]),
+        .I5(p_0_in[2]),
         .O(instr_sltu0));
   FDRE instr_sltu_reg
        (.C(clk),
@@ -7208,37 +7225,29 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .Q(instr_sltu),
         .R(trap_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0000000800000000)) 
+    .INIT(64'h0000080000000000)) 
     instr_sra_i_1
-       (.I0(instr_lhu_i_2_n_0),
-        .I1(is_alu_reg_reg),
-        .I2(instr_sra_i_2_n_0),
-        .I3(\mem_rdata_q_reg_n_0_[31] ),
-        .I4(\mem_rdata_q_reg_n_0_[25] ),
+       (.I0(p_0_in[2]),
+        .I1(p_0_in[0]),
+        .I2(p_0_in[1]),
+        .I3(is_alu_reg_reg),
+        .I4(is_sll_srl_sra_i_3_n_0),
         .I5(\mem_rdata_q_reg_n_0_[30] ),
-        .O(instr_sra0));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    instr_sra_i_2
-       (.I0(\mem_rdata_q_reg_n_0_[28] ),
-        .I1(\mem_rdata_q_reg_n_0_[29] ),
-        .I2(\mem_rdata_q_reg_n_0_[26] ),
-        .I3(\mem_rdata_q_reg_n_0_[27] ),
-        .O(instr_sra_i_2_n_0));
+        .O(instr_sra_i_1_n_0));
   FDRE instr_sra_reg
        (.C(clk),
         .CE(is_lui_auipc_jal_jalr_addi_add_sub0),
-        .D(instr_sra0),
+        .D(instr_sra_i_1_n_0),
         .Q(instr_sra),
         .R(trap_i_1_n_0));
   LUT6 #(
-    .INIT(64'h0000000800000000)) 
+    .INIT(64'h0000200000000000)) 
     instr_srai_i_1
        (.I0(is_alu_reg_imm),
-        .I1(instr_lhu_i_2_n_0),
-        .I2(instr_sra_i_2_n_0),
-        .I3(\mem_rdata_q_reg_n_0_[31] ),
-        .I4(\mem_rdata_q_reg_n_0_[25] ),
+        .I1(p_0_in[1]),
+        .I2(p_0_in[0]),
+        .I3(p_0_in[2]),
+        .I4(is_sll_srl_sra_i_3_n_0),
         .I5(\mem_rdata_q_reg_n_0_[30] ),
         .O(instr_srai0));
   FDRE instr_srai_reg
@@ -7247,14 +7256,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_srai0),
         .Q(instr_srai),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
-  LUT4 #(
-    .INIT(16'h0008)) 
+  LUT6 #(
+    .INIT(64'h0000000010000000)) 
     instr_srl_i_1
-       (.I0(p_0_in[2]),
-        .I1(p_0_in[0]),
-        .I2(p_0_in[1]),
-        .I3(instr_and_i_2_n_0),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[2]),
+        .I4(p_0_in[0]),
+        .I5(p_0_in[1]),
         .O(instr_srl0));
   FDRE instr_srl_reg
        (.C(clk),
@@ -7262,39 +7272,30 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_srl0),
         .Q(instr_srl),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
-  LUT5 #(
-    .INIT(32'h00000800)) 
+  LUT6 #(
+    .INIT(64'h0000000000000800)) 
     instr_srli_i_1
        (.I0(p_0_in[2]),
         .I1(p_0_in[0]),
         .I2(p_0_in[1]),
         .I3(is_alu_reg_imm),
-        .I4(instr_srli_i_2_n_0),
-        .O(instr_srli0));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
-  LUT4 #(
-    .INIT(16'hFFFE)) 
-    instr_srli_i_2
-       (.I0(instr_sra_i_2_n_0),
-        .I1(\mem_rdata_q_reg_n_0_[30] ),
-        .I2(\mem_rdata_q_reg_n_0_[31] ),
-        .I3(\mem_rdata_q_reg_n_0_[25] ),
-        .O(instr_srli_i_2_n_0));
+        .I4(\mem_rdata_q_reg_n_0_[30] ),
+        .I5(is_sll_srl_sra_i_3_n_0),
+        .O(instr_srli_i_1_n_0));
   FDRE instr_srli_reg
        (.C(clk),
         .CE(is_lui_auipc_jal_jalr_addi_add_sub0),
-        .D(instr_srli0),
+        .D(instr_srli_i_1_n_0),
         .Q(instr_srli),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'h0000000800000000)) 
+    .INIT(64'h0000010000000000)) 
     instr_sub_i_1
-       (.I0(instr_lb_i_1_n_0),
-        .I1(is_alu_reg_reg),
-        .I2(instr_sra_i_2_n_0),
-        .I3(\mem_rdata_q_reg_n_0_[31] ),
-        .I4(\mem_rdata_q_reg_n_0_[25] ),
+       (.I0(p_0_in[2]),
+        .I1(p_0_in[0]),
+        .I2(p_0_in[1]),
+        .I3(is_alu_reg_reg),
+        .I4(is_sll_srl_sra_i_3_n_0),
         .I5(\mem_rdata_q_reg_n_0_[30] ),
         .O(instr_sub0));
   FDRE instr_sub_reg
@@ -7303,7 +7304,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_sub0),
         .Q(instr_sub),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT4 #(
     .INIT(16'h1000)) 
     instr_sw_i_1
@@ -7318,14 +7319,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_sw_i_1_n_0),
         .Q(instr_sw),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair53" *) 
-  LUT4 #(
-    .INIT(16'h0004)) 
+  LUT6 #(
+    .INIT(64'h0000000000100000)) 
     instr_xor_i_1
-       (.I0(p_0_in[0]),
-        .I1(p_0_in[2]),
-        .I2(p_0_in[1]),
-        .I3(instr_and_i_2_n_0),
+       (.I0(is_sll_srl_sra_i_3_n_0),
+        .I1(\mem_rdata_q_reg_n_0_[30] ),
+        .I2(is_alu_reg_reg),
+        .I3(p_0_in[0]),
+        .I4(p_0_in[2]),
+        .I5(p_0_in[1]),
         .O(instr_xor0));
   FDRE instr_xor_reg
        (.C(clk),
@@ -7333,7 +7335,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_xor0),
         .Q(instr_xor),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT4 #(
     .INIT(16'h0020)) 
     instr_xori_i_1
@@ -7348,7 +7350,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(instr_xori0),
         .Q(instr_xori),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'h00020000)) 
     is_alu_reg_imm_i_1
@@ -7364,7 +7366,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(is_alu_reg_imm_i_1_n_0),
         .Q(is_alu_reg_imm),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT5 #(
     .INIT(32'h00000080)) 
     is_alu_reg_reg_i_1
@@ -7390,7 +7392,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(mem_rdata[3]),
         .I5(is_beq_bne_blt_bge_bltu_bgeu),
         .O(is_beq_bne_blt_bge_bltu_bgeu_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT5 #(
     .INIT(32'h00000800)) 
     is_beq_bne_blt_bge_bltu_bgeu_i_2
@@ -7416,7 +7418,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(resetn),
         .I5(is_lui_auipc_jal_jalr_addi_add_sub0),
         .O(is_compare_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'hE)) 
     is_compare_i_2
@@ -7429,7 +7430,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(is_compare_i_1_n_0),
         .Q(is_compare),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT4 #(
     .INIT(16'hFBAA)) 
     is_jalr_addi_slti_sltiu_xori_ori_andi_i_1
@@ -7444,7 +7445,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(is_jalr_addi_slti_sltiu_xori_ori_andi0),
         .Q(is_jalr_addi_slti_sltiu_xori_ori_andi),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT5 #(
     .INIT(32'h00000100)) 
     is_lb_lh_lw_lbu_lhu_i_1
@@ -7473,7 +7474,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(is_lbu_lhu_lw_i_1_n_0),
         .Q(is_lbu_lhu_lw),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     is_lui_auipc_jal_i_1
@@ -7503,7 +7504,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(is_lui_auipc_jal_i_1_n_0),
         .Q(is_lui_auipc_jal),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT5 #(
     .INIT(32'h01000000)) 
     is_sb_sh_sw_i_1
@@ -7513,7 +7514,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(mem_rdata[5]),
         .I4(is_sb_sh_sw_i_2_n_0),
         .O(is_sb_sh_sw_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT3 #(
     .INIT(8'h40)) 
     is_sb_sh_sw_i_2
@@ -7533,42 +7534,41 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(decoder_trigger_reg_n_0),
         .I1(decoder_pseudo_trigger_reg_n_0),
         .O(is_lui_auipc_jal_jalr_addi_add_sub0));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+  LUT6 #(
+    .INIT(64'h0020002000000020)) 
     is_sll_srl_sra_i_2
        (.I0(is_alu_reg_reg),
-        .I1(is_sll_srl_sra_i_3_n_0),
+        .I1(p_0_in[1]),
+        .I2(p_0_in[0]),
+        .I3(is_sll_srl_sra_i_3_n_0),
+        .I4(\mem_rdata_q_reg_n_0_[30] ),
+        .I5(p_0_in[2]),
         .O(is_sll_srl_sra0));
   LUT6 #(
-    .INIT(64'hFFFFFFDCFFFFFFFF)) 
+    .INIT(64'hFFFFFFFFFFFFFFFE)) 
     is_sll_srl_sra_i_3
-       (.I0(p_0_in[2]),
-        .I1(instr_sra_i_2_n_0),
-        .I2(\mem_rdata_q_reg_n_0_[30] ),
-        .I3(\mem_rdata_q_reg_n_0_[31] ),
-        .I4(\mem_rdata_q_reg_n_0_[25] ),
-        .I5(is_sll_srl_sra_i_4_n_0),
+       (.I0(\mem_rdata_q_reg_n_0_[25] ),
+        .I1(\mem_rdata_q_reg_n_0_[28] ),
+        .I2(\mem_rdata_q_reg_n_0_[27] ),
+        .I3(\mem_rdata_q_reg_n_0_[26] ),
+        .I4(\mem_rdata_q_reg_n_0_[29] ),
+        .I5(\mem_rdata_q_reg_n_0_[31] ),
         .O(is_sll_srl_sra_i_3_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
-    is_sll_srl_sra_i_4
-       (.I0(p_0_in[0]),
-        .I1(p_0_in[1]),
-        .O(is_sll_srl_sra_i_4_n_0));
   FDRE is_sll_srl_sra_reg
        (.C(clk),
         .CE(is_lui_auipc_jal_jalr_addi_add_sub0),
         .D(is_sll_srl_sra0),
         .Q(is_sll_srl_sra),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
-  LUT2 #(
-    .INIT(4'h2)) 
+  LUT6 #(
+    .INIT(64'h0020002000000020)) 
     is_slli_srli_srai_i_1
        (.I0(is_alu_reg_imm),
-        .I1(is_sll_srl_sra_i_3_n_0),
+        .I1(p_0_in[1]),
+        .I2(p_0_in[0]),
+        .I3(is_sll_srl_sra_i_3_n_0),
+        .I4(\mem_rdata_q_reg_n_0_[30] ),
+        .I5(p_0_in[2]),
         .O(is_slli_srli_srai0));
   FDRE is_slli_srli_srai_reg
        (.C(clk),
@@ -7576,6 +7576,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(is_slli_srli_srai0),
         .Q(is_slli_srli_srai),
         .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair45" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     is_slti_blt_slt_i_1
@@ -7589,7 +7590,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(is_slti_blt_slt_i_1_n_0),
         .Q(is_slti_blt_slt),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'hFE)) 
     is_sltiu_bltu_sltu_i_1
@@ -7604,7 +7604,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .Q(is_sltiu_bltu_sltu),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'h2F2F0FFF2F2F0F00)) 
+    .INIT(64'h8F8F0FFF8F8F0F00)) 
     latched_branch_i_1
        (.I0(is_beq_bne_blt_bge_bltu_bgeu),
         .I1(\alu_out_q[0]_i_3_n_0 ),
@@ -7613,15 +7613,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[3] ),
         .I5(latched_branch_reg_n_0),
         .O(latched_branch_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT5 #(
-    .INIT(32'hDDDD0FFF)) 
+    .INIT(32'hFF770F77)) 
     latched_branch_i_2
-       (.I0(instr_jalr),
-        .I1(is_beq_bne_blt_bge_bltu_bgeu),
-        .I2(decoder_trigger_reg_n_0),
-        .I3(instr_jal),
-        .I4(\cpu_state_reg_n_0_[3] ),
+       (.I0(decoder_trigger_reg_n_0),
+        .I1(instr_jal),
+        .I2(instr_jalr),
+        .I3(\cpu_state_reg_n_0_[3] ),
+        .I4(is_beq_bne_blt_bge_bltu_bgeu),
         .O(latched_branch_i_2_n_0));
   FDRE latched_branch_reg
        (.C(clk),
@@ -7629,7 +7629,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(latched_branch_i_1_n_0),
         .Q(latched_branch_reg_n_0),
         .R(trap_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT4 #(
     .INIT(16'h2F20)) 
     latched_is_lb_i_1
@@ -7672,53 +7672,78 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(latched_is_lu_i_1_n_0),
         .Q(latched_is_lu_reg_n_0),
         .R(trap_i_1_n_0));
-  LUT4 #(
-    .INIT(16'h0080)) 
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \latched_rd[0]_i_1 
+       (.I0(\cpu_state_reg_n_0_[6] ),
+        .I1(decoded_rd[0]),
+        .O(\latched_rd[0]_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h8)) 
+    \latched_rd[1]_i_1 
+       (.I0(\cpu_state_reg_n_0_[6] ),
+        .I1(decoded_rd[1]),
+        .O(\latched_rd[1]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \latched_rd[2]_i_1 
+       (.I0(\cpu_state_reg_n_0_[6] ),
+        .I1(decoded_rd[2]),
+        .O(\latched_rd[2]_i_1_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \latched_rd[3]_i_1 
+       (.I0(\cpu_state_reg_n_0_[6] ),
+        .I1(decoded_rd[3]),
+        .O(\latched_rd[3]_i_1_n_0 ));
+  LUT3 #(
+    .INIT(8'hF8)) 
     \latched_rd[4]_i_1 
-       (.I0(\cpu_state_reg_n_0_[3] ),
-        .I1(is_beq_bne_blt_bge_bltu_bgeu),
-        .I2(resetn),
-        .I3(\cpu_state_reg_n_0_[6] ),
+       (.I0(is_beq_bne_blt_bge_bltu_bgeu),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(\cpu_state_reg_n_0_[6] ),
         .O(\latched_rd[4]_i_1_n_0 ));
-  LUT4 #(
-    .INIT(16'hAA80)) 
+  (* SOFT_HLUTNM = "soft_lutpair69" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
     \latched_rd[4]_i_2 
-       (.I0(resetn),
-        .I1(is_beq_bne_blt_bge_bltu_bgeu),
-        .I2(\cpu_state_reg_n_0_[3] ),
-        .I3(\cpu_state_reg_n_0_[6] ),
+       (.I0(\cpu_state_reg_n_0_[6] ),
+        .I1(decoded_rd[4]),
         .O(\latched_rd[4]_i_2_n_0 ));
   FDRE \latched_rd_reg[0] 
        (.C(clk),
-        .CE(\latched_rd[4]_i_2_n_0 ),
-        .D(decoded_rd[0]),
+        .CE(\latched_rd[4]_i_1_n_0 ),
+        .D(\latched_rd[0]_i_1_n_0 ),
         .Q(latched_rd[0]),
-        .R(\latched_rd[4]_i_1_n_0 ));
-  FDRE \latched_rd_reg[1] 
+        .R(trap_i_1_n_0));
+  FDSE \latched_rd_reg[1] 
        (.C(clk),
-        .CE(\latched_rd[4]_i_2_n_0 ),
-        .D(decoded_rd[1]),
+        .CE(\latched_rd[4]_i_1_n_0 ),
+        .D(\latched_rd[1]_i_1_n_0 ),
         .Q(latched_rd[1]),
-        .R(\latched_rd[4]_i_1_n_0 ));
+        .S(trap_i_1_n_0));
   FDRE \latched_rd_reg[2] 
        (.C(clk),
-        .CE(\latched_rd[4]_i_2_n_0 ),
-        .D(decoded_rd[2]),
+        .CE(\latched_rd[4]_i_1_n_0 ),
+        .D(\latched_rd[2]_i_1_n_0 ),
         .Q(latched_rd[2]),
-        .R(\latched_rd[4]_i_1_n_0 ));
+        .R(trap_i_1_n_0));
   FDRE \latched_rd_reg[3] 
        (.C(clk),
-        .CE(\latched_rd[4]_i_2_n_0 ),
-        .D(decoded_rd[3]),
+        .CE(\latched_rd[4]_i_1_n_0 ),
+        .D(\latched_rd[3]_i_1_n_0 ),
         .Q(latched_rd[3]),
-        .R(\latched_rd[4]_i_1_n_0 ));
+        .R(trap_i_1_n_0));
   FDRE \latched_rd_reg[4] 
        (.C(clk),
-        .CE(\latched_rd[4]_i_2_n_0 ),
-        .D(decoded_rd[4]),
+        .CE(\latched_rd[4]_i_1_n_0 ),
+        .D(\latched_rd[4]_i_2_n_0 ),
         .Q(latched_rd[4]),
-        .R(\latched_rd[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+        .R(trap_i_1_n_0));
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT4 #(
     .INIT(16'h5510)) 
     latched_stalu_i_1
@@ -7734,16 +7759,16 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .Q(latched_stalu_reg_n_0),
         .R(trap_i_1_n_0));
   LUT6 #(
-    .INIT(64'hFFF1FFFFFFF10000)) 
+    .INIT(64'hFFF4FFFFFFF40000)) 
     latched_store_i_1
-       (.I0(\alu_out_q[0]_i_3_n_0 ),
-        .I1(\cpu_state_reg_n_0_[6] ),
+       (.I0(\cpu_state_reg_n_0_[6] ),
+        .I1(\alu_out_q[0]_i_3_n_0 ),
         .I2(latched_store_i_2_n_0),
         .I3(\cpu_state_reg_n_0_[2] ),
         .I4(latched_store),
         .I5(latched_store_reg_n_0),
         .O(latched_store_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair43" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT3 #(
     .INIT(8'h15)) 
     latched_store_i_2
@@ -7761,12 +7786,12 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[1] ),
         .I5(\cpu_state_reg_n_0_[7] ),
         .O(latched_store));
-  FDRE latched_store_reg
+  FDSE latched_store_reg
        (.C(clk),
         .CE(1'b1),
         .D(latched_store_i_1_n_0),
         .Q(latched_store_reg_n_0),
-        .R(trap_i_1_n_0));
+        .S(trap_i_1_n_0));
   LUT6 #(
     .INIT(64'h0000FE0000000000)) 
     \mem_addr[31]_i_1 
@@ -7777,14 +7802,14 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(trap),
         .I5(resetn),
         .O(\mem_addr[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT2 #(
     .INIT(4'hE)) 
     \mem_addr[31]_i_2 
        (.I0(mem_do_rinst_reg_n_0),
         .I1(mem_do_prefetch_reg_n_0),
         .O(\mem_addr[31]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \mem_addr[31]_i_3 
@@ -7981,7 +8006,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(instr_jalr),
         .I5(mem_do_rinst0),
         .O(mem_do_prefetch_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h7)) 
     mem_do_prefetch_i_2
@@ -7994,7 +8019,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(mem_do_prefetch_i_1_n_0),
         .Q(mem_do_prefetch_reg_n_0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT5 #(
     .INIT(32'hB511A000)) 
     mem_do_rdata_i_1
@@ -8014,7 +8039,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[6] ),
         .I5(\cpu_state_reg_n_0_[3] ),
         .O(mem_do_rdata_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT2 #(
     .INIT(4'h1)) 
     mem_do_rdata_i_3
@@ -8047,7 +8072,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(is_lb_lh_lw_lbu_lhu),
         .I5(\cpu_state[3]_i_4_n_0 ),
         .O(mem_do_rinst_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair67" *) 
+  (* SOFT_HLUTNM = "soft_lutpair66" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     mem_do_rinst_i_3
@@ -8074,7 +8099,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(decoder_trigger_i_4_n_0),
         .I5(decoder_trigger_i_3_n_0),
         .O(mem_do_rinst_i_5_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT3 #(
     .INIT(8'hBA)) 
     mem_do_rinst_i_6
@@ -8092,7 +8116,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(is_sb_sh_sw),
         .I5(is_slli_srli_srai),
         .O(mem_do_rinst_i_7_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'hFF8F8888)) 
     mem_do_rinst_i_8
@@ -8102,7 +8126,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(instr_jal),
         .I4(\cpu_state_reg_n_0_[6] ),
         .O(mem_do_rinst_i_8_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h8)) 
     mem_do_rinst_i_9
@@ -8115,7 +8139,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(mem_do_rinst_i_1_n_0),
         .Q(mem_do_rinst_reg_n_0),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT5 #(
     .INIT(32'hA040E040)) 
     mem_do_wdata_i_1
@@ -8135,7 +8159,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(mem_do_rdata),
         .I5(mem_do_rinst_reg_n_0),
         .O(mem_do_wdata_i_2_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair28" *) 
   LUT4 #(
     .INIT(16'h1FFF)) 
     mem_do_wdata_i_3
@@ -8150,7 +8174,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(mem_do_wdata_i_1_n_0),
         .Q(mem_do_wdata),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT5 #(
     .INIT(32'h0EFF0E00)) 
     mem_instr_i_1
@@ -8482,7 +8506,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\mem_state_reg_n_0_[1] ),
         .I5(resetn),
         .O(mem_la_read));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[10]_INST_0 
@@ -8490,7 +8514,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [10]),
         .O(mem_la_wdata[2]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[11]_INST_0 
@@ -8498,7 +8522,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [11]),
         .O(mem_la_wdata[3]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[12]_INST_0 
@@ -8506,7 +8530,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [12]),
         .O(mem_la_wdata[4]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[13]_INST_0 
@@ -8514,7 +8538,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [13]),
         .O(mem_la_wdata[5]));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[14]_INST_0 
@@ -8522,7 +8546,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [14]),
         .O(mem_la_wdata[6]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[15]_INST_0 
@@ -8530,6 +8554,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [15]),
         .O(mem_la_wdata[7]));
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT4 #(
     .INIT(16'hABA8)) 
     \mem_la_wdata[16]_INST_0 
@@ -8562,7 +8587,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(\mem_wordsize_reg_n_0_[1] ),
         .I3(\pcpi_rs2[31] [19]),
         .O(mem_la_wdata[11]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT4 #(
     .INIT(16'hABA8)) 
     \mem_la_wdata[20]_INST_0 
@@ -8595,7 +8619,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(\mem_wordsize_reg_n_0_[1] ),
         .I3(\pcpi_rs2[31] [23]),
         .O(mem_la_wdata[15]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[24]_INST_0 
@@ -8605,7 +8629,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [24]),
         .O(mem_la_wdata[16]));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[25]_INST_0 
@@ -8615,7 +8639,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [25]),
         .O(mem_la_wdata[17]));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[26]_INST_0 
@@ -8625,7 +8649,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [26]),
         .O(mem_la_wdata[18]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[27]_INST_0 
@@ -8635,7 +8659,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [27]),
         .O(mem_la_wdata[19]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[28]_INST_0 
@@ -8645,7 +8669,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [28]),
         .O(mem_la_wdata[20]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[29]_INST_0 
@@ -8655,7 +8679,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [29]),
         .O(mem_la_wdata[21]));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[30]_INST_0 
@@ -8665,7 +8689,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [30]),
         .O(mem_la_wdata[22]));
-  (* SOFT_HLUTNM = "soft_lutpair28" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT5 #(
     .INIT(32'hB8BBB888)) 
     \mem_la_wdata[31]_INST_0 
@@ -8675,7 +8699,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\mem_wordsize_reg_n_0_[0] ),
         .I4(\pcpi_rs2[31] [31]),
         .O(mem_la_wdata[23]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[8]_INST_0 
@@ -8683,7 +8707,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [8]),
         .O(mem_la_wdata[0]));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT3 #(
     .INIT(8'hB8)) 
     \mem_la_wdata[9]_INST_0 
@@ -8691,7 +8715,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(\pcpi_rs2[31] [9]),
         .O(mem_la_wdata[1]));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT4 #(
     .INIT(16'h0200)) 
     mem_la_write_INST_0
@@ -8700,7 +8724,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(\mem_state_reg_n_0_[1] ),
         .I3(resetn),
         .O(mem_la_write));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT4 #(
     .INIT(16'h03F7)) 
     \mem_la_wstrb[0]_INST_0 
@@ -8709,7 +8733,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(\mem_wordsize_reg_n_0_[0] ),
         .I3(Q[1]),
         .O(mem_la_wstrb[0]));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT4 #(
     .INIT(16'h03FB)) 
     \mem_la_wstrb[1]_INST_0 
@@ -8718,7 +8742,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(\mem_wordsize_reg_n_0_[0] ),
         .I3(Q[1]),
         .O(mem_la_wstrb[1]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT4 #(
     .INIT(16'hB1F1)) 
     \mem_la_wstrb[2]_INST_0 
@@ -8727,7 +8751,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(Q[1]),
         .I3(Q[0]),
         .O(mem_la_wstrb[2]));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT4 #(
     .INIT(16'hF1B1)) 
     \mem_la_wstrb[3]_INST_0 
@@ -9006,7 +9030,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(mem_valid),
         .I5(mem_valid_i_4_n_0),
         .O(mem_valid10_out));
-  (* SOFT_HLUTNM = "soft_lutpair45" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT2 #(
     .INIT(4'h2)) 
     mem_valid_i_4
@@ -9256,7 +9280,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(instr_sb),
         .I4(\cpu_state_reg_n_0_[6] ),
         .O(mem_wordsize[1]));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'hABBBAAAA)) 
     \mem_wordsize[1]_i_3 
@@ -9731,12 +9755,12 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(instr_jal),
         .I3(decoded_imm_uj[1]),
         .O(reg_next_pc1_in[1]));
-  FDSE \reg_next_pc_reg[10] 
+  FDRE \reg_next_pc_reg[10] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
         .D(reg_next_pc1_in[10]),
         .Q(\reg_next_pc_reg_n_0_[10] ),
-        .S(trap_i_1_n_0));
+        .R(trap_i_1_n_0));
   FDRE \reg_next_pc_reg[11] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
@@ -9767,12 +9791,12 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(reg_next_pc1_in[15]),
         .Q(\reg_next_pc_reg_n_0_[15] ),
         .R(trap_i_1_n_0));
-  FDRE \reg_next_pc_reg[16] 
+  FDSE \reg_next_pc_reg[16] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
         .D(reg_next_pc1_in[16]),
         .Q(\reg_next_pc_reg_n_0_[16] ),
-        .R(trap_i_1_n_0));
+        .S(trap_i_1_n_0));
   FDRE \reg_next_pc_reg[17] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
@@ -9983,7 +10007,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[5] ),
         .I5(\reg_op1[0]_i_4_n_0 ),
         .O(\reg_op1[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     \reg_op1[0]_i_2 
@@ -10047,7 +10071,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[14]),
         .I5(\reg_op1[10]_i_4_n_0 ),
         .O(\reg_op1[10]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[10]_i_4 
@@ -10083,7 +10107,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[15]),
         .I5(\reg_op1[11]_i_4_n_0 ),
         .O(\reg_op1[11]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair65" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[11]_i_4 
@@ -10119,7 +10143,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[16]),
         .I5(\reg_op1[12]_i_4_n_0 ),
         .O(\reg_op1[12]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[12]_i_4 
@@ -10155,7 +10179,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[17]),
         .I5(\reg_op1[13]_i_4_n_0 ),
         .O(\reg_op1[13]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[13]_i_4 
@@ -10191,7 +10215,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[18]),
         .I5(\reg_op1[14]_i_4_n_0 ),
         .O(\reg_op1[14]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair66" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[14]_i_4 
@@ -10227,7 +10251,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[19]),
         .I5(\reg_op1[15]_i_4_n_0 ),
         .O(\reg_op1[15]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[15]_i_4 
@@ -10263,7 +10287,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[20]),
         .I5(\reg_op1[16]_i_4_n_0 ),
         .O(\reg_op1[16]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair68" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[16]_i_4 
@@ -10299,7 +10323,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[21]),
         .I5(\reg_op1[17]_i_4_n_0 ),
         .O(\reg_op1[17]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[17]_i_4 
@@ -10335,7 +10359,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[22]),
         .I5(\reg_op1[18]_i_4_n_0 ),
         .O(\reg_op1[18]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair70" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[18]_i_4 
@@ -10371,7 +10395,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[23]),
         .I5(\reg_op1[19]_i_4_n_0 ),
         .O(\reg_op1[19]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[19]_i_4 
@@ -10435,7 +10459,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[24]),
         .I5(\reg_op1[20]_i_4_n_0 ),
         .O(\reg_op1[20]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair72" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[20]_i_4 
@@ -10471,7 +10495,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[25]),
         .I5(\reg_op1[21]_i_4_n_0 ),
         .O(\reg_op1[21]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[21]_i_4 
@@ -10507,7 +10531,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[26]),
         .I5(\reg_op1[22]_i_4_n_0 ),
         .O(\reg_op1[22]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[22]_i_4 
@@ -10543,7 +10567,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[27]),
         .I5(\reg_op1[23]_i_4_n_0 ),
         .O(\reg_op1[23]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[23]_i_4 
@@ -10579,7 +10603,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[28]),
         .I5(\reg_op1[24]_i_4_n_0 ),
         .O(\reg_op1[24]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[24]_i_4 
@@ -10615,7 +10639,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[29]),
         .I5(\reg_op1[25]_i_5_n_0 ),
         .O(\reg_op1[25]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[25]_i_4 
@@ -10623,7 +10647,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(instr_slli),
         .I2(instr_sll),
         .O(\reg_op1[25]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair61" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[25]_i_5 
@@ -10659,7 +10683,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[30]),
         .I5(\reg_op1[26]_i_5_n_0 ),
         .O(\reg_op1[26]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair64" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[26]_i_4 
@@ -10667,7 +10691,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(instr_slli),
         .I2(instr_sll),
         .O(\reg_op1[26]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair62" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[26]_i_5 
@@ -10703,7 +10727,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[31]),
         .I5(\reg_op1[27]_i_5_n_0 ),
         .O(\reg_op1[27]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[27]_i_4 
@@ -10711,7 +10735,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I1(instr_slli),
         .I2(instr_sll),
         .O(\reg_op1[27]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair63" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[27]_i_5 
@@ -10747,7 +10771,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\reg_op1[30]_i_5_n_0 ),
         .I5(Q[24]),
         .O(\reg_op1[28]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT5 #(
     .INIT(32'hAAAAAAA8)) 
     \reg_op1[28]_i_4 
@@ -10850,7 +10873,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\reg_op1[30]_i_5_n_0 ),
         .I5(Q[26]),
         .O(\reg_op1[30]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT5 #(
     .INIT(32'hAAAAAAA8)) 
     \reg_op1[30]_i_4 
@@ -10860,6 +10883,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(instr_sra),
         .I4(instr_srai),
         .O(\reg_op1[30]_i_4_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair65" *) 
   LUT2 #(
     .INIT(4'h1)) 
     \reg_op1[30]_i_5 
@@ -10895,7 +10919,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\reg_sh_reg_n_0_[2] ),
         .I5(\cpu_state_reg_n_0_[2] ),
         .O(\reg_op1[31]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT4 #(
     .INIT(16'hFF8F)) 
     \reg_op1[31]_i_4 
@@ -10904,7 +10928,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I2(\cpu_state_reg_n_0_[1] ),
         .I3(mem_do_wdata),
         .O(\reg_op1[31]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT3 #(
     .INIT(8'hEA)) 
     \reg_op1[31]_i_5 
@@ -10941,7 +10965,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(decoded_rs1_0[2]),
         .I5(decoded_rs1_0[3]),
         .O(\reg_op1[31]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[31]_i_9 
@@ -11005,7 +11028,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[8]),
         .I5(\reg_op1[4]_i_4_n_0 ),
         .O(\reg_op1[4]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair52" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[4]_i_4 
@@ -11041,7 +11064,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[9]),
         .I5(\reg_op1[5]_i_4_n_0 ),
         .O(\reg_op1[5]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair62" *) 
+  (* SOFT_HLUTNM = "soft_lutpair53" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[5]_i_4 
@@ -11077,7 +11100,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[10]),
         .I5(\reg_op1[6]_i_4_n_0 ),
         .O(\reg_op1[6]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[6]_i_4 
@@ -11113,7 +11136,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[11]),
         .I5(\reg_op1[7]_i_4_n_0 ),
         .O(\reg_op1[7]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair63" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[7]_i_4 
@@ -11149,7 +11172,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[12]),
         .I5(\reg_op1[8]_i_4_n_0 ),
         .O(\reg_op1[8]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair56" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[8]_i_4 
@@ -11185,7 +11208,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[13]),
         .I5(\reg_op1[9]_i_4_n_0 ),
         .O(\reg_op1[9]_i_3_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair64" *) 
+  (* SOFT_HLUTNM = "soft_lutpair57" *) 
   LUT3 #(
     .INIT(8'hA8)) 
     \reg_op1[9]_i_4 
@@ -11485,10 +11508,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\decoded_imm_reg_n_0_[19] ),
         .O(reg_op2[19]));
   LUT5 #(
-    .INIT(32'hFFF20002)) 
+    .INIT(32'hFFF40004)) 
     \reg_op2[1]_i_1 
-       (.I0(reg_sh1[1]),
-        .I1(\reg_op2[7]_i_3_n_0 ),
+       (.I0(\reg_op2[7]_i_3_n_0 ),
+        .I1(reg_sh1[1]),
         .I2(is_lui_auipc_jal),
         .I3(is_jalr_addi_slti_sltiu_xori_ori_andi),
         .I4(\decoded_imm_reg_n_0_[1] ),
@@ -11619,7 +11642,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(is_jalr_addi_slti_sltiu_xori_ori_andi),
         .I4(\decoded_imm_reg_n_0_[3] ),
         .O(reg_op2[3]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT5 #(
     .INIT(32'hFFF20002)) 
     \reg_op2[4]_i_1 
@@ -12143,7 +12166,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(data3[0]),
         .I5(instr_rdinstrh),
         .O(\reg_out[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT4 #(
     .INIT(16'hF888)) 
     \reg_out[0]_i_3 
@@ -12158,19 +12181,19 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\reg_out[0]_i_5_n_0 ),
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(mem_rdata[0]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
         .I4(mem_rdata[16]),
         .I5(\reg_out[6]_i_6_n_0 ),
         .O(\reg_out[0]_i_4_n_0 ));
   LUT6 #(
-    .INIT(64'hFFCCF0AA00CCF0AA)) 
+    .INIT(64'hF0CCFFAAF0CC00AA)) 
     \reg_out[0]_i_5 
        (.I0(mem_rdata[0]),
         .I1(mem_rdata[8]),
-        .I2(mem_rdata[16]),
+        .I2(mem_rdata[24]),
         .I3(Q[1]),
         .I4(Q[0]),
-        .I5(mem_rdata[24]),
+        .I5(mem_rdata[16]),
         .O(\reg_out[0]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'hFFFEEEFEEEEEEEEE)) 
@@ -12188,17 +12211,17 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\cpu_state_reg_n_0_[0] ),
         .I1(mem_rdata[26]),
         .I2(mem_rdata[10]),
-        .I3(\reg_out[14]_i_5_n_0 ),
-        .I4(\reg_out[14]_i_6_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
+        .I4(\reg_out[14]_i_5_n_0 ),
         .I5(\reg_out[31]_i_2_n_0 ),
         .O(\reg_out[10]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hF888)) 
     \reg_out[10]_i_3 
-       (.I0(reg_out0_carry__1_n_6),
-        .I1(\cpu_state_reg_n_0_[3] ),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(Q[10]),
+       (.I0(\cpu_state_reg_n_0_[2] ),
+        .I1(Q[10]),
+        .I2(reg_out0_carry__1_n_6),
+        .I3(\cpu_state_reg_n_0_[3] ),
         .O(\reg_out[10]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hB8BBB888B888B888)) 
@@ -12226,17 +12249,17 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\cpu_state_reg_n_0_[0] ),
         .I1(mem_rdata[27]),
         .I2(mem_rdata[11]),
-        .I3(\reg_out[14]_i_5_n_0 ),
-        .I4(\reg_out[14]_i_6_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
+        .I4(\reg_out[14]_i_5_n_0 ),
         .I5(\reg_out[31]_i_2_n_0 ),
         .O(\reg_out[11]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hF888)) 
     \reg_out[11]_i_3 
-       (.I0(reg_out0_carry__1_n_5),
-        .I1(\cpu_state_reg_n_0_[3] ),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(Q[11]),
+       (.I0(\cpu_state_reg_n_0_[2] ),
+        .I1(Q[11]),
+        .I2(reg_out0_carry__1_n_5),
+        .I3(\cpu_state_reg_n_0_[3] ),
         .O(\reg_out[11]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hB8BBB888B888B888)) 
@@ -12264,17 +12287,17 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\cpu_state_reg_n_0_[0] ),
         .I1(mem_rdata[28]),
         .I2(mem_rdata[12]),
-        .I3(\reg_out[14]_i_5_n_0 ),
-        .I4(\reg_out[14]_i_6_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
+        .I4(\reg_out[14]_i_5_n_0 ),
         .I5(\reg_out[31]_i_2_n_0 ),
         .O(\reg_out[12]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hF888)) 
     \reg_out[12]_i_3 
-       (.I0(\cpu_state_reg_n_0_[2] ),
-        .I1(Q[12]),
-        .I2(reg_out0_carry__1_n_4),
-        .I3(\cpu_state_reg_n_0_[3] ),
+       (.I0(reg_out0_carry__1_n_4),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(\cpu_state_reg_n_0_[2] ),
+        .I3(Q[12]),
         .O(\reg_out[12]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hB8BBB888B888B888)) 
@@ -12302,17 +12325,17 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\cpu_state_reg_n_0_[0] ),
         .I1(mem_rdata[29]),
         .I2(mem_rdata[13]),
-        .I3(\reg_out[14]_i_5_n_0 ),
-        .I4(\reg_out[14]_i_6_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
+        .I4(\reg_out[14]_i_5_n_0 ),
         .I5(\reg_out[31]_i_2_n_0 ),
         .O(\reg_out[13]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hF888)) 
     \reg_out[13]_i_3 
-       (.I0(\cpu_state_reg_n_0_[2] ),
-        .I1(Q[13]),
-        .I2(reg_out0_carry__2_n_7),
-        .I3(\cpu_state_reg_n_0_[3] ),
+       (.I0(reg_out0_carry__2_n_7),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(\cpu_state_reg_n_0_[2] ),
+        .I3(Q[13]),
         .O(\reg_out[13]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hB8BBB888B888B888)) 
@@ -12335,22 +12358,22 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(\cpu_state_reg_n_0_[5] ),
         .O(\reg_out[14]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'h000088A0AAAAAAAA)) 
+    .INIT(64'h08080A00AAAAAAAA)) 
     \reg_out[14]_i_2 
        (.I0(\cpu_state_reg_n_0_[0] ),
         .I1(mem_rdata[30]),
-        .I2(mem_rdata[14]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I2(\reg_out[14]_i_5_n_0 ),
+        .I3(mem_rdata[14]),
         .I4(\reg_out[14]_i_6_n_0 ),
         .I5(\reg_out[31]_i_2_n_0 ),
         .O(\reg_out[14]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hF888)) 
     \reg_out[14]_i_3 
-       (.I0(reg_out0_carry__2_n_6),
-        .I1(\cpu_state_reg_n_0_[3] ),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(Q[14]),
+       (.I0(\cpu_state_reg_n_0_[2] ),
+        .I1(Q[14]),
+        .I2(reg_out0_carry__2_n_6),
+        .I3(\cpu_state_reg_n_0_[3] ),
         .O(\reg_out[14]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hFFFF0000B888B888)) 
@@ -12362,20 +12385,20 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(count_cycle_reg[46]),
         .I5(instr_rdcycleh),
         .O(\reg_out[14]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
-  LUT2 #(
-    .INIT(4'h8)) 
-    \reg_out[14]_i_5 
-       (.I0(Q[1]),
-        .I1(\mem_wordsize_reg_n_0_[0] ),
-        .O(\reg_out[14]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT3 #(
     .INIT(8'hAB)) 
-    \reg_out[14]_i_6 
+    \reg_out[14]_i_5 
        (.I0(\mem_wordsize_reg_n_0_[1] ),
         .I1(latched_is_lh_reg_n_0),
         .I2(latched_is_lu_reg_n_0),
+        .O(\reg_out[14]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \reg_out[14]_i_6 
+       (.I0(Q[1]),
+        .I1(\mem_wordsize_reg_n_0_[0] ),
         .O(\reg_out[14]_i_6_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFD550000)) 
@@ -12387,7 +12410,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[0] ),
         .I5(\reg_out[15]_i_3_n_0 ),
         .O(\reg_out[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT5 #(
     .INIT(32'h0000EA2A)) 
     \reg_out[15]_i_2 
@@ -12401,10 +12424,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[15]_i_3 
        (.I0(\reg_out[15]_i_4_n_0 ),
-        .I1(\cpu_state_reg_n_0_[3] ),
-        .I2(reg_out0_carry__2_n_5),
-        .I3(Q[15]),
-        .I4(\cpu_state_reg_n_0_[2] ),
+        .I1(Q[15]),
+        .I2(\cpu_state_reg_n_0_[2] ),
+        .I3(\cpu_state_reg_n_0_[3] ),
+        .I4(reg_out0_carry__2_n_5),
         .O(\reg_out[15]_i_3_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -12475,10 +12498,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[17]_i_2 
        (.I0(\reg_out[17]_i_3_n_0 ),
-        .I1(Q[17]),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(\cpu_state_reg_n_0_[3] ),
-        .I4(reg_out0_carry__3_n_7),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(reg_out0_carry__3_n_7),
+        .I3(Q[17]),
+        .I4(\cpu_state_reg_n_0_[2] ),
         .O(\reg_out[17]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -12549,10 +12572,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[19]_i_2 
        (.I0(\reg_out[19]_i_3_n_0 ),
-        .I1(Q[19]),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(\cpu_state_reg_n_0_[3] ),
-        .I4(reg_out0_carry__3_n_5),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(reg_out0_carry__3_n_5),
+        .I3(Q[19]),
+        .I4(\cpu_state_reg_n_0_[2] ),
         .O(\reg_out[19]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -12592,14 +12615,15 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(count_cycle_reg[33]),
         .I5(instr_rdcycleh),
         .O(\reg_out[1]_i_2_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT5 #(
-    .INIT(32'hFF606060)) 
+    .INIT(32'h8FF88888)) 
     \reg_out[1]_i_3 
-       (.I0(\reg_pc_reg_n_0_[1] ),
-        .I1(\decoded_imm_reg_n_0_[1] ),
-        .I2(\cpu_state_reg_n_0_[3] ),
-        .I3(\cpu_state_reg_n_0_[2] ),
-        .I4(Q[1]),
+       (.I0(\cpu_state_reg_n_0_[2] ),
+        .I1(Q[1]),
+        .I2(\reg_pc_reg_n_0_[1] ),
+        .I3(\decoded_imm_reg_n_0_[1] ),
+        .I4(\cpu_state_reg_n_0_[3] ),
         .O(\reg_out[1]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'h00000000BBB888B8)) 
@@ -12607,19 +12631,19 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\reg_out[1]_i_5_n_0 ),
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(mem_rdata[1]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
         .I4(mem_rdata[17]),
         .I5(\reg_out[6]_i_6_n_0 ),
         .O(\reg_out[1]_i_4_n_0 ));
   LUT6 #(
-    .INIT(64'hFFCCF0AA00CCF0AA)) 
+    .INIT(64'hF0CCFFAAF0CC00AA)) 
     \reg_out[1]_i_5 
        (.I0(mem_rdata[1]),
         .I1(mem_rdata[9]),
-        .I2(mem_rdata[17]),
+        .I2(mem_rdata[25]),
         .I3(Q[1]),
         .I4(Q[0]),
-        .I5(mem_rdata[25]),
+        .I5(mem_rdata[17]),
         .O(\reg_out[1]_i_5_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF5D0000)) 
@@ -12635,10 +12659,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[20]_i_2 
        (.I0(\reg_out[20]_i_3_n_0 ),
-        .I1(Q[20]),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(\cpu_state_reg_n_0_[3] ),
-        .I4(reg_out0_carry__3_n_4),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(reg_out0_carry__3_n_4),
+        .I3(Q[20]),
+        .I4(\cpu_state_reg_n_0_[2] ),
         .O(\reg_out[20]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -12686,14 +12710,14 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\cpu_state_reg_n_0_[5] ),
         .O(\reg_out[21]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFF0000B888B888)) 
+    .INIT(64'hB8BBB888B888B888)) 
     \reg_out[21]_i_4 
-       (.I0(\count_instr_reg_n_0_[21] ),
-        .I1(instr_rdinstr),
-        .I2(data3[21]),
-        .I3(instr_rdinstrh),
-        .I4(count_cycle_reg[53]),
-        .I5(instr_rdcycleh),
+       (.I0(count_cycle_reg[53]),
+        .I1(instr_rdcycleh),
+        .I2(\count_instr_reg_n_0_[21] ),
+        .I3(instr_rdinstr),
+        .I4(instr_rdinstrh),
+        .I5(data3[21]),
         .O(\reg_out[21]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF5D0000)) 
@@ -12783,10 +12807,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[24]_i_2 
        (.I0(\reg_out[24]_i_3_n_0 ),
-        .I1(Q[24]),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(\cpu_state_reg_n_0_[3] ),
-        .I4(reg_out0_carry__4_n_4),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(reg_out0_carry__4_n_4),
+        .I3(Q[24]),
+        .I4(\cpu_state_reg_n_0_[2] ),
         .O(\reg_out[24]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -12931,10 +12955,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[28]_i_2 
        (.I0(\reg_out[28]_i_3_n_0 ),
-        .I1(Q[28]),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(\cpu_state_reg_n_0_[3] ),
-        .I4(reg_out0_carry__5_n_4),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(reg_out0_carry__5_n_4),
+        .I3(Q[28]),
+        .I4(\cpu_state_reg_n_0_[2] ),
         .O(\reg_out[28]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -12945,14 +12969,14 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(\cpu_state_reg_n_0_[5] ),
         .O(\reg_out[28]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hB8BBB888B888B888)) 
+    .INIT(64'hFFFF0000B888B888)) 
     \reg_out[28]_i_4 
-       (.I0(count_cycle_reg[60]),
-        .I1(instr_rdcycleh),
-        .I2(\count_instr_reg_n_0_[28] ),
-        .I3(instr_rdinstr),
-        .I4(instr_rdinstrh),
-        .I5(data3[28]),
+       (.I0(\count_instr_reg_n_0_[28] ),
+        .I1(instr_rdinstr),
+        .I2(data3[28]),
+        .I3(instr_rdinstrh),
+        .I4(count_cycle_reg[60]),
+        .I5(instr_rdcycleh),
         .O(\reg_out[28]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'hFFFFFFFFFF5D0000)) 
@@ -12968,10 +12992,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[29]_i_2 
        (.I0(\reg_out[29]_i_3_n_0 ),
-        .I1(Q[29]),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(\cpu_state_reg_n_0_[3] ),
-        .I4(reg_out0_carry__6_n_7),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(reg_out0_carry__6_n_7),
+        .I3(Q[29]),
+        .I4(\cpu_state_reg_n_0_[2] ),
         .O(\reg_out[29]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -12995,10 +13019,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(64'hFFFFFFFFFFEAEAEA)) 
     \reg_out[2]_i_1 
        (.I0(\reg_out[2]_i_2_n_0 ),
-        .I1(reg_out0_carry_n_6),
-        .I2(\cpu_state_reg_n_0_[3] ),
-        .I3(\cpu_state_reg_n_0_[2] ),
-        .I4(Q[2]),
+        .I1(\cpu_state_reg_n_0_[2] ),
+        .I2(Q[2]),
+        .I3(reg_out0_carry_n_6),
+        .I4(\cpu_state_reg_n_0_[3] ),
         .I5(\reg_out[2]_i_3_n_0 ),
         .O(\reg_out[2]_i_1_n_0 ));
   LUT4 #(
@@ -13015,7 +13039,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\reg_out[2]_i_5_n_0 ),
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(mem_rdata[2]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
         .I4(mem_rdata[18]),
         .I5(\reg_out[6]_i_6_n_0 ),
         .O(\reg_out[2]_i_3_n_0 ));
@@ -13053,10 +13077,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[30]_i_2 
        (.I0(\reg_out[30]_i_3_n_0 ),
-        .I1(\cpu_state_reg_n_0_[3] ),
-        .I2(reg_out0_carry__6_n_6),
-        .I3(Q[30]),
-        .I4(\cpu_state_reg_n_0_[2] ),
+        .I1(Q[30]),
+        .I2(\cpu_state_reg_n_0_[2] ),
+        .I3(\cpu_state_reg_n_0_[3] ),
+        .I4(reg_out0_carry__6_n_6),
         .O(\reg_out[30]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -13086,14 +13110,14 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(\cpu_state_reg_n_0_[0] ),
         .I5(\reg_out[31]_i_5_n_0 ),
         .O(\reg_out[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair57" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT2 #(
     .INIT(4'h7)) 
     \reg_out[31]_i_2 
        (.I0(latched_is_lb_reg_n_0),
         .I1(\reg_out[7]_i_2_n_0 ),
         .O(\reg_out[31]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT3 #(
     .INIT(8'hEF)) 
     \reg_out[31]_i_3 
@@ -13115,10 +13139,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(32'hFFEAEAEA)) 
     \reg_out[31]_i_5 
        (.I0(\reg_out[31]_i_6_n_0 ),
-        .I1(Q[31]),
-        .I2(\cpu_state_reg_n_0_[2] ),
-        .I3(\cpu_state_reg_n_0_[3] ),
-        .I4(reg_out0_carry__6_n_5),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(reg_out0_carry__6_n_5),
+        .I3(Q[31]),
+        .I4(\cpu_state_reg_n_0_[2] ),
         .O(\reg_out[31]_i_5_n_0 ));
   LUT4 #(
     .INIT(16'hE200)) 
@@ -13142,10 +13166,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(64'hFFFFFFFFFFEAEAEA)) 
     \reg_out[3]_i_1 
        (.I0(\reg_out[3]_i_2_n_0 ),
-        .I1(reg_out0_carry_n_5),
-        .I2(\cpu_state_reg_n_0_[3] ),
-        .I3(\cpu_state_reg_n_0_[2] ),
-        .I4(Q[3]),
+        .I1(\cpu_state_reg_n_0_[2] ),
+        .I2(Q[3]),
+        .I3(reg_out0_carry_n_5),
+        .I4(\cpu_state_reg_n_0_[3] ),
         .I5(\reg_out[3]_i_3_n_0 ),
         .O(\reg_out[3]_i_1_n_0 ));
   LUT4 #(
@@ -13162,7 +13186,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\reg_out[3]_i_5_n_0 ),
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(mem_rdata[3]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
         .I4(mem_rdata[19]),
         .I5(\reg_out[6]_i_6_n_0 ),
         .O(\reg_out[3]_i_3_n_0 ));
@@ -13210,7 +13234,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\reg_out[4]_i_5_n_0 ),
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(mem_rdata[4]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
         .I4(mem_rdata[20]),
         .I5(\reg_out[6]_i_6_n_0 ),
         .O(\reg_out[4]_i_3_n_0 ));
@@ -13238,10 +13262,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(64'hFFFFFFFFFFEAEAEA)) 
     \reg_out[5]_i_1 
        (.I0(\reg_out[5]_i_2_n_0 ),
-        .I1(reg_out0_carry__0_n_7),
-        .I2(\cpu_state_reg_n_0_[3] ),
-        .I3(\cpu_state_reg_n_0_[2] ),
-        .I4(Q[5]),
+        .I1(\cpu_state_reg_n_0_[2] ),
+        .I2(Q[5]),
+        .I3(reg_out0_carry__0_n_7),
+        .I4(\cpu_state_reg_n_0_[3] ),
         .I5(\reg_out[5]_i_3_n_0 ),
         .O(\reg_out[5]_i_1_n_0 ));
   LUT4 #(
@@ -13258,7 +13282,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\reg_out[5]_i_5_n_0 ),
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(mem_rdata[5]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
         .I4(mem_rdata[21]),
         .I5(\reg_out[6]_i_6_n_0 ),
         .O(\reg_out[5]_i_3_n_0 ));
@@ -13286,10 +13310,10 @@ module PicoRV32_BD_picorv32_0_0_picorv32
     .INIT(64'hFFFFFFFFFFEAEAEA)) 
     \reg_out[6]_i_1 
        (.I0(\reg_out[6]_i_2_n_0 ),
-        .I1(reg_out0_carry__0_n_6),
-        .I2(\cpu_state_reg_n_0_[3] ),
-        .I3(\cpu_state_reg_n_0_[2] ),
-        .I4(Q[6]),
+        .I1(\cpu_state_reg_n_0_[2] ),
+        .I2(Q[6]),
+        .I3(reg_out0_carry__0_n_6),
+        .I4(\cpu_state_reg_n_0_[3] ),
         .I5(\reg_out[6]_i_3_n_0 ),
         .O(\reg_out[6]_i_1_n_0 ));
   LUT4 #(
@@ -13306,7 +13330,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\reg_out[6]_i_5_n_0 ),
         .I1(\mem_wordsize_reg_n_0_[1] ),
         .I2(mem_rdata[6]),
-        .I3(\reg_out[14]_i_5_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
         .I4(mem_rdata[22]),
         .I5(\reg_out[6]_i_6_n_0 ),
         .O(\reg_out[6]_i_3_n_0 ));
@@ -13330,7 +13354,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[0]),
         .I5(mem_rdata[22]),
         .O(\reg_out[6]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair61" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT4 #(
     .INIT(16'h01FF)) 
     \reg_out[6]_i_6 
@@ -13359,7 +13383,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(Q[1]),
         .I5(\mem_wordsize_reg_n_0_[0] ),
         .O(\reg_out[7]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair5" *) 
   LUT5 #(
     .INIT(32'hFFEAEAEA)) 
     \reg_out[7]_i_3 
@@ -13413,8 +13436,8 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\cpu_state_reg_n_0_[0] ),
         .I1(mem_rdata[24]),
         .I2(mem_rdata[8]),
-        .I3(\reg_out[14]_i_5_n_0 ),
-        .I4(\reg_out[14]_i_6_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
+        .I4(\reg_out[14]_i_5_n_0 ),
         .I5(\reg_out[31]_i_2_n_0 ),
         .O(\reg_out[8]_i_2_n_0 ));
   LUT4 #(
@@ -13426,14 +13449,14 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I3(Q[8]),
         .O(\reg_out[8]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFF0000B888B888)) 
+    .INIT(64'hB8BBB888B888B888)) 
     \reg_out[8]_i_4 
-       (.I0(\count_instr_reg_n_0_[8] ),
-        .I1(instr_rdinstr),
-        .I2(data3[8]),
-        .I3(instr_rdinstrh),
-        .I4(count_cycle_reg[40]),
-        .I5(instr_rdcycleh),
+       (.I0(count_cycle_reg[40]),
+        .I1(instr_rdcycleh),
+        .I2(\count_instr_reg_n_0_[8] ),
+        .I3(instr_rdinstr),
+        .I4(instr_rdinstrh),
+        .I5(data3[8]),
         .O(\reg_out[8]_i_4_n_0 ));
   LUT6 #(
     .INIT(64'hFFFEEEFEEEEEEEEE)) 
@@ -13451,17 +13474,17 @@ module PicoRV32_BD_picorv32_0_0_picorv32
        (.I0(\cpu_state_reg_n_0_[0] ),
         .I1(mem_rdata[25]),
         .I2(mem_rdata[9]),
-        .I3(\reg_out[14]_i_5_n_0 ),
-        .I4(\reg_out[14]_i_6_n_0 ),
+        .I3(\reg_out[14]_i_6_n_0 ),
+        .I4(\reg_out[14]_i_5_n_0 ),
         .I5(\reg_out[31]_i_2_n_0 ),
         .O(\reg_out[9]_i_2_n_0 ));
   LUT4 #(
     .INIT(16'hF888)) 
     \reg_out[9]_i_3 
-       (.I0(\cpu_state_reg_n_0_[2] ),
-        .I1(Q[9]),
-        .I2(reg_out0_carry__1_n_7),
-        .I3(\cpu_state_reg_n_0_[3] ),
+       (.I0(reg_out0_carry__1_n_7),
+        .I1(\cpu_state_reg_n_0_[3] ),
+        .I2(\cpu_state_reg_n_0_[2] ),
+        .I3(Q[9]),
         .O(\reg_out[9]_i_3_n_0 ));
   LUT6 #(
     .INIT(64'hB8BBB888B888B888)) 
@@ -13478,193 +13501,193 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .CE(1'b1),
         .D(\reg_out[0]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[0] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[10] 
+        .R(trap_i_1_n_0));
+  FDSE \reg_out_reg[10] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[10]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[10] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[11] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[11] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[11]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[11] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[12] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[12] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[12]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[12] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[13] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[13] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[13]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[13] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[14] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[14] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[14]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[14] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[15] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[15] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[15]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[15] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[16] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[16] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[16]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[16] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[17] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[17] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[17]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[17] ),
-        .R(1'b0));
+        .S(trap_i_1_n_0));
   FDRE \reg_out_reg[18] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[18]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[18] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[19] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[19]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[19] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[1] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[1]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[1] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[20] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[20]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[20] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[21] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[21]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[21] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[22] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[22]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[22] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[23] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[23]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[23] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[24] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[24]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[24] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[25] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[25]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[25] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[26] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[26]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[26] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[27] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[27]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[27] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[28] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[28]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[28] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[29] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[29]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[29] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[2] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[2]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[2] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[30] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[30]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[30] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[31] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[31]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[31] ),
-        .R(1'b0));
+        .R(trap_i_1_n_0));
   FDRE \reg_out_reg[3] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[3]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[3] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[4] 
+        .R(trap_i_1_n_0));
+  FDSE \reg_out_reg[4] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[4]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[4] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[5] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[5] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[5]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[5] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[6] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[6] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[6]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[6] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[7] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[7] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[7]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[7] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[8] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[8] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[8]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[8] ),
-        .R(1'b0));
-  FDRE \reg_out_reg[9] 
+        .S(trap_i_1_n_0));
+  FDSE \reg_out_reg[9] 
        (.C(clk),
         .CE(1'b1),
         .D(\reg_out[9]_i_1_n_0 ),
         .Q(\reg_out_reg_n_0_[9] ),
-        .R(1'b0));
+        .S(trap_i_1_n_0));
   LUT6 #(
     .INIT(64'hB8FFFFFFB8000000)) 
     \reg_pc[10]_i_1 
@@ -13975,12 +13998,12 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(latched_store_reg_n_0),
         .I5(\reg_next_pc_reg_n_0_[9] ),
         .O(current_pc[9]));
-  FDSE \reg_pc_reg[10] 
+  FDRE \reg_pc_reg[10] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
         .D(current_pc[10]),
         .Q(\reg_pc_reg_n_0_[10] ),
-        .S(trap_i_1_n_0));
+        .R(trap_i_1_n_0));
   FDRE \reg_pc_reg[11] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
@@ -14011,12 +14034,12 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .D(current_pc[15]),
         .Q(\reg_pc_reg_n_0_[15] ),
         .R(trap_i_1_n_0));
-  FDRE \reg_pc_reg[16] 
+  FDSE \reg_pc_reg[16] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
         .D(current_pc[16]),
         .Q(\reg_pc_reg_n_0_[16] ),
-        .R(trap_i_1_n_0));
+        .S(trap_i_1_n_0));
   FDRE \reg_pc_reg[17] 
        (.C(clk),
         .CE(\cpu_state_reg_n_0_[6] ),
@@ -14189,24 +14212,24 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I5(decoded_imm_uj[3]),
         .O(\reg_sh[0]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'hB888B888B8BBB888)) 
+    .INIT(64'h00000000EAEAEFEA)) 
     \reg_sh[1]_i_1 
-       (.I0(\reg_sh[1]_i_2_n_0 ),
-        .I1(\cpu_state_reg_n_0_[2] ),
-        .I2(decoded_imm_uj[1]),
-        .I3(is_slli_srli_srai),
-        .I4(reg_sh1[1]),
-        .I5(\reg_op2[7]_i_3_n_0 ),
+       (.I0(\cpu_state_reg_n_0_[2] ),
+        .I1(decoded_imm_uj[1]),
+        .I2(is_slli_srli_srai),
+        .I3(reg_sh1[1]),
+        .I4(\reg_op2[7]_i_3_n_0 ),
+        .I5(\reg_sh[1]_i_2_n_0 ),
         .O(\reg_sh[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
-  LUT5 #(
-    .INIT(32'hFFFE0001)) 
+  LUT6 #(
+    .INIT(64'h2222222222222228)) 
     \reg_sh[1]_i_2 
-       (.I0(\reg_sh_reg_n_0_[0] ),
-        .I1(\reg_sh_reg_n_0_[2] ),
-        .I2(\reg_sh_reg_n_0_[3] ),
+       (.I0(\cpu_state_reg_n_0_[2] ),
+        .I1(\reg_sh_reg_n_0_[1] ),
+        .I2(\reg_sh_reg_n_0_[0] ),
         .I3(\reg_sh_reg_n_0_[4] ),
-        .I4(\reg_sh_reg_n_0_[1] ),
+        .I4(\reg_sh_reg_n_0_[3] ),
+        .I5(\reg_sh_reg_n_0_[2] ),
         .O(\reg_sh[1]_i_2_n_0 ));
   LUT6 #(
     .INIT(64'hB888B888B8BBB888)) 
@@ -14218,7 +14241,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(reg_sh1[2]),
         .I5(\reg_op2[7]_i_3_n_0 ),
         .O(\reg_sh[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
     .INIT(32'h0000FFF1)) 
     \reg_sh[2]_i_2 
@@ -14238,7 +14261,7 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(reg_sh1[3]),
         .I5(\reg_op2[7]_i_3_n_0 ),
         .O(\reg_sh[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
     .INIT(32'hFF0000F1)) 
     \reg_sh[3]_i_2 
@@ -14258,7 +14281,6 @@ module PicoRV32_BD_picorv32_0_0_picorv32
         .I4(reg_sh1[4]),
         .I5(\reg_op2[7]_i_3_n_0 ),
         .O(\reg_sh[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT5 #(
     .INIT(32'hFFF00001)) 
     \reg_sh[4]_i_2 
