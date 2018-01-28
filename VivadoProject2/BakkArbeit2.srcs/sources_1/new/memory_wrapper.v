@@ -40,14 +40,14 @@ module memory_wrapper(
     input   wire [ 3:0]   mem_wstrb_memory
     );
         
-    integer cycle_time;
+    localparam cycleTime    = 2;    //cycles the wrapped memory needs, to produce an valid result on douta or dina
+        
     integer cycle;
     reg     startCounter;
     reg     startCounter_old;
     reg     mem_valid_old;
         
     initial begin
-        cycle_time      = 2;
         cycle           = 0;  // this is the clock cycle counter
         mem_valid_old   = 0;  // reg for edge detection of mem_valid_memory
         startCounter    = 0;
@@ -61,19 +61,26 @@ module memory_wrapper(
     assign wea      = mem_wstrb_memory;
     
     always@(posedge clk) begin
-        if( mem_valid_old == 0 && mem_valid_memory == 1) begin
+        if( mem_valid_old == 0 && mem_valid_memory == 1) begin      //start counter on rising edge of mem_valid_memory
             startCounter <= 1;
         end
         
         if(startCounter) begin
             cycle <= cycle + 1;  
             
-            if(cycle == 1) begin
-                
+            if(cycle >= (cycleTime - 1)) begin          //cycleTime is subtracted by 1, since the timer is started one cycle after the transaction is asserted
+                mem_ready_memory <= 1;
+                startCounter <= 0;
             end              
-           
         end
+        
+        if( startCounter_old == 1 && startCounter == 0 ) begin      //do some things after the couter as finished
+            mem_ready_memory <= 0;
+            cycle <= 0;
+        end
+        
+        //set regs for edge detection
+        startCounter_old <= startCounter;
+        mem_valid_old <= mem_valid_memory;
     end
-    
-    
 endmodule

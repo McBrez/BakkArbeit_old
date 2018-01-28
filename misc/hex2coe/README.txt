@@ -1,0 +1,1 @@
+hex2coe converts a hexfile, to a coe file, which is readable by the vivado block memory IP. 

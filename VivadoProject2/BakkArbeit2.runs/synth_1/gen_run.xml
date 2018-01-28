@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7z020clg484-1" LaunchTime="1517001859">
   <File Type="PA-TCL" Name="PicoRV32_BD_wrapper.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="PicoRV32_BD_wrapper_drc_synth.rpt"/>
   <File Type="REPORTS-TCL" Name="PicoRV32_BD_wrapper_reports.tcl"/>
   <File Type="RDS-RDS" Name="PicoRV32_BD_wrapper.vds"/>
   <File Type="RDS-UTIL" Name="PicoRV32_BD_wrapper_utilization_synth.rpt"/>
   <File Type="RDS-UTIL-PB" Name="PicoRV32_BD_wrapper_utilization_synth.pb"/>
   <File Type="RDS-DCP" Name="PicoRV32_BD_wrapper.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="PicoRV32_BD_wrapper_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="PicoRV32_BD_wrapper_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/imports/picorv32-master/picorv32.v">
@@ -64,7 +61,7 @@
     <File Path="$PSRCDIR/sources_1/imports/Desktop/Memory.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="C:/Users/David/Desktop/Memory.v"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/David/Desktop/Memory.v"/>
         <Attr Name="ImportTime" Val="1514733162"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -95,7 +92,7 @@
     <File Path="$PSRCDIR/sources_1/imports/Desktop/AddressDevoderTB.v">
       <FileInfo>
         <Attr Name="AutoDisabled" Val="1"/>
-        <Attr Name="ImportPath" Val="C:/Users/David/Desktop/AddressDevoderTB.v"/>
+        <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/David/Desktop/AddressDevoderTB.v"/>
         <Attr Name="ImportTime" Val="1514741611"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
@@ -132,10 +129,10 @@
     <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
     <Step Id="synth_design"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_blk_mem_gen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_processing_system7_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_blk_mem_gen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_picorv32_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_memory_wrapper_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Address_Decoder_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Out_bank_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Address_Decoder_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_memory_wrapper_0_0"/>
 </GenRun>

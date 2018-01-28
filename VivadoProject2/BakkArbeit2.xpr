@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.xpr">
+<Project Version="7" Minor="35" Path="C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="a8f85004b33d4ad8b3597e46429d7909"/>
@@ -101,12 +101,6 @@
         <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_Address_Decoder_0_0/PicoRV32_BD_Address_Decoder_0_0.xci">
           <Proxy FileSetName="PicoRV32_BD_Address_Decoder_0_0"/>
         </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_picorv32_0_0/PicoRV32_BD_picorv32_0_0.xci">
-          <Proxy FileSetName="PicoRV32_BD_picorv32_0_0"/>
-        </CompFileExtendedInfo>
-        <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_Out_bank_0_0/PicoRV32_BD_Out_bank_0_0.xci">
-          <Proxy FileSetName="PicoRV32_BD_Out_bank_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_blk_mem_gen_0_0/PicoRV32_BD_blk_mem_gen_0_0.xci">
           <Proxy FileSetName="PicoRV32_BD_blk_mem_gen_0_0"/>
         </CompFileExtendedInfo>
@@ -124,7 +118,7 @@
       <File Path="$PSRCDIR/sources_1/imports/Desktop/Memory.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="C:/Users/David/Desktop/Memory.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/David/Desktop/Memory.v"/>
           <Attr Name="ImportTime" Val="1514733162"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -155,7 +149,7 @@
       <File Path="$PSRCDIR/sources_1/imports/Desktop/AddressDevoderTB.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="C:/Users/David/Desktop/AddressDevoderTB.v"/>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/David/Desktop/AddressDevoderTB.v"/>
           <Attr Name="ImportTime" Val="1514741611"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
@@ -305,18 +299,6 @@
         <Option Name="SrcSet" Val="sources_1"/>
       </Config>
     </FileSet>
-    <FileSet Name="PicoRV32_BD_picorv32_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PicoRV32_BD_picorv32_0_0">
-      <Config>
-        <Option Name="TopModule" Val="PicoRV32_BD_picorv32_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
-    <FileSet Name="PicoRV32_BD_Out_bank_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PicoRV32_BD_Out_bank_0_0">
-      <Config>
-        <Option Name="TopModule" Val="PicoRV32_BD_Out_bank_0_0"/>
-        <Option Name="UseBlackboxStub" Val="1"/>
-      </Config>
-    </FileSet>
     <FileSet Name="PicoRV32_BD_Address_Decoder_0_0" Type="BlockSrcs" RelSrcDir="$PSRCDIR/PicoRV32_BD_Address_Decoder_0_0">
       <Config>
         <Option Name="TopModule" Val="PicoRV32_BD_Address_Decoder_0_0"/>
@@ -367,24 +349,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
     <Run Id="PicoRV32_BD_processing_system7_0_0_synth_1" Type="Ft3:Synth" SrcSet="PicoRV32_BD_processing_system7_0_0" Part="xc7z020clg484-1" ConstrsSet="PicoRV32_BD_processing_system7_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/PicoRV32_BD_processing_system7_0_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-    </Run>
-    <Run Id="PicoRV32_BD_picorv32_0_0_synth_1" Type="Ft3:Synth" SrcSet="PicoRV32_BD_picorv32_0_0" Part="xc7z020clg484-1" ConstrsSet="PicoRV32_BD_picorv32_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/PicoRV32_BD_picorv32_0_0_synth_1" IncludeInArchive="true">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
-        <Step Id="synth_design"/>
-      </Strategy>
-      <GeneratedRun Dir="$PRUNDIR" File="gen_run.xml"/>
-      <ReportStrategy Name="Vivado Synthesis Default Reports" Flow="Vivado Synthesis 2017"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-    </Run>
-    <Run Id="PicoRV32_BD_Out_bank_0_0_synth_1" Type="Ft3:Synth" SrcSet="PicoRV32_BD_Out_bank_0_0" Part="xc7z020clg484-1" ConstrsSet="PicoRV32_BD_Out_bank_0_0" Description="Vivado Synthesis Defaults" WriteIncrSynthDcp="false" Dir="$PRUNDIR/PicoRV32_BD_Out_bank_0_0_synth_1" IncludeInArchive="true">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2017"/>
         <Step Id="synth_design"/>
@@ -477,38 +441,6 @@
       <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
     </Run>
     <Run Id="PicoRV32_BD_processing_system7_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="PicoRV32_BD_processing_system7_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="PicoRV32_BD_processing_system7_0_0_synth_1" IncludeInArchive="false">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-    </Run>
-    <Run Id="PicoRV32_BD_picorv32_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="PicoRV32_BD_picorv32_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="PicoRV32_BD_picorv32_0_0_synth_1" IncludeInArchive="false">
-      <Strategy Version="1" Minor="2">
-        <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
-        <Step Id="init_design"/>
-        <Step Id="opt_design"/>
-        <Step Id="power_opt_design"/>
-        <Step Id="place_design"/>
-        <Step Id="post_place_power_opt_design"/>
-        <Step Id="phys_opt_design"/>
-        <Step Id="route_design"/>
-        <Step Id="post_route_phys_opt_design"/>
-        <Step Id="write_bitstream"/>
-      </Strategy>
-      <ReportStrategy Name="Vivado Implementation Default Reports" Flow="Vivado Implementation 2017"/>
-      <Report Name="ROUTE_DESIGN.REPORT_METHODOLOGY" Enabled="1"/>
-    </Run>
-    <Run Id="PicoRV32_BD_Out_bank_0_0_impl_1" Type="Ft2:EntireDesign" Part="xc7z020clg484-1" ConstrsSet="PicoRV32_BD_Out_bank_0_0" Description="Default settings for Implementation." WriteIncrSynthDcp="false" SynthRun="PicoRV32_BD_Out_bank_0_0_synth_1" IncludeInArchive="false">
       <Strategy Version="1" Minor="2">
         <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2017"/>
         <Step Id="init_design"/>
