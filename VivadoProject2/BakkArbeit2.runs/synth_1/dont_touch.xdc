@@ -3,10 +3,25 @@
 
 # XDC: new/Constraints.xdc
 
-# Block Designs: bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign.bd
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BakkArbeit_Blockdesign || ORIG_REF_NAME==BakkArbeit_Blockdesign} -quiet] -quiet
+# Block Designs: bd/PicoRV32_BD/PicoRV32_BD.bd
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD || ORIG_REF_NAME==PicoRV32_BD} -quiet] -quiet
 
-# IP: bd/BakkArbeit_Blockdesign/ip/BakkArbeit_Blockdesign_processing_system7_0_0/BakkArbeit_Blockdesign_processing_system7_0_0.xci
-set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==BakkArbeit_Blockdesign_processing_system7_0_0 || ORIG_REF_NAME==BakkArbeit_Blockdesign_processing_system7_0_0} -quiet] -quiet
+# IP: bd/PicoRV32_BD/ip/PicoRV32_BD_picorv32_0_0/PicoRV32_BD_picorv32_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_picorv32_0_0 || ORIG_REF_NAME==PicoRV32_BD_picorv32_0_0} -quiet] -quiet
 
-# XDC: bd/BakkArbeit_Blockdesign/BakkArbeit_Blockdesign_ooc.xdc
+# IP: bd/PicoRV32_BD/ip/PicoRV32_BD_Address_Decoder_0_0/PicoRV32_BD_Address_Decoder_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_Address_Decoder_0_0 || ORIG_REF_NAME==PicoRV32_BD_Address_Decoder_0_0} -quiet] -quiet
+
+# IP: bd/PicoRV32_BD/ip/PicoRV32_BD_processing_system7_0_0/PicoRV32_BD_processing_system7_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_processing_system7_0_0 || ORIG_REF_NAME==PicoRV32_BD_processing_system7_0_0} -quiet] -quiet
+
+# IP: bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/PicoRV32_BD_Out_bank_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_Out_bank_0_0 || ORIG_REF_NAME==PicoRV32_BD_Out_bank_0_0} -quiet] -quiet
+
+# IP: bd/PicoRV32_BD/ip/PicoRV32_BD_blk_mem_gen_0_0/PicoRV32_BD_blk_mem_gen_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_blk_mem_gen_0_0 || ORIG_REF_NAME==PicoRV32_BD_blk_mem_gen_0_0} -quiet] -quiet
+
+# IP: bd/PicoRV32_BD/ip/PicoRV32_BD_memory_wrapper_0_0/PicoRV32_BD_memory_wrapper_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_memory_wrapper_0_0 || ORIG_REF_NAME==PicoRV32_BD_memory_wrapper_0_0} -quiet] -quiet
+
+# XDC: bd/PicoRV32_BD/PicoRV32_BD_ooc.xdc

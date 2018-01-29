@@ -1,0 +1,3 @@
+Breakpoint File Version 1.0
+80 true D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/Memory/new/Memory_TB.v
+73 true D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/Memory/new/Memory_TB.v

@@ -2,6 +2,7 @@ module Memory#(
               MEMDEPTH = 2048
               )
               (
+              input       clk,
               input       resetn,
               input       mem_valid,
               input       mem_instr,
@@ -13,120 +14,117 @@ module Memory#(
               output reg [31:0] mem_rdata,
               output reg trap
     );
-reg [31:0] mem[0 : MEMDEPTH - 1];
-reg [31:0]tempReg;
-reg doWrite = 0;
+reg     [31:0]  mem[0 : MEMDEPTH - 1];
+reg     [31:0]  tempReg;
+reg     [31:0]  writeMask;
 integer i;
 integer addr;
-integer StartBit;
-integer EndBit;
+reg module_state;
+reg last_mem_valid;
+
+localparam MODULE_STATE_IDLE    =   1'b0;
+localparam MODULE_STATE_RESET   =   1'b1;
+
+
+//static masks that are used during memory write operations.
+localparam  wstrb_mask_0001 = 32'b00000000_00000000_00000000_11111111;
+localparam  wstrb_mask_0010 = 32'b00000000_00000000_11111111_00000000;
+localparam  wstrb_mask_0100 = 32'b00000000_11111111_00000000_00000000;
+localparam  wstrb_mask_1000 = 32'b11111111_00000000_00000000_00000000;
+localparam  wstrb_mask_0011 = 32'b00000000_00000000_11111111_11111111;
+localparam  wstrb_mask_1100 = 32'b11111111_11111111_00000000_00000000;
+localparam  wstrb_mask_1111 = 32'b11111111_11111111_11111111_11111111;
+            
 
 
 // INIT of Memory. The code to be executed has to be put here. 
 initial begin
-    $readmemh("mem_content.txt", mem);
+    $readmemh("memory_content.dat", mem);
     mem_ready = 0;
     trap = 0;
-    
-    for(i = 0 ; i < 32 ; i=i+1) begin 
-        mem[i] = 0;
-    end
-end
-
-//reset
-always@(negedge resetn) begin
-    mem_ready = 0;
-    trap = 0;
-    
-    for(i = 0 ; i < 32 ; i=i+1) begin 
-        mem[i] = 0;
-    end
-end 
-
-always@(negedge mem_valid)
-begin
-    mem_ready = 0;
+    module_state = 1'b0;
+    last_mem_valid = 0;
 end
 
 //Memory Transaction
-always@(posedge mem_valid or posedge mem_instr) begin 
+always@(posedge clk) begin 
 
-  case(mem_wstrb)
-    //Read 
-    4'b0000: begin
-        addr = mem_addr;
-        mem_rdata = mem[addr];
-        doWrite = 0;
+  case(module_state)
+  
+    MODULE_STATE_IDLE:begin
+        if( last_mem_valid == 0 && mem_valid == 1 ) begin
+            case(mem_wstrb)
+            //Read 
+                4'b0000: begin
+                    mem_rdata <= mem[mem_addr>>2];
+                    mem_ready <= 1;
+                end
+            
+            //Write Byte 0
+                4'b0001: begin
+                    mem[mem_addr>>2] <= ( mem[mem_addr>>2] & ~wstrb_mask_0001 ) | ( mem_wdata & wstrb_mask_0001 );
+                    mem_ready <= 1;
+                end
+            
+            //Write Byte 1
+                4'b0010: begin
+                    mem[mem_addr>>2] <= ( mem[mem_addr>>2] & ~wstrb_mask_0010 ) | ( mem_wdata & wstrb_mask_0010 );
+                    mem_ready <= 1;
+                end
+            
+            //Write Byte 2
+                4'b0100: begin
+                    mem[mem_addr>>2] <= ( mem[mem_addr>>2] & ~wstrb_mask_0100 ) | ( mem_wdata & wstrb_mask_0100 );
+                    mem_ready <= 1;
+                end
+            
+            //Write Byte 3
+                4'b1000: begin
+                    mem[mem_addr>>2] <= ( mem[mem_addr>>2] & ~wstrb_mask_1000 ) | ( mem_wdata & wstrb_mask_1000 );
+                    mem_ready <= 1;
+                end
+            
+            //Write upper 2 Bytes
+                4'b1100: begin
+                    mem[mem_addr>>2] <= ( mem[mem_addr>>2] & ~wstrb_mask_1100 ) | ( mem_wdata & wstrb_mask_1100 );
+                    mem_ready <= 1;
+                end
+            
+            //Write lower 2 Bytes
+                4'b0011: begin
+                    mem[mem_addr>>2] <= ( mem[mem_addr>>2] & ~wstrb_mask_0011 ) | ( mem_wdata & wstrb_mask_0011 );
+                    mem_ready <= 1;
+                end
+            
+            //Write all Bytes
+                4'b1111: begin
+                    mem[mem_addr>>2] <= ( mem[mem_addr>>2] & ~wstrb_mask_1111 ) | ( mem_wdata & wstrb_mask_1111 );
+                    mem_ready <= 1;
+                end
+            
+            //invalid write operation
+                default: begin
+                    trap = 1;
+                end
+          endcase
+          
+          module_state <= MODULE_STATE_RESET; 
+        end
+        
+        last_mem_valid <= mem_valid; 
+    end 
+    MODULE_STATE_RESET:begin
+        mem_ready <= 0;
+        trap <= 0;
+        module_state <= MODULE_STATE_IDLE;
     end
-    
-    //Write Byte 0
-    4'b0001: begin
-        StartBit = 0;
-        EndBit = 7;
-        doWrite = 1;
-    end
-    
-    //Write Byte 1
-    4'b0010: begin
-        StartBit = 8;
-        EndBit = 15;
-        doWrite = 1;
-    end
-    
-    //Write Byte 2
-    4'b0100: begin
-        StartBit = 16;
-        EndBit = 23;
-        doWrite = 1;
-    end
-    
-    //Write Byte 3
-    4'b1000: begin
-        StartBit = 24;
-        EndBit = 31;
-        doWrite = 1;
-    end
-    
-    //Write upper 2 Bytes
-    4'b1100: begin
-        StartBit = 16;
-        EndBit = 31;
-        doWrite = 1;
-    end
-    
-    //Write lower 2 Bytes
-    4'b0011: begin
-        StartBit = 0;
-        EndBit = 15;
-        doWrite = 1;
-    end
-    
-    //Write all Bytes
-    4'b1111: begin
-        StartBit = 0;
-        EndBit = 31;
-        doWrite = 1;
-   end
-   
-    //invalid write operation
-   default: begin
-        trap = 1;
-   end
   endcase
+  
+  
   
 // Has a trap occured?    
   if(trap == 1) begin 
-    mem_ready = 0;
-  end
-  else begin
-    if(doWrite == 1) begin 
-    //Write Bits of Memory according to mem_wstrb
-    addr = mem_addr;
-    for(i = StartBit ; i <= EndBit ; i = i + 1) begin
-        mem[mem_addr][i] = mem_wdata[i];
-    end
-   end
-   mem_ready = 1;
+    mem_ready <= 0;
   end
 end
 

@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  --include "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/ec67/hdl" --include "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/02c8/hdl/verilog" --include "../../../../BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ipshared/1313/hdl" --include "D:/Xilinx/Vivado/2017.4/data/xilinx_vip/include" \
+"../../../../BakkArbeit2.srcs/sources_1/imports/picorv32-master/picorv32.v" \
+"../../../../BakkArbeit2.srcs/PicoRV32_TB/imports/picorv32-master/testbench_ez.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
