@@ -68,7 +68,7 @@ module memory_wrapper(
         if(startCounter) begin
             cycle <= cycle + 1;  
             
-            if(cycle >= (cycleTime - 1)) begin          //cycleTime is subtracted by 1, since the timer is started one cycle after the transaction is asserted
+            if(cycle >= (cycleTime - 2)) begin          //cycleTime is subtracted by 1, since the timer is started one cycle after the transaction is asserted
                 mem_ready_memory <= 1;
                 startCounter <= 0;
             end              

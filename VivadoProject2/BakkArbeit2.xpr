@@ -3,7 +3,7 @@
 <!--                                                         -->
 <!-- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.   -->
 
-<Project Version="7" Minor="35" Path="C:/DEV/BakkArbeit/VivadoProject2/BakkArbeit2.xpr">
+<Project Version="7" Minor="35" Path="D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.xpr">
   <DefaultLaunch Dir="$PRUNDIR"/>
   <Configuration>
     <Option Name="Id" Val="a8f85004b33d4ad8b3597e46429d7909"/>
@@ -32,20 +32,20 @@
     <Option Name="DSAVendor" Val="xilinx"/>
     <Option Name="DSABoardId" Val="zed"/>
     <Option Name="DSANumComputeUnits" Val="16"/>
-    <Option Name="WTXSimLaunchSim" Val="254"/>
+    <Option Name="WTXSimLaunchSim" Val="256"/>
     <Option Name="WTModelSimLaunchSim" Val="0"/>
     <Option Name="WTQuestaLaunchSim" Val="0"/>
     <Option Name="WTIesLaunchSim" Val="0"/>
     <Option Name="WTVcsLaunchSim" Val="0"/>
     <Option Name="WTRivieraLaunchSim" Val="0"/>
     <Option Name="WTActivehdlLaunchSim" Val="0"/>
-    <Option Name="WTXSimExportSim" Val="82"/>
-    <Option Name="WTModelSimExportSim" Val="82"/>
-    <Option Name="WTQuestaExportSim" Val="82"/>
-    <Option Name="WTIesExportSim" Val="82"/>
-    <Option Name="WTVcsExportSim" Val="82"/>
-    <Option Name="WTRivieraExportSim" Val="82"/>
-    <Option Name="WTActivehdlExportSim" Val="82"/>
+    <Option Name="WTXSimExportSim" Val="84"/>
+    <Option Name="WTModelSimExportSim" Val="84"/>
+    <Option Name="WTQuestaExportSim" Val="84"/>
+    <Option Name="WTIesExportSim" Val="84"/>
+    <Option Name="WTVcsExportSim" Val="84"/>
+    <Option Name="WTRivieraExportSim" Val="84"/>
+    <Option Name="WTActivehdlExportSim" Val="84"/>
     <Option Name="GenerateIPUpgradeLog" Val="TRUE"/>
     <Option Name="XSimRadix" Val="hex"/>
     <Option Name="XSimTimeUnit" Val="ns"/>
@@ -98,11 +98,11 @@
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
-        <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_Address_Decoder_0_0/PicoRV32_BD_Address_Decoder_0_0.xci">
-          <Proxy FileSetName="PicoRV32_BD_Address_Decoder_0_0"/>
-        </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_blk_mem_gen_0_0/PicoRV32_BD_blk_mem_gen_0_0.xci">
           <Proxy FileSetName="PicoRV32_BD_blk_mem_gen_0_0"/>
+        </CompFileExtendedInfo>
+        <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_Address_Decoder_0_0/PicoRV32_BD_Address_Decoder_0_0.xci">
+          <Proxy FileSetName="PicoRV32_BD_Address_Decoder_0_0"/>
         </CompFileExtendedInfo>
         <CompFileExtendedInfo CompFileName="PicoRV32_BD.bd" FileRelPathName="ip/PicoRV32_BD_processing_system7_0_0/PicoRV32_BD_processing_system7_0_0.xci">
           <Proxy FileSetName="PicoRV32_BD_processing_system7_0_0"/>
@@ -118,7 +118,7 @@
       <File Path="$PSRCDIR/sources_1/imports/Desktop/Memory.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/David/Desktop/Memory.v"/>
+          <Attr Name="ImportPath" Val="C:/Users/David/Desktop/Memory.v"/>
           <Attr Name="ImportTime" Val="1514733162"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
@@ -140,24 +140,20 @@
           <Attr Name="UsedIn" Val="implementation"/>
         </FileInfo>
       </File>
-      <File Path="$PSRCDIR/sources_1/new/memory_content.dat">
-        <FileInfo>
-          <Attr Name="UsedIn" Val="synthesis"/>
-          <Attr Name="UsedIn" Val="simulation"/>
-        </FileInfo>
-      </File>
       <File Path="$PSRCDIR/sources_1/imports/Desktop/AddressDevoderTB.v">
         <FileInfo>
           <Attr Name="AutoDisabled" Val="1"/>
-          <Attr Name="ImportPath" Val="$PPRDIR/../../../Users/David/Desktop/AddressDevoderTB.v"/>
+          <Attr Name="ImportPath" Val="C:/Users/David/Desktop/AddressDevoderTB.v"/>
           <Attr Name="ImportTime" Val="1514741611"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="implementation"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>
       </File>
-      <File Path="$PPRDIR/../../../VirtualBox VMs/Ubuntu/SharedFolder/out.coe">
+      <File Path="$PSRCDIR/sources_1/imports/SharedFolder/out.coe">
         <FileInfo>
+          <Attr Name="ImportPath" Val="$PPRDIR/../../../VirtualBox VMs/Ubuntu/SharedFolder/out.coe"/>
+          <Attr Name="ImportTime" Val="1516885674"/>
           <Attr Name="UsedIn" Val="synthesis"/>
           <Attr Name="UsedIn" Val="simulation"/>
         </FileInfo>

@@ -632,6 +632,17 @@
         </spirit:configurableElementValues>
       </spirit:componentInstance>
       <spirit:componentInstance>
+        <spirit:instanceName>Out_bank_0</spirit:instanceName>
+        <spirit:componentRef spirit:library="module_ref" spirit:name="Out_bank" spirit:vendor="xilinx.com" spirit:version="1.0"/>
+        <spirit:configurableElementValues>
+          <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_Out_bank_0_0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">Out_bank</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
+        </spirit:configurableElementValues>
+      </spirit:componentInstance>
+      <spirit:componentInstance>
         <spirit:instanceName>picorv32_0</spirit:instanceName>
         <spirit:componentRef spirit:library="module_ref" spirit:name="picorv32" spirit:vendor="xilinx.com" spirit:version="1.0"/>
         <spirit:configurableElementValues>
@@ -642,17 +653,6 @@
           <spirit:configurableElementValue spirit:referenceId="PROGADDR_IRQ">0x00000010</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="STACKADDR">0x0003FFF0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceName">picorv32</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
-        </spirit:configurableElementValues>
-      </spirit:componentInstance>
-      <spirit:componentInstance>
-        <spirit:instanceName>Out_bank_0</spirit:instanceName>
-        <spirit:componentRef spirit:library="module_ref" spirit:name="Out_bank" spirit:vendor="xilinx.com" spirit:version="1.0"/>
-        <spirit:configurableElementValues>
-          <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_Out_bank_0_0</spirit:configurableElementValue>
-          <spirit:configurableElementValue spirit:referenceId="bd:referenceName">Out_bank</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:subInstancePath"></spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:referenceType">hdl</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="bd:BoundaryCRC">0x0</spirit:configurableElementValue>
@@ -756,8 +756,8 @@
         <spirit:name>sim_rst_gen_0_rst</spirit:name>
         <spirit:externalPortReference spirit:portRef="resetn"/>
         <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="resetn"/>
-        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="resetn"/>
         <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="resetn"/>
+        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="resetn"/>
       </spirit:adHocConnection>
       <spirit:adHocConnection>
         <spirit:name>memory_wrapper_0_addra</spirit:name>
@@ -819,8 +819,8 @@
         <spirit:internalPortReference spirit:componentRef="processing_system7_0" spirit:portRef="FCLK_CLK0"/>
         <spirit:internalPortReference spirit:componentRef="blk_mem_gen_0" spirit:portRef="clka"/>
         <spirit:internalPortReference spirit:componentRef="Address_Decoder_0" spirit:portRef="clk"/>
-        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="Out_bank_0" spirit:portRef="clk"/>
+        <spirit:internalPortReference spirit:componentRef="picorv32_0" spirit:portRef="clk"/>
         <spirit:internalPortReference spirit:componentRef="memory_wrapper_0" spirit:portRef="clk"/>
       </spirit:adHocConnection>
     </spirit:adHocConnections>
