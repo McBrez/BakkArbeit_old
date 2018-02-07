@@ -24,4 +24,7 @@ set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_blk
 # IP: bd/PicoRV32_BD/ip/PicoRV32_BD_memory_wrapper_0_0/PicoRV32_BD_memory_wrapper_0_0.xci
 set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_memory_wrapper_0_0 || ORIG_REF_NAME==PicoRV32_BD_memory_wrapper_0_0} -quiet] -quiet
 
+# IP: bd/PicoRV32_BD/ip/PicoRV32_BD_Inverter_0_0/PicoRV32_BD_Inverter_0_0.xci
+set_property DONT_TOUCH TRUE [get_cells -hier -filter {REF_NAME==PicoRV32_BD_Inverter_0_0 || ORIG_REF_NAME==PicoRV32_BD_Inverter_0_0} -quiet] -quiet
+
 # XDC: bd/PicoRV32_BD/PicoRV32_BD_ooc.xdc

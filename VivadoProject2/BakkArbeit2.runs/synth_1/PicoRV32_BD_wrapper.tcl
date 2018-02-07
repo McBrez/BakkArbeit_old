@@ -16,7 +16,10 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache C:/Users/David/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-2548-FREISMUTHDESK/incrSyn
 set_msg_config -id {HDL-1065} -limit 10000
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 create_project -in_memory -part xc7z020clg484-1
 
 set_param project.singleFileAddWarning.threshold 0
@@ -31,8 +34,7 @@ set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
 set_property ip_output_repo d:/BakkArbeit/git/VivadoProject2/BakkArbeit2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-add_files {{D:/VirtualBox VMs/Ubuntu/SharedFolder/out.coe}}
-read_mem D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/memory_content.dat
+add_files D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/imports/SharedFolder/out.coe
 read_verilog -library xil_defaultlib D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/hdl/PicoRV32_BD_wrapper.v
 add_files D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/PicoRV32_BD.bd
 set_property used_in_implementation false [get_files -all d:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_processing_system7_0_0/PicoRV32_BD_processing_system7_0_0.xdc]

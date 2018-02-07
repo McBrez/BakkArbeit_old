@@ -16,9 +16,6 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 set_param project.vivado.isBlockSynthRun true
 create_project -in_memory -part xc7z020clg484-1
 
@@ -34,7 +31,6 @@ set_property target_language Verilog [current_project]
 set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
 set_property ip_output_repo d:/BakkArbeit/git/VivadoProject2/BakkArbeit2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_mem D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/memory_content.dat
 read_verilog -library xil_defaultlib D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/new/Address_Decoder.v
 read_ip -quiet D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_Address_Decoder_0_0/PicoRV32_BD_Address_Decoder_0_0.xci
 

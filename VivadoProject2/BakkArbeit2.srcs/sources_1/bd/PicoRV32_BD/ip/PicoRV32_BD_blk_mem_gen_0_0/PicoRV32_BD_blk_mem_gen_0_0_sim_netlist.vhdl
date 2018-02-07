@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Fri Jan 26 23:28:13 2018
+-- Date        : Tue Jan 30 21:45:08 2018
 -- Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode funcsim
---               D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_blk_mem_gen_0_0/PicoRV32_BD_blk_mem_gen_0_0_sim_netlist.vhdl
+-- Command     : write_vhdl -force -mode funcsim -rename_top PicoRV32_BD_blk_mem_gen_0_0 -prefix
+--               PicoRV32_BD_blk_mem_gen_0_0_ PicoRV32_BD_blk_mem_gen_0_0_sim_netlist.vhdl
 -- Design      : PicoRV32_BD_blk_mem_gen_0_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -85,208 +85,226 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_mux is
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\ : in STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\ : in STD_LOGIC_VECTOR ( 7 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_mux : entity is "blk_mem_gen_mux";
 end PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_mux;
 
 architecture STRUCTURE of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_mux is
-  signal \din_2D[31]__0\ : STD_LOGIC_VECTOR ( 31 downto 0 );
-  signal \no_softecc_gmuxr.ce_pri.dout_i[0]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[0]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[0]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[0]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[10]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[10]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[10]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[10]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[11]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[11]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[11]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[11]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[12]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[12]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[12]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[12]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[13]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[13]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[13]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[13]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[14]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[14]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[14]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[14]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[15]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[15]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[15]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[15]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[16]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[16]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[16]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[16]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[17]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[17]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[17]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[17]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[18]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[18]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[18]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[18]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[19]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[19]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[19]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[19]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[1]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[1]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[1]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[1]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[20]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[20]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[20]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[20]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[21]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[21]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[21]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[21]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[22]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[22]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[22]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[22]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[23]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[23]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[23]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[23]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[24]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[24]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[24]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[24]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[25]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[25]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[25]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[25]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[26]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[26]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[26]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[26]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[27]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[27]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[27]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[27]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[28]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[28]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[28]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[28]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[29]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[29]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[29]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[29]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[2]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[2]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[2]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[2]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[30]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[30]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[30]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[30]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[31]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[31]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[31]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[31]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[3]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[3]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[3]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[3]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[4]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[4]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[4]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[4]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[5]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[5]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[5]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[5]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[6]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[6]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[6]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[6]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[7]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[7]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[7]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[7]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[8]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[8]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[8]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[8]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[9]_i_4_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[9]_i_5_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[9]_i_6_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i[9]_i_7_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_3_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_2_n_0\ : STD_LOGIC;
-  signal \no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_3_n_0\ : STD_LOGIC;
+  signal \douta[0]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[0]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[0]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[0]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[0]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[0]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[10]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[10]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[10]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[10]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[10]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[10]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[11]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[11]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[11]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[11]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[11]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[11]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[12]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[12]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[12]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[12]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[12]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[12]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[13]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[13]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[13]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[13]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[13]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[13]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[14]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[14]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[14]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[14]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[14]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[14]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[15]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[15]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[15]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[15]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[15]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[15]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[16]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[16]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[16]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[16]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[16]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[16]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[17]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[17]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[17]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[17]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[17]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[17]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[18]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[18]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[18]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[18]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[18]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[18]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[19]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[19]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[19]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[19]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[19]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[19]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[1]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[1]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[1]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[1]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[1]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[1]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[20]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[20]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[20]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[20]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[20]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[20]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[21]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[21]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[21]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[21]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[21]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[21]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[22]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[22]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[22]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[22]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[22]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[22]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[23]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[23]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[23]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[23]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[23]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[23]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[24]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[24]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[24]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[24]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[24]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[24]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[25]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[25]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[25]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[25]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[25]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[25]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[26]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[26]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[26]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[26]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[26]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[26]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[27]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[27]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[27]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[27]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[27]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[27]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[28]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[28]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[28]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[28]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[28]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[28]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[29]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[29]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[29]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[29]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[29]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[29]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[2]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[2]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[2]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[2]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[2]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[2]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[30]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[30]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[30]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[30]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[30]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[30]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[31]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[31]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[31]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[31]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[31]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[31]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[3]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[3]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[3]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[3]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[3]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[3]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[4]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[4]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[4]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[4]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[4]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[4]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[5]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[5]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[5]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[5]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[5]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[5]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[6]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[6]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[6]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[6]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[6]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[6]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[7]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[7]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[7]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[7]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[7]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[7]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[8]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[8]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[8]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[8]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[8]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[8]_INST_0_i_6_n_0\ : STD_LOGIC;
+  signal \douta[9]_INST_0_i_1_n_0\ : STD_LOGIC;
+  signal \douta[9]_INST_0_i_2_n_0\ : STD_LOGIC;
+  signal \douta[9]_INST_0_i_3_n_0\ : STD_LOGIC;
+  signal \douta[9]_INST_0_i_4_n_0\ : STD_LOGIC;
+  signal \douta[9]_INST_0_i_5_n_0\ : STD_LOGIC;
+  signal \douta[9]_INST_0_i_6_n_0\ : STD_LOGIC;
   signal sel_pipe : STD_LOGIC_VECTOR ( 4 downto 1 );
   signal sel_pipe_d1 : STD_LOGIC_VECTOR ( 4 downto 1 );
 begin
-\no_softecc_gmuxr.ce_pri.dout_i[0]_i_4\: unisim.vcomponents.LUT6
+\douta[0]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[0]_INST_0_i_1_n_0\,
+      I1 => \douta[0]_INST_0_i_2_n_0\,
+      O => douta(0),
+      S => sel_pipe_d1(4)
+    );
+\douta[0]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[0]_INST_0_i_3_n_0\,
+      I1 => \douta[0]_INST_0_i_4_n_0\,
+      O => \douta[0]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[0]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[0]_INST_0_i_5_n_0\,
+      I1 => \douta[0]_INST_0_i_6_n_0\,
+      O => \douta[0]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[0]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -297,9 +315,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_4_n_0\
+      O => \douta[0]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[0]_i_5\: unisim.vcomponents.LUT6
+\douta[0]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -310,9 +328,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_5_n_0\
+      O => \douta[0]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[0]_i_6\: unisim.vcomponents.LUT6
+\douta[0]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -323,9 +341,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_6_n_0\
+      O => \douta[0]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[0]_i_7\: unisim.vcomponents.LUT6
+\douta[0]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -336,9 +354,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_7_n_0\
+      O => \douta[0]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[10]_i_4\: unisim.vcomponents.LUT6
+\douta[10]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[10]_INST_0_i_1_n_0\,
+      I1 => \douta[10]_INST_0_i_2_n_0\,
+      O => douta(10),
+      S => sel_pipe_d1(4)
+    );
+\douta[10]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[10]_INST_0_i_3_n_0\,
+      I1 => \douta[10]_INST_0_i_4_n_0\,
+      O => \douta[10]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[10]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[10]_INST_0_i_5_n_0\,
+      I1 => \douta[10]_INST_0_i_6_n_0\,
+      O => \douta[10]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[10]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -349,9 +388,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_4_n_0\
+      O => \douta[10]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[10]_i_5\: unisim.vcomponents.LUT6
+\douta[10]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -362,9 +401,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_5_n_0\
+      O => \douta[10]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[10]_i_6\: unisim.vcomponents.LUT6
+\douta[10]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -375,9 +414,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_6_n_0\
+      O => \douta[10]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[10]_i_7\: unisim.vcomponents.LUT6
+\douta[10]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -388,9 +427,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_7_n_0\
+      O => \douta[10]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[11]_i_4\: unisim.vcomponents.LUT6
+\douta[11]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[11]_INST_0_i_1_n_0\,
+      I1 => \douta[11]_INST_0_i_2_n_0\,
+      O => douta(11),
+      S => sel_pipe_d1(4)
+    );
+\douta[11]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[11]_INST_0_i_3_n_0\,
+      I1 => \douta[11]_INST_0_i_4_n_0\,
+      O => \douta[11]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[11]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[11]_INST_0_i_5_n_0\,
+      I1 => \douta[11]_INST_0_i_6_n_0\,
+      O => \douta[11]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[11]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -401,9 +461,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_4_n_0\
+      O => \douta[11]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[11]_i_5\: unisim.vcomponents.LUT6
+\douta[11]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -414,9 +474,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_5_n_0\
+      O => \douta[11]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[11]_i_6\: unisim.vcomponents.LUT6
+\douta[11]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -427,9 +487,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_6_n_0\
+      O => \douta[11]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[11]_i_7\: unisim.vcomponents.LUT6
+\douta[11]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -440,9 +500,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_7_n_0\
+      O => \douta[11]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[12]_i_4\: unisim.vcomponents.LUT6
+\douta[12]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[12]_INST_0_i_1_n_0\,
+      I1 => \douta[12]_INST_0_i_2_n_0\,
+      O => douta(12),
+      S => sel_pipe_d1(4)
+    );
+\douta[12]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[12]_INST_0_i_3_n_0\,
+      I1 => \douta[12]_INST_0_i_4_n_0\,
+      O => \douta[12]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[12]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[12]_INST_0_i_5_n_0\,
+      I1 => \douta[12]_INST_0_i_6_n_0\,
+      O => \douta[12]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[12]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -453,9 +534,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_4_n_0\
+      O => \douta[12]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[12]_i_5\: unisim.vcomponents.LUT6
+\douta[12]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -466,9 +547,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_5_n_0\
+      O => \douta[12]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[12]_i_6\: unisim.vcomponents.LUT6
+\douta[12]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -479,9 +560,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_6_n_0\
+      O => \douta[12]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[12]_i_7\: unisim.vcomponents.LUT6
+\douta[12]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -492,9 +573,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_7_n_0\
+      O => \douta[12]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[13]_i_4\: unisim.vcomponents.LUT6
+\douta[13]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[13]_INST_0_i_1_n_0\,
+      I1 => \douta[13]_INST_0_i_2_n_0\,
+      O => douta(13),
+      S => sel_pipe_d1(4)
+    );
+\douta[13]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[13]_INST_0_i_3_n_0\,
+      I1 => \douta[13]_INST_0_i_4_n_0\,
+      O => \douta[13]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[13]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[13]_INST_0_i_5_n_0\,
+      I1 => \douta[13]_INST_0_i_6_n_0\,
+      O => \douta[13]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[13]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -505,9 +607,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_4_n_0\
+      O => \douta[13]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[13]_i_5\: unisim.vcomponents.LUT6
+\douta[13]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -518,9 +620,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_5_n_0\
+      O => \douta[13]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[13]_i_6\: unisim.vcomponents.LUT6
+\douta[13]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -531,9 +633,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_6_n_0\
+      O => \douta[13]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[13]_i_7\: unisim.vcomponents.LUT6
+\douta[13]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -544,9 +646,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_7_n_0\
+      O => \douta[13]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[14]_i_4\: unisim.vcomponents.LUT6
+\douta[14]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[14]_INST_0_i_1_n_0\,
+      I1 => \douta[14]_INST_0_i_2_n_0\,
+      O => douta(14),
+      S => sel_pipe_d1(4)
+    );
+\douta[14]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[14]_INST_0_i_3_n_0\,
+      I1 => \douta[14]_INST_0_i_4_n_0\,
+      O => \douta[14]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[14]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[14]_INST_0_i_5_n_0\,
+      I1 => \douta[14]_INST_0_i_6_n_0\,
+      O => \douta[14]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[14]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -557,9 +680,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_4_n_0\
+      O => \douta[14]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[14]_i_5\: unisim.vcomponents.LUT6
+\douta[14]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -570,9 +693,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_5_n_0\
+      O => \douta[14]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[14]_i_6\: unisim.vcomponents.LUT6
+\douta[14]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -583,9 +706,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_6_n_0\
+      O => \douta[14]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[14]_i_7\: unisim.vcomponents.LUT6
+\douta[14]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -596,9 +719,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_7_n_0\
+      O => \douta[14]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[15]_i_4\: unisim.vcomponents.LUT6
+\douta[15]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[15]_INST_0_i_1_n_0\,
+      I1 => \douta[15]_INST_0_i_2_n_0\,
+      O => douta(15),
+      S => sel_pipe_d1(4)
+    );
+\douta[15]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[15]_INST_0_i_3_n_0\,
+      I1 => \douta[15]_INST_0_i_4_n_0\,
+      O => \douta[15]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[15]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[15]_INST_0_i_5_n_0\,
+      I1 => \douta[15]_INST_0_i_6_n_0\,
+      O => \douta[15]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[15]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -609,9 +753,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_4_n_0\
+      O => \douta[15]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[15]_i_5\: unisim.vcomponents.LUT6
+\douta[15]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -622,9 +766,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_5_n_0\
+      O => \douta[15]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[15]_i_6\: unisim.vcomponents.LUT6
+\douta[15]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -635,9 +779,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_6_n_0\
+      O => \douta[15]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[15]_i_7\: unisim.vcomponents.LUT6
+\douta[15]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -648,9 +792,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_7_n_0\
+      O => \douta[15]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[16]_i_4\: unisim.vcomponents.LUT6
+\douta[16]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[16]_INST_0_i_1_n_0\,
+      I1 => \douta[16]_INST_0_i_2_n_0\,
+      O => douta(16),
+      S => sel_pipe_d1(4)
+    );
+\douta[16]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[16]_INST_0_i_3_n_0\,
+      I1 => \douta[16]_INST_0_i_4_n_0\,
+      O => \douta[16]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[16]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[16]_INST_0_i_5_n_0\,
+      I1 => \douta[16]_INST_0_i_6_n_0\,
+      O => \douta[16]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[16]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -661,9 +826,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_4_n_0\
+      O => \douta[16]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[16]_i_5\: unisim.vcomponents.LUT6
+\douta[16]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -674,9 +839,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_5_n_0\
+      O => \douta[16]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[16]_i_6\: unisim.vcomponents.LUT6
+\douta[16]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -687,9 +852,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_6_n_0\
+      O => \douta[16]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[16]_i_7\: unisim.vcomponents.LUT6
+\douta[16]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -700,9 +865,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_7_n_0\
+      O => \douta[16]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[17]_i_4\: unisim.vcomponents.LUT6
+\douta[17]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[17]_INST_0_i_1_n_0\,
+      I1 => \douta[17]_INST_0_i_2_n_0\,
+      O => douta(17),
+      S => sel_pipe_d1(4)
+    );
+\douta[17]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[17]_INST_0_i_3_n_0\,
+      I1 => \douta[17]_INST_0_i_4_n_0\,
+      O => \douta[17]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[17]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[17]_INST_0_i_5_n_0\,
+      I1 => \douta[17]_INST_0_i_6_n_0\,
+      O => \douta[17]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[17]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -713,9 +899,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_4_n_0\
+      O => \douta[17]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[17]_i_5\: unisim.vcomponents.LUT6
+\douta[17]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -726,9 +912,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_5_n_0\
+      O => \douta[17]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[17]_i_6\: unisim.vcomponents.LUT6
+\douta[17]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -739,9 +925,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_6_n_0\
+      O => \douta[17]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[17]_i_7\: unisim.vcomponents.LUT6
+\douta[17]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -752,9 +938,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_7_n_0\
+      O => \douta[17]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[18]_i_4\: unisim.vcomponents.LUT6
+\douta[18]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[18]_INST_0_i_1_n_0\,
+      I1 => \douta[18]_INST_0_i_2_n_0\,
+      O => douta(18),
+      S => sel_pipe_d1(4)
+    );
+\douta[18]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[18]_INST_0_i_3_n_0\,
+      I1 => \douta[18]_INST_0_i_4_n_0\,
+      O => \douta[18]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[18]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[18]_INST_0_i_5_n_0\,
+      I1 => \douta[18]_INST_0_i_6_n_0\,
+      O => \douta[18]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[18]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -765,9 +972,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_4_n_0\
+      O => \douta[18]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[18]_i_5\: unisim.vcomponents.LUT6
+\douta[18]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -778,9 +985,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_5_n_0\
+      O => \douta[18]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[18]_i_6\: unisim.vcomponents.LUT6
+\douta[18]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -791,9 +998,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_6_n_0\
+      O => \douta[18]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[18]_i_7\: unisim.vcomponents.LUT6
+\douta[18]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -804,9 +1011,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_7_n_0\
+      O => \douta[18]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[19]_i_4\: unisim.vcomponents.LUT6
+\douta[19]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[19]_INST_0_i_1_n_0\,
+      I1 => \douta[19]_INST_0_i_2_n_0\,
+      O => douta(19),
+      S => sel_pipe_d1(4)
+    );
+\douta[19]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[19]_INST_0_i_3_n_0\,
+      I1 => \douta[19]_INST_0_i_4_n_0\,
+      O => \douta[19]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[19]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[19]_INST_0_i_5_n_0\,
+      I1 => \douta[19]_INST_0_i_6_n_0\,
+      O => \douta[19]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[19]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -817,9 +1045,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_4_n_0\
+      O => \douta[19]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[19]_i_5\: unisim.vcomponents.LUT6
+\douta[19]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -830,9 +1058,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_5_n_0\
+      O => \douta[19]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[19]_i_6\: unisim.vcomponents.LUT6
+\douta[19]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -843,9 +1071,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_6_n_0\
+      O => \douta[19]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[19]_i_7\: unisim.vcomponents.LUT6
+\douta[19]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -856,9 +1084,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_7_n_0\
+      O => \douta[19]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[1]_i_4\: unisim.vcomponents.LUT6
+\douta[1]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[1]_INST_0_i_1_n_0\,
+      I1 => \douta[1]_INST_0_i_2_n_0\,
+      O => douta(1),
+      S => sel_pipe_d1(4)
+    );
+\douta[1]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[1]_INST_0_i_3_n_0\,
+      I1 => \douta[1]_INST_0_i_4_n_0\,
+      O => \douta[1]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[1]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[1]_INST_0_i_5_n_0\,
+      I1 => \douta[1]_INST_0_i_6_n_0\,
+      O => \douta[1]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[1]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -869,9 +1118,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_4_n_0\
+      O => \douta[1]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[1]_i_5\: unisim.vcomponents.LUT6
+\douta[1]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -882,9 +1131,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_5_n_0\
+      O => \douta[1]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[1]_i_6\: unisim.vcomponents.LUT6
+\douta[1]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -895,9 +1144,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_6_n_0\
+      O => \douta[1]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[1]_i_7\: unisim.vcomponents.LUT6
+\douta[1]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -908,9 +1157,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_7_n_0\
+      O => \douta[1]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[20]_i_4\: unisim.vcomponents.LUT6
+\douta[20]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[20]_INST_0_i_1_n_0\,
+      I1 => \douta[20]_INST_0_i_2_n_0\,
+      O => douta(20),
+      S => sel_pipe_d1(4)
+    );
+\douta[20]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[20]_INST_0_i_3_n_0\,
+      I1 => \douta[20]_INST_0_i_4_n_0\,
+      O => \douta[20]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[20]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[20]_INST_0_i_5_n_0\,
+      I1 => \douta[20]_INST_0_i_6_n_0\,
+      O => \douta[20]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[20]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -921,9 +1191,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_4_n_0\
+      O => \douta[20]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[20]_i_5\: unisim.vcomponents.LUT6
+\douta[20]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -934,9 +1204,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_5_n_0\
+      O => \douta[20]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[20]_i_6\: unisim.vcomponents.LUT6
+\douta[20]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -947,9 +1217,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_6_n_0\
+      O => \douta[20]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[20]_i_7\: unisim.vcomponents.LUT6
+\douta[20]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -960,9 +1230,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_7_n_0\
+      O => \douta[20]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[21]_i_4\: unisim.vcomponents.LUT6
+\douta[21]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[21]_INST_0_i_1_n_0\,
+      I1 => \douta[21]_INST_0_i_2_n_0\,
+      O => douta(21),
+      S => sel_pipe_d1(4)
+    );
+\douta[21]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[21]_INST_0_i_3_n_0\,
+      I1 => \douta[21]_INST_0_i_4_n_0\,
+      O => \douta[21]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[21]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[21]_INST_0_i_5_n_0\,
+      I1 => \douta[21]_INST_0_i_6_n_0\,
+      O => \douta[21]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[21]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -973,9 +1264,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_4_n_0\
+      O => \douta[21]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[21]_i_5\: unisim.vcomponents.LUT6
+\douta[21]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -986,9 +1277,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_5_n_0\
+      O => \douta[21]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[21]_i_6\: unisim.vcomponents.LUT6
+\douta[21]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -999,9 +1290,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_6_n_0\
+      O => \douta[21]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[21]_i_7\: unisim.vcomponents.LUT6
+\douta[21]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1012,9 +1303,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_7_n_0\
+      O => \douta[21]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[22]_i_4\: unisim.vcomponents.LUT6
+\douta[22]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[22]_INST_0_i_1_n_0\,
+      I1 => \douta[22]_INST_0_i_2_n_0\,
+      O => douta(22),
+      S => sel_pipe_d1(4)
+    );
+\douta[22]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[22]_INST_0_i_3_n_0\,
+      I1 => \douta[22]_INST_0_i_4_n_0\,
+      O => \douta[22]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[22]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[22]_INST_0_i_5_n_0\,
+      I1 => \douta[22]_INST_0_i_6_n_0\,
+      O => \douta[22]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[22]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1025,9 +1337,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_4_n_0\
+      O => \douta[22]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[22]_i_5\: unisim.vcomponents.LUT6
+\douta[22]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1038,9 +1350,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_5_n_0\
+      O => \douta[22]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[22]_i_6\: unisim.vcomponents.LUT6
+\douta[22]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1051,9 +1363,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_6_n_0\
+      O => \douta[22]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[22]_i_7\: unisim.vcomponents.LUT6
+\douta[22]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1064,9 +1376,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_7_n_0\
+      O => \douta[22]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[23]_i_4\: unisim.vcomponents.LUT6
+\douta[23]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[23]_INST_0_i_1_n_0\,
+      I1 => \douta[23]_INST_0_i_2_n_0\,
+      O => douta(23),
+      S => sel_pipe_d1(4)
+    );
+\douta[23]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[23]_INST_0_i_3_n_0\,
+      I1 => \douta[23]_INST_0_i_4_n_0\,
+      O => \douta[23]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[23]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[23]_INST_0_i_5_n_0\,
+      I1 => \douta[23]_INST_0_i_6_n_0\,
+      O => \douta[23]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[23]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1077,9 +1410,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_32\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_33\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_4_n_0\
+      O => \douta[23]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[23]_i_5\: unisim.vcomponents.LUT6
+\douta[23]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1090,9 +1423,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_36\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_37\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_5_n_0\
+      O => \douta[23]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[23]_i_6\: unisim.vcomponents.LUT6
+\douta[23]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1103,9 +1436,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_40\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_41\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_6_n_0\
+      O => \douta[23]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[23]_i_7\: unisim.vcomponents.LUT6
+\douta[23]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1116,9 +1449,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_44\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_45\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_7_n_0\
+      O => \douta[23]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[24]_i_4\: unisim.vcomponents.LUT6
+\douta[24]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[24]_INST_0_i_1_n_0\,
+      I1 => \douta[24]_INST_0_i_2_n_0\,
+      O => douta(24),
+      S => sel_pipe_d1(4)
+    );
+\douta[24]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[24]_INST_0_i_3_n_0\,
+      I1 => \douta[24]_INST_0_i_4_n_0\,
+      O => \douta[24]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[24]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[24]_INST_0_i_5_n_0\,
+      I1 => \douta[24]_INST_0_i_6_n_0\,
+      O => \douta[24]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[24]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1129,9 +1483,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_4_n_0\
+      O => \douta[24]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[24]_i_5\: unisim.vcomponents.LUT6
+\douta[24]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1142,9 +1496,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_5_n_0\
+      O => \douta[24]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[24]_i_6\: unisim.vcomponents.LUT6
+\douta[24]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1155,9 +1509,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_6_n_0\
+      O => \douta[24]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[24]_i_7\: unisim.vcomponents.LUT6
+\douta[24]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1168,9 +1522,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_7_n_0\
+      O => \douta[24]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[25]_i_4\: unisim.vcomponents.LUT6
+\douta[25]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[25]_INST_0_i_1_n_0\,
+      I1 => \douta[25]_INST_0_i_2_n_0\,
+      O => douta(25),
+      S => sel_pipe_d1(4)
+    );
+\douta[25]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[25]_INST_0_i_3_n_0\,
+      I1 => \douta[25]_INST_0_i_4_n_0\,
+      O => \douta[25]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[25]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[25]_INST_0_i_5_n_0\,
+      I1 => \douta[25]_INST_0_i_6_n_0\,
+      O => \douta[25]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[25]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1181,9 +1556,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_4_n_0\
+      O => \douta[25]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[25]_i_5\: unisim.vcomponents.LUT6
+\douta[25]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1194,9 +1569,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_5_n_0\
+      O => \douta[25]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[25]_i_6\: unisim.vcomponents.LUT6
+\douta[25]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1207,9 +1582,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_6_n_0\
+      O => \douta[25]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[25]_i_7\: unisim.vcomponents.LUT6
+\douta[25]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1220,9 +1595,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_7_n_0\
+      O => \douta[25]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[26]_i_4\: unisim.vcomponents.LUT6
+\douta[26]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[26]_INST_0_i_1_n_0\,
+      I1 => \douta[26]_INST_0_i_2_n_0\,
+      O => douta(26),
+      S => sel_pipe_d1(4)
+    );
+\douta[26]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[26]_INST_0_i_3_n_0\,
+      I1 => \douta[26]_INST_0_i_4_n_0\,
+      O => \douta[26]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[26]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[26]_INST_0_i_5_n_0\,
+      I1 => \douta[26]_INST_0_i_6_n_0\,
+      O => \douta[26]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[26]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1233,9 +1629,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_4_n_0\
+      O => \douta[26]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[26]_i_5\: unisim.vcomponents.LUT6
+\douta[26]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1246,9 +1642,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_5_n_0\
+      O => \douta[26]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[26]_i_6\: unisim.vcomponents.LUT6
+\douta[26]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1259,9 +1655,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_6_n_0\
+      O => \douta[26]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[26]_i_7\: unisim.vcomponents.LUT6
+\douta[26]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1272,9 +1668,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_7_n_0\
+      O => \douta[26]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[27]_i_4\: unisim.vcomponents.LUT6
+\douta[27]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[27]_INST_0_i_1_n_0\,
+      I1 => \douta[27]_INST_0_i_2_n_0\,
+      O => douta(27),
+      S => sel_pipe_d1(4)
+    );
+\douta[27]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[27]_INST_0_i_3_n_0\,
+      I1 => \douta[27]_INST_0_i_4_n_0\,
+      O => \douta[27]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[27]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[27]_INST_0_i_5_n_0\,
+      I1 => \douta[27]_INST_0_i_6_n_0\,
+      O => \douta[27]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[27]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1285,9 +1702,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_4_n_0\
+      O => \douta[27]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[27]_i_5\: unisim.vcomponents.LUT6
+\douta[27]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1298,9 +1715,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_5_n_0\
+      O => \douta[27]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[27]_i_6\: unisim.vcomponents.LUT6
+\douta[27]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1311,9 +1728,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_6_n_0\
+      O => \douta[27]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[27]_i_7\: unisim.vcomponents.LUT6
+\douta[27]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1324,9 +1741,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_7_n_0\
+      O => \douta[27]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[28]_i_4\: unisim.vcomponents.LUT6
+\douta[28]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[28]_INST_0_i_1_n_0\,
+      I1 => \douta[28]_INST_0_i_2_n_0\,
+      O => douta(28),
+      S => sel_pipe_d1(4)
+    );
+\douta[28]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[28]_INST_0_i_3_n_0\,
+      I1 => \douta[28]_INST_0_i_4_n_0\,
+      O => \douta[28]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[28]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[28]_INST_0_i_5_n_0\,
+      I1 => \douta[28]_INST_0_i_6_n_0\,
+      O => \douta[28]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[28]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1337,9 +1775,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_4_n_0\
+      O => \douta[28]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[28]_i_5\: unisim.vcomponents.LUT6
+\douta[28]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1350,9 +1788,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_5_n_0\
+      O => \douta[28]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[28]_i_6\: unisim.vcomponents.LUT6
+\douta[28]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1363,9 +1801,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_6_n_0\
+      O => \douta[28]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[28]_i_7\: unisim.vcomponents.LUT6
+\douta[28]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1376,9 +1814,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_7_n_0\
+      O => \douta[28]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[29]_i_4\: unisim.vcomponents.LUT6
+\douta[29]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[29]_INST_0_i_1_n_0\,
+      I1 => \douta[29]_INST_0_i_2_n_0\,
+      O => douta(29),
+      S => sel_pipe_d1(4)
+    );
+\douta[29]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[29]_INST_0_i_3_n_0\,
+      I1 => \douta[29]_INST_0_i_4_n_0\,
+      O => \douta[29]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[29]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[29]_INST_0_i_5_n_0\,
+      I1 => \douta[29]_INST_0_i_6_n_0\,
+      O => \douta[29]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[29]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1389,9 +1848,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_4_n_0\
+      O => \douta[29]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[29]_i_5\: unisim.vcomponents.LUT6
+\douta[29]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1402,9 +1861,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_5_n_0\
+      O => \douta[29]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[29]_i_6\: unisim.vcomponents.LUT6
+\douta[29]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1415,9 +1874,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_6_n_0\
+      O => \douta[29]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[29]_i_7\: unisim.vcomponents.LUT6
+\douta[29]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1428,9 +1887,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_7_n_0\
+      O => \douta[29]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[2]_i_4\: unisim.vcomponents.LUT6
+\douta[2]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[2]_INST_0_i_1_n_0\,
+      I1 => \douta[2]_INST_0_i_2_n_0\,
+      O => douta(2),
+      S => sel_pipe_d1(4)
+    );
+\douta[2]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[2]_INST_0_i_3_n_0\,
+      I1 => \douta[2]_INST_0_i_4_n_0\,
+      O => \douta[2]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[2]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[2]_INST_0_i_5_n_0\,
+      I1 => \douta[2]_INST_0_i_6_n_0\,
+      O => \douta[2]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[2]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1441,9 +1921,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_4_n_0\
+      O => \douta[2]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[2]_i_5\: unisim.vcomponents.LUT6
+\douta[2]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1454,9 +1934,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_5_n_0\
+      O => \douta[2]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[2]_i_6\: unisim.vcomponents.LUT6
+\douta[2]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1467,9 +1947,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_6_n_0\
+      O => \douta[2]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[2]_i_7\: unisim.vcomponents.LUT6
+\douta[2]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1480,9 +1960,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(2),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(2),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_7_n_0\
+      O => \douta[2]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[30]_i_4\: unisim.vcomponents.LUT6
+\douta[30]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[30]_INST_0_i_1_n_0\,
+      I1 => \douta[30]_INST_0_i_2_n_0\,
+      O => douta(30),
+      S => sel_pipe_d1(4)
+    );
+\douta[30]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[30]_INST_0_i_3_n_0\,
+      I1 => \douta[30]_INST_0_i_4_n_0\,
+      O => \douta[30]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[30]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[30]_INST_0_i_5_n_0\,
+      I1 => \douta[30]_INST_0_i_6_n_0\,
+      O => \douta[30]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[30]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1493,9 +1994,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_4_n_0\
+      O => \douta[30]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[30]_i_5\: unisim.vcomponents.LUT6
+\douta[30]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1506,9 +2007,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_5_n_0\
+      O => \douta[30]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[30]_i_6\: unisim.vcomponents.LUT6
+\douta[30]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1519,9 +2020,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_6_n_0\
+      O => \douta[30]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[30]_i_7\: unisim.vcomponents.LUT6
+\douta[30]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1532,9 +2033,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_7_n_0\
+      O => \douta[30]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[31]_i_4\: unisim.vcomponents.LUT6
+\douta[31]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[31]_INST_0_i_1_n_0\,
+      I1 => \douta[31]_INST_0_i_2_n_0\,
+      O => douta(31),
+      S => sel_pipe_d1(4)
+    );
+\douta[31]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[31]_INST_0_i_3_n_0\,
+      I1 => \douta[31]_INST_0_i_4_n_0\,
+      O => \douta[31]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[31]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[31]_INST_0_i_5_n_0\,
+      I1 => \douta[31]_INST_0_i_6_n_0\,
+      O => \douta[31]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[31]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1545,9 +2067,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_48\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_49\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_4_n_0\
+      O => \douta[31]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[31]_i_5\: unisim.vcomponents.LUT6
+\douta[31]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1558,9 +2080,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_52\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_53\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_5_n_0\
+      O => \douta[31]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[31]_i_6\: unisim.vcomponents.LUT6
+\douta[31]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1571,9 +2093,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_56\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_57\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_6_n_0\
+      O => \douta[31]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[31]_i_7\: unisim.vcomponents.LUT6
+\douta[31]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1584,9 +2106,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_60\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_61\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_7_n_0\
+      O => \douta[31]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[3]_i_4\: unisim.vcomponents.LUT6
+\douta[3]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[3]_INST_0_i_1_n_0\,
+      I1 => \douta[3]_INST_0_i_2_n_0\,
+      O => douta(3),
+      S => sel_pipe_d1(4)
+    );
+\douta[3]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[3]_INST_0_i_3_n_0\,
+      I1 => \douta[3]_INST_0_i_4_n_0\,
+      O => \douta[3]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[3]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[3]_INST_0_i_5_n_0\,
+      I1 => \douta[3]_INST_0_i_6_n_0\,
+      O => \douta[3]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[3]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1597,9 +2140,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_4_n_0\
+      O => \douta[3]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[3]_i_5\: unisim.vcomponents.LUT6
+\douta[3]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1610,9 +2153,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_5_n_0\
+      O => \douta[3]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[3]_i_6\: unisim.vcomponents.LUT6
+\douta[3]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1623,9 +2166,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_6_n_0\
+      O => \douta[3]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[3]_i_7\: unisim.vcomponents.LUT6
+\douta[3]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1636,9 +2179,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(3),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(3),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_7_n_0\
+      O => \douta[3]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[4]_i_4\: unisim.vcomponents.LUT6
+\douta[4]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[4]_INST_0_i_1_n_0\,
+      I1 => \douta[4]_INST_0_i_2_n_0\,
+      O => douta(4),
+      S => sel_pipe_d1(4)
+    );
+\douta[4]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[4]_INST_0_i_3_n_0\,
+      I1 => \douta[4]_INST_0_i_4_n_0\,
+      O => \douta[4]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[4]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[4]_INST_0_i_5_n_0\,
+      I1 => \douta[4]_INST_0_i_6_n_0\,
+      O => \douta[4]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[4]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1649,9 +2213,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_4_n_0\
+      O => \douta[4]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[4]_i_5\: unisim.vcomponents.LUT6
+\douta[4]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1662,9 +2226,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_5_n_0\
+      O => \douta[4]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[4]_i_6\: unisim.vcomponents.LUT6
+\douta[4]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1675,9 +2239,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_6_n_0\
+      O => \douta[4]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[4]_i_7\: unisim.vcomponents.LUT6
+\douta[4]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1688,9 +2252,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(4),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(4),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_7_n_0\
+      O => \douta[4]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[5]_i_4\: unisim.vcomponents.LUT6
+\douta[5]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[5]_INST_0_i_1_n_0\,
+      I1 => \douta[5]_INST_0_i_2_n_0\,
+      O => douta(5),
+      S => sel_pipe_d1(4)
+    );
+\douta[5]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[5]_INST_0_i_3_n_0\,
+      I1 => \douta[5]_INST_0_i_4_n_0\,
+      O => \douta[5]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[5]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[5]_INST_0_i_5_n_0\,
+      I1 => \douta[5]_INST_0_i_6_n_0\,
+      O => \douta[5]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[5]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1701,9 +2286,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_4_n_0\
+      O => \douta[5]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[5]_i_5\: unisim.vcomponents.LUT6
+\douta[5]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1714,9 +2299,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_5_n_0\
+      O => \douta[5]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[5]_i_6\: unisim.vcomponents.LUT6
+\douta[5]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1727,9 +2312,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_6_n_0\
+      O => \douta[5]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[5]_i_7\: unisim.vcomponents.LUT6
+\douta[5]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1740,9 +2325,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(5),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(5),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_7_n_0\
+      O => \douta[5]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[6]_i_4\: unisim.vcomponents.LUT6
+\douta[6]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[6]_INST_0_i_1_n_0\,
+      I1 => \douta[6]_INST_0_i_2_n_0\,
+      O => douta(6),
+      S => sel_pipe_d1(4)
+    );
+\douta[6]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[6]_INST_0_i_3_n_0\,
+      I1 => \douta[6]_INST_0_i_4_n_0\,
+      O => \douta[6]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[6]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[6]_INST_0_i_5_n_0\,
+      I1 => \douta[6]_INST_0_i_6_n_0\,
+      O => \douta[6]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[6]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1753,9 +2359,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_4_n_0\
+      O => \douta[6]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[6]_i_5\: unisim.vcomponents.LUT6
+\douta[6]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1766,9 +2372,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_5_n_0\
+      O => \douta[6]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[6]_i_6\: unisim.vcomponents.LUT6
+\douta[6]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1779,9 +2385,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_6_n_0\
+      O => \douta[6]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[6]_i_7\: unisim.vcomponents.LUT6
+\douta[6]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1792,9 +2398,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(6),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(6),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_7_n_0\
+      O => \douta[6]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[7]_i_4\: unisim.vcomponents.LUT6
+\douta[7]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[7]_INST_0_i_1_n_0\,
+      I1 => \douta[7]_INST_0_i_2_n_0\,
+      O => douta(7),
+      S => sel_pipe_d1(4)
+    );
+\douta[7]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[7]_INST_0_i_3_n_0\,
+      I1 => \douta[7]_INST_0_i_4_n_0\,
+      O => \douta[7]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[7]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[7]_INST_0_i_5_n_0\,
+      I1 => \douta[7]_INST_0_i_6_n_0\,
+      O => \douta[7]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[7]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1805,9 +2432,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_4_n_0\
+      O => \douta[7]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[7]_i_5\: unisim.vcomponents.LUT6
+\douta[7]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1818,9 +2445,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_5\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_5_n_0\
+      O => \douta[7]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[7]_i_6\: unisim.vcomponents.LUT6
+\douta[7]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1831,9 +2458,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_8\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_9\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_6_n_0\
+      O => \douta[7]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[7]_i_7\: unisim.vcomponents.LUT6
+\douta[7]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1844,9 +2471,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_12\(7),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_13\(7),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_7_n_0\
+      O => \douta[7]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[8]_i_4\: unisim.vcomponents.LUT6
+\douta[8]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[8]_INST_0_i_1_n_0\,
+      I1 => \douta[8]_INST_0_i_2_n_0\,
+      O => douta(8),
+      S => sel_pipe_d1(4)
+    );
+\douta[8]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[8]_INST_0_i_3_n_0\,
+      I1 => \douta[8]_INST_0_i_4_n_0\,
+      O => \douta[8]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[8]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[8]_INST_0_i_5_n_0\,
+      I1 => \douta[8]_INST_0_i_6_n_0\,
+      O => \douta[8]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[8]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1857,9 +2505,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_4_n_0\
+      O => \douta[8]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[8]_i_5\: unisim.vcomponents.LUT6
+\douta[8]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1870,9 +2518,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_5_n_0\
+      O => \douta[8]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[8]_i_6\: unisim.vcomponents.LUT6
+\douta[8]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1883,9 +2531,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_6_n_0\
+      O => \douta[8]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[8]_i_7\: unisim.vcomponents.LUT6
+\douta[8]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1896,9 +2544,30 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(0),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(0),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_7_n_0\
+      O => \douta[8]_INST_0_i_6_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[9]_i_4\: unisim.vcomponents.LUT6
+\douta[9]_INST_0\: unisim.vcomponents.MUXF8
+     port map (
+      I0 => \douta[9]_INST_0_i_1_n_0\,
+      I1 => \douta[9]_INST_0_i_2_n_0\,
+      O => douta(9),
+      S => sel_pipe_d1(4)
+    );
+\douta[9]_INST_0_i_1\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[9]_INST_0_i_3_n_0\,
+      I1 => \douta[9]_INST_0_i_4_n_0\,
+      O => \douta[9]_INST_0_i_1_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[9]_INST_0_i_2\: unisim.vcomponents.MUXF7
+     port map (
+      I0 => \douta[9]_INST_0_i_5_n_0\,
+      I1 => \douta[9]_INST_0_i_6_n_0\,
+      O => \douta[9]_INST_0_i_2_n_0\,
+      S => sel_pipe_d1(3)
+    );
+\douta[9]_INST_0_i_3\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1909,9 +2578,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_16\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_17\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_4_n_0\
+      O => \douta[9]_INST_0_i_3_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[9]_i_5\: unisim.vcomponents.LUT6
+\douta[9]_INST_0_i_4\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1922,9 +2591,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_20\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_21\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_5_n_0\
+      O => \douta[9]_INST_0_i_4_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[9]_i_6\: unisim.vcomponents.LUT6
+\douta[9]_INST_0_i_5\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1935,9 +2604,9 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_24\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_25\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_6_n_0\
+      O => \douta[9]_INST_0_i_5_n_0\
     );
-\no_softecc_gmuxr.ce_pri.dout_i[9]_i_7\: unisim.vcomponents.LUT6
+\douta[9]_INST_0_i_6\: unisim.vcomponents.LUT6
     generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
@@ -1948,1031 +2617,7 @@ begin
       I3 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_28\(1),
       I4 => sel_pipe_d1(1),
       I5 => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_29\(1),
-      O => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_7_n_0\
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[0]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(0),
-      Q => douta(0),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_3_n_0\,
-      O => \din_2D[31]__0\(0),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[0]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[0]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[10]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(10),
-      Q => douta(10),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_3_n_0\,
-      O => \din_2D[31]__0\(10),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[10]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[10]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[11]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(11),
-      Q => douta(11),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_3_n_0\,
-      O => \din_2D[31]__0\(11),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[11]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[11]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[12]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(12),
-      Q => douta(12),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_3_n_0\,
-      O => \din_2D[31]__0\(12),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[12]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[12]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[13]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(13),
-      Q => douta(13),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_3_n_0\,
-      O => \din_2D[31]__0\(13),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[13]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[13]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[14]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(14),
-      Q => douta(14),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_3_n_0\,
-      O => \din_2D[31]__0\(14),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[14]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[14]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[15]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(15),
-      Q => douta(15),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_3_n_0\,
-      O => \din_2D[31]__0\(15),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[15]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[16]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(16),
-      Q => douta(16),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_3_n_0\,
-      O => \din_2D[31]__0\(16),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[16]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[16]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[17]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(17),
-      Q => douta(17),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_3_n_0\,
-      O => \din_2D[31]__0\(17),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[17]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[17]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[18]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(18),
-      Q => douta(18),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_3_n_0\,
-      O => \din_2D[31]__0\(18),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[18]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[18]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[19]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(19),
-      Q => douta(19),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_3_n_0\,
-      O => \din_2D[31]__0\(19),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[19]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[19]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[1]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(1),
-      Q => douta(1),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_3_n_0\,
-      O => \din_2D[31]__0\(1),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[1]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[1]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[20]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(20),
-      Q => douta(20),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_3_n_0\,
-      O => \din_2D[31]__0\(20),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[20]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[20]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[21]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(21),
-      Q => douta(21),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_3_n_0\,
-      O => \din_2D[31]__0\(21),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[21]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[21]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[22]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(22),
-      Q => douta(22),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_3_n_0\,
-      O => \din_2D[31]__0\(22),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[22]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[22]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[23]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(23),
-      Q => douta(23),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_3_n_0\,
-      O => \din_2D[31]__0\(23),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[23]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[24]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(24),
-      Q => douta(24),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_3_n_0\,
-      O => \din_2D[31]__0\(24),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[24]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[24]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[25]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(25),
-      Q => douta(25),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_3_n_0\,
-      O => \din_2D[31]__0\(25),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[25]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[25]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[26]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(26),
-      Q => douta(26),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_3_n_0\,
-      O => \din_2D[31]__0\(26),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[26]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[26]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[27]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(27),
-      Q => douta(27),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_3_n_0\,
-      O => \din_2D[31]__0\(27),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[27]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[27]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[28]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(28),
-      Q => douta(28),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_3_n_0\,
-      O => \din_2D[31]__0\(28),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[28]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[28]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[29]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(29),
-      Q => douta(29),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_3_n_0\,
-      O => \din_2D[31]__0\(29),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[29]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[29]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[2]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(2),
-      Q => douta(2),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_3_n_0\,
-      O => \din_2D[31]__0\(2),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[2]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[2]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[30]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(30),
-      Q => douta(30),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_3_n_0\,
-      O => \din_2D[31]__0\(30),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[30]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[30]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[31]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(31),
-      Q => douta(31),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_3_n_0\,
-      O => \din_2D[31]__0\(31),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[31]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[3]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(3),
-      Q => douta(3),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_3_n_0\,
-      O => \din_2D[31]__0\(3),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[3]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[3]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[4]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(4),
-      Q => douta(4),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_3_n_0\,
-      O => \din_2D[31]__0\(4),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[4]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[4]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[5]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(5),
-      Q => douta(5),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_3_n_0\,
-      O => \din_2D[31]__0\(5),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[5]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[5]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[6]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(6),
-      Q => douta(6),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_3_n_0\,
-      O => \din_2D[31]__0\(6),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[6]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[6]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[7]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(7),
-      Q => douta(7),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_3_n_0\,
-      O => \din_2D[31]__0\(7),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[7]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[8]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(8),
-      Q => douta(8),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_3_n_0\,
-      O => \din_2D[31]__0\(8),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[8]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[8]_i_3_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[9]\: unisim.vcomponents.FDRE
-    generic map(
-      INIT => '0'
-    )
-        port map (
-      C => clka,
-      CE => ena,
-      D => \din_2D[31]__0\(9),
-      Q => douta(9),
-      R => '0'
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_1\: unisim.vcomponents.MUXF8
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_2_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_3_n_0\,
-      O => \din_2D[31]__0\(9),
-      S => sel_pipe_d1(4)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_2\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_4_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_5_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_2_n_0\,
-      S => sel_pipe_d1(3)
-    );
-\no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_3\: unisim.vcomponents.MUXF7
-     port map (
-      I0 => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_6_n_0\,
-      I1 => \no_softecc_gmuxr.ce_pri.dout_i[9]_i_7_n_0\,
-      O => \no_softecc_gmuxr.ce_pri.dout_i_reg[9]_i_3_n_0\,
-      S => sel_pipe_d1(3)
+      O => \douta[9]_INST_0_i_6_n_0\
     );
 \no_softecc_norm_sel2.has_mem_regs.WITHOUT_ECC_PIPE.ce_pri.sel_pipe_d1_reg[1]\: unisim.vcomponents.FDRE
     generic map(
@@ -3069,7 +2714,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -3077,8 +2722,6 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
     dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init : entity is "blk_mem_gen_prim_wrapper_init";
 end PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init;
 
 architecture STRUCTURE of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init is
@@ -3294,7 +2937,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -3325,7 +2968,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -3550,7 +3193,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -3581,7 +3224,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -3806,7 +3449,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -3837,7 +3480,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized10\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[16]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -4062,7 +3705,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -4093,7 +3736,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized11\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -4318,7 +3961,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -4349,7 +3992,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized12\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -4574,7 +4217,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -4605,7 +4248,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized13\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -4830,7 +4473,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -4861,7 +4504,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized14\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -5086,7 +4729,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -5117,7 +4760,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized15\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -5342,7 +4985,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -5373,7 +5016,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized16\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -5598,7 +5241,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -5629,7 +5272,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized17\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -5854,7 +5497,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -5885,7 +5528,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized18\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -6110,7 +5753,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -6141,7 +5784,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized19\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -6366,7 +6009,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -6653,7 +6296,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized20\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -6878,7 +6521,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -6909,7 +6552,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized21\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -7134,7 +6777,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -7165,7 +6808,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized22\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -7390,7 +7033,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -7421,7 +7064,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized23\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -7646,7 +7289,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -7677,7 +7320,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized24\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -7902,7 +7545,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -7933,7 +7576,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized25\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -8158,7 +7801,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -8189,7 +7832,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized26\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[16]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -8414,7 +8057,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -8445,7 +8088,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized27\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -8670,7 +8313,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -8701,7 +8344,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized28\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -8926,7 +8569,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -8957,7 +8600,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized29\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -9182,7 +8825,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -9213,7 +8856,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -9438,7 +9081,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -9469,7 +9112,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized30\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -9694,7 +9337,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[15]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -9725,7 +9368,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized31\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -9952,7 +9595,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -9995,7 +9638,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized32\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -10222,7 +9865,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -10265,7 +9908,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized33\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -10492,7 +10135,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -10535,7 +10178,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized34\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -10762,7 +10405,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -10805,7 +10448,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized35\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -11032,7 +10675,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -11075,7 +10718,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized36\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -11302,7 +10945,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -11345,7 +10988,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized37\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -11572,7 +11215,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -11615,7 +11258,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized38\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -11842,7 +11485,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -11885,7 +11528,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized39\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -12112,7 +11755,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -12155,7 +11798,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -12380,7 +12023,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -12411,7 +12054,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized40\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -12638,7 +12281,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -12681,7 +12324,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized41\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -12908,7 +12551,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -12951,7 +12594,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized42\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -13178,7 +12821,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -13221,7 +12864,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized43\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -13448,7 +13091,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -13491,7 +13134,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized44\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -13718,7 +13361,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -13761,7 +13404,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized45\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -13988,7 +13631,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -14031,7 +13674,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized46\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -14256,7 +13899,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[23]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -14287,7 +13930,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized47\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -14512,7 +14155,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -14543,7 +14186,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized48\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -14768,7 +14411,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -14799,7 +14442,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized49\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -15024,7 +14667,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -15055,7 +14698,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -15280,7 +14923,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -15311,7 +14954,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized50\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -15536,7 +15179,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -15567,7 +15210,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized51\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -15792,7 +15435,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -15823,7 +15466,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized52\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -16048,7 +15691,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -16079,7 +15722,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized53\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -16304,7 +15947,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -16335,7 +15978,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized54\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -16560,7 +16203,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -16591,7 +16234,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized55\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -16816,7 +16459,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -16847,7 +16490,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized56\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -17072,7 +16715,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -17103,7 +16746,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized57\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -17328,7 +16971,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -17359,7 +17002,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized58\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[16]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -17584,7 +17227,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -17615,7 +17258,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized59\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -17840,7 +17483,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -17871,7 +17514,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -18096,7 +17739,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -18127,7 +17770,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized60\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -18352,7 +17995,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -18383,7 +18026,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized61\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -18608,7 +18251,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -18639,7 +18282,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized62\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     ram_ena : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -18866,7 +18509,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[31]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -18909,7 +18552,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized7\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19134,7 +18777,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -19165,7 +18808,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized8\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19390,7 +19033,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -19421,7 +19064,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized9\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19646,7 +19289,7 @@ begin
       DIPADIP(3 downto 0) => B"0000",
       DIPBDIP(3 downto 0) => B"0000",
       DOADO(31 downto 8) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOADO_UNCONNECTED\(31 downto 8),
-      DOADO(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
+      DOADO(7 downto 0) => \douta[7]\(7 downto 0),
       DOBDO(31 downto 0) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOBDO_UNCONNECTED\(31 downto 0),
       DOPADOP(3 downto 1) => \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED\(3 downto 1),
       DOPADOP(0) => \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88\,
@@ -19677,7 +19320,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19685,8 +19328,6 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width is
     dina : in STD_LOGIC_VECTOR ( 7 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 0 to 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width : entity is "blk_mem_gen_prim_width";
 end PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width;
 
 architecture STRUCTURE of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width is
@@ -19697,8 +19338,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19708,7 +19349,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19728,8 +19369,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19739,7 +19380,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized1\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19759,8 +19400,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19770,7 +19411,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized10\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[16]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19790,8 +19431,8 @@ begin
       \addra[16]\ => \addra[16]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19801,7 +19442,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized11\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19821,8 +19462,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19832,7 +19473,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized12\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19852,8 +19493,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19863,7 +19504,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized13\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19883,8 +19524,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19894,7 +19535,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized14\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19913,8 +19554,8 @@ begin
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       ram_ena => ram_ena,
       wea(0) => wea(0)
     );
@@ -19925,7 +19566,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized15\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19945,8 +19586,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19956,7 +19597,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized16\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -19976,8 +19617,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -19987,7 +19628,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized17\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20007,8 +19648,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20018,7 +19659,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized18\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20038,8 +19679,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20049,7 +19690,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized19\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20069,8 +19710,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20111,7 +19752,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized20\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20131,8 +19772,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20142,7 +19783,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized21\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20162,8 +19803,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20173,7 +19814,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized22\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20193,8 +19834,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20204,7 +19845,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized23\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20224,8 +19865,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20235,7 +19876,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized24\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20255,8 +19896,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20266,7 +19907,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized25\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20286,8 +19927,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20297,7 +19938,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized26\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[16]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20317,8 +19958,8 @@ begin
       \addra[16]\ => \addra[16]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20328,7 +19969,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized27\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20348,8 +19989,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20359,7 +20000,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized28\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20379,8 +20020,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20390,7 +20031,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized29\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20410,8 +20051,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20421,7 +20062,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized3\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20441,8 +20082,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20452,7 +20093,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized30\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[15]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20471,8 +20112,8 @@ begin
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[15]\(7 downto 0) => \douta[15]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7 downto 0),
       ram_ena => ram_ena,
       wea(0) => wea(0)
     );
@@ -20483,7 +20124,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized31\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20503,8 +20144,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20514,7 +20155,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized32\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20534,8 +20175,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20545,7 +20186,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized33\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20565,8 +20206,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20576,7 +20217,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized34\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20596,8 +20237,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20607,7 +20248,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized35\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20627,8 +20268,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20638,7 +20279,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized36\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20658,8 +20299,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20669,7 +20310,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized37\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20689,8 +20330,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20700,7 +20341,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized38\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20720,8 +20361,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20731,7 +20372,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized39\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20751,8 +20392,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20762,7 +20403,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized4\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20782,8 +20423,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20793,7 +20434,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized40\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20813,8 +20454,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20824,7 +20465,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized41\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20844,8 +20485,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20855,7 +20496,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized42\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20875,8 +20516,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20886,7 +20527,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized43\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20906,8 +20547,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20917,7 +20558,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized44\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20937,8 +20578,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20948,7 +20589,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized45\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram\ : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20968,8 +20609,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -20979,7 +20620,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized46\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[23]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     ram_ena : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -20998,8 +20639,8 @@ begin
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[23]\(7 downto 0) => \douta[23]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7 downto 0),
       ram_ena => ram_ena,
       wea(0) => wea(0)
     );
@@ -21010,7 +20651,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized47\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21030,8 +20671,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21041,7 +20682,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized48\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21061,8 +20702,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21072,7 +20713,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized49\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21092,8 +20733,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21103,7 +20744,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized5\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21123,8 +20764,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21134,7 +20775,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized50\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21154,8 +20795,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21165,7 +20806,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized51\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21185,8 +20826,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21196,7 +20837,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized52\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21216,8 +20857,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21227,7 +20868,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized53\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21247,8 +20888,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21258,7 +20899,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized54\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21278,8 +20919,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21289,7 +20930,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized55\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21309,8 +20950,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21320,7 +20961,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized56\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21340,8 +20981,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21351,7 +20992,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized57\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21371,8 +21012,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21382,7 +21023,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized58\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[16]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21402,8 +21043,8 @@ begin
       \addra[16]\ => \addra[16]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21413,7 +21054,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized59\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21433,8 +21074,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21444,7 +21085,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized6\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[17]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21464,8 +21105,8 @@ begin
       \addra[17]\ => \addra[17]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21475,7 +21116,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized60\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21495,8 +21136,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21506,7 +21147,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized61\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21526,8 +21167,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21537,7 +21178,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized62\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[31]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     ram_ena : out STD_LOGIC;
     clka : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21556,8 +21197,8 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[31]\(7 downto 0) => \douta[31]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7 downto 0),
       ram_ena => ram_ena,
       wea(0) => wea(0)
     );
@@ -21568,7 +21209,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized7\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21588,8 +21229,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21599,7 +21240,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized8\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[15]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21619,8 +21260,8 @@ begin
       \addra[15]\ => \addra[15]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21630,7 +21271,7 @@ library UNISIM;
 use UNISIM.VCOMPONENTS.ALL;
 entity \PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized9\ is
   port (
-    \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
+    \douta[7]\ : out STD_LOGIC_VECTOR ( 7 downto 0 );
     clka : in STD_LOGIC;
     \addra[14]\ : in STD_LOGIC;
     ena : in STD_LOGIC;
@@ -21650,8 +21291,8 @@ begin
       \addra[14]\ => \addra[14]\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => \douta[7]\(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0),
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -21668,8 +21309,6 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr : entity is "blk_mem_gen_generic_cstr";
 end PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr;
 
 architecture STRUCTURE of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr is
@@ -22713,8 +22352,8 @@ begin
       \addra[17]\ => \ramloop[32].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7 downto 0) => ram_douta(7 downto 0),
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7 downto 0) => ram_douta(7 downto 0),
       wea(0) => wea(0)
     );
 \ramloop[10].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized9\
@@ -22723,15 +22362,15 @@ begin
       \addra[14]\ => \ramloop[42].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[10].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[10].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[10].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[10].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[10].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[10].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[10].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[10].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[10].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[10].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[10].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[10].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[10].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[10].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[10].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[10].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[11].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized10\
@@ -22740,15 +22379,15 @@ begin
       \addra[16]\ => \ramloop[43].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[11].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[11].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[11].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[11].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[11].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[11].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[11].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[11].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[11].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[11].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[11].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[11].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[11].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[11].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[11].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[11].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[12].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized11\
@@ -22757,15 +22396,15 @@ begin
       \addra[15]\ => \ramloop[44].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[12].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[12].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[12].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[12].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[12].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[12].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[12].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[12].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[12].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[12].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[12].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[12].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[12].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[12].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[12].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[12].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[13].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized12\
@@ -22774,15 +22413,15 @@ begin
       \addra[15]\ => \ramloop[45].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[13].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[13].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[13].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[13].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[13].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[13].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[13].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[13].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[13].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[13].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[13].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[13].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[13].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[13].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[13].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[13].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[14].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized13\
@@ -22791,15 +22430,15 @@ begin
       \addra[14]\ => \ramloop[46].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[14].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[14].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[14].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[14].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[14].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[14].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[14].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[14].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[14].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[14].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[14].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[14].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[14].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[14].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[14].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[14].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[15].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized14\
@@ -22807,15 +22446,15 @@ begin
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[15].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[15].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[15].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[15].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[15].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[15].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[15].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[15].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[15].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[15].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[15].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[15].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[15].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[15].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[15].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[15].ram.r_n_7\,
       ram_ena => ram_ena,
       wea(0) => wea(0)
     );
@@ -22825,15 +22464,15 @@ begin
       \addra[17]\ => \ramloop[32].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[16].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[16].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[16].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[16].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[16].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[16].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[16].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[16].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[16].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[16].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[16].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[16].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[16].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[16].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[16].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[16].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[17].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized16\
@@ -22842,15 +22481,15 @@ begin
       \addra[17]\ => \ramloop[33].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[17].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[17].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[17].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[17].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[17].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[17].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[17].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[17].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[17].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[17].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[17].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[17].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[17].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[17].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[17].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[17].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[18].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized17\
@@ -22859,15 +22498,15 @@ begin
       \addra[14]\ => \ramloop[34].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[18].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[18].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[18].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[18].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[18].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[18].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[18].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[18].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[18].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[18].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[18].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[18].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[18].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[18].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[18].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[18].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[19].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized18\
@@ -22876,15 +22515,15 @@ begin
       \addra[17]\ => \ramloop[35].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[19].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[19].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[19].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[19].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[19].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[19].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[19].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[19].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[19].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[19].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[19].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[19].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[19].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[19].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[19].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[19].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[1].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0\
@@ -22893,15 +22532,15 @@ begin
       \addra[17]\ => \ramloop[33].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[1].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[1].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[1].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[1].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[1].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[1].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[1].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[1].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[1].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[1].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[1].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[1].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[1].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[1].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[1].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[1].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[20].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized19\
@@ -22910,15 +22549,15 @@ begin
       \addra[14]\ => \ramloop[36].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[20].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[20].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[20].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[20].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[20].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[20].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[20].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[20].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[20].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[20].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[20].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[20].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[20].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[20].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[20].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[20].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[21].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized20\
@@ -22927,15 +22566,15 @@ begin
       \addra[15]\ => \ramloop[37].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[21].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[21].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[21].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[21].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[21].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[21].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[21].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[21].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[21].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[21].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[21].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[21].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[21].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[21].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[21].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[21].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[22].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized21\
@@ -22944,15 +22583,15 @@ begin
       \addra[14]\ => \ramloop[38].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[22].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[22].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[22].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[22].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[22].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[22].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[22].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[22].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[22].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[22].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[22].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[22].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[22].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[22].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[22].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[22].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[23].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized22\
@@ -22961,15 +22600,15 @@ begin
       \addra[17]\ => \ramloop[39].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[23].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[23].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[23].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[23].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[23].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[23].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[23].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[23].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[23].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[23].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[23].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[23].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[23].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[23].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[23].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[23].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[24].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized23\
@@ -22978,15 +22617,15 @@ begin
       \addra[14]\ => \ramloop[40].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[24].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[24].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[24].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[24].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[24].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[24].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[24].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[24].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[24].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[24].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[24].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[24].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[24].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[24].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[24].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[24].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[25].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized24\
@@ -22995,15 +22634,15 @@ begin
       \addra[15]\ => \ramloop[41].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[25].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[25].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[25].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[25].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[25].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[25].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[25].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[25].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[25].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[25].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[25].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[25].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[25].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[25].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[25].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[25].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[26].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized25\
@@ -23012,15 +22651,15 @@ begin
       \addra[14]\ => \ramloop[42].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[26].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[26].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[26].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[26].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[26].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[26].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[26].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[26].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[26].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[26].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[26].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[26].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[26].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[26].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[26].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[26].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[27].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized26\
@@ -23029,15 +22668,15 @@ begin
       \addra[16]\ => \ramloop[43].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[27].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[27].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[27].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[27].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[27].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[27].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[27].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[27].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[27].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[27].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[27].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[27].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[27].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[27].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[27].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[27].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[28].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized27\
@@ -23046,15 +22685,15 @@ begin
       \addra[15]\ => \ramloop[44].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[28].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[28].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[28].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[28].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[28].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[28].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[28].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[28].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[28].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[28].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[28].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[28].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[28].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[28].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[28].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[28].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[29].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized28\
@@ -23063,15 +22702,15 @@ begin
       \addra[15]\ => \ramloop[45].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[29].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[29].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[29].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[29].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[29].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[29].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[29].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[29].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[29].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[29].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[29].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[29].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[29].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[29].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[29].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[29].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[2].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized1\
@@ -23080,15 +22719,15 @@ begin
       \addra[14]\ => \ramloop[34].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[2].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[2].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[2].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[2].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[2].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[2].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[2].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[2].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[2].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[2].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[2].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[2].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[2].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[2].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[2].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[2].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[30].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized29\
@@ -23097,15 +22736,15 @@ begin
       \addra[14]\ => \ramloop[46].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[30].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[30].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[30].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[30].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[30].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[30].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[30].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[30].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[30].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[30].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[30].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[30].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[30].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[30].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[30].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[30].ram.r_n_7\,
       wea(0) => wea(1)
     );
 \ramloop[31].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized30\
@@ -23113,15 +22752,15 @@ begin
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(15 downto 8),
+      \douta[15]\(7) => \ramloop[31].ram.r_n_0\,
+      \douta[15]\(6) => \ramloop[31].ram.r_n_1\,
+      \douta[15]\(5) => \ramloop[31].ram.r_n_2\,
+      \douta[15]\(4) => \ramloop[31].ram.r_n_3\,
+      \douta[15]\(3) => \ramloop[31].ram.r_n_4\,
+      \douta[15]\(2) => \ramloop[31].ram.r_n_5\,
+      \douta[15]\(1) => \ramloop[31].ram.r_n_6\,
+      \douta[15]\(0) => \ramloop[31].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(7) => \ramloop[31].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(6) => \ramloop[31].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(5) => \ramloop[31].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(4) => \ramloop[31].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(3) => \ramloop[31].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(2) => \ramloop[31].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(1) => \ramloop[31].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[15]\(0) => \ramloop[31].ram.r_n_7\,
       ram_ena => ram_ena,
       wea(0) => wea(1)
     );
@@ -23131,15 +22770,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[32].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[32].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[32].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[32].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[32].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[32].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[32].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[32].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[32].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[32].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[32].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[32].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[32].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[32].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[32].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[32].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[33].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized32\
@@ -23148,15 +22787,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[33].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[33].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[33].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[33].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[33].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[33].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[33].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[33].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[33].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[33].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[33].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[33].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[33].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[33].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[33].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[33].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[34].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized33\
@@ -23165,15 +22804,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[34].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[34].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[34].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[34].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[34].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[34].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[34].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[34].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[34].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[34].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[34].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[34].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[34].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[34].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[34].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[34].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[35].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized34\
@@ -23182,15 +22821,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[35].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[35].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[35].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[35].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[35].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[35].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[35].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[35].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[35].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[35].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[35].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[35].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[35].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[35].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[35].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[35].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[36].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized35\
@@ -23199,15 +22838,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[36].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[36].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[36].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[36].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[36].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[36].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[36].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[36].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[36].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[36].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[36].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[36].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[36].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[36].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[36].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[36].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[37].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized36\
@@ -23216,15 +22855,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[37].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[37].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[37].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[37].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[37].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[37].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[37].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[37].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[37].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[37].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[37].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[37].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[37].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[37].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[37].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[37].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[38].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized37\
@@ -23233,15 +22872,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[38].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[38].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[38].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[38].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[38].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[38].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[38].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[38].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[38].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[38].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[38].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[38].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[38].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[38].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[38].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[38].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[39].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized38\
@@ -23250,15 +22889,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[39].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[39].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[39].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[39].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[39].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[39].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[39].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[39].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[39].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[39].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[39].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[39].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[39].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[39].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[39].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[39].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[3].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized2\
@@ -23284,15 +22923,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[40].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[40].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[40].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[40].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[40].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[40].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[40].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[40].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[40].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[40].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[40].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[40].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[40].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[40].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[40].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[40].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[41].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized40\
@@ -23301,15 +22940,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[41].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[41].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[41].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[41].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[41].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[41].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[41].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[41].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[41].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[41].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[41].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[41].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[41].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[41].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[41].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[41].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[42].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized41\
@@ -23318,15 +22957,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[42].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[42].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[42].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[42].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[42].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[42].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[42].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[42].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[42].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[42].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[42].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[42].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[42].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[42].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[42].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[42].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[43].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized42\
@@ -23335,15 +22974,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[43].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[43].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[43].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[43].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[43].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[43].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[43].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[43].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[43].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[43].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[43].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[43].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[43].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[43].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[43].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[43].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[44].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized43\
@@ -23352,15 +22991,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[44].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[44].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[44].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[44].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[44].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[44].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[44].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[44].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[44].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[44].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[44].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[44].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[44].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[44].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[44].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[44].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[45].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized44\
@@ -23369,15 +23008,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[45].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[45].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[45].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[45].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[45].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[45].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[45].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[45].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[45].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[45].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[45].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[45].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[45].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[45].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[45].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[45].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[46].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized45\
@@ -23386,15 +23025,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[46].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[46].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[46].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[46].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[46].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[46].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[46].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[46].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[46].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[46].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[46].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[46].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[46].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[46].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[46].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[46].ram.r_n_7\,
       wea(0) => wea(2)
     );
 \ramloop[47].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized46\
@@ -23402,15 +23041,15 @@ begin
       addra(11 downto 0) => addra(11 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(23 downto 16),
+      \douta[23]\(7) => \ramloop[47].ram.r_n_0\,
+      \douta[23]\(6) => \ramloop[47].ram.r_n_1\,
+      \douta[23]\(5) => \ramloop[47].ram.r_n_2\,
+      \douta[23]\(4) => \ramloop[47].ram.r_n_3\,
+      \douta[23]\(3) => \ramloop[47].ram.r_n_4\,
+      \douta[23]\(2) => \ramloop[47].ram.r_n_5\,
+      \douta[23]\(1) => \ramloop[47].ram.r_n_6\,
+      \douta[23]\(0) => \ramloop[47].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(7) => \ramloop[47].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(6) => \ramloop[47].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(5) => \ramloop[47].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(4) => \ramloop[47].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(3) => \ramloop[47].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(2) => \ramloop[47].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(1) => \ramloop[47].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[23]\(0) => \ramloop[47].ram.r_n_7\,
       ram_ena => ram_ena,
       wea(0) => wea(2)
     );
@@ -23420,15 +23059,15 @@ begin
       \addra[17]\ => \ramloop[32].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[48].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[48].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[48].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[48].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[48].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[48].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[48].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[48].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[48].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[48].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[48].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[48].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[48].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[48].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[48].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[48].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[49].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized48\
@@ -23437,15 +23076,15 @@ begin
       \addra[17]\ => \ramloop[33].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[49].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[49].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[49].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[49].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[49].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[49].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[49].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[49].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[49].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[49].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[49].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[49].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[49].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[49].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[49].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[49].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[4].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized3\
@@ -23454,15 +23093,15 @@ begin
       \addra[14]\ => \ramloop[36].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[4].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[4].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[4].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[4].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[4].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[4].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[4].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[4].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[4].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[4].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[4].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[4].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[4].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[4].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[4].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[4].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[50].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized49\
@@ -23471,15 +23110,15 @@ begin
       \addra[14]\ => \ramloop[34].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[50].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[50].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[50].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[50].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[50].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[50].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[50].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[50].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[50].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[50].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[50].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[50].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[50].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[50].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[50].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[50].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[51].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized50\
@@ -23488,15 +23127,15 @@ begin
       \addra[17]\ => \ramloop[35].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[51].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[51].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[51].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[51].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[51].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[51].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[51].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[51].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[51].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[51].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[51].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[51].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[51].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[51].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[51].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[51].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[52].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized51\
@@ -23505,15 +23144,15 @@ begin
       \addra[14]\ => \ramloop[36].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[52].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[52].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[52].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[52].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[52].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[52].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[52].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[52].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[52].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[52].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[52].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[52].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[52].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[52].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[52].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[52].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[53].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized52\
@@ -23522,15 +23161,15 @@ begin
       \addra[15]\ => \ramloop[37].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[53].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[53].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[53].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[53].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[53].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[53].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[53].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[53].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[53].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[53].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[53].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[53].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[53].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[53].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[53].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[53].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[54].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized53\
@@ -23539,15 +23178,15 @@ begin
       \addra[14]\ => \ramloop[38].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[54].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[54].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[54].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[54].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[54].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[54].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[54].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[54].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[54].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[54].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[54].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[54].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[54].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[54].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[54].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[54].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[55].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized54\
@@ -23556,15 +23195,15 @@ begin
       \addra[17]\ => \ramloop[39].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[55].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[55].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[55].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[55].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[55].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[55].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[55].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[55].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[55].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[55].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[55].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[55].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[55].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[55].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[55].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[55].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[56].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized55\
@@ -23573,15 +23212,15 @@ begin
       \addra[14]\ => \ramloop[40].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[56].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[56].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[56].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[56].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[56].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[56].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[56].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[56].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[56].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[56].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[56].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[56].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[56].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[56].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[56].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[56].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[57].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized56\
@@ -23590,15 +23229,15 @@ begin
       \addra[15]\ => \ramloop[41].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[57].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[57].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[57].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[57].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[57].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[57].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[57].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[57].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[57].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[57].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[57].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[57].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[57].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[57].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[57].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[57].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[58].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized57\
@@ -23607,15 +23246,15 @@ begin
       \addra[14]\ => \ramloop[42].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[58].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[58].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[58].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[58].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[58].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[58].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[58].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[58].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[58].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[58].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[58].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[58].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[58].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[58].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[58].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[58].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[59].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized58\
@@ -23624,15 +23263,15 @@ begin
       \addra[16]\ => \ramloop[43].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[59].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[59].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[59].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[59].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[59].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[59].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[59].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[59].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[59].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[59].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[59].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[59].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[59].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[59].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[59].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[59].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[5].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized4\
@@ -23641,15 +23280,15 @@ begin
       \addra[15]\ => \ramloop[37].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[5].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[5].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[5].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[5].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[5].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[5].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[5].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[5].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[5].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[5].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[5].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[5].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[5].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[5].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[5].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[5].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[60].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized59\
@@ -23658,15 +23297,15 @@ begin
       \addra[15]\ => \ramloop[44].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[60].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[60].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[60].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[60].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[60].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[60].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[60].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[60].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[60].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[60].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[60].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[60].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[60].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[60].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[60].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[60].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[61].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized60\
@@ -23675,15 +23314,15 @@ begin
       \addra[15]\ => \ramloop[45].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[61].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[61].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[61].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[61].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[61].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[61].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[61].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[61].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[61].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[61].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[61].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[61].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[61].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[61].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[61].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[61].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[62].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized61\
@@ -23692,15 +23331,15 @@ begin
       \addra[14]\ => \ramloop[46].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[62].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[62].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[62].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[62].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[62].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[62].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[62].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[62].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[62].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[62].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[62].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[62].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[62].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[62].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[62].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[62].ram.r_n_7\,
       wea(0) => wea(3)
     );
 \ramloop[63].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized62\
@@ -23708,15 +23347,15 @@ begin
       addra(15 downto 0) => addra(15 downto 0),
       clka => clka,
       dina(7 downto 0) => dina(31 downto 24),
+      \douta[31]\(7) => \ramloop[63].ram.r_n_0\,
+      \douta[31]\(6) => \ramloop[63].ram.r_n_1\,
+      \douta[31]\(5) => \ramloop[63].ram.r_n_2\,
+      \douta[31]\(4) => \ramloop[63].ram.r_n_3\,
+      \douta[31]\(3) => \ramloop[63].ram.r_n_4\,
+      \douta[31]\(2) => \ramloop[63].ram.r_n_5\,
+      \douta[31]\(1) => \ramloop[63].ram.r_n_6\,
+      \douta[31]\(0) => \ramloop[63].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(7) => \ramloop[63].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(6) => \ramloop[63].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(5) => \ramloop[63].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(4) => \ramloop[63].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(3) => \ramloop[63].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(2) => \ramloop[63].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(1) => \ramloop[63].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[31]\(0) => \ramloop[63].ram.r_n_7\,
       ram_ena => ram_ena,
       wea(0) => wea(3)
     );
@@ -23726,15 +23365,15 @@ begin
       \addra[14]\ => \ramloop[38].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[6].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[6].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[6].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[6].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[6].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[6].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[6].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[6].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[6].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[6].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[6].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[6].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[6].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[6].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[6].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[6].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[7].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized6\
@@ -23743,15 +23382,15 @@ begin
       \addra[17]\ => \ramloop[39].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[7].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[7].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[7].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[7].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[7].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[7].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[7].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[7].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[7].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[7].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[7].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[7].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[7].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[7].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[7].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[7].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[8].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized7\
@@ -23760,15 +23399,15 @@ begin
       \addra[14]\ => \ramloop[40].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[8].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[8].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[8].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[8].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[8].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[8].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[8].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[8].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[8].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[8].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[8].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[8].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[8].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[8].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[8].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[8].ram.r_n_7\,
       wea(0) => wea(0)
     );
 \ramloop[9].ram.r\: entity work.\PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized8\
@@ -23777,15 +23416,15 @@ begin
       \addra[15]\ => \ramloop[41].ram.r_n_8\,
       clka => clka,
       dina(7 downto 0) => dina(7 downto 0),
+      \douta[7]\(7) => \ramloop[9].ram.r_n_0\,
+      \douta[7]\(6) => \ramloop[9].ram.r_n_1\,
+      \douta[7]\(5) => \ramloop[9].ram.r_n_2\,
+      \douta[7]\(4) => \ramloop[9].ram.r_n_3\,
+      \douta[7]\(3) => \ramloop[9].ram.r_n_4\,
+      \douta[7]\(2) => \ramloop[9].ram.r_n_5\,
+      \douta[7]\(1) => \ramloop[9].ram.r_n_6\,
+      \douta[7]\(0) => \ramloop[9].ram.r_n_7\,
       ena => ena,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(7) => \ramloop[9].ram.r_n_0\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(6) => \ramloop[9].ram.r_n_1\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(5) => \ramloop[9].ram.r_n_2\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(4) => \ramloop[9].ram.r_n_3\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(3) => \ramloop[9].ram.r_n_4\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(2) => \ramloop[9].ram.r_n_5\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(1) => \ramloop[9].ram.r_n_6\,
-      \no_softecc_gmuxr.ce_pri.dout_i_reg[7]\(0) => \ramloop[9].ram.r_n_7\,
       wea(0) => wea(0)
     );
 end STRUCTURE;
@@ -23802,8 +23441,6 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top : entity is "blk_mem_gen_top";
 end PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top;
 
 architecture STRUCTURE of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top is
@@ -23831,8 +23468,6 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1_synth is
     dina : in STD_LOGIC_VECTOR ( 31 downto 0 );
     wea : in STD_LOGIC_VECTOR ( 3 downto 0 )
   );
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1_synth : entity is "blk_mem_gen_v8_4_1_synth";
 end PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1_synth;
 
 architecture STRUCTURE of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1_synth is
@@ -23980,7 +23615,7 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 is
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
   attribute C_HAS_MEM_OUTPUT_REGS_B of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_A of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 1;
+  attribute C_HAS_MUX_OUTPUT_REGS_A of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
   attribute C_HAS_MUX_OUTPUT_REGS_B of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 0;
   attribute C_HAS_REGCEA : integer;
@@ -24063,8 +23698,6 @@ entity PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 is
   attribute C_WRITE_WIDTH_B of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is 32;
   attribute C_XDEVICEFAMILY : string;
   attribute C_XDEVICEFAMILY of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is "zynq";
-  attribute ORIG_REF_NAME : string;
-  attribute ORIG_REF_NAME of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is "blk_mem_gen_v8_4_1";
   attribute downgradeipidentifiedwarnings : string;
   attribute downgradeipidentifiedwarnings of PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1 : entity is "yes";
 end PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1;
@@ -24345,7 +23978,7 @@ architecture STRUCTURE of PicoRV32_BD_blk_mem_gen_0_0 is
   attribute C_HAS_MEM_OUTPUT_REGS_B : integer;
   attribute C_HAS_MEM_OUTPUT_REGS_B of U0 : label is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_A : integer;
-  attribute C_HAS_MUX_OUTPUT_REGS_A of U0 : label is 1;
+  attribute C_HAS_MUX_OUTPUT_REGS_A of U0 : label is 0;
   attribute C_HAS_MUX_OUTPUT_REGS_B : integer;
   attribute C_HAS_MUX_OUTPUT_REGS_B of U0 : label is 0;
   attribute C_HAS_REGCEA : integer;

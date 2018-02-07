@@ -40,7 +40,7 @@ if { [string first $scripts_vivado_version $current_vivado_version] == -1 } {
 
 # The design that will be created by this Tcl script contains the following 
 # module references:
-# Address_Decoder, Out_bank, memory_wrapper, picorv32
+# Address_Decoder, Inverter, Out_bank, memory_wrapper, picorv32
 
 # Please add the sources of those modules before sourcing this Tcl script.
 
@@ -171,6 +171,9 @@ proc create_root_design { parentCell } {
   set UART_out [ create_bd_port -dir O -type data UART_out ]
   set clk [ create_bd_port -dir I -type clk clk ]
   set resetn [ create_bd_port -dir I -type rst resetn ]
+  set_property -dict [ list \
+   CONFIG.POLARITY {ACTIVE_LOW} \
+ ] $resetn
 
   # Create instance: Address_Decoder_0, and set properties
   set block_name Address_Decoder
@@ -189,6 +192,17 @@ proc create_root_design { parentCell } {
    CONFIG.MEMORY_STARTADDRESS {0x00010000} \
  ] $Address_Decoder_0
 
+  # Create instance: Inverter_0, and set properties
+  set block_name Inverter
+  set block_cell_name Inverter_0
+  if { [catch {set Inverter_0 [create_bd_cell -type module -reference $block_name $block_cell_name] } errmsg] } {
+     catch {common::send_msg_id "BD_TCL-105" "ERROR" "Unable to add referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   } elseif { $Inverter_0 eq "" } {
+     catch {common::send_msg_id "BD_TCL-106" "ERROR" "Unable to referenced block <$block_name>. Please add the files for ${block_name}'s definition into the project."}
+     return 1
+   }
+  
   # Create instance: Out_bank_0, and set properties
   set block_name Out_bank
   set block_cell_name Out_bank_0
@@ -204,7 +218,7 @@ proc create_root_design { parentCell } {
   set blk_mem_gen_0 [ create_bd_cell -type ip -vlnv xilinx.com:ip:blk_mem_gen:8.4 blk_mem_gen_0 ]
   set_property -dict [ list \
    CONFIG.Byte_Size {8} \
-   CONFIG.Coe_File {../../../../../../../../../VirtualBox VMs/Ubuntu/SharedFolder/out.coe} \
+   CONFIG.Coe_File {../../../../imports/SharedFolder/out.coe} \
    CONFIG.EN_SAFETY_CKT {false} \
    CONFIG.Enable_32bit_Address {true} \
    CONFIG.Enable_A {Use_ENA_Pin} \
@@ -661,6 +675,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Address_Decoder_0_mem_wdata_memory [get_bd_pins Address_Decoder_0/mem_wdata_memory] [get_bd_pins memory_wrapper_0/mem_wdata_memory]
   connect_bd_net -net Address_Decoder_0_mem_wstrb_io [get_bd_pins Address_Decoder_0/mem_wstrb_io] [get_bd_pins Out_bank_0/mem_wstrb]
   connect_bd_net -net Address_Decoder_0_mem_wstrb_memory [get_bd_pins Address_Decoder_0/mem_wstrb_memory] [get_bd_pins memory_wrapper_0/mem_wstrb_memory]
+  connect_bd_net -net Inverter_0_out [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Inverter_0/out] [get_bd_pins Out_bank_0/resetn] [get_bd_pins picorv32_0/resetn]
   connect_bd_net -net Out_bank_0_UART_out [get_bd_ports UART_out] [get_bd_pins Out_bank_0/UART_out]
   connect_bd_net -net Out_bank_0_mem_rdata [get_bd_pins Address_Decoder_0/mem_rdata_io] [get_bd_pins Out_bank_0/mem_rdata]
   connect_bd_net -net Out_bank_0_mem_ready [get_bd_pins Address_Decoder_0/mem_ready_io] [get_bd_pins Out_bank_0/mem_ready]
@@ -679,7 +694,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net picorv32_0_mem_wdata [get_bd_pins Address_Decoder_0/mem_wdata] [get_bd_pins picorv32_0/mem_wdata]
   connect_bd_net -net picorv32_0_mem_wstrb [get_bd_pins Address_Decoder_0/mem_wstrb] [get_bd_pins picorv32_0/mem_wstrb]
   connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins memory_wrapper_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
-  connect_bd_net -net sim_rst_gen_0_rst [get_bd_ports resetn] [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Out_bank_0/resetn] [get_bd_pins picorv32_0/resetn]
+  connect_bd_net -net resetn_1 [get_bd_ports resetn] [get_bd_pins Inverter_0/in]
 
   # Create address segments
 

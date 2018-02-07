@@ -1,10 +1,10 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Mon Jan  1 20:07:47 2018
+-- Date        : Mon Jan  1 20:07:45 2018
 -- Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
--- Command     : write_vhdl -force -mode synth_stub
---               D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_processing_system7_0_0/PicoRV32_BD_processing_system7_0_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub -rename_top PicoRV32_BD_processing_system7_0_0 -prefix
+--               PicoRV32_BD_processing_system7_0_0_ PicoRV32_BD_processing_system7_0_0_stub.vhdl
 -- Design      : PicoRV32_BD_processing_system7_0_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg484-1

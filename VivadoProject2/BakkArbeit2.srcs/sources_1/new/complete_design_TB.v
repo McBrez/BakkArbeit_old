@@ -29,7 +29,7 @@ module complete_design_TB(
     
     initial begin
         count <= 0;
-        resetn <= 0;
+        resetn <= 1;
         clk <= 0;
     end
         
@@ -40,7 +40,7 @@ module complete_design_TB(
         
     always@(posedge clk) begin
         if(count == 100) begin
-            resetn <= 1;
+            resetn <= 0;
         end
         count = count + 1;
     end
