@@ -328,6 +328,8 @@ Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.Address_Decoder(MEMORY_STARTADDR...
 Compiling module xil_defaultlib.PicoRV32_BD_Address_Decoder_0_0
+Compiling module xil_defaultlib.Inverter
+Compiling module xil_defaultlib.PicoRV32_BD_Inverter_0_0
 Compiling module xil_defaultlib.UART_block
 Compiling module xil_defaultlib.Out_bank
 Compiling module xil_defaultlib.PicoRV32_BD_Out_bank_0_0

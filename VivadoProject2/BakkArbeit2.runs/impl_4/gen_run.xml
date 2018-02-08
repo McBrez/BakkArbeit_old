@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_4" LaunchPart="xc7z020clg484-1" LaunchTime="1518025980">
+<GenRun Id="impl_4" LaunchPart="xc7z020clg484-1" LaunchTime="1518111574">
   <File Type="PWROPT-DCP" Name="PicoRV32_BD_wrapper_pwropt.dcp"/>
   <File Type="ROUTE-PWR" Name="PicoRV32_BD_wrapper_power_routed.rpt"/>
   <File Type="PA-TCL" Name="PicoRV32_BD_wrapper.tcl"/>
@@ -197,9 +197,10 @@
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
   </Strategy>
-  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_memory_wrapper_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Out_bank_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_memory_wrapper_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Address_Decoder_0_0"/>
-  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_picorv32_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_blk_mem_gen_0_0"/>
   <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_Inverter_0_0"/>
+  <BlockFileSet Type="BlockSrcs" Name="PicoRV32_BD_picorv32_0_0"/>
 </GenRun>

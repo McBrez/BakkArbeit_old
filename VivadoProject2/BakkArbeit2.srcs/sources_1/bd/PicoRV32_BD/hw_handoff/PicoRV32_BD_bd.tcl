@@ -219,17 +219,17 @@ proc create_root_design { parentCell } {
   set_property -dict [ list \
    CONFIG.Byte_Size {8} \
    CONFIG.Coe_File {../../../../imports/SharedFolder/out.coe} \
-   CONFIG.EN_SAFETY_CKT {false} \
+   CONFIG.EN_SAFETY_CKT {true} \
    CONFIG.Enable_32bit_Address {true} \
    CONFIG.Enable_A {Use_ENA_Pin} \
-   CONFIG.Fill_Remaining_Memory_Locations {true} \
+   CONFIG.Fill_Remaining_Memory_Locations {false} \
    CONFIG.Load_Init_File {true} \
    CONFIG.Read_Width_A {32} \
    CONFIG.Read_Width_B {32} \
    CONFIG.Register_PortA_Output_of_Memory_Core {false} \
    CONFIG.Register_PortA_Output_of_Memory_Primitives {true} \
    CONFIG.Use_Byte_Write_Enable {true} \
-   CONFIG.Use_RSTA_Pin {false} \
+   CONFIG.Use_RSTA_Pin {true} \
    CONFIG.Write_Depth_A {65536} \
    CONFIG.Write_Width_A {32} \
    CONFIG.Write_Width_B {32} \
@@ -273,7 +273,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_ACT_DCI_PERIPHERAL_FREQMHZ {10.158730} \
    CONFIG.PCW_ACT_ENET0_PERIPHERAL_FREQMHZ {125.000000} \
    CONFIG.PCW_ACT_ENET1_PERIPHERAL_FREQMHZ {10.000000} \
-   CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
+   CONFIG.PCW_ACT_FPGA0_PERIPHERAL_FREQMHZ {0.251953} \
    CONFIG.PCW_ACT_FPGA1_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_FPGA2_PERIPHERAL_FREQMHZ {10.000000} \
    CONFIG.PCW_ACT_FPGA3_PERIPHERAL_FREQMHZ {10.000000} \
@@ -296,7 +296,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_CAN_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_CAN_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_CAN_PERIPHERAL_FREQMHZ {100} \
-   CONFIG.PCW_CLK0_FREQ {100000000} \
+   CONFIG.PCW_CLK0_FREQ {251952} \
    CONFIG.PCW_CLK1_FREQ {10000000} \
    CONFIG.PCW_CLK2_FREQ {10000000} \
    CONFIG.PCW_CLK3_FREQ {10000000} \
@@ -329,17 +329,17 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_EN_TTC0 {1} \
    CONFIG.PCW_EN_UART1 {1} \
    CONFIG.PCW_EN_USB0 {1} \
-   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {5} \
-   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {2} \
+   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR0 {63} \
+   CONFIG.PCW_FCLK0_PERIPHERAL_DIVISOR1 {63} \
    CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK1_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK2_PERIPHERAL_DIVISOR1 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR0 {1} \
    CONFIG.PCW_FCLK3_PERIPHERAL_DIVISOR1 {1} \
-   CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {100.000000} \
+   CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {0.25} \
    CONFIG.PCW_FPGA1_PERIPHERAL_FREQMHZ {150.000000} \
-   CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {50.000000} \
+   CONFIG.PCW_FPGA2_PERIPHERAL_FREQMHZ {50} \
    CONFIG.PCW_FPGA_FCLK0_ENABLE {1} \
    CONFIG.PCW_FPGA_FCLK1_ENABLE {0} \
    CONFIG.PCW_FPGA_FCLK2_ENABLE {0} \
@@ -592,7 +592,7 @@ proc create_root_design { parentCell } {
    CONFIG.PCW_QSPI_GRP_SS1_ENABLE {0} \
    CONFIG.PCW_QSPI_PERIPHERAL_DIVISOR0 {5} \
    CONFIG.PCW_QSPI_PERIPHERAL_ENABLE {1} \
-   CONFIG.PCW_QSPI_PERIPHERAL_FREQMHZ {200.000000} \
+   CONFIG.PCW_QSPI_PERIPHERAL_FREQMHZ {200} \
    CONFIG.PCW_QSPI_QSPI_IO {MIO 1 .. 6} \
    CONFIG.PCW_SD0_GRP_CD_ENABLE {1} \
    CONFIG.PCW_SD0_GRP_CD_IO {MIO 47} \
@@ -681,7 +681,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Out_bank_0_mem_ready [get_bd_pins Address_Decoder_0/mem_ready_io] [get_bd_pins Out_bank_0/mem_ready]
   connect_bd_net -net Out_bank_0_out_registers [get_bd_ports OUT_Port] [get_bd_pins Out_bank_0/out_registers]
   connect_bd_net -net blk_mem_gen_0_douta [get_bd_pins blk_mem_gen_0/douta] [get_bd_pins memory_wrapper_0/douta]
-  connect_bd_net -net clk_1 [get_bd_ports clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
+  connect_bd_net -net clk_1 [get_bd_ports clk] [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins memory_wrapper_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/M_AXI_GP0_ACLK]
   connect_bd_net -net memory_wrapper_0_addra [get_bd_pins blk_mem_gen_0/addra] [get_bd_pins memory_wrapper_0/addra]
   connect_bd_net -net memory_wrapper_0_dina [get_bd_pins blk_mem_gen_0/dina] [get_bd_pins memory_wrapper_0/dina]
   connect_bd_net -net memory_wrapper_0_ena [get_bd_pins blk_mem_gen_0/ena] [get_bd_pins memory_wrapper_0/ena]
@@ -693,7 +693,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net picorv32_0_mem_valid [get_bd_pins Address_Decoder_0/mem_valid] [get_bd_pins picorv32_0/mem_valid]
   connect_bd_net -net picorv32_0_mem_wdata [get_bd_pins Address_Decoder_0/mem_wdata] [get_bd_pins picorv32_0/mem_wdata]
   connect_bd_net -net picorv32_0_mem_wstrb [get_bd_pins Address_Decoder_0/mem_wstrb] [get_bd_pins picorv32_0/mem_wstrb]
-  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Address_Decoder_0/clk] [get_bd_pins Out_bank_0/clk] [get_bd_pins blk_mem_gen_0/clka] [get_bd_pins memory_wrapper_0/clk] [get_bd_pins picorv32_0/clk] [get_bd_pins processing_system7_0/FCLK_CLK0]
+  connect_bd_net -net processing_system7_0_FCLK_CLK0 [get_bd_pins Out_bank_0/UARTclk] [get_bd_pins processing_system7_0/FCLK_CLK0]
   connect_bd_net -net resetn_1 [get_bd_ports resetn] [get_bd_pins Inverter_0/in]
 
   # Create address segments

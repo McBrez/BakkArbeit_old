@@ -1,10 +1,10 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Tue Jan 30 21:45:08 2018
+// Date        : Thu Feb  8 18:31:55 2018
 // Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
-// Command     : write_verilog -force -mode funcsim -rename_top PicoRV32_BD_blk_mem_gen_0_0 -prefix
-//               PicoRV32_BD_blk_mem_gen_0_0_ PicoRV32_BD_blk_mem_gen_0_0_sim_netlist.v
+// Command     : write_verilog -force -mode funcsim
+//               D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_blk_mem_gen_0_0/PicoRV32_BD_blk_mem_gen_0_0_sim_netlist.v
 // Design      : PicoRV32_BD_blk_mem_gen_0_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -16,26 +16,31 @@
 (* NotValidForBitStream *)
 module PicoRV32_BD_blk_mem_gen_0_0
    (clka,
+    rsta,
     ena,
     wea,
     addra,
     dina,
-    douta);
+    douta,
+    rsta_busy);
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *) (* x_interface_parameter = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_WRITE_MODE READ_WRITE" *) input clka;
+  (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA RST" *) input rsta;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA EN" *) input ena;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *) input [3:0]wea;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA ADDR" *) input [31:0]addra;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DIN" *) input [31:0]dina;
   (* x_interface_info = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *) output [31:0]douta;
+  output rsta_busy;
 
   wire [31:0]addra;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;
   wire ena;
+  wire rsta;
+  wire rsta_busy;
   wire [3:0]wea;
   wire NLW_U0_dbiterr_UNCONNECTED;
-  wire NLW_U0_rsta_busy_UNCONNECTED;
   wire NLW_U0_rstb_busy_UNCONNECTED;
   wire NLW_U0_s_axi_arready_UNCONNECTED;
   wire NLW_U0_s_axi_awready_UNCONNECTED;
@@ -75,7 +80,7 @@ module PicoRV32_BD_blk_mem_gen_0_0
   (* C_EN_ECC_PIPE = "0" *) 
   (* C_EN_RDADDRA_CHG = "0" *) 
   (* C_EN_RDADDRB_CHG = "0" *) 
-  (* C_EN_SAFETY_CKT = "0" *) 
+  (* C_EN_SAFETY_CKT = "1" *) 
   (* C_EN_SHUTDOWN_PIN = "0" *) 
   (* C_EN_SLEEP_PIN = "0" *) 
   (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     10.194002 mW" *) 
@@ -90,7 +95,7 @@ module PicoRV32_BD_blk_mem_gen_0_0
   (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
   (* C_HAS_REGCEA = "0" *) 
   (* C_HAS_REGCEB = "0" *) 
-  (* C_HAS_RSTA = "0" *) 
+  (* C_HAS_RSTA = "1" *) 
   (* C_HAS_RSTB = "0" *) 
   (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) 
   (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
@@ -115,7 +120,7 @@ module PicoRV32_BD_blk_mem_gen_0_0
   (* C_USE_BRAM_BLOCK = "0" *) 
   (* C_USE_BYTE_WEA = "1" *) 
   (* C_USE_BYTE_WEB = "1" *) 
-  (* C_USE_DEFAULT_DATA = "1" *) 
+  (* C_USE_DEFAULT_DATA = "0" *) 
   (* C_USE_ECC = "0" *) 
   (* C_USE_SOFTECC = "0" *) 
   (* C_USE_URAM = "0" *) 
@@ -148,8 +153,8 @@ module PicoRV32_BD_blk_mem_gen_0_0
         .rdaddrecc(NLW_U0_rdaddrecc_UNCONNECTED[31:0]),
         .regcea(1'b0),
         .regceb(1'b0),
-        .rsta(1'b0),
-        .rsta_busy(NLW_U0_rsta_busy_UNCONNECTED),
+        .rsta(rsta),
+        .rsta_busy(rsta_busy),
         .rstb(1'b0),
         .rstb_busy(NLW_U0_rstb_busy_UNCONNECTED),
         .s_aclk(1'b0),
@@ -195,27 +200,51 @@ module PicoRV32_BD_blk_mem_gen_0_0
         .web({1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_generic_cstr" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
-   (douta,
+   (rsta_busy,
+    douta,
     clka,
+    rsta,
     ena,
     addra,
     dina,
     wea);
+  output rsta_busy;
   output [31:0]douta;
   input clka;
+  input rsta;
   input ena;
   input [15:0]addra;
   input [31:0]dina;
   input [3:0]wea;
 
+  wire ENA_I;
+  wire ENA_I_0;
+  wire ENA_I_1;
+  wire ENA_I_10;
+  wire ENA_I_11;
+  wire ENA_I_12;
+  wire ENA_I_13;
+  wire ENA_I_14;
+  wire ENA_I_2;
+  wire ENA_I_3;
+  wire ENA_I_4;
+  wire ENA_I_5;
+  wire ENA_I_6;
+  wire ENA_I_7;
+  wire ENA_I_8;
+  wire ENA_I_9;
+  wire ENA_dly_reg;
+  wire POR_A;
   wire [15:0]addra;
   wire clka;
   wire [31:0]dina;
   wire [31:0]douta;
   wire ena;
   wire [7:0]ram_douta;
-  wire ram_ena;
+  wire ram_rstreg_a;
+  wire ram_rstreg_a_busy;
   wire \ramloop[10].ram.r_n_0 ;
   wire \ramloop[10].ram.r_n_1 ;
   wire \ramloop[10].ram.r_n_2 ;
@@ -416,7 +445,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[32].ram.r_n_5 ;
   wire \ramloop[32].ram.r_n_6 ;
   wire \ramloop[32].ram.r_n_7 ;
-  wire \ramloop[32].ram.r_n_8 ;
   wire \ramloop[33].ram.r_n_0 ;
   wire \ramloop[33].ram.r_n_1 ;
   wire \ramloop[33].ram.r_n_2 ;
@@ -425,7 +453,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[33].ram.r_n_5 ;
   wire \ramloop[33].ram.r_n_6 ;
   wire \ramloop[33].ram.r_n_7 ;
-  wire \ramloop[33].ram.r_n_8 ;
   wire \ramloop[34].ram.r_n_0 ;
   wire \ramloop[34].ram.r_n_1 ;
   wire \ramloop[34].ram.r_n_2 ;
@@ -434,7 +461,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[34].ram.r_n_5 ;
   wire \ramloop[34].ram.r_n_6 ;
   wire \ramloop[34].ram.r_n_7 ;
-  wire \ramloop[34].ram.r_n_8 ;
   wire \ramloop[35].ram.r_n_0 ;
   wire \ramloop[35].ram.r_n_1 ;
   wire \ramloop[35].ram.r_n_2 ;
@@ -443,7 +469,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[35].ram.r_n_5 ;
   wire \ramloop[35].ram.r_n_6 ;
   wire \ramloop[35].ram.r_n_7 ;
-  wire \ramloop[35].ram.r_n_8 ;
   wire \ramloop[36].ram.r_n_0 ;
   wire \ramloop[36].ram.r_n_1 ;
   wire \ramloop[36].ram.r_n_2 ;
@@ -452,7 +477,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[36].ram.r_n_5 ;
   wire \ramloop[36].ram.r_n_6 ;
   wire \ramloop[36].ram.r_n_7 ;
-  wire \ramloop[36].ram.r_n_8 ;
   wire \ramloop[37].ram.r_n_0 ;
   wire \ramloop[37].ram.r_n_1 ;
   wire \ramloop[37].ram.r_n_2 ;
@@ -461,7 +485,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[37].ram.r_n_5 ;
   wire \ramloop[37].ram.r_n_6 ;
   wire \ramloop[37].ram.r_n_7 ;
-  wire \ramloop[37].ram.r_n_8 ;
   wire \ramloop[38].ram.r_n_0 ;
   wire \ramloop[38].ram.r_n_1 ;
   wire \ramloop[38].ram.r_n_2 ;
@@ -470,7 +493,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[38].ram.r_n_5 ;
   wire \ramloop[38].ram.r_n_6 ;
   wire \ramloop[38].ram.r_n_7 ;
-  wire \ramloop[38].ram.r_n_8 ;
   wire \ramloop[39].ram.r_n_0 ;
   wire \ramloop[39].ram.r_n_1 ;
   wire \ramloop[39].ram.r_n_2 ;
@@ -479,7 +501,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[39].ram.r_n_5 ;
   wire \ramloop[39].ram.r_n_6 ;
   wire \ramloop[39].ram.r_n_7 ;
-  wire \ramloop[39].ram.r_n_8 ;
   wire \ramloop[3].ram.r_n_0 ;
   wire \ramloop[3].ram.r_n_1 ;
   wire \ramloop[3].ram.r_n_2 ;
@@ -496,7 +517,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[40].ram.r_n_5 ;
   wire \ramloop[40].ram.r_n_6 ;
   wire \ramloop[40].ram.r_n_7 ;
-  wire \ramloop[40].ram.r_n_8 ;
   wire \ramloop[41].ram.r_n_0 ;
   wire \ramloop[41].ram.r_n_1 ;
   wire \ramloop[41].ram.r_n_2 ;
@@ -505,7 +525,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[41].ram.r_n_5 ;
   wire \ramloop[41].ram.r_n_6 ;
   wire \ramloop[41].ram.r_n_7 ;
-  wire \ramloop[41].ram.r_n_8 ;
   wire \ramloop[42].ram.r_n_0 ;
   wire \ramloop[42].ram.r_n_1 ;
   wire \ramloop[42].ram.r_n_2 ;
@@ -514,7 +533,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[42].ram.r_n_5 ;
   wire \ramloop[42].ram.r_n_6 ;
   wire \ramloop[42].ram.r_n_7 ;
-  wire \ramloop[42].ram.r_n_8 ;
   wire \ramloop[43].ram.r_n_0 ;
   wire \ramloop[43].ram.r_n_1 ;
   wire \ramloop[43].ram.r_n_2 ;
@@ -523,7 +541,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[43].ram.r_n_5 ;
   wire \ramloop[43].ram.r_n_6 ;
   wire \ramloop[43].ram.r_n_7 ;
-  wire \ramloop[43].ram.r_n_8 ;
   wire \ramloop[44].ram.r_n_0 ;
   wire \ramloop[44].ram.r_n_1 ;
   wire \ramloop[44].ram.r_n_2 ;
@@ -532,7 +549,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[44].ram.r_n_5 ;
   wire \ramloop[44].ram.r_n_6 ;
   wire \ramloop[44].ram.r_n_7 ;
-  wire \ramloop[44].ram.r_n_8 ;
   wire \ramloop[45].ram.r_n_0 ;
   wire \ramloop[45].ram.r_n_1 ;
   wire \ramloop[45].ram.r_n_2 ;
@@ -541,7 +557,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[45].ram.r_n_5 ;
   wire \ramloop[45].ram.r_n_6 ;
   wire \ramloop[45].ram.r_n_7 ;
-  wire \ramloop[45].ram.r_n_8 ;
   wire \ramloop[46].ram.r_n_0 ;
   wire \ramloop[46].ram.r_n_1 ;
   wire \ramloop[46].ram.r_n_2 ;
@@ -550,7 +565,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[46].ram.r_n_5 ;
   wire \ramloop[46].ram.r_n_6 ;
   wire \ramloop[46].ram.r_n_7 ;
-  wire \ramloop[46].ram.r_n_8 ;
   wire \ramloop[47].ram.r_n_0 ;
   wire \ramloop[47].ram.r_n_1 ;
   wire \ramloop[47].ram.r_n_2 ;
@@ -561,8 +575,14 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[47].ram.r_n_7 ;
   wire \ramloop[48].ram.r_n_0 ;
   wire \ramloop[48].ram.r_n_1 ;
+  wire \ramloop[48].ram.r_n_10 ;
+  wire \ramloop[48].ram.r_n_11 ;
+  wire \ramloop[48].ram.r_n_12 ;
+  wire \ramloop[48].ram.r_n_13 ;
   wire \ramloop[48].ram.r_n_2 ;
   wire \ramloop[48].ram.r_n_3 ;
+  wire \ramloop[48].ram.r_n_31 ;
+  wire \ramloop[48].ram.r_n_32 ;
   wire \ramloop[48].ram.r_n_4 ;
   wire \ramloop[48].ram.r_n_5 ;
   wire \ramloop[48].ram.r_n_6 ;
@@ -735,6 +755,8 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
   wire \ramloop[9].ram.r_n_5 ;
   wire \ramloop[9].ram.r_n_6 ;
   wire \ramloop[9].ram.r_n_7 ;
+  wire rsta;
+  wire rsta_busy;
   wire [3:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_mux \has_mux_a.A 
@@ -807,512 +829,668 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
         .douta(douta),
         .ena(ena));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width \ramloop[0].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[32].ram.r_n_8 ),
+       (.ENA_I(ENA_I_14),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] (ram_douta),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized9 \ramloop[10].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[42].ram.r_n_8 ),
+       (.ENA_I(ENA_I_12),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[10].ram.r_n_0 ,\ramloop[10].ram.r_n_1 ,\ramloop[10].ram.r_n_2 ,\ramloop[10].ram.r_n_3 ,\ramloop[10].ram.r_n_4 ,\ramloop[10].ram.r_n_5 ,\ramloop[10].ram.r_n_6 ,\ramloop[10].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized10 \ramloop[11].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[16] (\ramloop[43].ram.r_n_8 ),
+       (.ENA_I(ENA_I_13),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[11].ram.r_n_0 ,\ramloop[11].ram.r_n_1 ,\ramloop[11].ram.r_n_2 ,\ramloop[11].ram.r_n_3 ,\ramloop[11].ram.r_n_4 ,\ramloop[11].ram.r_n_5 ,\ramloop[11].ram.r_n_6 ,\ramloop[11].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized11 \ramloop[12].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[44].ram.r_n_8 ),
+       (.ENA_I(ENA_I_1),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[12].ram.r_n_0 ,\ramloop[12].ram.r_n_1 ,\ramloop[12].ram.r_n_2 ,\ramloop[12].ram.r_n_3 ,\ramloop[12].ram.r_n_4 ,\ramloop[12].ram.r_n_5 ,\ramloop[12].ram.r_n_6 ,\ramloop[12].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized12 \ramloop[13].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[45].ram.r_n_8 ),
+       (.ENA_I(ENA_I_2),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[13].ram.r_n_0 ,\ramloop[13].ram.r_n_1 ,\ramloop[13].ram.r_n_2 ,\ramloop[13].ram.r_n_3 ,\ramloop[13].ram.r_n_4 ,\ramloop[13].ram.r_n_5 ,\ramloop[13].ram.r_n_6 ,\ramloop[13].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized13 \ramloop[14].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[46].ram.r_n_8 ),
+       (.ENA_I(ENA_I_5),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[14].ram.r_n_0 ,\ramloop[14].ram.r_n_1 ,\ramloop[14].ram.r_n_2 ,\ramloop[14].ram.r_n_3 ,\ramloop[14].ram.r_n_4 ,\ramloop[14].ram.r_n_5 ,\ramloop[14].ram.r_n_6 ,\ramloop[14].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized14 \ramloop[15].ram.r 
-       (.addra(addra[11:0]),
+       (.ENA_I(ENA_I_6),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[15].ram.r_n_0 ,\ramloop[15].ram.r_n_1 ,\ramloop[15].ram.r_n_2 ,\ramloop[15].ram.r_n_3 ,\ramloop[15].ram.r_n_4 ,\ramloop[15].ram.r_n_5 ,\ramloop[15].ram.r_n_6 ,\ramloop[15].ram.r_n_7 }),
         .ena(ena),
-        .ram_ena(ram_ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized15 \ramloop[16].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[32].ram.r_n_8 ),
+       (.ENA_I(ENA_I_14),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[16].ram.r_n_0 ,\ramloop[16].ram.r_n_1 ,\ramloop[16].ram.r_n_2 ,\ramloop[16].ram.r_n_3 ,\ramloop[16].ram.r_n_4 ,\ramloop[16].ram.r_n_5 ,\ramloop[16].ram.r_n_6 ,\ramloop[16].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized16 \ramloop[17].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[33].ram.r_n_8 ),
+       (.ENA_I(ENA_I_7),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[17].ram.r_n_0 ,\ramloop[17].ram.r_n_1 ,\ramloop[17].ram.r_n_2 ,\ramloop[17].ram.r_n_3 ,\ramloop[17].ram.r_n_4 ,\ramloop[17].ram.r_n_5 ,\ramloop[17].ram.r_n_6 ,\ramloop[17].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized17 \ramloop[18].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[34].ram.r_n_8 ),
+       (.ENA_I(ENA_I_10),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[18].ram.r_n_0 ,\ramloop[18].ram.r_n_1 ,\ramloop[18].ram.r_n_2 ,\ramloop[18].ram.r_n_3 ,\ramloop[18].ram.r_n_4 ,\ramloop[18].ram.r_n_5 ,\ramloop[18].ram.r_n_6 ,\ramloop[18].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized18 \ramloop[19].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[35].ram.r_n_8 ),
+       (.ENA_I(ENA_I_11),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[19].ram.r_n_0 ,\ramloop[19].ram.r_n_1 ,\ramloop[19].ram.r_n_2 ,\ramloop[19].ram.r_n_3 ,\ramloop[19].ram.r_n_4 ,\ramloop[19].ram.r_n_5 ,\ramloop[19].ram.r_n_6 ,\ramloop[19].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0 \ramloop[1].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[33].ram.r_n_8 ),
+       (.ENA_I(ENA_I_7),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[1].ram.r_n_0 ,\ramloop[1].ram.r_n_1 ,\ramloop[1].ram.r_n_2 ,\ramloop[1].ram.r_n_3 ,\ramloop[1].ram.r_n_4 ,\ramloop[1].ram.r_n_5 ,\ramloop[1].ram.r_n_6 ,\ramloop[1].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized19 \ramloop[20].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[36].ram.r_n_8 ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[20].ram.r_n_0 ,\ramloop[20].ram.r_n_1 ,\ramloop[20].ram.r_n_2 ,\ramloop[20].ram.r_n_3 ,\ramloop[20].ram.r_n_4 ,\ramloop[20].ram.r_n_5 ,\ramloop[20].ram.r_n_6 ,\ramloop[20].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized20 \ramloop[21].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[37].ram.r_n_8 ),
+       (.ENA_I(ENA_I_0),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[21].ram.r_n_0 ,\ramloop[21].ram.r_n_1 ,\ramloop[21].ram.r_n_2 ,\ramloop[21].ram.r_n_3 ,\ramloop[21].ram.r_n_4 ,\ramloop[21].ram.r_n_5 ,\ramloop[21].ram.r_n_6 ,\ramloop[21].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized21 \ramloop[22].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[38].ram.r_n_8 ),
+       (.ENA_I(ENA_I_3),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[22].ram.r_n_0 ,\ramloop[22].ram.r_n_1 ,\ramloop[22].ram.r_n_2 ,\ramloop[22].ram.r_n_3 ,\ramloop[22].ram.r_n_4 ,\ramloop[22].ram.r_n_5 ,\ramloop[22].ram.r_n_6 ,\ramloop[22].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized22 \ramloop[23].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[39].ram.r_n_8 ),
+       (.ENA_I(ENA_I_4),
+        .ENA_dly_reg(ENA_dly_reg),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[23].ram.r_n_0 ,\ramloop[23].ram.r_n_1 ,\ramloop[23].ram.r_n_2 ,\ramloop[23].ram.r_n_3 ,\ramloop[23].ram.r_n_4 ,\ramloop[23].ram.r_n_5 ,\ramloop[23].ram.r_n_6 ,\ramloop[23].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
+        .ram_rstreg_a_busy(ram_rstreg_a_busy),
+        .rsta_busy(rsta_busy),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized23 \ramloop[24].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[40].ram.r_n_8 ),
+       (.ENA_I(ENA_I_8),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[24].ram.r_n_0 ,\ramloop[24].ram.r_n_1 ,\ramloop[24].ram.r_n_2 ,\ramloop[24].ram.r_n_3 ,\ramloop[24].ram.r_n_4 ,\ramloop[24].ram.r_n_5 ,\ramloop[24].ram.r_n_6 ,\ramloop[24].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized24 \ramloop[25].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[41].ram.r_n_8 ),
+       (.ENA_I(ENA_I_9),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[25].ram.r_n_0 ,\ramloop[25].ram.r_n_1 ,\ramloop[25].ram.r_n_2 ,\ramloop[25].ram.r_n_3 ,\ramloop[25].ram.r_n_4 ,\ramloop[25].ram.r_n_5 ,\ramloop[25].ram.r_n_6 ,\ramloop[25].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized25 \ramloop[26].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[42].ram.r_n_8 ),
+       (.ENA_I(ENA_I_12),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[26].ram.r_n_0 ,\ramloop[26].ram.r_n_1 ,\ramloop[26].ram.r_n_2 ,\ramloop[26].ram.r_n_3 ,\ramloop[26].ram.r_n_4 ,\ramloop[26].ram.r_n_5 ,\ramloop[26].ram.r_n_6 ,\ramloop[26].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized26 \ramloop[27].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[16] (\ramloop[43].ram.r_n_8 ),
+       (.ENA_I(ENA_I_13),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[27].ram.r_n_0 ,\ramloop[27].ram.r_n_1 ,\ramloop[27].ram.r_n_2 ,\ramloop[27].ram.r_n_3 ,\ramloop[27].ram.r_n_4 ,\ramloop[27].ram.r_n_5 ,\ramloop[27].ram.r_n_6 ,\ramloop[27].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized27 \ramloop[28].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[44].ram.r_n_8 ),
+       (.ENA_I(ENA_I_1),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[28].ram.r_n_0 ,\ramloop[28].ram.r_n_1 ,\ramloop[28].ram.r_n_2 ,\ramloop[28].ram.r_n_3 ,\ramloop[28].ram.r_n_4 ,\ramloop[28].ram.r_n_5 ,\ramloop[28].ram.r_n_6 ,\ramloop[28].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized28 \ramloop[29].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[45].ram.r_n_8 ),
+       (.ENA_I(ENA_I_2),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[29].ram.r_n_0 ,\ramloop[29].ram.r_n_1 ,\ramloop[29].ram.r_n_2 ,\ramloop[29].ram.r_n_3 ,\ramloop[29].ram.r_n_4 ,\ramloop[29].ram.r_n_5 ,\ramloop[29].ram.r_n_6 ,\ramloop[29].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized1 \ramloop[2].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[34].ram.r_n_8 ),
+       (.ENA_I(ENA_I_10),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[2].ram.r_n_0 ,\ramloop[2].ram.r_n_1 ,\ramloop[2].ram.r_n_2 ,\ramloop[2].ram.r_n_3 ,\ramloop[2].ram.r_n_4 ,\ramloop[2].ram.r_n_5 ,\ramloop[2].ram.r_n_6 ,\ramloop[2].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized29 \ramloop[30].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[46].ram.r_n_8 ),
+       (.ENA_I(ENA_I_5),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[30].ram.r_n_0 ,\ramloop[30].ram.r_n_1 ,\ramloop[30].ram.r_n_2 ,\ramloop[30].ram.r_n_3 ,\ramloop[30].ram.r_n_4 ,\ramloop[30].ram.r_n_5 ,\ramloop[30].ram.r_n_6 ,\ramloop[30].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized30 \ramloop[31].ram.r 
-       (.addra(addra[11:0]),
+       (.ENA_I(ENA_I_6),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\ramloop[48].ram.r_n_12 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\ramloop[48].ram.r_n_31 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[15:8]),
         .\douta[15] ({\ramloop[31].ram.r_n_0 ,\ramloop[31].ram.r_n_1 ,\ramloop[31].ram.r_n_2 ,\ramloop[31].ram.r_n_3 ,\ramloop[31].ram.r_n_4 ,\ramloop[31].ram.r_n_5 ,\ramloop[31].ram.r_n_6 ,\ramloop[31].ram.r_n_7 }),
         .ena(ena),
-        .ram_ena(ram_ena),
         .wea(wea[1]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized31 \ramloop[32].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[32].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_14),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[32].ram.r_n_0 ,\ramloop[32].ram.r_n_1 ,\ramloop[32].ram.r_n_2 ,\ramloop[32].ram.r_n_3 ,\ramloop[32].ram.r_n_4 ,\ramloop[32].ram.r_n_5 ,\ramloop[32].ram.r_n_6 ,\ramloop[32].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized32 \ramloop[33].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[33].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_7),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[33].ram.r_n_0 ,\ramloop[33].ram.r_n_1 ,\ramloop[33].ram.r_n_2 ,\ramloop[33].ram.r_n_3 ,\ramloop[33].ram.r_n_4 ,\ramloop[33].ram.r_n_5 ,\ramloop[33].ram.r_n_6 ,\ramloop[33].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized33 \ramloop[34].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[34].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_10),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[34].ram.r_n_0 ,\ramloop[34].ram.r_n_1 ,\ramloop[34].ram.r_n_2 ,\ramloop[34].ram.r_n_3 ,\ramloop[34].ram.r_n_4 ,\ramloop[34].ram.r_n_5 ,\ramloop[34].ram.r_n_6 ,\ramloop[34].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized34 \ramloop[35].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[35].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_11),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[35].ram.r_n_0 ,\ramloop[35].ram.r_n_1 ,\ramloop[35].ram.r_n_2 ,\ramloop[35].ram.r_n_3 ,\ramloop[35].ram.r_n_4 ,\ramloop[35].ram.r_n_5 ,\ramloop[35].ram.r_n_6 ,\ramloop[35].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized35 \ramloop[36].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[36].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[36].ram.r_n_0 ,\ramloop[36].ram.r_n_1 ,\ramloop[36].ram.r_n_2 ,\ramloop[36].ram.r_n_3 ,\ramloop[36].ram.r_n_4 ,\ramloop[36].ram.r_n_5 ,\ramloop[36].ram.r_n_6 ,\ramloop[36].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized36 \ramloop[37].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[37].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_0),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[37].ram.r_n_0 ,\ramloop[37].ram.r_n_1 ,\ramloop[37].ram.r_n_2 ,\ramloop[37].ram.r_n_3 ,\ramloop[37].ram.r_n_4 ,\ramloop[37].ram.r_n_5 ,\ramloop[37].ram.r_n_6 ,\ramloop[37].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized37 \ramloop[38].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[38].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_3),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[38].ram.r_n_0 ,\ramloop[38].ram.r_n_1 ,\ramloop[38].ram.r_n_2 ,\ramloop[38].ram.r_n_3 ,\ramloop[38].ram.r_n_4 ,\ramloop[38].ram.r_n_5 ,\ramloop[38].ram.r_n_6 ,\ramloop[38].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized38 \ramloop[39].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[39].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_4),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[39].ram.r_n_0 ,\ramloop[39].ram.r_n_1 ,\ramloop[39].ram.r_n_2 ,\ramloop[39].ram.r_n_3 ,\ramloop[39].ram.r_n_4 ,\ramloop[39].ram.r_n_5 ,\ramloop[39].ram.r_n_6 ,\ramloop[39].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized2 \ramloop[3].ram.r 
        (.DOADO({\ramloop[3].ram.r_n_0 ,\ramloop[3].ram.r_n_1 ,\ramloop[3].ram.r_n_2 ,\ramloop[3].ram.r_n_3 ,\ramloop[3].ram.r_n_4 ,\ramloop[3].ram.r_n_5 ,\ramloop[3].ram.r_n_6 ,\ramloop[3].ram.r_n_7 }),
+        .ENA_I(ENA_I_11),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
         .addra(addra[11:0]),
-        .\addra[17] (\ramloop[35].ram.r_n_8 ),
         .clka(clka),
         .dina(dina[7:0]),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized39 \ramloop[40].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[40].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_8),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[40].ram.r_n_0 ,\ramloop[40].ram.r_n_1 ,\ramloop[40].ram.r_n_2 ,\ramloop[40].ram.r_n_3 ,\ramloop[40].ram.r_n_4 ,\ramloop[40].ram.r_n_5 ,\ramloop[40].ram.r_n_6 ,\ramloop[40].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized40 \ramloop[41].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[41].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_9),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[41].ram.r_n_0 ,\ramloop[41].ram.r_n_1 ,\ramloop[41].ram.r_n_2 ,\ramloop[41].ram.r_n_3 ,\ramloop[41].ram.r_n_4 ,\ramloop[41].ram.r_n_5 ,\ramloop[41].ram.r_n_6 ,\ramloop[41].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized41 \ramloop[42].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[42].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_12),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[42].ram.r_n_0 ,\ramloop[42].ram.r_n_1 ,\ramloop[42].ram.r_n_2 ,\ramloop[42].ram.r_n_3 ,\ramloop[42].ram.r_n_4 ,\ramloop[42].ram.r_n_5 ,\ramloop[42].ram.r_n_6 ,\ramloop[42].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized42 \ramloop[43].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[43].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_13),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[43].ram.r_n_0 ,\ramloop[43].ram.r_n_1 ,\ramloop[43].ram.r_n_2 ,\ramloop[43].ram.r_n_3 ,\ramloop[43].ram.r_n_4 ,\ramloop[43].ram.r_n_5 ,\ramloop[43].ram.r_n_6 ,\ramloop[43].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized43 \ramloop[44].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[44].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_1),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[44].ram.r_n_0 ,\ramloop[44].ram.r_n_1 ,\ramloop[44].ram.r_n_2 ,\ramloop[44].ram.r_n_3 ,\ramloop[44].ram.r_n_4 ,\ramloop[44].ram.r_n_5 ,\ramloop[44].ram.r_n_6 ,\ramloop[44].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized44 \ramloop[45].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[45].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_2),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[45].ram.r_n_0 ,\ramloop[45].ram.r_n_1 ,\ramloop[45].ram.r_n_2 ,\ramloop[45].ram.r_n_3 ,\ramloop[45].ram.r_n_4 ,\ramloop[45].ram.r_n_5 ,\ramloop[45].ram.r_n_6 ,\ramloop[45].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized45 \ramloop[46].ram.r 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[46].ram.r_n_8 ),
-        .addra(addra),
+       (.ENA_I(ENA_I_5),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[46].ram.r_n_0 ,\ramloop[46].ram.r_n_1 ,\ramloop[46].ram.r_n_2 ,\ramloop[46].ram.r_n_3 ,\ramloop[46].ram.r_n_4 ,\ramloop[46].ram.r_n_5 ,\ramloop[46].ram.r_n_6 ,\ramloop[46].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized46 \ramloop[47].ram.r 
-       (.addra(addra[11:0]),
+       (.ENA_I(ENA_I_6),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\ramloop[48].ram.r_n_13 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[23:16]),
         .\douta[23] ({\ramloop[47].ram.r_n_0 ,\ramloop[47].ram.r_n_1 ,\ramloop[47].ram.r_n_2 ,\ramloop[47].ram.r_n_3 ,\ramloop[47].ram.r_n_4 ,\ramloop[47].ram.r_n_5 ,\ramloop[47].ram.r_n_6 ,\ramloop[47].ram.r_n_7 }),
         .ena(ena),
-        .ram_ena(ram_ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea[2]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized47 \ramloop[48].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[32].ram.r_n_8 ),
+       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram (\ramloop[48].ram.r_n_10 ),
+        .\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\ramloop[48].ram.r_n_11 ),
+        .\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\ramloop[48].ram.r_n_12 ),
+        .\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 (\ramloop[48].ram.r_n_13 ),
+        .\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_3 (\ramloop[48].ram.r_n_31 ),
+        .\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 (\ramloop[48].ram.r_n_32 ),
+        .ENA_I(ENA_I_14),
+        .ENA_I_0(ENA_I_13),
+        .ENA_I_1(ENA_I_12),
+        .ENA_I_10(ENA_I_3),
+        .ENA_I_11(ENA_I_2),
+        .ENA_I_12(ENA_I_1),
+        .ENA_I_13(ENA_I_0),
+        .ENA_I_14(ENA_I),
+        .ENA_I_2(ENA_I_11),
+        .ENA_I_3(ENA_I_10),
+        .ENA_I_4(ENA_I_9),
+        .ENA_I_5(ENA_I_8),
+        .ENA_I_6(ENA_I_7),
+        .ENA_I_7(ENA_I_6),
+        .ENA_I_8(ENA_I_5),
+        .ENA_I_9(ENA_I_4),
+        .ENA_dly_reg(ENA_dly_reg),
+        .POR_A(POR_A),
+        .addra(addra),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[48].ram.r_n_0 ,\ramloop[48].ram.r_n_1 ,\ramloop[48].ram.r_n_2 ,\ramloop[48].ram.r_n_3 ,\ramloop[48].ram.r_n_4 ,\ramloop[48].ram.r_n_5 ,\ramloop[48].ram.r_n_6 ,\ramloop[48].ram.r_n_7 }),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
+        .ram_rstreg_a_busy(ram_rstreg_a_busy),
+        .rsta(rsta),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized48 \ramloop[49].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[33].ram.r_n_8 ),
+       (.ENA_I(ENA_I_7),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[49].ram.r_n_0 ,\ramloop[49].ram.r_n_1 ,\ramloop[49].ram.r_n_2 ,\ramloop[49].ram.r_n_3 ,\ramloop[49].ram.r_n_4 ,\ramloop[49].ram.r_n_5 ,\ramloop[49].ram.r_n_6 ,\ramloop[49].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized3 \ramloop[4].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[36].ram.r_n_8 ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[4].ram.r_n_0 ,\ramloop[4].ram.r_n_1 ,\ramloop[4].ram.r_n_2 ,\ramloop[4].ram.r_n_3 ,\ramloop[4].ram.r_n_4 ,\ramloop[4].ram.r_n_5 ,\ramloop[4].ram.r_n_6 ,\ramloop[4].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized49 \ramloop[50].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[34].ram.r_n_8 ),
+       (.ENA_I(ENA_I_10),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[50].ram.r_n_0 ,\ramloop[50].ram.r_n_1 ,\ramloop[50].ram.r_n_2 ,\ramloop[50].ram.r_n_3 ,\ramloop[50].ram.r_n_4 ,\ramloop[50].ram.r_n_5 ,\ramloop[50].ram.r_n_6 ,\ramloop[50].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized50 \ramloop[51].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[35].ram.r_n_8 ),
+       (.ENA_I(ENA_I_11),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[51].ram.r_n_0 ,\ramloop[51].ram.r_n_1 ,\ramloop[51].ram.r_n_2 ,\ramloop[51].ram.r_n_3 ,\ramloop[51].ram.r_n_4 ,\ramloop[51].ram.r_n_5 ,\ramloop[51].ram.r_n_6 ,\ramloop[51].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized51 \ramloop[52].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[36].ram.r_n_8 ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[52].ram.r_n_0 ,\ramloop[52].ram.r_n_1 ,\ramloop[52].ram.r_n_2 ,\ramloop[52].ram.r_n_3 ,\ramloop[52].ram.r_n_4 ,\ramloop[52].ram.r_n_5 ,\ramloop[52].ram.r_n_6 ,\ramloop[52].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized52 \ramloop[53].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[37].ram.r_n_8 ),
+       (.ENA_I(ENA_I_0),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[53].ram.r_n_0 ,\ramloop[53].ram.r_n_1 ,\ramloop[53].ram.r_n_2 ,\ramloop[53].ram.r_n_3 ,\ramloop[53].ram.r_n_4 ,\ramloop[53].ram.r_n_5 ,\ramloop[53].ram.r_n_6 ,\ramloop[53].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized53 \ramloop[54].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[38].ram.r_n_8 ),
+       (.ENA_I(ENA_I_3),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[54].ram.r_n_0 ,\ramloop[54].ram.r_n_1 ,\ramloop[54].ram.r_n_2 ,\ramloop[54].ram.r_n_3 ,\ramloop[54].ram.r_n_4 ,\ramloop[54].ram.r_n_5 ,\ramloop[54].ram.r_n_6 ,\ramloop[54].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized54 \ramloop[55].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[39].ram.r_n_8 ),
+       (.ENA_I(ENA_I_4),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[55].ram.r_n_0 ,\ramloop[55].ram.r_n_1 ,\ramloop[55].ram.r_n_2 ,\ramloop[55].ram.r_n_3 ,\ramloop[55].ram.r_n_4 ,\ramloop[55].ram.r_n_5 ,\ramloop[55].ram.r_n_6 ,\ramloop[55].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized55 \ramloop[56].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[40].ram.r_n_8 ),
+       (.ENA_I(ENA_I_8),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[56].ram.r_n_0 ,\ramloop[56].ram.r_n_1 ,\ramloop[56].ram.r_n_2 ,\ramloop[56].ram.r_n_3 ,\ramloop[56].ram.r_n_4 ,\ramloop[56].ram.r_n_5 ,\ramloop[56].ram.r_n_6 ,\ramloop[56].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized56 \ramloop[57].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[41].ram.r_n_8 ),
+       (.ENA_I(ENA_I_9),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[57].ram.r_n_0 ,\ramloop[57].ram.r_n_1 ,\ramloop[57].ram.r_n_2 ,\ramloop[57].ram.r_n_3 ,\ramloop[57].ram.r_n_4 ,\ramloop[57].ram.r_n_5 ,\ramloop[57].ram.r_n_6 ,\ramloop[57].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized57 \ramloop[58].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[42].ram.r_n_8 ),
+       (.ENA_I(ENA_I_12),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[58].ram.r_n_0 ,\ramloop[58].ram.r_n_1 ,\ramloop[58].ram.r_n_2 ,\ramloop[58].ram.r_n_3 ,\ramloop[58].ram.r_n_4 ,\ramloop[58].ram.r_n_5 ,\ramloop[58].ram.r_n_6 ,\ramloop[58].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized58 \ramloop[59].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[16] (\ramloop[43].ram.r_n_8 ),
+       (.ENA_I(ENA_I_13),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[59].ram.r_n_0 ,\ramloop[59].ram.r_n_1 ,\ramloop[59].ram.r_n_2 ,\ramloop[59].ram.r_n_3 ,\ramloop[59].ram.r_n_4 ,\ramloop[59].ram.r_n_5 ,\ramloop[59].ram.r_n_6 ,\ramloop[59].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized4 \ramloop[5].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[37].ram.r_n_8 ),
+       (.ENA_I(ENA_I_0),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[5].ram.r_n_0 ,\ramloop[5].ram.r_n_1 ,\ramloop[5].ram.r_n_2 ,\ramloop[5].ram.r_n_3 ,\ramloop[5].ram.r_n_4 ,\ramloop[5].ram.r_n_5 ,\ramloop[5].ram.r_n_6 ,\ramloop[5].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized59 \ramloop[60].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[44].ram.r_n_8 ),
+       (.ENA_I(ENA_I_1),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[60].ram.r_n_0 ,\ramloop[60].ram.r_n_1 ,\ramloop[60].ram.r_n_2 ,\ramloop[60].ram.r_n_3 ,\ramloop[60].ram.r_n_4 ,\ramloop[60].ram.r_n_5 ,\ramloop[60].ram.r_n_6 ,\ramloop[60].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized60 \ramloop[61].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[45].ram.r_n_8 ),
+       (.ENA_I(ENA_I_2),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[61].ram.r_n_0 ,\ramloop[61].ram.r_n_1 ,\ramloop[61].ram.r_n_2 ,\ramloop[61].ram.r_n_3 ,\ramloop[61].ram.r_n_4 ,\ramloop[61].ram.r_n_5 ,\ramloop[61].ram.r_n_6 ,\ramloop[61].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized61 \ramloop[62].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[46].ram.r_n_8 ),
+       (.ENA_I(ENA_I_5),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[62].ram.r_n_0 ,\ramloop[62].ram.r_n_1 ,\ramloop[62].ram.r_n_2 ,\ramloop[62].ram.r_n_3 ,\ramloop[62].ram.r_n_4 ,\ramloop[62].ram.r_n_5 ,\ramloop[62].ram.r_n_6 ,\ramloop[62].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized62 \ramloop[63].ram.r 
-       (.addra(addra),
+       (.ENA_I(ENA_I_6),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\ramloop[48].ram.r_n_10 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[31:24]),
         .\douta[31] ({\ramloop[63].ram.r_n_0 ,\ramloop[63].ram.r_n_1 ,\ramloop[63].ram.r_n_2 ,\ramloop[63].ram.r_n_3 ,\ramloop[63].ram.r_n_4 ,\ramloop[63].ram.r_n_5 ,\ramloop[63].ram.r_n_6 ,\ramloop[63].ram.r_n_7 }),
         .ena(ena),
-        .ram_ena(ram_ena),
         .wea(wea[3]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized5 \ramloop[6].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[38].ram.r_n_8 ),
+       (.ENA_I(ENA_I_3),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[6].ram.r_n_0 ,\ramloop[6].ram.r_n_1 ,\ramloop[6].ram.r_n_2 ,\ramloop[6].ram.r_n_3 ,\ramloop[6].ram.r_n_4 ,\ramloop[6].ram.r_n_5 ,\ramloop[6].ram.r_n_6 ,\ramloop[6].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized6 \ramloop[7].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[17] (\ramloop[39].ram.r_n_8 ),
+       (.ENA_I(ENA_I_4),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[7].ram.r_n_0 ,\ramloop[7].ram.r_n_1 ,\ramloop[7].ram.r_n_2 ,\ramloop[7].ram.r_n_3 ,\ramloop[7].ram.r_n_4 ,\ramloop[7].ram.r_n_5 ,\ramloop[7].ram.r_n_6 ,\ramloop[7].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized7 \ramloop[8].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[14] (\ramloop[40].ram.r_n_8 ),
+       (.ENA_I(ENA_I_8),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[8].ram.r_n_0 ,\ramloop[8].ram.r_n_1 ,\ramloop[8].ram.r_n_2 ,\ramloop[8].ram.r_n_3 ,\ramloop[8].ram.r_n_4 ,\ramloop[8].ram.r_n_5 ,\ramloop[8].ram.r_n_6 ,\ramloop[8].ram.r_n_7 }),
         .ena(ena),
         .wea(wea[0]));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized8 \ramloop[9].ram.r 
-       (.addra(addra[11:0]),
-        .\addra[15] (\ramloop[41].ram.r_n_8 ),
+       (.ENA_I(ENA_I_9),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\ramloop[48].ram.r_n_11 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\ramloop[48].ram.r_n_32 ),
+        .addra(addra[11:0]),
         .clka(clka),
         .dina(dina[7:0]),
         .\douta[7] ({\ramloop[9].ram.r_n_0 ,\ramloop[9].ram.r_n_1 ,\ramloop[9].ram.r_n_2 ,\ramloop[9].ram.r_n_3 ,\ramloop[9].ram.r_n_4 ,\ramloop[9].ram.r_n_5 ,\ramloop[9].ram.r_n_6 ,\ramloop[9].ram.r_n_7 }),
@@ -1320,6 +1498,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr
         .wea(wea[0]));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_mux" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_mux
    (douta,
     ena,
@@ -3547,24 +3726,31 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_mux
         .R(1'b0));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width
    (\douta[7] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -3572,8 +3758,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -3585,21 +3773,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0
    (\douta[7] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -3607,8 +3801,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized0
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -3620,21 +3816,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized1
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -3642,8 +3844,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized1
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -3655,21 +3859,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized10
    (\douta[7] ,
     clka,
-    \addra[16] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[16] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[16] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -3677,8 +3887,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized10
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized10 \prim_init.ram 
-       (.addra(addra),
-        .\addra[16] (\addra[16] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -3690,21 +3902,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized11
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -3712,8 +3930,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized11
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized11 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -3725,21 +3945,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized12
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -3747,8 +3973,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized12
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized12 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -3760,21 +3988,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized13
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -3782,8 +4016,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized13
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized13 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -3795,34 +4031,42 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized14
    (\douta[7] ,
     clka,
-    ram_ena,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input ram_ena;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
   wire ena;
-  wire ram_ena;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized14 \prim_init.ram 
-       (.addra(addra),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
         .ena(ena),
-        .ram_ena(ram_ena),
         .wea(wea));
 endmodule
 
@@ -3830,21 +4074,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized15
    (\douta[15] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -3852,8 +4102,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized15
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized15 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -3865,21 +4117,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized16
    (\douta[15] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -3887,8 +4145,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized16
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized16 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -3900,21 +4160,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized17
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -3922,8 +4188,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized17
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized17 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -3935,21 +4203,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized18
    (\douta[15] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -3957,8 +4231,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized18
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized18 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -3970,21 +4246,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized19
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -3992,8 +4274,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized19
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized19 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4005,22 +4289,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized2
    (DOADO,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]DOADO;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire [7:0]DOADO;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire ena;
@@ -4028,8 +4318,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized2
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2 \prim_init.ram 
        (.DOADO(DOADO),
+        .ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .addra(addra),
-        .\addra[17] (\addra[17] ),
         .clka(clka),
         .dina(dina),
         .ena(ena),
@@ -4040,21 +4332,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized20
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4062,8 +4360,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized20
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized20 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4075,21 +4375,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized21
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4097,8 +4403,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized21
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized21 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4109,31 +4417,65 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized22
    (\douta[15] ,
+    ENA_dly_reg,
+    rsta_busy,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
-    wea);
+    wea,
+    ram_rstreg_a,
+    ram_rstreg_a_busy);
   output [7:0]\douta[15] ;
+  output ENA_dly_reg;
+  output rsta_busy;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
+  input ram_rstreg_a;
+  input ram_rstreg_a_busy;
 
+  wire ENA_I;
+  wire ENA_dly_reg;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
   wire ena;
+  wire ram_rstreg_a;
+  wire ram_rstreg_a_busy;
+  wire rsta_busy;
   wire [0:0]wea;
 
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.ENA_WITH_REG.ENA_dly_reg_reg 
+       (.C(clka),
+        .CE(1'b1),
+        .D(ram_rstreg_a),
+        .Q(ENA_dly_reg),
+        .R(1'b0));
+  FDRE \SAFETY_CKT_GEN.RSTA_BUSY_WITH_REG.RSTA_BUSY_reg 
+       (.C(clka),
+        .CE(1'b1),
+        .D(ram_rstreg_a_busy),
+        .Q(rsta_busy),
+        .R(1'b0));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized22 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4145,21 +4487,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized23
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4167,8 +4515,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized23
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized23 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4180,21 +4530,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized24
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4202,8 +4558,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized24
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized24 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4215,21 +4573,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized25
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4237,8 +4601,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized25
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized25 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4250,21 +4616,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized26
    (\douta[15] ,
     clka,
-    \addra[16] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[16] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[16] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4272,8 +4644,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized26
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized26 \prim_init.ram 
-       (.addra(addra),
-        .\addra[16] (\addra[16] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4285,21 +4659,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized27
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4307,8 +4687,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized27
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized27 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4320,21 +4702,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized28
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4342,8 +4730,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized28
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized28 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4355,21 +4745,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized29
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -4377,8 +4773,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized29
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized29 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
@@ -4390,21 +4788,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized3
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -4412,8 +4816,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized3
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -4425,349 +4831,429 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized30
    (\douta[15] ,
     clka,
-    ram_ena,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input ram_ena;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
   wire ena;
-  wire ram_ena;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized30 \prim_init.ram 
-       (.addra(addra),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 (\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[15] (\douta[15] ),
         .ena(ena),
-        .ram_ena(ram_ena),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized31
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized31 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized32
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized32 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized33
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized33 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized34
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized34 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized35
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized35 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized36
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized36 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized37
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized37 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized38
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized38 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized39
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized39 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
@@ -4775,21 +5261,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized4
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -4797,8 +5289,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized4
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -4809,210 +5303,258 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized40
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized40 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized41
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized41 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized42
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized42 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized43
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized43 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized44
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized44 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized45
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized45 \prim_init.ram 
-       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
         .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
@@ -5020,69 +5562,293 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized46
    (\douta[23] ,
     clka,
-    ram_ena,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
   input clka;
-  input ram_ena;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
   wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
-  wire ram_ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized46 \prim_init.ram 
-       (.addra(addra),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[23] (\douta[23] ),
         .ena(ena),
-        .ram_ena(ram_ena),
+        .ram_rstreg_a(ram_rstreg_a),
         .wea(wea));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized47
    (\douta[31] ,
+    ENA_I,
+    POR_A,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ,
+    ram_rstreg_a_busy,
+    ENA_I_0,
+    ENA_I_1,
+    ENA_I_2,
+    ENA_I_3,
+    ENA_I_4,
+    ENA_I_5,
+    ENA_I_6,
+    ENA_I_7,
+    ENA_I_8,
+    ENA_I_9,
+    ENA_I_10,
+    ENA_I_11,
+    ENA_I_12,
+    ENA_I_13,
+    ENA_I_14,
+    ram_rstreg_a,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_3 ,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 ,
     clka,
-    \addra[17] ,
     ena,
     addra,
     dina,
-    wea);
+    wea,
+    ENA_dly_reg,
+    rsta);
   output [7:0]\douta[31] ;
+  output ENA_I;
+  output POR_A;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
+  output ram_rstreg_a_busy;
+  output ENA_I_0;
+  output ENA_I_1;
+  output ENA_I_2;
+  output ENA_I_3;
+  output ENA_I_4;
+  output ENA_I_5;
+  output ENA_I_6;
+  output ENA_I_7;
+  output ENA_I_8;
+  output ENA_I_9;
+  output ENA_I_10;
+  output ENA_I_11;
+  output ENA_I_12;
+  output ENA_I_13;
+  output ENA_I_14;
+  output ram_rstreg_a;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_3 ;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 ;
   input clka;
-  input \addra[17] ;
   input ena;
-  input [11:0]addra;
+  input [15:0]addra;
   input [7:0]dina;
   input [0:0]wea;
+  input ENA_dly_reg;
+  input rsta;
 
-  wire [11:0]addra;
-  wire \addra[17] ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_3 ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 ;
+  wire ENA_I;
+  wire ENA_I_0;
+  wire ENA_I_1;
+  wire ENA_I_10;
+  wire ENA_I_11;
+  wire ENA_I_12;
+  wire ENA_I_13;
+  wire ENA_I_14;
+  wire ENA_I_2;
+  wire ENA_I_3;
+  wire ENA_I_4;
+  wire ENA_I_5;
+  wire ENA_I_6;
+  wire ENA_I_7;
+  wire ENA_I_8;
+  wire ENA_I_9;
+  wire ENA_dly_reg;
+  wire ENA_dly_reg_D;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_i_1_n_0 ;
+  wire \SAFETY_CKT_GEN.POR_A_rep_i_1__0_n_0 ;
+  wire \SAFETY_CKT_GEN.POR_A_rep_i_1__1_n_0 ;
+  wire \SAFETY_CKT_GEN.POR_A_rep_i_1_n_0 ;
+  wire \SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[3]_srl3_n_0 ;
+  wire \SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[0] ;
+  wire \SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[4] ;
+  wire [15:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
   wire ena;
+  wire ram_rstreg_a;
+  wire ram_rstreg_a_busy;
+  wire rsta;
   wire [0:0]wea;
 
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.ENA_WITH_REG.ENA_dly_reg_D_reg 
+       (.C(clka),
+        .CE(1'b1),
+        .D(ENA_dly_reg),
+        .Q(ENA_dly_reg_D),
+        .R(1'b0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \SAFETY_CKT_GEN.POR_A_i_1 
+       (.I0(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[4] ),
+        .I1(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[0] ),
+        .O(\SAFETY_CKT_GEN.POR_A_i_1_n_0 ));
+  (* ORIG_CELL_NAME = "SAFETY_CKT_GEN.POR_A_reg" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.POR_A_reg 
+       (.C(clka),
+        .CE(1'b1),
+        .D(\SAFETY_CKT_GEN.POR_A_i_1_n_0 ),
+        .Q(POR_A),
+        .R(1'b0));
+  (* ORIG_CELL_NAME = "SAFETY_CKT_GEN.POR_A_reg" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.POR_A_reg_rep 
+       (.C(clka),
+        .CE(1'b1),
+        .D(\SAFETY_CKT_GEN.POR_A_rep_i_1_n_0 ),
+        .Q(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .R(1'b0));
+  (* ORIG_CELL_NAME = "SAFETY_CKT_GEN.POR_A_reg" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 
+       (.C(clka),
+        .CE(1'b1),
+        .D(\SAFETY_CKT_GEN.POR_A_rep_i_1__0_n_0 ),
+        .Q(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ),
+        .R(1'b0));
+  (* ORIG_CELL_NAME = "SAFETY_CKT_GEN.POR_A_reg" *) 
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 
+       (.C(clka),
+        .CE(1'b1),
+        .D(\SAFETY_CKT_GEN.POR_A_rep_i_1__1_n_0 ),
+        .Q(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ),
+        .R(1'b0));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \SAFETY_CKT_GEN.POR_A_rep_i_1 
+       (.I0(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[4] ),
+        .I1(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[0] ),
+        .O(\SAFETY_CKT_GEN.POR_A_rep_i_1_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \SAFETY_CKT_GEN.POR_A_rep_i_1__0 
+       (.I0(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[4] ),
+        .I1(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[0] ),
+        .O(\SAFETY_CKT_GEN.POR_A_rep_i_1__0_n_0 ));
+  LUT2 #(
+    .INIT(4'h6)) 
+    \SAFETY_CKT_GEN.POR_A_rep_i_1__1 
+       (.I0(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[4] ),
+        .I1(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[0] ),
+        .O(\SAFETY_CKT_GEN.POR_A_rep_i_1__1_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \SAFETY_CKT_GEN.RSTA_BUSY_WITH_REG.RSTA_BUSY_i_1 
+       (.I0(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ),
+        .I1(rsta),
+        .I2(ENA_dly_reg),
+        .I3(ENA_dly_reg_D),
+        .O(ram_rstreg_a_busy));
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[0] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(1'b1),
+        .Q(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[0] ),
+        .R(1'b0));
+  (* srl_bus_name = "U0/\inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[48].ram.r/SAFETY_CKT_GEN.RSTA_SHFT_REG_reg " *) 
+  (* srl_name = "U0/\inst_blk_mem_gen/gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen/valid.cstr/ramloop[48].ram.r/SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[3]_srl3 " *) 
+  SRL16E #(
+    .INIT(16'h0000)) 
+    \SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[3]_srl3 
+       (.A0(1'b0),
+        .A1(1'b1),
+        .A2(1'b0),
+        .A3(1'b0),
+        .CE(1'b1),
+        .CLK(clka),
+        .D(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[0] ),
+        .Q(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[3]_srl3_n_0 ));
+  FDRE #(
+    .INIT(1'b0)) 
+    \SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[4] 
+       (.C(clka),
+        .CE(1'b1),
+        .D(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg[3]_srl3_n_0 ),
+        .Q(\SAFETY_CKT_GEN.RSTA_SHFT_REG_reg_n_0_[4] ),
+        .R(1'b0));
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized47 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram ),
+        .\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_3 ),
+        .\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_4 ),
+        .ENA_I(ENA_I),
+        .ENA_I_0(ENA_I_0),
+        .ENA_I_1(ENA_I_1),
+        .ENA_I_10(ENA_I_10),
+        .ENA_I_11(ENA_I_11),
+        .ENA_I_12(ENA_I_12),
+        .ENA_I_13(ENA_I_13),
+        .ENA_I_14(ENA_I_14),
+        .ENA_I_2(ENA_I_2),
+        .ENA_I_3(ENA_I_3),
+        .ENA_I_4(ENA_I_4),
+        .ENA_I_5(ENA_I_5),
+        .ENA_I_6(ENA_I_6),
+        .ENA_I_7(ENA_I_7),
+        .ENA_I_8(ENA_I_8),
+        .ENA_I_9(ENA_I_9),
+        .ENA_dly_reg_D(ENA_dly_reg_D),
+        .\SAFETY_CKT_GEN.POR_A_reg (POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__0 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep__1 (\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
         .ena(ena),
+        .ram_rstreg_a(ram_rstreg_a),
+        .rsta(rsta),
         .wea(wea));
 endmodule
 
@@ -5090,21 +5856,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized48
    (\douta[31] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5112,8 +5884,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized48
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized48 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5125,21 +5899,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized49
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5147,8 +5927,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized49
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized49 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5160,21 +5942,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized5
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -5182,8 +5970,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized5
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -5195,21 +5985,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized50
    (\douta[31] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5217,8 +6013,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized50
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized50 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5230,21 +6028,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized51
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5252,8 +6056,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized51
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized51 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5265,21 +6071,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized52
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5287,8 +6099,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized52
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized52 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5300,21 +6114,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized53
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5322,8 +6142,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized53
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized53 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5335,21 +6157,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized54
    (\douta[31] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5357,8 +6185,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized54
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized54 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5370,21 +6200,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized55
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5392,8 +6228,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized55
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized55 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5405,21 +6243,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized56
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5427,8 +6271,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized56
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized56 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5440,21 +6286,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized57
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5462,8 +6314,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized57
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized57 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5475,21 +6329,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized58
    (\douta[31] ,
     clka,
-    \addra[16] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[16] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[16] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5497,8 +6357,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized58
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized58 \prim_init.ram 
-       (.addra(addra),
-        .\addra[16] (\addra[16] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5510,21 +6372,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized59
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5532,8 +6400,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized59
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized59 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5545,21 +6415,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized6
    (\douta[7] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -5567,8 +6443,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized6
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6 \prim_init.ram 
-       (.addra(addra),
-        .\addra[17] (\addra[17] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -5580,21 +6458,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized60
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5602,8 +6486,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized60
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized60 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5615,21 +6501,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized61
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -5637,8 +6529,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized61
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized61 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
@@ -5649,35 +6543,43 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_width" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized62
    (\douta[31] ,
-    ram_ena,
     clka,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
-  output ram_ena;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire [15:0]addra;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
   wire ena;
-  wire ram_ena;
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized62 \prim_init.ram 
-       (.addra(addra),
+       (.ENA_I(ENA_I),
+        .POR_A(POR_A),
+        .\SAFETY_CKT_GEN.POR_A_reg (\SAFETY_CKT_GEN.POR_A_reg ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[31] (\douta[31] ),
         .ena(ena),
-        .ram_ena(ram_ena),
         .wea(wea));
 endmodule
 
@@ -5685,21 +6587,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized7
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -5707,8 +6615,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized7
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized7 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -5720,21 +6630,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized8
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -5742,8 +6658,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized8
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized8 \prim_init.ram 
-       (.addra(addra),
-        .\addra[15] (\addra[15] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -5755,21 +6673,27 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized9
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -5777,8 +6701,10 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized9
   wire [0:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized9 \prim_init.ram 
-       (.addra(addra),
-        .\addra[14] (\addra[14] ),
+       (.ENA_I(ENA_I),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep (\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .\SAFETY_CKT_GEN.POR_A_reg_rep_0 (\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .addra(addra),
         .clka(clka),
         .dina(dina),
         .\douta[7] (\douta[7] ),
@@ -5786,25 +6712,32 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_width__parameterized9
         .wea(wea));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init
    (\douta[7] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -6018,17 +6951,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -6038,22 +6971,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0
    (\douta[7] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -6267,17 +7206,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized0
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -6287,22 +7226,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -6516,17 +7461,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -6536,22 +7481,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized10
    (\douta[7] ,
     clka,
-    \addra[16] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[16] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[16] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -6765,17 +7716,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[16] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -6785,22 +7736,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized11
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -7014,17 +7971,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -7034,22 +7991,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized12
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -7263,17 +8226,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -7283,22 +8246,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized13
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -7512,17 +8481,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -7532,26 +8501,32 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized14
    (\douta[7] ,
     clka,
-    ram_ena,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input ram_ena;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
   wire ena;
-  wire ram_ena;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -7761,17 +8736,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ram_ena),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -7781,22 +8756,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized15
    (\douta[15] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -8010,17 +8991,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -8030,22 +9011,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized16
    (\douta[15] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -8259,17 +9246,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -8279,22 +9266,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized17
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -8508,17 +9501,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -8528,22 +9521,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized18
    (\douta[15] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -8757,17 +9756,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -8777,22 +9776,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized19
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -9006,17 +10011,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized1
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -9026,23 +10031,29 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
    (DOADO,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]DOADO;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
   wire [7:0]DOADO;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire ena;
@@ -9255,17 +10266,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -9275,22 +10286,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized20
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -9504,17 +10521,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -9524,22 +10541,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized21
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -9753,17 +10776,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -9773,22 +10796,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized22
    (\douta[15] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -10002,17 +11031,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -10022,22 +11051,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized23
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -10251,17 +11286,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -10271,22 +11306,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized24
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -10500,17 +11541,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -10520,22 +11561,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized25
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -10749,17 +11796,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -10769,22 +11816,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized26
    (\douta[15] ,
     clka,
-    \addra[16] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[16] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[16] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -10998,17 +12051,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[16] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -11018,22 +12071,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized27
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -11247,17 +12306,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -11267,22 +12326,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized28
    (\douta[15] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -11496,17 +12561,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -11516,22 +12581,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized29
    (\douta[15] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
@@ -11745,17 +12816,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized2
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -11765,22 +12836,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -11994,17 +13071,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -12014,26 +13091,32 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized30
    (\douta[15] ,
     clka,
-    ram_ena,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[15] ;
   input clka;
-  input ram_ena;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ;
   wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[15] ;
   wire ena;
-  wire ram_ena;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -12243,17 +13326,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ram_ena),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep__0_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -12262,27 +13345,33 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized31
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -12474,7 +13563,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -12492,55 +13581,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00000010)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1 
-       (.I0(addra[13]),
-        .I1(addra[14]),
-        .I2(ena),
-        .I3(addra[12]),
-        .I4(addra[15]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized32
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -12732,7 +13818,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -12750,55 +13836,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00001000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__0 
-       (.I0(addra[13]),
-        .I1(addra[14]),
-        .I2(addra[12]),
-        .I3(ena),
-        .I4(addra[15]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized33
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -12990,7 +14073,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -13008,55 +14091,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00000040)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__1 
-       (.I0(addra[14]),
-        .I1(addra[13]),
-        .I2(ena),
-        .I3(addra[15]),
-        .I4(addra[12]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized34
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -13248,7 +14328,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -13266,55 +14346,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00002000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__2 
-       (.I0(ena),
-        .I1(addra[14]),
-        .I2(addra[13]),
-        .I3(addra[12]),
-        .I4(addra[15]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized35
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -13506,7 +14583,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -13524,55 +14601,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00000040)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__3 
-       (.I0(addra[13]),
-        .I1(addra[14]),
-        .I2(ena),
-        .I3(addra[15]),
-        .I4(addra[12]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized36
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -13764,7 +14838,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -13782,55 +14856,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00000080)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__4 
-       (.I0(ena),
-        .I1(addra[14]),
-        .I2(addra[12]),
-        .I3(addra[15]),
-        .I4(addra[13]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized37
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -14022,7 +15093,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -14040,55 +15111,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00000080)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__5 
-       (.I0(ena),
-        .I1(addra[14]),
-        .I2(addra[13]),
-        .I3(addra[15]),
-        .I4(addra[12]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized38
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -14280,7 +15348,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -14298,55 +15366,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00008000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__6 
-       (.I0(addra[13]),
-        .I1(ena),
-        .I2(addra[14]),
-        .I3(addra[12]),
-        .I4(addra[15]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized39
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -14538,7 +15603,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -14556,51 +15621,48 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized3
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00001000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__7 
-       (.I0(addra[13]),
-        .I1(addra[14]),
-        .I2(ena),
-        .I3(addra[15]),
-        .I4(addra[12]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -14814,17 +15876,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -14833,27 +15895,33 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized40
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -15045,7 +16113,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -15063,55 +16131,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00002000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__8 
-       (.I0(addra[15]),
-        .I1(addra[14]),
-        .I2(ena),
-        .I3(addra[12]),
-        .I4(addra[13]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized41
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -15303,7 +16368,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -15321,55 +16386,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00002000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__9 
-       (.I0(addra[15]),
-        .I1(addra[14]),
-        .I2(ena),
-        .I3(addra[13]),
-        .I4(addra[12]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized42
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -15561,7 +16623,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -15579,55 +16641,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00008000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__10 
-       (.I0(addra[13]),
-        .I1(addra[15]),
-        .I2(ena),
-        .I3(addra[12]),
-        .I4(addra[14]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized43
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -15819,7 +16878,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -15837,55 +16896,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00002000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__11 
-       (.I0(addra[15]),
-        .I1(addra[12]),
-        .I2(ena),
-        .I3(addra[14]),
-        .I4(addra[13]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized44
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -16077,7 +17133,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -16095,55 +17151,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00008000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__12 
-       (.I0(addra[14]),
-        .I1(addra[15]),
-        .I2(ena),
-        .I3(addra[12]),
-        .I4(addra[13]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized45
    (\douta[23] ,
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
     clka,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
-  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
-  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -16335,7 +17388,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -16353,55 +17406,52 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h00008000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__13 
-       (.I0(addra[13]),
-        .I1(addra[15]),
-        .I2(ena),
-        .I3(addra[14]),
-        .I4(addra[12]),
-        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized46
    (\douta[23] ,
     clka,
-    ram_ena,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    ram_rstreg_a,
     addra,
     dina,
     wea);
   output [7:0]\douta[23] ;
   input clka;
-  input ram_ena;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input ram_rstreg_a;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
   wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[23] ;
   wire ena;
-  wire ram_ena;
+  wire ram_rstreg_a;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -16611,17 +17661,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ram_ena),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .RSTREGARSTREG(ram_rstreg_a),
+        .RSTREGB(ram_rstreg_a),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -16630,27 +17680,102 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized47
    (\douta[31] ,
+    ENA_I,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ,
+    ENA_I_0,
+    ENA_I_1,
+    ENA_I_2,
+    ENA_I_3,
+    ENA_I_4,
+    ENA_I_5,
+    ENA_I_6,
+    ENA_I_7,
+    ENA_I_8,
+    ENA_I_9,
+    ENA_I_10,
+    ENA_I_11,
+    ENA_I_12,
+    ENA_I_13,
+    ENA_I_14,
+    ram_rstreg_a,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ,
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ,
     clka,
-    \addra[17] ,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
-    wea);
+    wea,
+    ENA_dly_reg_D,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__1 ,
+    rsta,
+    \SAFETY_CKT_GEN.POR_A_reg_rep__0 ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep );
   output [7:0]\douta[31] ;
+  output ENA_I;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
+  output ENA_I_0;
+  output ENA_I_1;
+  output ENA_I_2;
+  output ENA_I_3;
+  output ENA_I_4;
+  output ENA_I_5;
+  output ENA_I_6;
+  output ENA_I_7;
+  output ENA_I_8;
+  output ENA_I_9;
+  output ENA_I_10;
+  output ENA_I_11;
+  output ENA_I_12;
+  output ENA_I_13;
+  output ENA_I_14;
+  output ram_rstreg_a;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
+  output \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
   input clka;
-  input \addra[17] ;
   input ena;
-  input [11:0]addra;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
+  input [15:0]addra;
   input [7:0]dina;
   input [0:0]wea;
+  input ENA_dly_reg_D;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  input rsta;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
 
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ;
+  wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ;
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [11:0]addra;
-  wire \addra[17] ;
+  wire ENA_I;
+  wire ENA_I_0;
+  wire ENA_I_1;
+  wire ENA_I_10;
+  wire ENA_I_11;
+  wire ENA_I_12;
+  wire ENA_I_13;
+  wire ENA_I_14;
+  wire ENA_I_2;
+  wire ENA_I_3;
+  wire ENA_I_4;
+  wire ENA_I_5;
+  wire ENA_I_6;
+  wire ENA_I_7;
+  wire ENA_I_8;
+  wire ENA_I_9;
+  wire ENA_dly_reg_D;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__0 ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep__1 ;
+  wire [15:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
   wire ena;
+  wire ram_rstreg_a;
+  wire rsta;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -16842,7 +17967,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -16860,42 +17985,232 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGARSTREG(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
+        .RSTREGB(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00800000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_0));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00400000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__0 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_1));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00000080)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__1 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_2));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00004000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__10 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_10));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF20000000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__11 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_11));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF10000000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__12 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_12));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00002000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__13 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_13));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00001000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__14 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_14));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__15 
+       (.I0(\SAFETY_CKT_GEN.POR_A_reg_rep__1 ),
+        .I1(rsta),
+        .O(ram_rstreg_a));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__16 
+       (.I0(\SAFETY_CKT_GEN.POR_A_reg_rep__0 ),
+        .I1(rsta),
+        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_1 ));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__17 
+       (.I0(\SAFETY_CKT_GEN.POR_A_reg ),
+        .I1(rsta),
+        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_0 ));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00000040)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__2 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_3));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00200000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__3 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_4));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00100000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__4 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_5));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00000020)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__5 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_6));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00000010)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__6 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF80000000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__7 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_7));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF40000000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__8 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_8));
+  LUT6 #(
+    .INIT(64'hFFFFFFFF00008000)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__9 
+       (.I0(addra[12]),
+        .I1(addra[13]),
+        .I2(ena),
+        .I3(addra[14]),
+        .I4(addra[15]),
+        .I5(ENA_dly_reg_D),
+        .O(ENA_I_9));
+  LUT2 #(
+    .INIT(4'hE)) 
+    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_2 
+       (.I0(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .I1(rsta),
+        .O(\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_2 ));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized48
    (\douta[31] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -17109,17 +18424,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -17129,22 +18444,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized49
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -17358,17 +18679,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized4
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -17378,22 +18699,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -17607,17 +18934,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -17627,22 +18954,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized50
    (\douta[31] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -17856,17 +19189,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -17876,22 +19209,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized51
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -18105,17 +19444,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -18125,22 +19464,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized52
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -18354,17 +19699,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -18374,22 +19719,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized53
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -18603,17 +19954,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -18623,22 +19974,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized54
    (\douta[31] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -18852,17 +20209,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -18872,22 +20229,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized55
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -19101,17 +20464,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -19121,22 +20484,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized56
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -19350,17 +20719,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -19370,22 +20739,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized57
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -19599,17 +20974,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -19619,22 +20994,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized58
    (\douta[31] ,
     clka,
-    \addra[16] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[16] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[16] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -19848,17 +21229,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[16] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -19868,22 +21249,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized59
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -20097,17 +21484,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized5
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -20117,22 +21504,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6
    (\douta[7] ,
     clka,
-    \addra[17] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[17] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[17] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -20346,17 +21739,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[17] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -20366,22 +21759,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized60
    (\douta[31] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -20595,17 +21994,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -20615,22 +22014,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized61
    (\douta[31] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
@@ -20844,17 +22249,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -20863,27 +22268,33 @@ endmodule
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized62
    (\douta[31] ,
-    ram_ena,
     clka,
+    ENA_I,
     ena,
+    POR_A,
+    \SAFETY_CKT_GEN.POR_A_reg ,
     addra,
     dina,
     wea);
   output [7:0]\douta[31] ;
-  output ram_ena;
   input clka;
+  input ENA_I;
   input ena;
-  input [15:0]addra;
+  input POR_A;
+  input \SAFETY_CKT_GEN.POR_A_reg ;
+  input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
-  wire [15:0]addra;
+  wire ENA_I;
+  wire POR_A;
+  wire \SAFETY_CKT_GEN.POR_A_reg ;
+  wire [11:0]addra;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[31] ;
   wire ena;
-  wire ram_ena;
   wire [0:0]wea;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTA_UNCONNECTED ;
   wire \NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_CASCADEOUTB_UNCONNECTED ;
@@ -21075,7 +22486,7 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6
     .WRITE_WIDTH_A(9),
     .WRITE_WIDTH_B(9)) 
     \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram 
-       (.ADDRARDADDR({1'b1,addra[11:0],1'b1,1'b1,1'b1}),
+       (.ADDRARDADDR({1'b1,addra,1'b1,1'b1,1'b1}),
         .ADDRBWRADDR({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}),
         .CASCADEINA(1'b0),
         .CASCADEINB(1'b0),
@@ -21093,51 +22504,48 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized6
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(ram_ena),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(POR_A),
+        .RSTRAMB(POR_A),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
-  LUT5 #(
-    .INIT(32'h80000000)) 
-    \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_i_1__14 
-       (.I0(addra[13]),
-        .I1(addra[14]),
-        .I2(ena),
-        .I3(addra[12]),
-        .I4(addra[15]),
-        .O(ram_ena));
 endmodule
 
 (* ORIG_REF_NAME = "blk_mem_gen_prim_wrapper_init" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized7
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -21351,17 +22759,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized7
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -21371,22 +22779,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized8
    (\douta[7] ,
     clka,
-    \addra[15] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[15] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[15] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -21600,17 +23014,17 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized8
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[15] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
@@ -21620,22 +23034,28 @@ endmodule
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized9
    (\douta[7] ,
     clka,
-    \addra[14] ,
+    ENA_I,
     ena,
+    \SAFETY_CKT_GEN.POR_A_reg_rep ,
+    \SAFETY_CKT_GEN.POR_A_reg_rep_0 ,
     addra,
     dina,
     wea);
   output [7:0]\douta[7] ;
   input clka;
-  input \addra[14] ;
+  input ENA_I;
   input ena;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  input \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   input [11:0]addra;
   input [7:0]dina;
   input [0:0]wea;
 
   wire \DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 ;
+  wire ENA_I;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep ;
+  wire \SAFETY_CKT_GEN.POR_A_reg_rep_0 ;
   wire [11:0]addra;
-  wire \addra[14] ;
   wire clka;
   wire [7:0]dina;
   wire [7:0]\douta[7] ;
@@ -21849,31 +23269,36 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_prim_wrapper_init__parameterized9
         .DOPADOP({\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPADOP_UNCONNECTED [3:1],\DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_n_88 }),
         .DOPBDOP(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_DOPBDOP_UNCONNECTED [3:0]),
         .ECCPARITY(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_ECCPARITY_UNCONNECTED [7:0]),
-        .ENARDEN(\addra[14] ),
+        .ENARDEN(ENA_I),
         .ENBWREN(1'b0),
         .INJECTDBITERR(1'b0),
         .INJECTSBITERR(1'b0),
         .RDADDRECC(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_RDADDRECC_UNCONNECTED [8:0]),
         .REGCEAREGCE(ena),
         .REGCEB(1'b0),
-        .RSTRAMARSTRAM(1'b0),
-        .RSTRAMB(1'b0),
-        .RSTREGARSTREG(1'b0),
-        .RSTREGB(1'b0),
+        .RSTRAMARSTRAM(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTRAMB(\SAFETY_CKT_GEN.POR_A_reg_rep ),
+        .RSTREGARSTREG(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
+        .RSTREGB(\SAFETY_CKT_GEN.POR_A_reg_rep_0 ),
         .SBITERR(\NLW_DEVICE_7SERIES.WITH_BMM_INFO.SP.SIMPLE_PRIM36.ram_SBITERR_UNCONNECTED ),
         .WEA({wea,wea,wea,wea}),
         .WEBWE({1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0,1'b0}));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_top" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top
-   (douta,
+   (rsta_busy,
+    douta,
     clka,
+    rsta,
     ena,
     addra,
     dina,
     wea);
+  output rsta_busy;
   output [31:0]douta;
   input clka;
+  input rsta;
   input ena;
   input [15:0]addra;
   input [31:0]dina;
@@ -21884,6 +23309,8 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top
   wire [31:0]dina;
   wire [31:0]douta;
   wire ena;
+  wire rsta;
+  wire rsta_busy;
   wire [3:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_generic_cstr \valid.cstr 
@@ -21892,6 +23319,8 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top
         .dina(dina),
         .douta(douta),
         .ena(ena),
+        .rsta(rsta),
+        .rsta_busy(rsta_busy),
         .wea(wea));
 endmodule
 
@@ -21901,12 +23330,12 @@ endmodule
 (* C_COUNT_36K_BRAM = "64" *) (* C_CTRL_ECC_ALGO = "NONE" *) (* C_DEFAULT_DATA = "0" *) 
 (* C_DISABLE_WARN_BHV_COLL = "0" *) (* C_DISABLE_WARN_BHV_RANGE = "0" *) (* C_ELABORATION_DIR = "./" *) 
 (* C_ENABLE_32BIT_ADDRESS = "1" *) (* C_EN_DEEPSLEEP_PIN = "0" *) (* C_EN_ECC_PIPE = "0" *) 
-(* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "0" *) 
+(* C_EN_RDADDRA_CHG = "0" *) (* C_EN_RDADDRB_CHG = "0" *) (* C_EN_SAFETY_CKT = "1" *) 
 (* C_EN_SHUTDOWN_PIN = "0" *) (* C_EN_SLEEP_PIN = "0" *) (* C_EST_POWER_SUMMARY = "Estimated Power for IP     :     10.194002 mW" *) 
 (* C_FAMILY = "zynq" *) (* C_HAS_AXI_ID = "0" *) (* C_HAS_ENA = "1" *) 
 (* C_HAS_ENB = "0" *) (* C_HAS_INJECTERR = "0" *) (* C_HAS_MEM_OUTPUT_REGS_A = "1" *) 
 (* C_HAS_MEM_OUTPUT_REGS_B = "0" *) (* C_HAS_MUX_OUTPUT_REGS_A = "0" *) (* C_HAS_MUX_OUTPUT_REGS_B = "0" *) 
-(* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "0" *) 
+(* C_HAS_REGCEA = "0" *) (* C_HAS_REGCEB = "0" *) (* C_HAS_RSTA = "1" *) 
 (* C_HAS_RSTB = "0" *) (* C_HAS_SOFTECC_INPUT_REGS_A = "0" *) (* C_HAS_SOFTECC_OUTPUT_REGS_B = "0" *) 
 (* C_INITA_VAL = "0" *) (* C_INITB_VAL = "0" *) (* C_INIT_FILE = "NONE" *) 
 (* C_INIT_FILE_NAME = "PicoRV32_BD_blk_mem_gen_0_0.mif" *) (* C_INTERFACE_TYPE = "0" *) (* C_LOAD_INIT_FILE = "1" *) 
@@ -21915,11 +23344,11 @@ endmodule
 (* C_READ_WIDTH_B = "32" *) (* C_RSTRAM_A = "0" *) (* C_RSTRAM_B = "0" *) 
 (* C_RST_PRIORITY_A = "CE" *) (* C_RST_PRIORITY_B = "CE" *) (* C_SIM_COLLISION_CHECK = "ALL" *) 
 (* C_USE_BRAM_BLOCK = "0" *) (* C_USE_BYTE_WEA = "1" *) (* C_USE_BYTE_WEB = "1" *) 
-(* C_USE_DEFAULT_DATA = "1" *) (* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) 
+(* C_USE_DEFAULT_DATA = "0" *) (* C_USE_ECC = "0" *) (* C_USE_SOFTECC = "0" *) 
 (* C_USE_URAM = "0" *) (* C_WEA_WIDTH = "4" *) (* C_WEB_WIDTH = "4" *) 
 (* C_WRITE_DEPTH_A = "65536" *) (* C_WRITE_DEPTH_B = "65536" *) (* C_WRITE_MODE_A = "WRITE_FIRST" *) 
 (* C_WRITE_MODE_B = "WRITE_FIRST" *) (* C_WRITE_WIDTH_A = "32" *) (* C_WRITE_WIDTH_B = "32" *) 
-(* C_XDEVICEFAMILY = "zynq" *) (* downgradeipidentifiedwarnings = "yes" *) 
+(* C_XDEVICEFAMILY = "zynq" *) (* ORIG_REF_NAME = "blk_mem_gen_v8_4_1" *) (* downgradeipidentifiedwarnings = "yes" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1
    (clka,
     rsta,
@@ -22054,6 +23483,8 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1
   wire [31:0]dina;
   wire [31:0]douta;
   wire ena;
+  wire rsta;
+  wire rsta_busy;
   wire [3:0]wea;
 
   assign dbiterr = \<const0> ;
@@ -22121,7 +23552,6 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1
   assign rdaddrecc[2] = \<const0> ;
   assign rdaddrecc[1] = \<const0> ;
   assign rdaddrecc[0] = \<const0> ;
-  assign rsta_busy = \<const0> ;
   assign rstb_busy = \<const0> ;
   assign s_axi_arready = \<const0> ;
   assign s_axi_awready = \<const0> ;
@@ -22216,18 +23646,25 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1
         .dina(dina),
         .douta(douta),
         .ena(ena),
+        .rsta(rsta),
+        .rsta_busy(rsta_busy),
         .wea(wea));
 endmodule
 
+(* ORIG_REF_NAME = "blk_mem_gen_v8_4_1_synth" *) 
 module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1_synth
-   (douta,
+   (rsta_busy,
+    douta,
     clka,
+    rsta,
     ena,
     addra,
     dina,
     wea);
+  output rsta_busy;
   output [31:0]douta;
   input clka;
+  input rsta;
   input ena;
   input [15:0]addra;
   input [31:0]dina;
@@ -22238,6 +23675,8 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1_synth
   wire [31:0]dina;
   wire [31:0]douta;
   wire ena;
+  wire rsta;
+  wire rsta_busy;
   wire [3:0]wea;
 
   PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_top \gnbram.gnative_mem_map_bmg.native_mem_map_blk_mem_gen 
@@ -22246,6 +23685,8 @@ module PicoRV32_BD_blk_mem_gen_0_0_blk_mem_gen_v8_4_1_synth
         .dina(dina),
         .douta(douta),
         .ena(ena),
+        .rsta(rsta),
+        .rsta_busy(rsta_busy),
         .wea(wea));
 endmodule
 `ifndef GLBL

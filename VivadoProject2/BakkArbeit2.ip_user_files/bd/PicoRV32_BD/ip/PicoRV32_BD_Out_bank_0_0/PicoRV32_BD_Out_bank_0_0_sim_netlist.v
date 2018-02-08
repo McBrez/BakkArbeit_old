@@ -1,7 +1,7 @@
 // Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-// Date        : Wed Feb  7 18:28:34 2018
+// Date        : Thu Feb  8 18:23:44 2018
 // Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 // Command     : write_verilog -force -mode funcsim
 //               D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/PicoRV32_BD_Out_bank_0_0_sim_netlist.v
@@ -17,6 +17,7 @@
 module PicoRV32_BD_Out_bank_0_0
    (resetn,
     clk,
+    UARTclk,
     mem_valid,
     mem_rdata,
     mem_wdata,
@@ -27,7 +28,8 @@ module PicoRV32_BD_Out_bank_0_0
     mem_ready,
     trap);
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 resetn RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW" *) input resetn;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN PicoRV32_BD_processing_system7_0_0_FCLK_CLK0" *) input clk;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 clk CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN PicoRV32_BD_clk" *) input clk;
+  input UARTclk;
   input mem_valid;
   output [31:0]mem_rdata;
   input [31:0]mem_wdata;
@@ -39,6 +41,7 @@ module PicoRV32_BD_Out_bank_0_0
   output trap;
 
   wire UART_out;
+  wire UARTclk;
   wire bankSwitch;
   wire clk;
   wire [31:0]mem_rdata;
@@ -51,6 +54,7 @@ module PicoRV32_BD_Out_bank_0_0
 
   PicoRV32_BD_Out_bank_0_0_Out_bank inst
        (.UART_out(UART_out),
+        .UARTclk(UARTclk),
         .bankSwitch(bankSwitch),
         .clk(clk),
         .mem_rdata(mem_rdata),
@@ -72,6 +76,7 @@ module PicoRV32_BD_Out_bank_0_0_Out_bank
     mem_wstrb,
     bankSwitch,
     mem_valid,
+    UARTclk,
     clk,
     mem_wdata);
   output [31:0]out_registers;
@@ -82,10 +87,12 @@ module PicoRV32_BD_Out_bank_0_0_Out_bank
   input [3:0]mem_wstrb;
   input bankSwitch;
   input mem_valid;
+  input UARTclk;
   input clk;
   input [31:0]mem_wdata;
 
   wire UART_out;
+  wire UARTclk;
   wire bankSwitch;
   wire clk;
   wire last_mem_valid;
@@ -165,7 +172,7 @@ module PicoRV32_BD_Out_bank_0_0_Out_bank
         .I3(\module_state_reg_n_0_[0] ),
         .I4(\module_state_reg_n_0_[1] ),
         .O(\mem_rdata[31]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT4 #(
     .INIT(16'h0001)) 
     \mem_rdata[31]_i_3 
@@ -430,7 +437,7 @@ module PicoRV32_BD_Out_bank_0_0_Out_bank
         .D(out_registers[9]),
         .Q(mem_rdata[9]),
         .R(\mem_rdata[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT5 #(
     .INIT(32'h0001FFFF)) 
     mem_ready_i_3
@@ -454,7 +461,7 @@ module PicoRV32_BD_Out_bank_0_0_Out_bank
         .D(uart_n_5),
         .Q(mem_ready),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'h0F20)) 
     \module_state[0]_i_1 
@@ -463,7 +470,7 @@ module PicoRV32_BD_Out_bank_0_0_Out_bank
         .I2(uart_n_2),
         .I3(\module_state_reg_n_0_[0] ),
         .O(\module_state[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'h0FB0)) 
     \module_state[1]_i_1 
@@ -826,9 +833,9 @@ module PicoRV32_BD_Out_bank_0_0_Out_bank
        (.E(uart_n_3),
         .Q({\tx_reg_reg_n_0_[7] ,\tx_reg_reg_n_0_[6] ,\tx_reg_reg_n_0_[5] ,\tx_reg_reg_n_0_[4] ,\tx_reg_reg_n_0_[3] ,\tx_reg_reg_n_0_[2] ,\tx_reg_reg_n_0_[1] ,\tx_reg_reg_n_0_[0] }),
         .UART_out(UART_out),
+        .UARTclk(UARTclk),
         .bankSwitch(bankSwitch),
         .bankSwitch_0(mem_ready_i_3_n_0),
-        .clk(clk),
         .last_mem_valid(last_mem_valid),
         .last_mem_valid_reg(mem_ready_i_4_n_0),
         .last_tx_busy(last_tx_busy),
@@ -857,7 +864,8 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
     tx_send_reg,
     mem_ready_reg,
     trap_reg,
-    clk,
+    tx_send_reg_0,
+    UARTclk,
     mem_wstrb,
     bankSwitch,
     last_tx_busy,
@@ -867,7 +875,6 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
     mem_wstrb_1_sp_1,
     mem_valid,
     last_mem_valid,
-    tx_send_reg_0,
     bankSwitch_0,
     mem_ready,
     \module_state_reg[1]_0 ,
@@ -880,7 +887,8 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   output tx_send_reg;
   output mem_ready_reg;
   output trap_reg;
-  input clk;
+  input tx_send_reg_0;
+  input UARTclk;
   input [3:0]mem_wstrb;
   input bankSwitch;
   input last_tx_busy;
@@ -890,7 +898,6 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   input mem_wstrb_1_sp_1;
   input mem_valid;
   input last_mem_valid;
-  input tx_send_reg_0;
   input bankSwitch_0;
   input mem_ready;
   input \module_state_reg[1]_0 ;
@@ -948,15 +955,14 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   wire UART_out_i_1_n_0;
   wire UART_out_i_2_n_0;
   wire UART_out_i_3_n_0;
-  wire UART_out_i_4_n_0;
-  wire UART_out_i_5_n_0;
+  wire UARTclk;
   wire bankSwitch;
   wire bankSwitch_0;
-  wire clk;
   wire [31:1]data0;
   wire last_mem_valid;
   wire last_mem_valid_reg;
   wire last_tx_busy;
+  wire last_tx_send;
   wire mem_ready;
   wire mem_ready_i_2_n_0;
   wire mem_ready_reg;
@@ -968,9 +974,15 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   wire \module_state_reg[0]_0 ;
   wire \module_state_reg[1] ;
   wire \module_state_reg[1]_0 ;
-  wire [1:0]state;
   wire \state[0]_i_1_n_0 ;
+  wire \state[0]_i_2_n_0 ;
+  wire \state[0]_i_3_n_0 ;
+  wire \state[0]_i_4_n_0 ;
+  wire \state[0]_i_5_n_0 ;
+  wire \state[0]_i_6_n_0 ;
   wire \state[1]_i_1_n_0 ;
+  wire \state_reg_n_0_[0] ;
+  wire \state_reg_n_0_[1] ;
   wire trap;
   wire trap_reg;
   wire tx_busy;
@@ -982,110 +994,110 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   wire [3:3]\NLW_UART_index_reg[31]_i_3_O_UNCONNECTED ;
 
   assign mem_wstrb_1_sn_1 = mem_wstrb_1_sp_1;
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT3 #(
-    .INIT(8'hB4)) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT1 #(
+    .INIT(2'h1)) 
     \UART_index[0]_i_1 
-       (.I0(state[0]),
-        .I1(state[1]),
-        .I2(\UART_index_reg_n_0_[0] ),
+       (.I0(\UART_index_reg_n_0_[0] ),
         .O(\UART_index[0]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'h00000004)) 
+  LUT6 #(
+    .INIT(64'h0000000000000004)) 
     \UART_index[31]_i_1 
-       (.I0(state[0]),
-        .I1(state[1]),
+       (.I0(\state_reg_n_0_[0] ),
+        .I1(\state_reg_n_0_[1] ),
         .I2(\UART_index[31]_i_4_n_0 ),
         .I3(\UART_index[31]_i_5_n_0 ),
         .I4(\UART_index[31]_i_6_n_0 ),
+        .I5(\UART_index[31]_i_7_n_0 ),
         .O(\UART_index[31]_i_1_n_0 ));
-  LUT5 #(
-    .INIT(32'hEFFFFFFF)) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
     \UART_index[31]_i_10 
-       (.I0(UART_index[5]),
-        .I1(UART_index[4]),
-        .I2(\UART_index_reg_n_0_[0] ),
-        .I3(\UART_index_reg_n_0_[1] ),
-        .I4(\UART_index_reg_n_0_[2] ),
+       (.I0(UART_index[26]),
+        .I1(UART_index[27]),
+        .I2(UART_index[24]),
+        .I3(UART_index[25]),
         .O(\UART_index[31]_i_10_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \UART_index[31]_i_11 
-       (.I0(UART_index[15]),
-        .I1(UART_index[14]),
-        .I2(UART_index[17]),
-        .I3(UART_index[16]),
+       (.I0(UART_index[18]),
+        .I1(UART_index[19]),
+        .I2(UART_index[16]),
+        .I3(UART_index[17]),
         .O(\UART_index[31]_i_11_n_0 ));
   LUT2 #(
     .INIT(4'h2)) 
     \UART_index[31]_i_2 
-       (.I0(state[1]),
-        .I1(state[0]),
+       (.I0(\state_reg_n_0_[1] ),
+        .I1(\state_reg_n_0_[0] ),
         .O(\UART_index[31]_i_2_n_0 ));
-  LUT6 #(
-    .INIT(64'hFFFFFFFFFFFFFFFE)) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
     \UART_index[31]_i_4 
-       (.I0(\UART_index[31]_i_7_n_0 ),
-        .I1(\UART_index[31]_i_8_n_0 ),
-        .I2(UART_index[31]),
-        .I3(UART_index[30]),
-        .I4(UART_index[3]),
-        .I5(\UART_index[31]_i_9_n_0 ),
+       (.I0(UART_index[13]),
+        .I1(UART_index[12]),
+        .I2(UART_index[15]),
+        .I3(UART_index[14]),
+        .I4(\UART_index[31]_i_8_n_0 ),
         .O(\UART_index[31]_i_4_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
     \UART_index[31]_i_5 
-       (.I0(\UART_index[31]_i_10_n_0 ),
-        .I1(UART_index[8]),
-        .I2(UART_index[9]),
-        .I3(UART_index[6]),
-        .I4(UART_index[7]),
+       (.I0(\UART_index[31]_i_9_n_0 ),
+        .I1(UART_index[29]),
+        .I2(UART_index[31]),
+        .I3(UART_index[3]),
+        .I4(UART_index[28]),
         .O(\UART_index[31]_i_5_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  LUT5 #(
+    .INIT(32'hFFFFBFFF)) 
+    \UART_index[31]_i_6 
+       (.I0(UART_index[30]),
+        .I1(\UART_index_reg_n_0_[1] ),
+        .I2(\UART_index_reg_n_0_[2] ),
+        .I3(\UART_index_reg_n_0_[0] ),
+        .I4(\UART_index[31]_i_10_n_0 ),
+        .O(\UART_index[31]_i_6_n_0 ));
   LUT5 #(
     .INIT(32'hFFFFFFFE)) 
-    \UART_index[31]_i_6 
-       (.I0(UART_index[12]),
-        .I1(UART_index[13]),
-        .I2(UART_index[10]),
-        .I3(UART_index[11]),
-        .I4(\UART_index[31]_i_11_n_0 ),
-        .O(\UART_index[31]_i_6_n_0 ));
-  LUT4 #(
-    .INIT(16'hFFFE)) 
     \UART_index[31]_i_7 
-       (.I0(UART_index[23]),
-        .I1(UART_index[22]),
-        .I2(UART_index[25]),
-        .I3(UART_index[24]),
+       (.I0(UART_index[21]),
+        .I1(UART_index[20]),
+        .I2(UART_index[23]),
+        .I3(UART_index[22]),
+        .I4(\UART_index[31]_i_11_n_0 ),
         .O(\UART_index[31]_i_7_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \UART_index[31]_i_8 
-       (.I0(UART_index[19]),
-        .I1(UART_index[18]),
-        .I2(UART_index[21]),
-        .I3(UART_index[20]),
+       (.I0(UART_index[10]),
+        .I1(UART_index[11]),
+        .I2(UART_index[8]),
+        .I3(UART_index[9]),
         .O(\UART_index[31]_i_8_n_0 ));
   LUT4 #(
     .INIT(16'hFFFE)) 
     \UART_index[31]_i_9 
-       (.I0(UART_index[27]),
-        .I1(UART_index[26]),
-        .I2(UART_index[29]),
-        .I3(UART_index[28]),
+       (.I0(UART_index[6]),
+        .I1(UART_index[7]),
+        .I2(UART_index[4]),
+        .I3(UART_index[5]),
         .O(\UART_index[31]_i_9_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[0] 
-       (.C(clk),
-        .CE(1'b1),
+       (.C(UARTclk),
+        .CE(\UART_index[31]_i_2_n_0 ),
         .D(\UART_index[0]_i_1_n_0 ),
         .Q(\UART_index_reg_n_0_[0] ),
-        .R(1'b0));
+        .R(\UART_index[31]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[10] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[10]),
         .Q(UART_index[10]),
@@ -1093,7 +1105,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[11] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[11]),
         .Q(UART_index[11]),
@@ -1101,7 +1113,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[12] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[12]),
         .Q(UART_index[12]),
@@ -1116,7 +1128,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[13] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[13]),
         .Q(UART_index[13]),
@@ -1124,7 +1136,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[14] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[14]),
         .Q(UART_index[14]),
@@ -1132,7 +1144,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[15] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[15]),
         .Q(UART_index[15]),
@@ -1140,7 +1152,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[16] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[16]),
         .Q(UART_index[16]),
@@ -1155,7 +1167,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[17] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[17]),
         .Q(UART_index[17]),
@@ -1163,7 +1175,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[18] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[18]),
         .Q(UART_index[18]),
@@ -1171,7 +1183,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[19] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[19]),
         .Q(UART_index[19]),
@@ -1179,7 +1191,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[1] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[1]),
         .Q(\UART_index_reg_n_0_[1] ),
@@ -1187,7 +1199,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[20] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[20]),
         .Q(UART_index[20]),
@@ -1202,7 +1214,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[21] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[21]),
         .Q(UART_index[21]),
@@ -1210,7 +1222,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[22] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[22]),
         .Q(UART_index[22]),
@@ -1218,7 +1230,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[23] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[23]),
         .Q(UART_index[23]),
@@ -1226,7 +1238,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[24] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[24]),
         .Q(UART_index[24]),
@@ -1241,7 +1253,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[25] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[25]),
         .Q(UART_index[25]),
@@ -1249,7 +1261,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[26] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[26]),
         .Q(UART_index[26]),
@@ -1257,7 +1269,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[27] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[27]),
         .Q(UART_index[27]),
@@ -1265,7 +1277,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[28] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[28]),
         .Q(UART_index[28]),
@@ -1280,7 +1292,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[29] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[29]),
         .Q(UART_index[29]),
@@ -1288,7 +1300,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[2] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[2]),
         .Q(\UART_index_reg_n_0_[2] ),
@@ -1296,7 +1308,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[30] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[30]),
         .Q(UART_index[30]),
@@ -1304,7 +1316,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[31] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[31]),
         .Q(UART_index[31]),
@@ -1319,7 +1331,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[3] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[3]),
         .Q(UART_index[3]),
@@ -1327,7 +1339,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[4] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[4]),
         .Q(UART_index[4]),
@@ -1342,7 +1354,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[5] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[5]),
         .Q(UART_index[5]),
@@ -1350,7 +1362,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[6] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[6]),
         .Q(UART_index[6]),
@@ -1358,7 +1370,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[7] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[7]),
         .Q(UART_index[7]),
@@ -1366,7 +1378,7 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[8] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[8]),
         .Q(UART_index[8]),
@@ -1381,67 +1393,56 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
   FDRE #(
     .INIT(1'b0)) 
     \UART_index_reg[9] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(\UART_index[31]_i_2_n_0 ),
         .D(data0[9]),
         .Q(UART_index[9]),
         .R(\UART_index[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
-  LUT4 #(
-    .INIT(16'hABA8)) 
+  LUT6 #(
+    .INIT(64'hFFB800FFFFB80000)) 
     UART_out_i_1
        (.I0(UART_out_i_2_n_0),
-        .I1(state[0]),
-        .I2(state[1]),
-        .I3(UART_out),
+        .I1(\UART_index_reg_n_0_[2] ),
+        .I2(UART_out_i_3_n_0),
+        .I3(\state_reg_n_0_[0] ),
+        .I4(\state_reg_n_0_[1] ),
+        .I5(UART_out),
         .O(UART_out_i_1_n_0));
   LUT6 #(
-    .INIT(64'hFFFFFFFFEAEAFAEA)) 
+    .INIT(64'hAFA0CFCFAFA0C0C0)) 
     UART_out_i_2
-       (.I0(UART_out_i_3_n_0),
-        .I1(state[0]),
-        .I2(state[1]),
-        .I3(UART_out_i_4_n_0),
-        .I4(\UART_index_reg_n_0_[1] ),
-        .I5(UART_out_i_5_n_0),
+       (.I0(Q[7]),
+        .I1(Q[6]),
+        .I2(\UART_index_reg_n_0_[1] ),
+        .I3(Q[5]),
+        .I4(\UART_index_reg_n_0_[0] ),
+        .I5(Q[4]),
         .O(UART_out_i_2_n_0));
   LUT6 #(
-    .INIT(64'h80C0800000000000)) 
-    UART_out_i_3
-       (.I0(Q[7]),
-        .I1(\UART_index_reg_n_0_[1] ),
-        .I2(\UART_index_reg_n_0_[2] ),
-        .I3(\UART_index_reg_n_0_[0] ),
-        .I4(Q[6]),
-        .I5(state[1]),
-        .O(UART_out_i_3_n_0));
-  LUT6 #(
     .INIT(64'hAFA0CFCFAFA0C0C0)) 
-    UART_out_i_4
-       (.I0(Q[5]),
-        .I1(Q[1]),
-        .I2(\UART_index_reg_n_0_[0] ),
-        .I3(Q[4]),
-        .I4(\UART_index_reg_n_0_[2] ),
-        .I5(Q[0]),
-        .O(UART_out_i_4_n_0));
-  LUT6 #(
-    .INIT(64'h0808080000000800)) 
-    UART_out_i_5
-       (.I0(state[1]),
-        .I1(\UART_index_reg_n_0_[1] ),
-        .I2(\UART_index_reg_n_0_[2] ),
-        .I3(Q[2]),
+    UART_out_i_3
+       (.I0(Q[3]),
+        .I1(Q[2]),
+        .I2(\UART_index_reg_n_0_[1] ),
+        .I3(Q[1]),
         .I4(\UART_index_reg_n_0_[0] ),
-        .I5(Q[3]),
-        .O(UART_out_i_5_n_0));
+        .I5(Q[0]),
+        .O(UART_out_i_3_n_0));
   FDRE #(
     .INIT(1'b1)) 
     UART_out_reg
-       (.C(clk),
+       (.C(UARTclk),
         .CE(1'b1),
         .D(UART_out_i_1_n_0),
         .Q(UART_out),
+        .R(1'b0));
+  FDRE #(
+    .INIT(1'b0)) 
+    last_tx_send_reg
+       (.C(UARTclk),
+        .CE(1'b1),
+        .D(tx_send_reg_0),
+        .Q(last_tx_send),
         .R(1'b0));
   LUT6 #(
     .INIT(64'hCFCFCFCF0B080808)) 
@@ -1480,37 +1481,77 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
         .I5(bankSwitch),
         .O(\module_state[1]_i_3_n_0 ));
   LUT6 #(
-    .INIT(64'h0000000055570002)) 
+    .INIT(64'h0000000001FF0100)) 
     \state[0]_i_1 
-       (.I0(state[1]),
-        .I1(\UART_index[31]_i_4_n_0 ),
-        .I2(\UART_index[31]_i_5_n_0 ),
-        .I3(\UART_index[31]_i_6_n_0 ),
-        .I4(tx_send_reg_0),
-        .I5(state[0]),
+       (.I0(\UART_index[31]_i_7_n_0 ),
+        .I1(\state[0]_i_2_n_0 ),
+        .I2(\state[0]_i_3_n_0 ),
+        .I3(\state_reg_n_0_[1] ),
+        .I4(\state[0]_i_4_n_0 ),
+        .I5(\state_reg_n_0_[0] ),
         .O(\state[0]_i_1_n_0 ));
+  LUT5 #(
+    .INIT(32'hFFFFFFFE)) 
+    \state[0]_i_2 
+       (.I0(UART_index[29]),
+        .I1(UART_index[28]),
+        .I2(UART_index[30]),
+        .I3(UART_index[31]),
+        .I4(\UART_index[31]_i_10_n_0 ),
+        .O(\state[0]_i_2_n_0 ));
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \state[0]_i_3 
+       (.I0(\UART_index[31]_i_8_n_0 ),
+        .I1(\state[0]_i_5_n_0 ),
+        .I2(\state[0]_i_6_n_0 ),
+        .I3(\UART_index[31]_i_9_n_0 ),
+        .O(\state[0]_i_3_n_0 ));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \state[0]_i_4 
+       (.I0(tx_send_reg_0),
+        .I1(last_tx_send),
+        .O(\state[0]_i_4_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT4 #(
+    .INIT(16'hFFFE)) 
+    \state[0]_i_5 
+       (.I0(UART_index[14]),
+        .I1(UART_index[15]),
+        .I2(UART_index[12]),
+        .I3(UART_index[13]),
+        .O(\state[0]_i_5_n_0 ));
+  LUT4 #(
+    .INIT(16'hDFFF)) 
+    \state[0]_i_6 
+       (.I0(\UART_index_reg_n_0_[2] ),
+        .I1(UART_index[3]),
+        .I2(\UART_index_reg_n_0_[0] ),
+        .I3(\UART_index_reg_n_0_[1] ),
+        .O(\state[0]_i_6_n_0 ));
   LUT2 #(
     .INIT(4'h6)) 
     \state[1]_i_1 
-       (.I0(state[0]),
-        .I1(state[1]),
+       (.I0(\state_reg_n_0_[0] ),
+        .I1(\state_reg_n_0_[1] ),
         .O(\state[1]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
     \state_reg[0] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(1'b1),
         .D(\state[0]_i_1_n_0 ),
-        .Q(state[0]),
+        .Q(\state_reg_n_0_[0] ),
         .R(1'b0));
   FDRE #(
     .INIT(1'b0)) 
     \state_reg[1] 
-       (.C(clk),
+       (.C(UARTclk),
         .CE(1'b1),
         .D(\state[1]_i_1_n_0 ),
-        .Q(state[1]),
+        .Q(\state_reg_n_0_[1] ),
         .R(1'b0));
   LUT6 #(
     .INIT(64'hFFFFFFFF40000000)) 
@@ -1522,19 +1563,20 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
         .I4(\module_state_reg[1]_0 ),
         .I5(trap),
         .O(trap_reg));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
-  LUT4 #(
-    .INIT(16'h5F04)) 
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  LUT5 #(
+    .INIT(32'h55FF0010)) 
     tx_busy_i_1
-       (.I0(state[0]),
-        .I1(tx_send_reg_0),
-        .I2(state[1]),
-        .I3(tx_busy),
+       (.I0(\state_reg_n_0_[0] ),
+        .I1(last_tx_send),
+        .I2(tx_send_reg_0),
+        .I3(\state_reg_n_0_[1] ),
+        .I4(tx_busy),
         .O(tx_busy_i_1_n_0));
   FDRE #(
     .INIT(1'b0)) 
     tx_busy_reg
-       (.C(clk),
+       (.C(UARTclk),
         .CE(1'b1),
         .D(tx_busy_i_1_n_0),
         .Q(tx_busy),
@@ -1550,12 +1592,12 @@ module PicoRV32_BD_Out_bank_0_0_UART_block
         .I5(\module_state_reg[1] ),
         .O(E));
   LUT5 #(
-    .INIT(32'hF00B0008)) 
+    .INIT(32'hCCEF0020)) 
     tx_send_i_1
        (.I0(bankSwitch),
-        .I1(tx_reg),
-        .I2(\module_state_reg[1] ),
-        .I3(\module_state_reg[0]_0 ),
+        .I1(\module_state_reg[0]_0 ),
+        .I2(tx_reg),
+        .I3(\module_state_reg[1] ),
         .I4(tx_send_reg_0),
         .O(tx_send_reg));
   LUT5 #(

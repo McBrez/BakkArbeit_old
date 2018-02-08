@@ -2,10 +2,10 @@
 <Root MajorVersion="0" MinorVersion="33">
   <CompositeFile CompositeFileTopName="PicoRV32_BD" CanBeSetAsTop="false" CanDisplayChildGraph="true">
     <Description>Composite Fileset</Description>
-    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1518025777"/>
-    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1518025777"/>
-    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1518025777"/>
-    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1518025777"/>
+    <Generation Name="SYNTHESIS" State="GENERATED" Timestamp="1518111310"/>
+    <Generation Name="IMPLEMENTATION" State="GENERATED" Timestamp="1518111310"/>
+    <Generation Name="SIMULATION" State="GENERATED" Timestamp="1518111310"/>
+    <Generation Name="HW_HANDOFF" State="GENERATED" Timestamp="1518111310"/>
     <FileCollection Name="SOURCES" Type="SOURCES">
       <File Name="ip\PicoRV32_BD_picorv32_0_0\PicoRV32_BD_picorv32_0_0.xci" Type="IP">
         <Instance HierarchyPath="picorv32_0"/>
@@ -55,6 +55,14 @@
         <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
+      <File Name="ip\PicoRV32_BD_Inverter_0_0\PicoRV32_BD_Inverter_0_0.xci" Type="IP">
+        <Instance HierarchyPath="Inverter_0"/>
+        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
+        <Library Name="xil_defaultlib"/>
+        <UsedIn Val="SYNTHESIS"/>
+        <UsedIn Val="IMPLEMENTATION"/>
+        <UsedIn Val="SIMULATION"/>
+      </File>
       <File Name="synth\PicoRV32_BD.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
@@ -64,14 +72,6 @@
       <File Name="sim\PicoRV32_BD.v" Type="Verilog">
         <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="false" IsStatusTracked="false"/>
         <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SIMULATION"/>
-      </File>
-      <File Name="ip\PicoRV32_BD_Inverter_0_0\PicoRV32_BD_Inverter_0_0.xci" Type="IP">
-        <Instance HierarchyPath="Inverter_0"/>
-        <Properties IsEditable="false" IsVisible="true" Timestamp="0" IsTrackable="true" IsStatusTracked="true"/>
-        <Library Name="xil_defaultlib"/>
-        <UsedIn Val="SYNTHESIS"/>
-        <UsedIn Val="IMPLEMENTATION"/>
         <UsedIn Val="SIMULATION"/>
       </File>
       <File Name="PicoRV32_BD_ooc.xdc" Type="XDC">

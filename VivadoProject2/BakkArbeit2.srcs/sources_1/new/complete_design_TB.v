@@ -46,7 +46,8 @@ module complete_design_TB(
     end
     
     PicoRV32_BD_wrapper DUT (
-    .resetn(resetn)
+    .resetn(resetn),
+    .clk(clk)
     );
     
     

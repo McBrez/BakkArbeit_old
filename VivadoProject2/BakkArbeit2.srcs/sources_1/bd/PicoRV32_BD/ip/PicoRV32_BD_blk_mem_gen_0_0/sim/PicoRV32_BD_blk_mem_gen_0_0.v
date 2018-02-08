@@ -55,15 +55,19 @@
 (* DowngradeIPIdentifiedWarnings = "yes" *)
 module PicoRV32_BD_blk_mem_gen_0_0 (
   clka,
+  rsta,
   ena,
   wea,
   addra,
   dina,
-  douta
+  douta,
+  rsta_busy
 );
 
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA CLK" *)
 input wire clka;
+(* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA RST" *)
+input wire rsta;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA EN" *)
 input wire ena;
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA WE" *)
@@ -75,6 +79,7 @@ input wire [31 : 0] dina;
 (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME BRAM_PORTA, MEM_SIZE 8192, MEM_WIDTH 32, MEM_ECC NONE, MASTER_TYPE OTHER, READ_WRITE_MODE READ_WRITE" *)
 (* X_INTERFACE_INFO = "xilinx.com:interface:bram:1.0 BRAM_PORTA DOUT" *)
 output wire [31 : 0] douta;
+output wire rsta_busy;
 
   blk_mem_gen_v8_4_1 #(
     .C_FAMILY("zynq"),
@@ -95,9 +100,9 @@ output wire [31 : 0] douta;
     .C_LOAD_INIT_FILE(1),
     .C_INIT_FILE_NAME("PicoRV32_BD_blk_mem_gen_0_0.mif"),
     .C_INIT_FILE("NONE"),
-    .C_USE_DEFAULT_DATA(1),
+    .C_USE_DEFAULT_DATA(0),
     .C_DEFAULT_DATA("0"),
-    .C_HAS_RSTA(0),
+    .C_HAS_RSTA(1),
     .C_RST_PRIORITY_A("CE"),
     .C_RSTRAM_A(0),
     .C_INITA_VAL("0"),
@@ -145,14 +150,14 @@ output wire [31 : 0] douta;
     .C_EN_RDADDRB_CHG(0),
     .C_EN_DEEPSLEEP_PIN(0),
     .C_EN_SHUTDOWN_PIN(0),
-    .C_EN_SAFETY_CKT(0),
+    .C_EN_SAFETY_CKT(1),
     .C_DISABLE_WARN_BHV_RANGE(0),
     .C_COUNT_36K_BRAM("64"),
     .C_COUNT_18K_BRAM("0"),
     .C_EST_POWER_SUMMARY("Estimated Power for IP     :     10.194002 mW")
   ) inst (
     .clka(clka),
-    .rsta(1'D0),
+    .rsta(rsta),
     .ena(ena),
     .regcea(1'D0),
     .wea(wea),
@@ -176,7 +181,7 @@ output wire [31 : 0] douta;
     .sleep(1'D0),
     .deepsleep(1'D0),
     .shutdown(1'D0),
-    .rsta_busy(),
+    .rsta_busy(rsta_busy),
     .rstb_busy(),
     .s_aclk(1'H0),
     .s_aresetn(1'D0),

@@ -1,7 +1,7 @@
 -- Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
--- Date        : Wed Feb  7 18:28:34 2018
+-- Date        : Thu Feb  8 18:23:44 2018
 -- Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 -- Command     : write_vhdl -force -mode funcsim
 --               D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/PicoRV32_BD_Out_bank_0_0_sim_netlist.vhdl
@@ -23,7 +23,8 @@ entity PicoRV32_BD_Out_bank_0_0_UART_block is
     tx_send_reg : out STD_LOGIC;
     mem_ready_reg : out STD_LOGIC;
     trap_reg : out STD_LOGIC;
-    clk : in STD_LOGIC;
+    tx_send_reg_0 : in STD_LOGIC;
+    UARTclk : in STD_LOGIC;
     mem_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     bankSwitch : in STD_LOGIC;
     last_tx_busy : in STD_LOGIC;
@@ -33,7 +34,6 @@ entity PicoRV32_BD_Out_bank_0_0_UART_block is
     mem_wstrb_1_sp_1 : in STD_LOGIC;
     mem_valid : in STD_LOGIC;
     last_mem_valid : in STD_LOGIC;
-    tx_send_reg_0 : in STD_LOGIC;
     bankSwitch_0 : in STD_LOGIC;
     mem_ready : in STD_LOGIC;
     \module_state_reg[1]_0\ : in STD_LOGIC;
@@ -94,61 +94,66 @@ architecture STRUCTURE of PicoRV32_BD_Out_bank_0_0_UART_block is
   signal UART_out_i_1_n_0 : STD_LOGIC;
   signal UART_out_i_2_n_0 : STD_LOGIC;
   signal UART_out_i_3_n_0 : STD_LOGIC;
-  signal UART_out_i_4_n_0 : STD_LOGIC;
-  signal UART_out_i_5_n_0 : STD_LOGIC;
   signal data0 : STD_LOGIC_VECTOR ( 31 downto 1 );
+  signal last_tx_send : STD_LOGIC;
   signal mem_ready_i_2_n_0 : STD_LOGIC;
   signal mem_wstrb_1_sn_1 : STD_LOGIC;
   signal \module_state[1]_i_3_n_0\ : STD_LOGIC;
-  signal state : STD_LOGIC_VECTOR ( 1 downto 0 );
   signal \state[0]_i_1_n_0\ : STD_LOGIC;
+  signal \state[0]_i_2_n_0\ : STD_LOGIC;
+  signal \state[0]_i_3_n_0\ : STD_LOGIC;
+  signal \state[0]_i_4_n_0\ : STD_LOGIC;
+  signal \state[0]_i_5_n_0\ : STD_LOGIC;
+  signal \state[0]_i_6_n_0\ : STD_LOGIC;
   signal \state[1]_i_1_n_0\ : STD_LOGIC;
+  signal \state_reg_n_0_[0]\ : STD_LOGIC;
+  signal \state_reg_n_0_[1]\ : STD_LOGIC;
   signal \^tx_busy\ : STD_LOGIC;
   signal tx_busy_i_1_n_0 : STD_LOGIC;
   signal tx_reg : STD_LOGIC;
   signal \NLW_UART_index_reg[31]_i_3_CO_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 downto 2 );
   signal \NLW_UART_index_reg[31]_i_3_O_UNCONNECTED\ : STD_LOGIC_VECTOR ( 3 to 3 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \UART_index[0]_i_1\ : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of UART_out_i_1 : label is "soft_lutpair0";
-  attribute SOFT_HLUTNM of \state[1]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of tx_busy_i_1 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \UART_index[0]_i_1\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \UART_index[31]_i_4\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \UART_index[31]_i_6\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \state[0]_i_4\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \state[0]_i_5\ : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of tx_busy_i_1 : label is "soft_lutpair0";
 begin
   UART_out <= \^uart_out\;
   mem_wstrb_1_sn_1 <= mem_wstrb_1_sp_1;
   tx_busy <= \^tx_busy\;
-\UART_index[0]_i_1\: unisim.vcomponents.LUT3
+\UART_index[0]_i_1\: unisim.vcomponents.LUT1
     generic map(
-      INIT => X"B4"
+      INIT => X"1"
     )
         port map (
-      I0 => state(0),
-      I1 => state(1),
-      I2 => \UART_index_reg_n_0_[0]\,
+      I0 => \UART_index_reg_n_0_[0]\,
       O => \UART_index[0]_i_1_n_0\
     );
-\UART_index[31]_i_1\: unisim.vcomponents.LUT5
+\UART_index[31]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000004"
+      INIT => X"0000000000000004"
     )
         port map (
-      I0 => state(0),
-      I1 => state(1),
+      I0 => \state_reg_n_0_[0]\,
+      I1 => \state_reg_n_0_[1]\,
       I2 => \UART_index[31]_i_4_n_0\,
       I3 => \UART_index[31]_i_5_n_0\,
       I4 => \UART_index[31]_i_6_n_0\,
+      I5 => \UART_index[31]_i_7_n_0\,
       O => \UART_index[31]_i_1_n_0\
     );
-\UART_index[31]_i_10\: unisim.vcomponents.LUT5
+\UART_index[31]_i_10\: unisim.vcomponents.LUT4
     generic map(
-      INIT => X"EFFFFFFF"
+      INIT => X"FFFE"
     )
         port map (
-      I0 => UART_index(5),
-      I1 => UART_index(4),
-      I2 => \UART_index_reg_n_0_[0]\,
-      I3 => \UART_index_reg_n_0_[1]\,
-      I4 => \UART_index_reg_n_0_[2]\,
+      I0 => UART_index(26),
+      I1 => UART_index(27),
+      I2 => UART_index(24),
+      I3 => UART_index(25),
       O => \UART_index[31]_i_10_n_0\
     );
 \UART_index[31]_i_11\: unisim.vcomponents.LUT4
@@ -156,10 +161,10 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => UART_index(15),
-      I1 => UART_index(14),
-      I2 => UART_index(17),
-      I3 => UART_index(16),
+      I0 => UART_index(18),
+      I1 => UART_index(19),
+      I2 => UART_index(16),
+      I3 => UART_index(17),
       O => \UART_index[31]_i_11_n_0\
     );
 \UART_index[31]_i_2\: unisim.vcomponents.LUT2
@@ -167,21 +172,20 @@ begin
       INIT => X"2"
     )
         port map (
-      I0 => state(1),
-      I1 => state(0),
+      I0 => \state_reg_n_0_[1]\,
+      I1 => \state_reg_n_0_[0]\,
       O => \UART_index[31]_i_2_n_0\
     );
-\UART_index[31]_i_4\: unisim.vcomponents.LUT6
+\UART_index[31]_i_4\: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"FFFFFFFFFFFFFFFE"
+      INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => \UART_index[31]_i_7_n_0\,
-      I1 => \UART_index[31]_i_8_n_0\,
-      I2 => UART_index(31),
-      I3 => UART_index(30),
-      I4 => UART_index(3),
-      I5 => \UART_index[31]_i_9_n_0\,
+      I0 => UART_index(13),
+      I1 => UART_index(12),
+      I2 => UART_index(15),
+      I3 => UART_index(14),
+      I4 => \UART_index[31]_i_8_n_0\,
       O => \UART_index[31]_i_4_n_0\
     );
 \UART_index[31]_i_5\: unisim.vcomponents.LUT5
@@ -189,34 +193,35 @@ begin
       INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => \UART_index[31]_i_10_n_0\,
-      I1 => UART_index(8),
-      I2 => UART_index(9),
-      I3 => UART_index(6),
-      I4 => UART_index(7),
+      I0 => \UART_index[31]_i_9_n_0\,
+      I1 => UART_index(29),
+      I2 => UART_index(31),
+      I3 => UART_index(3),
+      I4 => UART_index(28),
       O => \UART_index[31]_i_5_n_0\
     );
 \UART_index[31]_i_6\: unisim.vcomponents.LUT5
     generic map(
+      INIT => X"FFFFBFFF"
+    )
+        port map (
+      I0 => UART_index(30),
+      I1 => \UART_index_reg_n_0_[1]\,
+      I2 => \UART_index_reg_n_0_[2]\,
+      I3 => \UART_index_reg_n_0_[0]\,
+      I4 => \UART_index[31]_i_10_n_0\,
+      O => \UART_index[31]_i_6_n_0\
+    );
+\UART_index[31]_i_7\: unisim.vcomponents.LUT5
+    generic map(
       INIT => X"FFFFFFFE"
     )
         port map (
-      I0 => UART_index(12),
-      I1 => UART_index(13),
-      I2 => UART_index(10),
-      I3 => UART_index(11),
+      I0 => UART_index(21),
+      I1 => UART_index(20),
+      I2 => UART_index(23),
+      I3 => UART_index(22),
       I4 => \UART_index[31]_i_11_n_0\,
-      O => \UART_index[31]_i_6_n_0\
-    );
-\UART_index[31]_i_7\: unisim.vcomponents.LUT4
-    generic map(
-      INIT => X"FFFE"
-    )
-        port map (
-      I0 => UART_index(23),
-      I1 => UART_index(22),
-      I2 => UART_index(25),
-      I3 => UART_index(24),
       O => \UART_index[31]_i_7_n_0\
     );
 \UART_index[31]_i_8\: unisim.vcomponents.LUT4
@@ -224,10 +229,10 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => UART_index(19),
-      I1 => UART_index(18),
-      I2 => UART_index(21),
-      I3 => UART_index(20),
+      I0 => UART_index(10),
+      I1 => UART_index(11),
+      I2 => UART_index(8),
+      I3 => UART_index(9),
       O => \UART_index[31]_i_8_n_0\
     );
 \UART_index[31]_i_9\: unisim.vcomponents.LUT4
@@ -235,10 +240,10 @@ begin
       INIT => X"FFFE"
     )
         port map (
-      I0 => UART_index(27),
-      I1 => UART_index(26),
-      I2 => UART_index(29),
-      I3 => UART_index(28),
+      I0 => UART_index(6),
+      I1 => UART_index(7),
+      I2 => UART_index(4),
+      I3 => UART_index(5),
       O => \UART_index[31]_i_9_n_0\
     );
 \UART_index_reg[0]\: unisim.vcomponents.FDRE
@@ -246,18 +251,18 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
-      CE => '1',
+      C => UARTclk,
+      CE => \UART_index[31]_i_2_n_0\,
       D => \UART_index[0]_i_1_n_0\,
       Q => \UART_index_reg_n_0_[0]\,
-      R => '0'
+      R => \UART_index[31]_i_1_n_0\
     );
 \UART_index_reg[10]\: unisim.vcomponents.FDRE
     generic map(
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(10),
       Q => UART_index(10),
@@ -268,7 +273,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(11),
       Q => UART_index(11),
@@ -279,7 +284,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(12),
       Q => UART_index(12),
@@ -302,7 +307,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(13),
       Q => UART_index(13),
@@ -313,7 +318,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(14),
       Q => UART_index(14),
@@ -324,7 +329,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(15),
       Q => UART_index(15),
@@ -335,7 +340,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(16),
       Q => UART_index(16),
@@ -358,7 +363,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(17),
       Q => UART_index(17),
@@ -369,7 +374,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(18),
       Q => UART_index(18),
@@ -380,7 +385,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(19),
       Q => UART_index(19),
@@ -391,7 +396,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(1),
       Q => \UART_index_reg_n_0_[1]\,
@@ -402,7 +407,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(20),
       Q => UART_index(20),
@@ -425,7 +430,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(21),
       Q => UART_index(21),
@@ -436,7 +441,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(22),
       Q => UART_index(22),
@@ -447,7 +452,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(23),
       Q => UART_index(23),
@@ -458,7 +463,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(24),
       Q => UART_index(24),
@@ -481,7 +486,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(25),
       Q => UART_index(25),
@@ -492,7 +497,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(26),
       Q => UART_index(26),
@@ -503,7 +508,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(27),
       Q => UART_index(27),
@@ -514,7 +519,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(28),
       Q => UART_index(28),
@@ -537,7 +542,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(29),
       Q => UART_index(29),
@@ -548,7 +553,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(2),
       Q => \UART_index_reg_n_0_[2]\,
@@ -559,7 +564,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(30),
       Q => UART_index(30),
@@ -570,7 +575,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(31),
       Q => UART_index(31),
@@ -594,7 +599,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(3),
       Q => UART_index(3),
@@ -605,7 +610,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(4),
       Q => UART_index(4),
@@ -630,7 +635,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(5),
       Q => UART_index(5),
@@ -641,7 +646,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(6),
       Q => UART_index(6),
@@ -652,7 +657,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(7),
       Q => UART_index(7),
@@ -663,7 +668,7 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(8),
       Q => UART_index(8),
@@ -686,84 +691,71 @@ begin
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => \UART_index[31]_i_2_n_0\,
       D => data0(9),
       Q => UART_index(9),
       R => \UART_index[31]_i_1_n_0\
     );
-UART_out_i_1: unisim.vcomponents.LUT4
+UART_out_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"ABA8"
+      INIT => X"FFB800FFFFB80000"
     )
         port map (
       I0 => UART_out_i_2_n_0,
-      I1 => state(0),
-      I2 => state(1),
-      I3 => \^uart_out\,
+      I1 => \UART_index_reg_n_0_[2]\,
+      I2 => UART_out_i_3_n_0,
+      I3 => \state_reg_n_0_[0]\,
+      I4 => \state_reg_n_0_[1]\,
+      I5 => \^uart_out\,
       O => UART_out_i_1_n_0
     );
 UART_out_i_2: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFFEAEAFAEA"
+      INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => UART_out_i_3_n_0,
-      I1 => state(0),
-      I2 => state(1),
-      I3 => UART_out_i_4_n_0,
-      I4 => \UART_index_reg_n_0_[1]\,
-      I5 => UART_out_i_5_n_0,
+      I0 => Q(7),
+      I1 => Q(6),
+      I2 => \UART_index_reg_n_0_[1]\,
+      I3 => Q(5),
+      I4 => \UART_index_reg_n_0_[0]\,
+      I5 => Q(4),
       O => UART_out_i_2_n_0
     );
 UART_out_i_3: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"80C0800000000000"
-    )
-        port map (
-      I0 => Q(7),
-      I1 => \UART_index_reg_n_0_[1]\,
-      I2 => \UART_index_reg_n_0_[2]\,
-      I3 => \UART_index_reg_n_0_[0]\,
-      I4 => Q(6),
-      I5 => state(1),
-      O => UART_out_i_3_n_0
-    );
-UART_out_i_4: unisim.vcomponents.LUT6
-    generic map(
       INIT => X"AFA0CFCFAFA0C0C0"
     )
         port map (
-      I0 => Q(5),
-      I1 => Q(1),
-      I2 => \UART_index_reg_n_0_[0]\,
-      I3 => Q(4),
-      I4 => \UART_index_reg_n_0_[2]\,
-      I5 => Q(0),
-      O => UART_out_i_4_n_0
-    );
-UART_out_i_5: unisim.vcomponents.LUT6
-    generic map(
-      INIT => X"0808080000000800"
-    )
-        port map (
-      I0 => state(1),
-      I1 => \UART_index_reg_n_0_[1]\,
-      I2 => \UART_index_reg_n_0_[2]\,
-      I3 => Q(2),
+      I0 => Q(3),
+      I1 => Q(2),
+      I2 => \UART_index_reg_n_0_[1]\,
+      I3 => Q(1),
       I4 => \UART_index_reg_n_0_[0]\,
-      I5 => Q(3),
-      O => UART_out_i_5_n_0
+      I5 => Q(0),
+      O => UART_out_i_3_n_0
     );
 UART_out_reg: unisim.vcomponents.FDRE
     generic map(
       INIT => '1'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => '1',
       D => UART_out_i_1_n_0,
       Q => \^uart_out\,
+      R => '0'
+    );
+last_tx_send_reg: unisim.vcomponents.FDRE
+    generic map(
+      INIT => '0'
+    )
+        port map (
+      C => UARTclk,
+      CE => '1',
+      D => tx_send_reg_0,
+      Q => last_tx_send,
       R => '0'
     );
 mem_ready_i_1: unisim.vcomponents.LUT6
@@ -816,24 +808,78 @@ mem_ready_i_2: unisim.vcomponents.LUT2
     );
 \state[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0000000055570002"
+      INIT => X"0000000001FF0100"
     )
         port map (
-      I0 => state(1),
-      I1 => \UART_index[31]_i_4_n_0\,
-      I2 => \UART_index[31]_i_5_n_0\,
-      I3 => \UART_index[31]_i_6_n_0\,
-      I4 => tx_send_reg_0,
-      I5 => state(0),
+      I0 => \UART_index[31]_i_7_n_0\,
+      I1 => \state[0]_i_2_n_0\,
+      I2 => \state[0]_i_3_n_0\,
+      I3 => \state_reg_n_0_[1]\,
+      I4 => \state[0]_i_4_n_0\,
+      I5 => \state_reg_n_0_[0]\,
       O => \state[0]_i_1_n_0\
+    );
+\state[0]_i_2\: unisim.vcomponents.LUT5
+    generic map(
+      INIT => X"FFFFFFFE"
+    )
+        port map (
+      I0 => UART_index(29),
+      I1 => UART_index(28),
+      I2 => UART_index(30),
+      I3 => UART_index(31),
+      I4 => \UART_index[31]_i_10_n_0\,
+      O => \state[0]_i_2_n_0\
+    );
+\state[0]_i_3\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => \UART_index[31]_i_8_n_0\,
+      I1 => \state[0]_i_5_n_0\,
+      I2 => \state[0]_i_6_n_0\,
+      I3 => \UART_index[31]_i_9_n_0\,
+      O => \state[0]_i_3_n_0\
+    );
+\state[0]_i_4\: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"2"
+    )
+        port map (
+      I0 => tx_send_reg_0,
+      I1 => last_tx_send,
+      O => \state[0]_i_4_n_0\
+    );
+\state[0]_i_5\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"FFFE"
+    )
+        port map (
+      I0 => UART_index(14),
+      I1 => UART_index(15),
+      I2 => UART_index(12),
+      I3 => UART_index(13),
+      O => \state[0]_i_5_n_0\
+    );
+\state[0]_i_6\: unisim.vcomponents.LUT4
+    generic map(
+      INIT => X"DFFF"
+    )
+        port map (
+      I0 => \UART_index_reg_n_0_[2]\,
+      I1 => UART_index(3),
+      I2 => \UART_index_reg_n_0_[0]\,
+      I3 => \UART_index_reg_n_0_[1]\,
+      O => \state[0]_i_6_n_0\
     );
 \state[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"6"
     )
         port map (
-      I0 => state(0),
-      I1 => state(1),
+      I0 => \state_reg_n_0_[0]\,
+      I1 => \state_reg_n_0_[1]\,
       O => \state[1]_i_1_n_0\
     );
 \state_reg[0]\: unisim.vcomponents.FDRE
@@ -841,10 +887,10 @@ mem_ready_i_2: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => '1',
       D => \state[0]_i_1_n_0\,
-      Q => state(0),
+      Q => \state_reg_n_0_[0]\,
       R => '0'
     );
 \state_reg[1]\: unisim.vcomponents.FDRE
@@ -852,10 +898,10 @@ mem_ready_i_2: unisim.vcomponents.LUT2
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => '1',
       D => \state[1]_i_1_n_0\,
-      Q => state(1),
+      Q => \state_reg_n_0_[1]\,
       R => '0'
     );
 trap_i_1: unisim.vcomponents.LUT6
@@ -871,15 +917,16 @@ trap_i_1: unisim.vcomponents.LUT6
       I5 => trap,
       O => trap_reg
     );
-tx_busy_i_1: unisim.vcomponents.LUT4
+tx_busy_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"5F04"
+      INIT => X"55FF0010"
     )
         port map (
-      I0 => state(0),
-      I1 => tx_send_reg_0,
-      I2 => state(1),
-      I3 => \^tx_busy\,
+      I0 => \state_reg_n_0_[0]\,
+      I1 => last_tx_send,
+      I2 => tx_send_reg_0,
+      I3 => \state_reg_n_0_[1]\,
+      I4 => \^tx_busy\,
       O => tx_busy_i_1_n_0
     );
 tx_busy_reg: unisim.vcomponents.FDRE
@@ -887,7 +934,7 @@ tx_busy_reg: unisim.vcomponents.FDRE
       INIT => '0'
     )
         port map (
-      C => clk,
+      C => UARTclk,
       CE => '1',
       D => tx_busy_i_1_n_0,
       Q => \^tx_busy\,
@@ -908,13 +955,13 @@ tx_busy_reg: unisim.vcomponents.FDRE
     );
 tx_send_i_1: unisim.vcomponents.LUT5
     generic map(
-      INIT => X"F00B0008"
+      INIT => X"CCEF0020"
     )
         port map (
       I0 => bankSwitch,
-      I1 => tx_reg,
-      I2 => \module_state_reg[1]\,
-      I3 => \module_state_reg[0]_0\,
+      I1 => \module_state_reg[0]_0\,
+      I2 => tx_reg,
+      I3 => \module_state_reg[1]\,
       I4 => tx_send_reg_0,
       O => tx_send_reg
     );
@@ -945,6 +992,7 @@ entity PicoRV32_BD_Out_bank_0_0_Out_bank is
     mem_wstrb : in STD_LOGIC_VECTOR ( 3 downto 0 );
     bankSwitch : in STD_LOGIC;
     mem_valid : in STD_LOGIC;
+    UARTclk : in STD_LOGIC;
     clk : in STD_LOGIC;
     mem_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 )
   );
@@ -987,10 +1035,10 @@ architecture STRUCTURE of PicoRV32_BD_Out_bank_0_0_Out_bank is
   signal uart_n_5 : STD_LOGIC;
   signal uart_n_6 : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \mem_rdata[31]_i_3\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of mem_ready_i_3 : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \module_state[0]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \module_state[1]_i_1\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \mem_rdata[31]_i_3\ : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of mem_ready_i_3 : label is "soft_lutpair3";
+  attribute SOFT_HLUTNM of \module_state[0]_i_1\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \module_state[1]_i_1\ : label is "soft_lutpair4";
 begin
   mem_rdata(31 downto 0) <= \^mem_rdata\(31 downto 0);
   mem_ready <= \^mem_ready\;
@@ -1959,9 +2007,9 @@ uart: entity work.PicoRV32_BD_Out_bank_0_0_UART_block
       Q(1) => \tx_reg_reg_n_0_[1]\,
       Q(0) => \tx_reg_reg_n_0_[0]\,
       UART_out => UART_out,
+      UARTclk => UARTclk,
       bankSwitch => bankSwitch,
       bankSwitch_0 => mem_ready_i_3_n_0,
-      clk => clk,
       last_mem_valid => last_mem_valid,
       last_mem_valid_reg => mem_ready_i_4_n_0,
       last_tx_busy => last_tx_busy,
@@ -1989,6 +2037,7 @@ entity PicoRV32_BD_Out_bank_0_0 is
   port (
     resetn : in STD_LOGIC;
     clk : in STD_LOGIC;
+    UARTclk : in STD_LOGIC;
     mem_valid : in STD_LOGIC;
     mem_rdata : out STD_LOGIC_VECTOR ( 31 downto 0 );
     mem_wdata : in STD_LOGIC_VECTOR ( 31 downto 0 );
@@ -2013,13 +2062,14 @@ architecture STRUCTURE of PicoRV32_BD_Out_bank_0_0 is
   attribute X_INTERFACE_INFO : string;
   attribute X_INTERFACE_INFO of clk : signal is "xilinx.com:signal:clock:1.0 clk CLK";
   attribute X_INTERFACE_PARAMETER : string;
-  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN PicoRV32_BD_processing_system7_0_0_FCLK_CLK0";
+  attribute X_INTERFACE_PARAMETER of clk : signal is "XIL_INTERFACENAME clk, ASSOCIATED_RESET resetn, FREQ_HZ 100000000, PHASE 0.000, CLK_DOMAIN PicoRV32_BD_clk";
   attribute X_INTERFACE_INFO of resetn : signal is "xilinx.com:signal:reset:1.0 resetn RST";
   attribute X_INTERFACE_PARAMETER of resetn : signal is "XIL_INTERFACENAME resetn, POLARITY ACTIVE_LOW";
 begin
 inst: entity work.PicoRV32_BD_Out_bank_0_0_Out_bank
      port map (
       UART_out => UART_out,
+      UARTclk => UARTclk,
       bankSwitch => bankSwitch,
       clk => clk,
       mem_rdata(31 downto 0) => mem_rdata(31 downto 0),

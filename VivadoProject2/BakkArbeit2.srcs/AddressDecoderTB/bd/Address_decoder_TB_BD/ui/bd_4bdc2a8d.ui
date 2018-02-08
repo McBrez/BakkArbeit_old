@@ -3,30 +3,30 @@
    guistr: "# # String gsaved with Nlview 6.6.11  2017-06-12 bk=1.3860 VDI=40 GEI=35 GUI=JA:1.6
 #  -string -flagsOSRD
 preplace inst Address_Decoder_0 -pg 1 -lvl 2 -y 130 -defaultsOSRD
-preplace inst Memory_0 -pg 1 -lvl 1 -y 220 -defaultsOSRD
-preplace inst Out_bank_0 -pg 1 -lvl 1 -y 20 -defaultsOSRD
+preplace inst Memory_0 -pg 1 -lvl 1 -y 240 -defaultsOSRD
+preplace inst Out_bank_0 -pg 1 -lvl 1 -y 30 -defaultsOSRD
 preplace inst AddressDecoderTB_0 -pg 1 -lvl 1 -y -170 -defaultsOSRD
-preplace netloc Memory_0_mem_rdata 1 1 1 400
-preplace netloc Address_Decoder_0_bankSwitch 1 0 3 -30 370 NJ 370 980
-preplace netloc AddressDecoderTB_0_mem_valid 1 1 1 440
-preplace netloc Address_Decoder_0_mem_wdata_memory 1 0 3 -40 410 NJ 410 990
-preplace netloc Address_Decoder_0_mem_valid_io 1 0 3 -70 380 NJ 380 920
-preplace netloc AddressDecoderTB_0_mem_wstrb 1 1 1 430
-preplace netloc Memory_0_mem_ready 1 1 1 410
-preplace netloc AddressDecoderTB_0_mem_addr 1 1 1 450
-preplace netloc AddressDecoderTB_0_resetn 1 0 2 -60 350 420
-preplace netloc Address_Decoder_0_mem_ready 1 0 3 0 -270 NJ -270 920
-preplace netloc Address_Decoder_0_mem_valid_memory 1 0 3 -50 390 NJ 390 970
-preplace netloc AddressDecoderTB_0_clk 1 0 2 -20 330 390
-preplace netloc AddressDecoderTB_0_mem_wdata 1 1 1 460
+preplace netloc Memory_0_mem_rdata 1 1 1 410
+preplace netloc Address_Decoder_0_bankSwitch 1 0 3 -50 390 NJ 390 980
+preplace netloc AddressDecoderTB_0_mem_valid 1 1 1 420
+preplace netloc Address_Decoder_0_mem_wdata_memory 1 0 3 -20 410 NJ 410 990
+preplace netloc Address_Decoder_0_mem_valid_io 1 0 3 -80 -280 NJ -280 960
+preplace netloc AddressDecoderTB_0_mem_wstrb 1 1 1 410
+preplace netloc Memory_0_mem_ready 1 1 1 430
+preplace netloc AddressDecoderTB_0_mem_addr 1 1 1 430
+preplace netloc AddressDecoderTB_0_resetn 1 0 2 -60 360 390
+preplace netloc Address_Decoder_0_mem_ready 1 0 3 -30 -270 NJ -270 920
+preplace netloc Address_Decoder_0_mem_valid_memory 1 0 3 -10 380 440J 370 950
+preplace netloc AddressDecoderTB_0_clk 1 0 2 -30 350 400
+preplace netloc AddressDecoderTB_0_mem_wdata 1 1 1 440
 preplace netloc Out_bank_0_mem_ready 1 1 1 370
-preplace netloc Address_Decoder_0_mem_wstrb_io 1 0 3 -30 -280 NJ -280 960
-preplace netloc Address_Decoder_0_mem_rdata 1 0 3 -20 -290 NJ -290 990
-preplace netloc Address_Decoder_0_mem_addr_memory 1 0 3 -10 340 460J 330 940
-preplace netloc Address_Decoder_0_mem_wstrb_memory 1 0 3 0 360 460J 350 930
+preplace netloc Address_Decoder_0_mem_wstrb_io 1 0 3 -80 420 NJ 420 940
+preplace netloc Address_Decoder_0_mem_rdata 1 0 3 -60 -290 NJ -290 990
+preplace netloc Address_Decoder_0_mem_addr_memory 1 0 3 0 370 420J 360 920
+preplace netloc Address_Decoder_0_mem_wstrb_memory 1 0 3 -40 430 NJ 430 970
 preplace netloc Out_bank_0_mem_rdata 1 1 1 380
-preplace netloc Address_Decoder_0_mem_wdata_io 1 0 3 -80 400 NJ 400 950
-levelinfo -pg 1 -100 190 690 1010 -top -300 -bot 420
+preplace netloc Address_Decoder_0_mem_wdata_io 1 0 3 -70 400 NJ 400 930
+levelinfo -pg 1 -100 190 690 1010 -top -300 -bot 440
 ",
 }
 0

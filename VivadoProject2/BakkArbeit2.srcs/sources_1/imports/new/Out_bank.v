@@ -32,6 +32,7 @@ module UART_block
     integer i;
     integer UART_index;
     reg [1:0] state;
+    reg last_tx_send;
 
     localparam IDLE     =   2'b00,
                START    =   2'b01,
@@ -43,12 +44,13 @@ module UART_block
         tx_busy = 0;
         state = IDLE;
         UART_index = 0;
+        last_tx_send = 0;
     end
             
     always@(posedge clk) begin
         case(state)
             IDLE: begin
-                if(tx_send == 1) begin
+                if(tx_send == 1 && last_tx_send == 0) begin
                     state <= START;
                     tx_busy <= 1;
                 end
@@ -75,12 +77,15 @@ module UART_block
                 tx_busy <= 0;
             end
         endcase
+        
+        last_tx_send <= tx_send;
     end 
 endmodule
 
 module Out_bank(
     input wire resetn,
     input wire clk,
+    input wire UARTclk,
     input wire mem_valid,
     output reg [31:0] mem_rdata,
     input wire [31:0] mem_wdata,
@@ -105,7 +110,7 @@ module Out_bank(
     
     UART_block uart(
         .resetn     (resetn     ),
-        .clk        (clk        ),
+        .clk        (UARTclk    ),
         .tx_reg     (tx_reg     ),
         .tx_send    (tx_send    ),
         .UART_out   (UART_out   ),
@@ -120,6 +125,7 @@ module Out_bank(
         last_mem_valid = 0;
         mem_rdata <= 0;
         trap <= 0;
+        tx_send <= 0;
     end
         
     always@(posedge clk) begin
@@ -169,7 +175,6 @@ module Out_bank(
             end
             
             MODULE_STATE_UART_SEND:begin
-                tx_send <= 0;
                 if(last_tx_busy == 1 && tx_busy == 0) begin
                     mem_ready <= 1;
                     module_state <= MODULE_STATE_RESET;
