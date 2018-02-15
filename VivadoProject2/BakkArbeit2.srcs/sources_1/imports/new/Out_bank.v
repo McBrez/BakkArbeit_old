@@ -90,8 +90,9 @@ module Out_bank(
     output reg [31:0] mem_rdata,
     input wire [31:0] mem_wdata,
     input wire [3:0] mem_wstrb,
-    input wire bankSwitch,              //0 = UART  1 = Memory
-    output reg [31:0] out_registers,
+    input wire bankSwitch,              //1 = UART  0 = Memory
+    output reg [7:0] out_registers,
+    input  wire [7:0] in_registers,
     output wire UART_out,
     output reg mem_ready,
     output reg trap
@@ -160,12 +161,12 @@ module Out_bank(
                    else begin
                        case(mem_wstrb)
                            4'b0000: begin
-                               mem_rdata <= out_registers;
+                               mem_rdata <= (out_registers << 8) + in_registers;   //save in_registers in lowest byte and out_registers in second lowest byte
                                mem_ready <= 1;
                            end
                            
                            default begin 
-                               out_registers <= mem_wdata;
+                               out_registers <= mem_wdata; //write to out_registers
                                mem_ready <= 1;                               
                            end
                        endcase

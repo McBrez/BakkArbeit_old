@@ -92,7 +92,7 @@ module Address_Decoder #(
                 if( last_mem_valid == 0 && mem_valid == 1 ) begin
                     // is address in address room of memory? 
                     if ( mem_addr >= MEMORY_STARTADDRESS && mem_addr <= MEMORY_ENDADDRESS) begin
-                        mem_addr_memory <= mem_addr;
+                        mem_addr_memory <= mem_addr - MEMORY_STARTADDRESS;
                         mem_wdata_memory <= mem_wdata;
                         mem_wstrb_memory <= mem_wstrb;
                         mem_valid_memory <= 1;

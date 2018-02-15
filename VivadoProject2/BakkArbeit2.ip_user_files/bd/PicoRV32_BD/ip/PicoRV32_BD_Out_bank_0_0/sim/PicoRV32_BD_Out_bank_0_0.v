@@ -63,6 +63,7 @@ module PicoRV32_BD_Out_bank_0_0 (
   mem_wstrb,
   bankSwitch,
   out_registers,
+  in_registers,
   UART_out,
   mem_ready,
   trap
@@ -80,7 +81,8 @@ output wire [31 : 0] mem_rdata;
 input wire [31 : 0] mem_wdata;
 input wire [3 : 0] mem_wstrb;
 input wire bankSwitch;
-output wire [31 : 0] out_registers;
+output wire [7 : 0] out_registers;
+input wire [7 : 0] in_registers;
 output wire UART_out;
 output wire mem_ready;
 output wire trap;
@@ -95,6 +97,7 @@ output wire trap;
     .mem_wstrb(mem_wstrb),
     .bankSwitch(bankSwitch),
     .out_registers(out_registers),
+    .in_registers(in_registers),
     .UART_out(UART_out),
     .mem_ready(mem_ready),
     .trap(trap)

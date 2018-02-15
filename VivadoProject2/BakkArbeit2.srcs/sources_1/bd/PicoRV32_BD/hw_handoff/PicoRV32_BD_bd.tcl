@@ -167,7 +167,8 @@ proc create_root_design { parentCell } {
   set FIXED_IO [ create_bd_intf_port -mode Master -vlnv xilinx.com:display_processing_system7:fixedio_rtl:1.0 FIXED_IO ]
 
   # Create ports
-  set OUT_Port [ create_bd_port -dir O -from 31 -to 0 -type data OUT_Port ]
+  set IN_Port [ create_bd_port -dir I -from 7 -to 0 IN_Port ]
+  set OUT_Port [ create_bd_port -dir O -from 7 -to 0 -type data OUT_Port ]
   set UART_out [ create_bd_port -dir O -type data UART_out ]
   set clk [ create_bd_port -dir I -type clk clk ]
   set resetn [ create_bd_port -dir I -type rst resetn ]
@@ -186,10 +187,10 @@ proc create_root_design { parentCell } {
      return 1
    }
     set_property -dict [ list \
-   CONFIG.IO_ENDADDRESS {0x0000FFFF} \
-   CONFIG.IO_STARTADDRESS {0x0000FFF8} \
-   CONFIG.MEMORY_ENDADDRESS {0x0003FFFF} \
-   CONFIG.MEMORY_STARTADDRESS {0x00010000} \
+   CONFIG.IO_ENDADDRESS {0x00041004} \
+   CONFIG.IO_STARTADDRESS {0x00041000} \
+   CONFIG.MEMORY_ENDADDRESS {0x00040FFF} \
+   CONFIG.MEMORY_STARTADDRESS {0x00000000} \
  ] $Address_Decoder_0
 
   # Create instance: Inverter_0, and set properties
@@ -258,11 +259,13 @@ proc create_root_design { parentCell } {
      return 1
    }
     set_property -dict [ list \
+   CONFIG.COMPRESSED_ISA {1} \
+   CONFIG.ENABLE_IRQ {1} \
    CONFIG.LATCHED_MEM_RDATA {0} \
    CONFIG.PROGADDR_IRQ {0x00000010} \
-   CONFIG.PROGADDR_RESET {0x00010000} \
+   CONFIG.PROGADDR_RESET {0x00001000} \
    CONFIG.REGS_INIT_ZERO {1} \
-   CONFIG.STACKADDR {0x0003FFF0} \
+   CONFIG.STACKADDR {0x00040FF0} \
  ] $picorv32_0
 
   # Create instance: processing_system7_0, and set properties
@@ -675,6 +678,7 @@ proc create_root_design { parentCell } {
   connect_bd_net -net Address_Decoder_0_mem_wdata_memory [get_bd_pins Address_Decoder_0/mem_wdata_memory] [get_bd_pins memory_wrapper_0/mem_wdata_memory]
   connect_bd_net -net Address_Decoder_0_mem_wstrb_io [get_bd_pins Address_Decoder_0/mem_wstrb_io] [get_bd_pins Out_bank_0/mem_wstrb]
   connect_bd_net -net Address_Decoder_0_mem_wstrb_memory [get_bd_pins Address_Decoder_0/mem_wstrb_memory] [get_bd_pins memory_wrapper_0/mem_wstrb_memory]
+  connect_bd_net -net IN_Port_1 [get_bd_ports IN_Port] [get_bd_pins Out_bank_0/in_registers]
   connect_bd_net -net Inverter_0_out [get_bd_pins Address_Decoder_0/resetn] [get_bd_pins Inverter_0/out] [get_bd_pins Out_bank_0/resetn] [get_bd_pins picorv32_0/resetn]
   connect_bd_net -net Out_bank_0_UART_out [get_bd_ports UART_out] [get_bd_pins Out_bank_0/UART_out]
   connect_bd_net -net Out_bank_0_mem_rdata [get_bd_pins Address_Decoder_0/mem_rdata_io] [get_bd_pins Out_bank_0/mem_rdata]

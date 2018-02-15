@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Thu Feb  8 18:20:16 2018
+//Date        : Thu Feb 15 23:00:51 2018
 //Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 //Command     : generate_target PicoRV32_BD.bd
 //Design      : PicoRV32_BD
@@ -32,6 +32,7 @@ module PicoRV32_BD
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    IN_Port,
     OUT_Port,
     UART_out,
     clk,
@@ -57,7 +58,8 @@ module PicoRV32_BD
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_CLK" *) inout FIXED_IO_ps_clk;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_PORB" *) inout FIXED_IO_ps_porb;
   (* X_INTERFACE_INFO = "xilinx.com:display_processing_system7:fixedio:1.0 FIXED_IO PS_SRSTB" *) inout FIXED_IO_ps_srstb;
-  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.OUT_PORT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.OUT_PORT, LAYERED_METADATA undef" *) output [31:0]OUT_Port;
+  input [7:0]IN_Port;
+  (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.OUT_PORT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.OUT_PORT, LAYERED_METADATA undef" *) output [7:0]OUT_Port;
   (* X_INTERFACE_INFO = "xilinx.com:signal:data:1.0 DATA.UART_OUT DATA" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME DATA.UART_OUT, LAYERED_METADATA undef" *) output UART_out;
   (* X_INTERFACE_INFO = "xilinx.com:signal:clock:1.0 CLK.CLK CLK" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME CLK.CLK, CLK_DOMAIN PicoRV32_BD_clk, FREQ_HZ 100000000, PHASE 0.000" *) input clk;
   (* X_INTERFACE_INFO = "xilinx.com:signal:reset:1.0 RST.RESETN RST" *) (* X_INTERFACE_PARAMETER = "XIL_INTERFACENAME RST.RESETN, POLARITY ACTIVE_LOW" *) input resetn;
@@ -72,11 +74,12 @@ module PicoRV32_BD
   wire [31:0]Address_Decoder_0_mem_wdata_memory;
   wire [3:0]Address_Decoder_0_mem_wstrb_io;
   wire [3:0]Address_Decoder_0_mem_wstrb_memory;
+  wire [7:0]IN_Port_1;
   wire Inverter_0_out;
   wire Out_bank_0_UART_out;
   wire [31:0]Out_bank_0_mem_rdata;
   wire Out_bank_0_mem_ready;
-  wire [31:0]Out_bank_0_out_registers;
+  wire [7:0]Out_bank_0_out_registers;
   wire [31:0]blk_mem_gen_0_douta;
   wire clk_1;
   wire [31:0]memory_wrapper_0_addra;
@@ -114,7 +117,8 @@ module PicoRV32_BD
   wire processing_system7_0_FIXED_IO_PS_SRSTB;
   wire resetn_1;
 
-  assign OUT_Port[31:0] = Out_bank_0_out_registers;
+  assign IN_Port_1 = IN_Port[7:0];
+  assign OUT_Port[7:0] = Out_bank_0_out_registers;
   assign UART_out = Out_bank_0_UART_out;
   assign clk_1 = clk;
   assign resetn_1 = resetn;
@@ -148,6 +152,7 @@ module PicoRV32_BD
         .UARTclk(processing_system7_0_FCLK_CLK0),
         .bankSwitch(Address_Decoder_0_bankSwitch),
         .clk(clk_1),
+        .in_registers(IN_Port_1),
         .mem_rdata(Out_bank_0_mem_rdata),
         .mem_ready(Out_bank_0_mem_ready),
         .mem_valid(Address_Decoder_0_mem_valid_io),

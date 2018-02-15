@@ -1,7 +1,7 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-| Date         : Thu Feb  8 18:42:51 2018
+| Date         : Thu Feb 15 20:55:31 2018
 | Host         : FREISMUTHDESK running 64-bit major release  (build 9200)
 | Command      : report_timing_summary -max_paths 10 -file PicoRV32_BD_wrapper_timing_summary_routed.rpt -rpx PicoRV32_BD_wrapper_timing_summary_routed.rpx -warn_on_violation
 | Design       : PicoRV32_BD_wrapper
@@ -52,7 +52,7 @@ Table of Contents
 
 1. checking no_clock
 --------------------
- There are 1088 register/latch pins with no clock driven by root clock pin: clk (HIGH)
+ There are 1127 register/latch pins with no clock driven by root clock pin: clk (HIGH)
 
 
 2. checking constant_clock
@@ -67,21 +67,21 @@ Table of Contents
 
 4. checking unconstrained_internal_endpoints
 --------------------------------------------
- There are 4194 pins that are not constrained for maximum delay. (HIGH)
+ There are 4375 pins that are not constrained for maximum delay. (HIGH)
 
  There are 0 pins that are not constrained for maximum delay due to constant clock.
 
 
 5. checking no_input_delay
 --------------------------
- There is 1 input port with no input delay specified. (HIGH)
+ There are 9 input ports with no input delay specified. (HIGH)
 
  There are 0 input ports with no input delay but user has a false path constraint.
 
 
 6. checking no_output_delay
 ---------------------------
- There are 33 ports with no output delay specified. (HIGH)
+ There are 9 ports with no output delay specified. (HIGH)
 
  There are 0 ports with no output delay but user has a false path constraint
 
@@ -126,7 +126,7 @@ Table of Contents
 
     WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
     -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-   3904.606        0.000                      0                  100        0.200        0.000                      0                  100     1983.995        0.000                       0                    38  
+   3905.249        0.000                      0                  100        0.261        0.000                      0                  100     1983.995        0.000                       0                    38  
 
 
 All user specified timing constraints are met.
@@ -149,7 +149,7 @@ clk_fpga_0  {0.000 1984.495}       3968.990        0.252
 
 Clock             WNS(ns)      TNS(ns)  TNS Failing Endpoints  TNS Total Endpoints      WHS(ns)      THS(ns)  THS Failing Endpoints  THS Total Endpoints     WPWS(ns)     TPWS(ns)  TPWS Failing Endpoints  TPWS Total Endpoints  
 -----             -------      -------  ---------------------  -------------------      -------      -------  ---------------------  -------------------     --------     --------  ----------------------  --------------------  
-clk_fpga_0       3904.606        0.000                      0                  100        0.200        0.000                      0                  100     1983.995        0.000                       0                    38  
+clk_fpga_0       3905.249        0.000                      0                  100        0.261        0.000                      0                  100     1983.995        0.000                       0                    38  
 
 
 ------------------------------------------------------------------------------------------------
@@ -180,484 +180,28 @@ Path Group    From Clock    To Clock          WNS(ns)      TNS(ns)  TNS Failing 
 From Clock:  clk_fpga_0
   To Clock:  clk_fpga_0
 
-Setup :            0  Failing Endpoints,  Worst Slack     3904.606ns,  Total Violation        0.000ns
-Hold  :            0  Failing Endpoints,  Worst Slack        0.200ns,  Total Violation        0.000ns
+Setup :            0  Failing Endpoints,  Worst Slack     3905.249ns,  Total Violation        0.000ns
+Hold  :            0  Failing Endpoints,  Worst Slack        0.261ns,  Total Violation        0.000ns
 PW    :            0  Failing Endpoints,  Worst Slack     1983.995ns,  Total Violation        0.000ns
 ---------------------------------------------------------------------------------------------------
 
 
 Max Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             3904.606ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[1]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.392ns  (logic 0.828ns (18.853%)  route 3.564ns (81.147%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.028ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.723ns = ( 3971.713 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.016ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.722     3.016    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y34         FDRE (Prop_fdre_C_Q)         0.456     3.472 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/Q
-                         net (fo=2, routed)           0.828     4.300    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[16]
-    SLICE_X56Y35         LUT4 (Prop_lut4_I2_O)        0.124     4.424 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11/O
-                         net (fo=1, routed)           0.851     5.274    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I4_O)        0.124     5.398 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7/O
-                         net (fo=2, routed)           0.941     6.339    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I5_O)        0.124     6.463 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.944     7.408    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[1]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.544  3971.713    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[1]/C
-                         clock pessimism              0.265  3971.978    
-                         clock uncertainty          -59.535  3912.443    
-    SLICE_X57Y31         FDRE (Setup_fdre_C_R)       -0.429  3912.014    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[1]
-  -------------------------------------------------------------------
-                         required time                       3912.014    
-                         arrival time                          -7.408    
-  -------------------------------------------------------------------
-                         slack                               3904.606    
-
-Slack (MET) :             3904.606ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[2]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.392ns  (logic 0.828ns (18.853%)  route 3.564ns (81.147%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.028ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.723ns = ( 3971.713 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.016ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.722     3.016    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y34         FDRE (Prop_fdre_C_Q)         0.456     3.472 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/Q
-                         net (fo=2, routed)           0.828     4.300    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[16]
-    SLICE_X56Y35         LUT4 (Prop_lut4_I2_O)        0.124     4.424 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11/O
-                         net (fo=1, routed)           0.851     5.274    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I4_O)        0.124     5.398 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7/O
-                         net (fo=2, routed)           0.941     6.339    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I5_O)        0.124     6.463 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.944     7.408    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[2]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.544  3971.713    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[2]/C
-                         clock pessimism              0.265  3971.978    
-                         clock uncertainty          -59.535  3912.443    
-    SLICE_X57Y31         FDRE (Setup_fdre_C_R)       -0.429  3912.014    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[2]
-  -------------------------------------------------------------------
-                         required time                       3912.014    
-                         arrival time                          -7.408    
-  -------------------------------------------------------------------
-                         slack                               3904.606    
-
-Slack (MET) :             3904.606ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.392ns  (logic 0.828ns (18.853%)  route 3.564ns (81.147%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.028ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.723ns = ( 3971.713 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.016ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.722     3.016    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y34         FDRE (Prop_fdre_C_Q)         0.456     3.472 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/Q
-                         net (fo=2, routed)           0.828     4.300    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[16]
-    SLICE_X56Y35         LUT4 (Prop_lut4_I2_O)        0.124     4.424 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11/O
-                         net (fo=1, routed)           0.851     5.274    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I4_O)        0.124     5.398 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7/O
-                         net (fo=2, routed)           0.941     6.339    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I5_O)        0.124     6.463 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.944     7.408    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.544  3971.713    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/C
-                         clock pessimism              0.265  3971.978    
-                         clock uncertainty          -59.535  3912.443    
-    SLICE_X57Y31         FDRE (Setup_fdre_C_R)       -0.429  3912.014    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]
-  -------------------------------------------------------------------
-                         required time                       3912.014    
-                         arrival time                          -7.408    
-  -------------------------------------------------------------------
-                         slack                               3904.606    
-
-Slack (MET) :             3904.606ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.392ns  (logic 0.828ns (18.853%)  route 3.564ns (81.147%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.028ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.723ns = ( 3971.713 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.016ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.722     3.016    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y34         FDRE (Prop_fdre_C_Q)         0.456     3.472 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/Q
-                         net (fo=2, routed)           0.828     4.300    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[16]
-    SLICE_X56Y35         LUT4 (Prop_lut4_I2_O)        0.124     4.424 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11/O
-                         net (fo=1, routed)           0.851     5.274    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_11_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I4_O)        0.124     5.398 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7/O
-                         net (fo=2, routed)           0.941     6.339    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_7_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I5_O)        0.124     6.463 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.944     7.408    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.544  3971.713    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-                         clock pessimism              0.265  3971.978    
-                         clock uncertainty          -59.535  3912.443    
-    SLICE_X57Y31         FDRE (Setup_fdre_C_R)       -0.429  3912.014    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]
-  -------------------------------------------------------------------
-                         required time                       3912.014    
-                         arrival time                          -7.408    
-  -------------------------------------------------------------------
-                         slack                               3904.606    
-
-Slack (MET) :             3904.725ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.282ns  (logic 0.828ns (19.336%)  route 3.454ns (80.664%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.728ns = ( 3971.718 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.012ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.718     3.012    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y31         FDRE (Prop_fdre_C_Q)         0.456     3.468 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/Q
-                         net (fo=2, routed)           0.959     4.427    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[4]
-    SLICE_X54Y31         LUT4 (Prop_lut4_I2_O)        0.124     4.551 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9/O
-                         net (fo=2, routed)           0.870     5.421    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I0_O)        0.124     5.545 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5/O
-                         net (fo=1, routed)           0.807     6.353    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I3_O)        0.124     6.477 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.818     7.294    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.549  3971.718    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/C
-                         clock pessimism              0.265  3971.983    
-                         clock uncertainty          -59.535  3912.448    
-    SLICE_X57Y36         FDRE (Setup_fdre_C_R)       -0.429  3912.019    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]
-  -------------------------------------------------------------------
-                         required time                       3912.019    
-                         arrival time                          -7.294    
-  -------------------------------------------------------------------
-                         slack                               3904.725    
-
-Slack (MET) :             3904.725ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[22]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.282ns  (logic 0.828ns (19.336%)  route 3.454ns (80.664%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.728ns = ( 3971.718 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.012ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.718     3.012    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y31         FDRE (Prop_fdre_C_Q)         0.456     3.468 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/Q
-                         net (fo=2, routed)           0.959     4.427    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[4]
-    SLICE_X54Y31         LUT4 (Prop_lut4_I2_O)        0.124     4.551 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9/O
-                         net (fo=2, routed)           0.870     5.421    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I0_O)        0.124     5.545 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5/O
-                         net (fo=1, routed)           0.807     6.353    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I3_O)        0.124     6.477 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.818     7.294    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[22]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.549  3971.718    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[22]/C
-                         clock pessimism              0.265  3971.983    
-                         clock uncertainty          -59.535  3912.448    
-    SLICE_X57Y36         FDRE (Setup_fdre_C_R)       -0.429  3912.019    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[22]
-  -------------------------------------------------------------------
-                         required time                       3912.019    
-                         arrival time                          -7.294    
-  -------------------------------------------------------------------
-                         slack                               3904.725    
-
-Slack (MET) :             3904.725ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.282ns  (logic 0.828ns (19.336%)  route 3.454ns (80.664%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.728ns = ( 3971.718 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.012ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.718     3.012    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y31         FDRE (Prop_fdre_C_Q)         0.456     3.468 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/Q
-                         net (fo=2, routed)           0.959     4.427    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[4]
-    SLICE_X54Y31         LUT4 (Prop_lut4_I2_O)        0.124     4.551 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9/O
-                         net (fo=2, routed)           0.870     5.421    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I0_O)        0.124     5.545 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5/O
-                         net (fo=1, routed)           0.807     6.353    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I3_O)        0.124     6.477 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.818     7.294    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.549  3971.718    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/C
-                         clock pessimism              0.265  3971.983    
-                         clock uncertainty          -59.535  3912.448    
-    SLICE_X57Y36         FDRE (Setup_fdre_C_R)       -0.429  3912.019    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]
-  -------------------------------------------------------------------
-                         required time                       3912.019    
-                         arrival time                          -7.294    
-  -------------------------------------------------------------------
-                         slack                               3904.725    
-
-Slack (MET) :             3904.725ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/R
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Setup (Max at Slow Process Corner)
-  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.282ns  (logic 0.828ns (19.336%)  route 3.454ns (80.664%))
-  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.728ns = ( 3971.718 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.012ns
-    Clock Pessimism Removal (CPR):    0.265ns
-  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
-    Total System Jitter     (TSJ):    0.071ns
-    Total Input Jitter      (TIJ):    119.070ns
-    Discrete Jitter          (DJ):    0.000ns
-    Phase Error              (PE):    0.000ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.718     3.012    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y31         FDRE (Prop_fdre_C_Q)         0.456     3.468 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/Q
-                         net (fo=2, routed)           0.959     4.427    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[4]
-    SLICE_X54Y31         LUT4 (Prop_lut4_I2_O)        0.124     4.551 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9/O
-                         net (fo=2, routed)           0.870     5.421    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I0_O)        0.124     5.545 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5/O
-                         net (fo=1, routed)           0.807     6.353    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I3_O)        0.124     6.477 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.818     7.294    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/R
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                   3968.990  3968.990 r  
-    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.549  3971.718    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/C
-                         clock pessimism              0.265  3971.983    
-                         clock uncertainty          -59.535  3912.448    
-    SLICE_X57Y36         FDRE (Setup_fdre_C_R)       -0.429  3912.019    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]
-  -------------------------------------------------------------------
-                         required time                       3912.019    
-                         arrival time                          -7.294    
-  -------------------------------------------------------------------
-                         slack                               3904.725    
-
-Slack (MET) :             3904.736ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
+Slack (MET) :             3905.249ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]/R
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.273ns  (logic 0.828ns (19.377%)  route 3.445ns (80.623%))
+  Data Path Delay:        3.759ns  (logic 0.828ns (22.028%)  route 2.931ns (77.972%))
   Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.730ns = ( 3971.720 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.012ns
-    Clock Pessimism Removal (CPR):    0.265ns
+  Clock Path Skew:        -0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.657ns = ( 3971.647 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
   Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    119.070ns
@@ -671,18 +215,18 @@ Slack (MET) :             3904.736ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.718     3.012    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y31         FDRE (Prop_fdre_C_Q)         0.456     3.468 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/Q
-                         net (fo=2, routed)           0.959     4.427    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[4]
-    SLICE_X54Y31         LUT4 (Prop_lut4_I2_O)        0.124     4.551 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9/O
-                         net (fo=2, routed)           0.870     5.421    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I0_O)        0.124     5.545 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5/O
-                         net (fo=1, routed)           0.807     6.353    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I3_O)        0.124     6.477 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.809     7.285    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y38         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]/R
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.809     6.698    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -690,31 +234,31 @@ Slack (MET) :             3904.736ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.551  3971.720    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y38         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]/C
-                         clock pessimism              0.265  3971.985    
-                         clock uncertainty          -59.535  3912.450    
-    SLICE_X57Y38         FDRE (Setup_fdre_C_R)       -0.429  3912.021    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]
+                         net (fo=37, routed)          1.478  3971.647    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]/C
+                         clock pessimism              0.264  3971.911    
+                         clock uncertainty          -59.535  3912.376    
+    SLICE_X52Y37         FDRE (Setup_fdre_C_R)       -0.429  3911.947    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]
   -------------------------------------------------------------------
-                         required time                       3912.021    
-                         arrival time                          -7.285    
+                         required time                       3911.947    
+                         arrival time                          -6.698    
   -------------------------------------------------------------------
-                         slack                               3904.736    
+                         slack                               3905.249    
 
-Slack (MET) :             3904.736ns  (required time - arrival time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
+Slack (MET) :             3905.249ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]/R
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Path Group:             clk_fpga_0
   Path Type:              Setup (Max at Slow Process Corner)
   Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        4.273ns  (logic 0.828ns (19.377%)  route 3.445ns (80.623%))
+  Data Path Delay:        3.759ns  (logic 0.828ns (22.028%)  route 2.931ns (77.972%))
   Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
-  Clock Path Skew:        -0.017ns (DCD - SCD + CPR)
-    Destination Clock Delay (DCD):    2.730ns = ( 3971.720 - 3968.990 ) 
-    Source Clock Delay      (SCD):    3.012ns
-    Clock Pessimism Removal (CPR):    0.265ns
+  Clock Path Skew:        -0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.657ns = ( 3971.647 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
   Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
     Total System Jitter     (TSJ):    0.071ns
     Total Input Jitter      (TIJ):    119.070ns
@@ -728,18 +272,18 @@ Slack (MET) :             3904.736ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.718     3.012    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y31         FDRE (Prop_fdre_C_Q)         0.456     3.468 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/Q
-                         net (fo=2, routed)           0.959     4.427    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[4]
-    SLICE_X54Y31         LUT4 (Prop_lut4_I2_O)        0.124     4.551 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9/O
-                         net (fo=2, routed)           0.870     5.421    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_9_n_0
-    SLICE_X56Y36         LUT5 (Prop_lut5_I0_O)        0.124     5.545 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5/O
-                         net (fo=1, routed)           0.807     6.353    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_5_n_0
-    SLICE_X58Y34         LUT6 (Prop_lut6_I3_O)        0.124     6.477 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
-                         net (fo=32, routed)          0.809     7.285    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
-    SLICE_X57Y38         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]/R
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.809     6.698    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]/R
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -747,16 +291,472 @@ Slack (MET) :             3904.736ns  (required time - arrival time)
     PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          1.551  3971.720    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y38         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]/C
-                         clock pessimism              0.265  3971.985    
-                         clock uncertainty          -59.535  3912.450    
-    SLICE_X57Y38         FDRE (Setup_fdre_C_R)       -0.429  3912.021    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]
+                         net (fo=37, routed)          1.478  3971.647    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]/C
+                         clock pessimism              0.264  3971.911    
+                         clock uncertainty          -59.535  3912.376    
+    SLICE_X52Y37         FDRE (Setup_fdre_C_R)       -0.429  3911.947    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]
   -------------------------------------------------------------------
-                         required time                       3912.021    
-                         arrival time                          -7.285    
+                         required time                       3911.947    
+                         arrival time                          -6.698    
   -------------------------------------------------------------------
-                         slack                               3904.736    
+                         slack                               3905.249    
+
+Slack (MET) :             3905.249ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.759ns  (logic 0.828ns (22.028%)  route 2.931ns (77.972%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.018ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.657ns = ( 3971.647 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.809     6.698    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.478  3971.647    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/C
+                         clock pessimism              0.264  3971.911    
+                         clock uncertainty          -59.535  3912.376    
+    SLICE_X52Y37         FDRE (Setup_fdre_C_R)       -0.429  3911.947    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]
+  -------------------------------------------------------------------
+                         required time                       3911.947    
+                         arrival time                          -6.698    
+  -------------------------------------------------------------------
+                         slack                               3905.249    
+
+Slack (MET) :             3905.387ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[25]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.620ns  (logic 0.828ns (22.870%)  route 2.792ns (77.130%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.656ns = ( 3971.646 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.670     6.559    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[25]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.477  3971.646    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[25]/C
+                         clock pessimism              0.264  3971.910    
+                         clock uncertainty          -59.535  3912.375    
+    SLICE_X52Y36         FDRE (Setup_fdre_C_R)       -0.429  3911.946    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[25]
+  -------------------------------------------------------------------
+                         required time                       3911.946    
+                         arrival time                          -6.559    
+  -------------------------------------------------------------------
+                         slack                               3905.387    
+
+Slack (MET) :             3905.387ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[26]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.620ns  (logic 0.828ns (22.870%)  route 2.792ns (77.130%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.656ns = ( 3971.646 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.670     6.559    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[26]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.477  3971.646    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[26]/C
+                         clock pessimism              0.264  3971.910    
+                         clock uncertainty          -59.535  3912.375    
+    SLICE_X52Y36         FDRE (Setup_fdre_C_R)       -0.429  3911.946    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[26]
+  -------------------------------------------------------------------
+                         required time                       3911.946    
+                         arrival time                          -6.559    
+  -------------------------------------------------------------------
+                         slack                               3905.387    
+
+Slack (MET) :             3905.387ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.620ns  (logic 0.828ns (22.870%)  route 2.792ns (77.130%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.656ns = ( 3971.646 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.670     6.559    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.477  3971.646    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/C
+                         clock pessimism              0.264  3971.910    
+                         clock uncertainty          -59.535  3912.375    
+    SLICE_X52Y36         FDRE (Setup_fdre_C_R)       -0.429  3911.946    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]
+  -------------------------------------------------------------------
+                         required time                       3911.946    
+                         arrival time                          -6.559    
+  -------------------------------------------------------------------
+                         slack                               3905.387    
+
+Slack (MET) :             3905.387ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.620ns  (logic 0.828ns (22.870%)  route 2.792ns (77.130%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.019ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.656ns = ( 3971.646 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.670     6.559    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.477  3971.646    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/C
+                         clock pessimism              0.264  3971.910    
+                         clock uncertainty          -59.535  3912.375    
+    SLICE_X52Y36         FDRE (Setup_fdre_C_R)       -0.429  3911.946    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]
+  -------------------------------------------------------------------
+                         required time                       3911.946    
+                         arrival time                          -6.559    
+  -------------------------------------------------------------------
+                         slack                               3905.387    
+
+Slack (MET) :             3905.389ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.615ns  (logic 0.828ns (22.904%)  route 2.787ns (77.096%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.654ns = ( 3971.644 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.665     6.554    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.475  3971.644    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/C
+                         clock pessimism              0.264  3971.908    
+                         clock uncertainty          -59.535  3912.373    
+    SLICE_X52Y33         FDRE (Setup_fdre_C_R)       -0.429  3911.944    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]
+  -------------------------------------------------------------------
+                         required time                       3911.944    
+                         arrival time                          -6.554    
+  -------------------------------------------------------------------
+                         slack                               3905.389    
+
+Slack (MET) :             3905.389ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.615ns  (logic 0.828ns (22.904%)  route 2.787ns (77.096%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.654ns = ( 3971.644 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.665     6.554    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.475  3971.644    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/C
+                         clock pessimism              0.264  3971.908    
+                         clock uncertainty          -59.535  3912.373    
+    SLICE_X52Y33         FDRE (Setup_fdre_C_R)       -0.429  3911.944    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]
+  -------------------------------------------------------------------
+                         required time                       3911.944    
+                         arrival time                          -6.554    
+  -------------------------------------------------------------------
+                         slack                               3905.389    
+
+Slack (MET) :             3905.389ns  (required time - arrival time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/R
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Setup (Max at Slow Process Corner)
+  Requirement:            3968.990ns  (clk_fpga_0 rise@3968.990ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        3.615ns  (logic 0.828ns (22.904%)  route 2.787ns (77.096%))
+  Logic Levels:           3  (LUT4=1 LUT5=1 LUT6=1)
+  Clock Path Skew:        -0.021ns (DCD - SCD + CPR)
+    Destination Clock Delay (DCD):    2.654ns = ( 3971.644 - 3968.990 ) 
+    Source Clock Delay      (SCD):    2.939ns
+    Clock Pessimism Removal (CPR):    0.264ns
+  Clock Uncertainty:      59.535ns  ((TSJ^2 + TIJ^2)^1/2 + DJ) / 2 + PE
+    Total System Jitter     (TSJ):    0.071ns
+    Total Input Jitter      (TIJ):    119.070ns
+    Discrete Jitter          (DJ):    0.000ns
+    Phase Error              (PE):    0.000ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.193     1.193    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.101     1.294 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.645     2.939    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.456     3.395 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
+                         net (fo=2, routed)           0.812     4.207    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
+    SLICE_X53Y32         LUT4 (Prop_lut4_I2_O)        0.124     4.331 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8/O
+                         net (fo=2, routed)           0.645     4.976    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_8_n_0
+    SLICE_X53Y33         LUT5 (Prop_lut5_I4_O)        0.124     5.100 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4/O
+                         net (fo=1, routed)           0.665     5.765    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_4_n_0
+    SLICE_X53Y33         LUT6 (Prop_lut6_I2_O)        0.124     5.889 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1/O
+                         net (fo=32, routed)          0.665     6.554    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]_i_1_n_0
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/R
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                   3968.990  3968.990 r  
+    PS7_X0Y0             PS7                          0.000  3968.990 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           1.088  3970.078    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.091  3970.169 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          1.475  3971.644    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
+                         clock pessimism              0.264  3971.908    
+                         clock uncertainty          -59.535  3912.373    
+    SLICE_X52Y33         FDRE (Setup_fdre_C_R)       -0.429  3911.944    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]
+  -------------------------------------------------------------------
+                         required time                       3911.944    
+                         arrival time                          -6.554    
+  -------------------------------------------------------------------
+                         slack                               3905.389    
 
 
 
@@ -764,7 +764,7 @@ Slack (MET) :             3904.736ns  (required time - arrival time)
 
 Min Delay Paths
 --------------------------------------------------------------------------------------
-Slack (MET) :             0.200ns  (arrival time - required time)
+Slack (MET) :             0.261ns  (arrival time - required time)
   Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg[1]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_reg/D
@@ -772,251 +772,12 @@ Slack (MET) :             0.200ns  (arrival time - required time)
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.333ns  (logic 0.186ns (55.777%)  route 0.147ns (44.223%))
+  Data Path Delay:        0.396ns  (logic 0.209ns (52.829%)  route 0.187ns (47.171%))
   Logic Levels:           1  (LUT6=1)
-  Clock Path Skew:        0.013ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.211ns
-    Source Clock Delay      (SCD):    0.915ns
-    Clock Pessimism Removal (CPR):    0.284ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.579     0.915    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X56Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg[1]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X56Y34         FDRE (Prop_fdre_C_Q)         0.141     1.056 r  PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg[1]/Q
-                         net (fo=6, routed)           0.147     1.203    PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg_n_0_[1]
-    SLICE_X58Y33         LUT6 (Prop_lut6_I4_O)        0.045     1.248 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_i_1/O
-                         net (fo=1, routed)           0.000     1.248    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_i_1_n_0
-    SLICE_X58Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_reg/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.845     1.211    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X58Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_reg/C
-                         clock pessimism             -0.284     0.928    
-    SLICE_X58Y33         FDRE (Hold_fdre_C_D)         0.120     1.048    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_reg
-  -------------------------------------------------------------------
-                         required time                         -1.048    
-                         arrival time                           1.248    
-  -------------------------------------------------------------------
-                         slack                                  0.200    
-
-Slack (MET) :             0.264ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.211ns
-    Source Clock Delay      (SCD):    0.914ns
-    Clock Pessimism Removal (CPR):    0.298ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.578     0.914    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y33         FDRE (Prop_fdre_C_Q)         0.141     1.054 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/Q
-                         net (fo=3, routed)           0.120     1.175    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[12]
-    SLICE_X57Y33         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.283 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]_i_1/O[3]
-                         net (fo=1, routed)           0.000     1.283    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[12]
-    SLICE_X57Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.845     1.211    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
-                         clock pessimism             -0.298     0.914    
-    SLICE_X57Y33         FDRE (Hold_fdre_C_D)         0.105     1.019    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]
-  -------------------------------------------------------------------
-                         required time                         -1.019    
-                         arrival time                           1.283    
-  -------------------------------------------------------------------
-                         slack                                  0.264    
-
-Slack (MET) :             0.264ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.213ns
-    Source Clock Delay      (SCD):    0.915ns
-    Clock Pessimism Removal (CPR):    0.298ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.579     0.915    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y35         FDRE (Prop_fdre_C_Q)         0.141     1.056 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]/Q
-                         net (fo=2, routed)           0.120     1.176    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[20]
-    SLICE_X57Y35         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.284 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]_i_1/O[3]
-                         net (fo=1, routed)           0.000     1.284    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[20]
-    SLICE_X57Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.847     1.213    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]/C
-                         clock pessimism             -0.298     0.915    
-    SLICE_X57Y35         FDRE (Hold_fdre_C_D)         0.105     1.020    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]
-  -------------------------------------------------------------------
-                         required time                         -1.020    
-                         arrival time                           1.284    
-  -------------------------------------------------------------------
-                         slack                                  0.264    
-
-Slack (MET) :             0.264ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.213ns
-    Source Clock Delay      (SCD):    0.915ns
-    Clock Pessimism Removal (CPR):    0.298ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.579     0.915    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y36         FDRE (Prop_fdre_C_Q)         0.141     1.056 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/Q
-                         net (fo=2, routed)           0.120     1.176    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[24]
-    SLICE_X57Y36         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.284 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]_i_1/O[3]
-                         net (fo=1, routed)           0.000     1.284    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[24]
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.847     1.213    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]/C
-                         clock pessimism             -0.298     0.915    
-    SLICE_X57Y36         FDRE (Hold_fdre_C_D)         0.105     1.020    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]
-  -------------------------------------------------------------------
-                         required time                         -1.020    
-                         arrival time                           1.284    
-  -------------------------------------------------------------------
-                         slack                                  0.264    
-
-Slack (MET) :             0.264ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.209ns
-    Source Clock Delay      (SCD):    0.912ns
-    Clock Pessimism Removal (CPR):    0.298ns
-
-    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
-  -------------------------------------------------------------------    -------------------
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.576     0.912    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-  -------------------------------------------------------------------    -------------------
-    SLICE_X57Y31         FDRE (Prop_fdre_C_Q)         0.141     1.053 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/Q
-                         net (fo=2, routed)           0.120     1.173    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[4]
-    SLICE_X57Y31         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.281 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]_i_1/O[3]
-                         net (fo=1, routed)           0.000     1.281    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[4]
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/D
-  -------------------------------------------------------------------    -------------------
-
-                         (clock clk_fpga_0 rise edge)
-                                                      0.000     0.000 r  
-    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
-                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
-    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.843     1.209    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-                         clock pessimism             -0.298     0.912    
-    SLICE_X57Y31         FDRE (Hold_fdre_C_D)         0.105     1.017    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]
-  -------------------------------------------------------------------
-                         required time                         -1.016    
-                         arrival time                           1.281    
-  -------------------------------------------------------------------
-                         slack                                  0.264    
-
-Slack (MET) :             0.264ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/D
-                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Path Group:             clk_fpga_0
-  Path Type:              Hold (Min at Fast Process Corner)
-  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
-  Logic Levels:           1  (CARRY4=1)
-  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+  Clock Path Skew:        0.015ns (DCD - SCD - CPR)
     Destination Clock Delay (DCD):    1.210ns
     Source Clock Delay      (SCD):    0.913ns
-    Clock Pessimism Removal (CPR):    0.297ns
+    Clock Pessimism Removal (CPR):    0.282ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1026,14 +787,13 @@ Slack (MET) :             0.264ns  (arrival time - required time)
                          net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
                          net (fo=37, routed)          0.577     0.913    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y32         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
+    SLICE_X54Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg[1]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y32         FDRE (Prop_fdre_C_Q)         0.141     1.054 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/Q
-                         net (fo=2, routed)           0.120     1.174    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[8]
-    SLICE_X57Y32         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.282 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]_i_1/O[3]
-                         net (fo=1, routed)           0.000     1.282    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[8]
-    SLICE_X57Y32         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/D
+    SLICE_X54Y33         FDRE (Prop_fdre_C_Q)         0.164     1.077 r  PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg[1]/Q
+                         net (fo=6, routed)           0.187     1.263    PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg_n_0_[1]
+    SLICE_X54Y34         LUT6 (Prop_lut6_I4_O)        0.045     1.308 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_i_1/O
+                         net (fo=1, routed)           0.000     1.308    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_i_1_n_0
+    SLICE_X54Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_reg/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1042,29 +802,29 @@ Slack (MET) :             0.264ns  (arrival time - required time)
                          net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
                          net (fo=37, routed)          0.844     1.210    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y32         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]/C
-                         clock pessimism             -0.297     0.913    
-    SLICE_X57Y32         FDRE (Hold_fdre_C_D)         0.105     1.018    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]
+    SLICE_X54Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_reg/C
+                         clock pessimism             -0.282     0.928    
+    SLICE_X54Y34         FDRE (Hold_fdre_C_D)         0.120     1.048    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_out_reg
   -------------------------------------------------------------------
-                         required time                         -1.018    
-                         arrival time                           1.282    
+                         required time                         -1.048    
+                         arrival time                           1.308    
   -------------------------------------------------------------------
-                         slack                                  0.264    
+                         slack                                  0.261    
 
-Slack (MET) :             0.264ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/C
+Slack (MET) :             0.261ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/D
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.369ns  (logic 0.249ns (67.424%)  route 0.120ns (32.576%))
-  Logic Levels:           1  (CARRY4=1)
+  Data Path Delay:        0.366ns  (logic 0.183ns (50.045%)  route 0.183ns (49.955%))
+  Logic Levels:           1  (LUT1=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.214ns
-    Source Clock Delay      (SCD):    0.916ns
-    Clock Pessimism Removal (CPR):    0.299ns
+    Destination Clock Delay (DCD):    1.185ns
+    Source Clock Delay      (SCD):    0.890ns
+    Clock Pessimism Removal (CPR):    0.295ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1073,15 +833,14 @@ Slack (MET) :             0.264ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.580     0.916    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/C
+                         net (fo=37, routed)          0.554     0.890    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X53Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y37         FDRE (Prop_fdre_C_Q)         0.141     1.057 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/Q
-                         net (fo=3, routed)           0.120     1.177    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[28]
-    SLICE_X57Y37         CARRY4 (Prop_carry4_S[3]_O[3])
-                                                      0.108     1.285 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]_i_1/O[3]
-                         net (fo=1, routed)           0.000     1.285    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[28]
-    SLICE_X57Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/D
+    SLICE_X53Y34         FDRE (Prop_fdre_C_Q)         0.141     1.031 f  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/Q
+                         net (fo=6, routed)           0.183     1.213    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg_n_0_[0]
+    SLICE_X53Y34         LUT1 (Prop_lut1_I0_O)        0.042     1.255 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[0]_i_1/O
+                         net (fo=1, routed)           0.000     1.255    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[0]_i_1_n_0
+    SLICE_X53Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1089,30 +848,30 @@ Slack (MET) :             0.264ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.848     1.214    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]/C
-                         clock pessimism             -0.299     0.916    
-    SLICE_X57Y37         FDRE (Hold_fdre_C_D)         0.105     1.021    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]
+                         net (fo=37, routed)          0.819     1.185    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X53Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
+                         clock pessimism             -0.295     0.890    
+    SLICE_X53Y34         FDRE (Hold_fdre_C_D)         0.105     0.995    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]
   -------------------------------------------------------------------
-                         required time                         -1.021    
-                         arrival time                           1.285    
+                         required time                         -0.995    
+                         arrival time                           1.255    
   -------------------------------------------------------------------
-                         slack                                  0.264    
+                         slack                                  0.261    
 
-Slack (MET) :             0.267ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[9]/C
+Slack (MET) :             0.280ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[7]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[9]/D
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[7]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.372ns  (logic 0.256ns (68.766%)  route 0.116ns (31.234%))
+  Data Path Delay:        0.385ns  (logic 0.252ns (65.529%)  route 0.133ns (34.471%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.211ns
-    Source Clock Delay      (SCD):    0.914ns
-    Clock Pessimism Removal (CPR):    0.298ns
+    Destination Clock Delay (DCD):    1.182ns
+    Source Clock Delay      (SCD):    0.887ns
+    Clock Pessimism Removal (CPR):    0.295ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1121,15 +880,15 @@ Slack (MET) :             0.267ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.578     0.914    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[9]/C
+                         net (fo=37, routed)          0.551     0.887    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[7]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y33         FDRE (Prop_fdre_C_Q)         0.141     1.054 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[9]/Q
-                         net (fo=2, routed)           0.116     1.171    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[9]
-    SLICE_X57Y33         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     1.286 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]_i_1/O[0]
-                         net (fo=1, routed)           0.000     1.286    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[9]
-    SLICE_X57Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[9]/D
+    SLICE_X52Y31         FDRE (Prop_fdre_C_Q)         0.141     1.028 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[7]/Q
+                         net (fo=2, routed)           0.133     1.160    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[7]
+    SLICE_X52Y31         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.271 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[8]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.271    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[7]
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[7]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1137,30 +896,30 @@ Slack (MET) :             0.267ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.845     1.211    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[9]/C
-                         clock pessimism             -0.298     0.914    
-    SLICE_X57Y33         FDRE (Hold_fdre_C_D)         0.105     1.019    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[9]
+                         net (fo=37, routed)          0.816     1.182    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y31         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[7]/C
+                         clock pessimism             -0.295     0.887    
+    SLICE_X52Y31         FDRE (Hold_fdre_C_D)         0.105     0.992    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[7]
   -------------------------------------------------------------------
-                         required time                         -1.019    
-                         arrival time                           1.286    
+                         required time                         -0.992    
+                         arrival time                           1.271    
   -------------------------------------------------------------------
-                         slack                                  0.267    
+                         slack                                  0.280    
 
-Slack (MET) :             0.267ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/C
+Slack (MET) :             0.280ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/D
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.372ns  (logic 0.256ns (68.766%)  route 0.116ns (31.234%))
+  Data Path Delay:        0.385ns  (logic 0.252ns (65.529%)  route 0.133ns (34.471%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.213ns
-    Source Clock Delay      (SCD):    0.915ns
-    Clock Pessimism Removal (CPR):    0.298ns
+    Destination Clock Delay (DCD):    1.183ns
+    Source Clock Delay      (SCD):    0.888ns
+    Clock Pessimism Removal (CPR):    0.295ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1169,15 +928,15 @@ Slack (MET) :             0.267ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.579     0.915    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/C
+                         net (fo=37, routed)          0.552     0.888    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y32         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y35         FDRE (Prop_fdre_C_Q)         0.141     1.056 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/Q
-                         net (fo=2, routed)           0.116     1.172    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[17]
-    SLICE_X57Y35         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     1.287 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]_i_1/O[0]
-                         net (fo=1, routed)           0.000     1.287    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[17]
-    SLICE_X57Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/D
+    SLICE_X52Y32         FDRE (Prop_fdre_C_Q)         0.141     1.029 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/Q
+                         net (fo=2, routed)           0.133     1.161    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[11]
+    SLICE_X52Y32         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.272 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.272    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[11]
+    SLICE_X52Y32         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1185,30 +944,30 @@ Slack (MET) :             0.267ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.847     1.213    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/C
-                         clock pessimism             -0.298     0.915    
-    SLICE_X57Y35         FDRE (Hold_fdre_C_D)         0.105     1.020    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]
+                         net (fo=37, routed)          0.817     1.183    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y32         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
+                         clock pessimism             -0.295     0.888    
+    SLICE_X52Y32         FDRE (Hold_fdre_C_D)         0.105     0.993    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]
   -------------------------------------------------------------------
-                         required time                         -1.020    
-                         arrival time                           1.287    
+                         required time                         -0.992    
+                         arrival time                           1.272    
   -------------------------------------------------------------------
-                         slack                                  0.267    
+                         slack                                  0.280    
 
-Slack (MET) :             0.267ns  (arrival time - required time)
-  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/C
+Slack (MET) :             0.280ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[19]/C
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
-  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/D
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[19]/D
                             (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
   Path Group:             clk_fpga_0
   Path Type:              Hold (Min at Fast Process Corner)
   Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
-  Data Path Delay:        0.372ns  (logic 0.256ns (68.766%)  route 0.116ns (31.234%))
+  Data Path Delay:        0.385ns  (logic 0.252ns (65.529%)  route 0.133ns (34.471%))
   Logic Levels:           1  (CARRY4=1)
   Clock Path Skew:        0.000ns (DCD - SCD - CPR)
-    Destination Clock Delay (DCD):    1.213ns
-    Source Clock Delay      (SCD):    0.915ns
-    Clock Pessimism Removal (CPR):    0.298ns
+    Destination Clock Delay (DCD):    1.185ns
+    Source Clock Delay      (SCD):    0.890ns
+    Clock Pessimism Removal (CPR):    0.295ns
 
     Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
   -------------------------------------------------------------------    -------------------
@@ -1217,15 +976,15 @@ Slack (MET) :             0.267ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.579     0.915    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/C
+                         net (fo=37, routed)          0.554     0.890    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[19]/C
   -------------------------------------------------------------------    -------------------
-    SLICE_X57Y36         FDRE (Prop_fdre_C_Q)         0.141     1.056 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/Q
-                         net (fo=2, routed)           0.116     1.172    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[21]
-    SLICE_X57Y36         CARRY4 (Prop_carry4_S[0]_O[0])
-                                                      0.115     1.287 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]_i_1/O[0]
-                         net (fo=1, routed)           0.000     1.287    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[21]
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/D
+    SLICE_X52Y34         FDRE (Prop_fdre_C_Q)         0.141     1.031 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[19]/Q
+                         net (fo=2, routed)           0.133     1.163    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[19]
+    SLICE_X52Y34         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.274 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[20]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.274    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[19]
+    SLICE_X52Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[19]/D
   -------------------------------------------------------------------    -------------------
 
                          (clock clk_fpga_0 rise edge)
@@ -1233,15 +992,255 @@ Slack (MET) :             0.267ns  (arrival time - required time)
     PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
                          net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
     BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
-                         net (fo=37, routed)          0.847     1.213    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
-    SLICE_X57Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]/C
-                         clock pessimism             -0.298     0.915    
-    SLICE_X57Y36         FDRE (Hold_fdre_C_D)         0.105     1.020    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[21]
+                         net (fo=37, routed)          0.819     1.185    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y34         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[19]/C
+                         clock pessimism             -0.295     0.890    
+    SLICE_X52Y34         FDRE (Hold_fdre_C_D)         0.105     0.995    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[19]
   -------------------------------------------------------------------
-                         required time                         -1.020    
-                         arrival time                           1.287    
+                         required time                         -0.995    
+                         arrival time                           1.274    
   -------------------------------------------------------------------
-                         slack                                  0.267    
+                         slack                                  0.280    
+
+Slack (MET) :             0.280ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.385ns  (logic 0.252ns (65.529%)  route 0.133ns (34.471%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.186ns
+    Source Clock Delay      (SCD):    0.890ns
+    Clock Pessimism Removal (CPR):    0.296ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.554     0.890    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y36         FDRE (Prop_fdre_C_Q)         0.141     1.031 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/Q
+                         net (fo=2, routed)           0.133     1.163    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[27]
+    SLICE_X52Y36         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.274 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[28]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.274    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[27]
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.820     1.186    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y36         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]/C
+                         clock pessimism             -0.296     0.890    
+    SLICE_X52Y36         FDRE (Hold_fdre_C_D)         0.105     0.995    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[27]
+  -------------------------------------------------------------------
+                         required time                         -0.995    
+                         arrival time                           1.274    
+  -------------------------------------------------------------------
+                         slack                                  0.280    
+
+Slack (MET) :             0.280ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.385ns  (logic 0.252ns (65.465%)  route 0.133ns (34.535%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.184ns
+    Source Clock Delay      (SCD):    0.889ns
+    Clock Pessimism Removal (CPR):    0.295ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.553     0.889    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y33         FDRE (Prop_fdre_C_Q)         0.141     1.030 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/Q
+                         net (fo=3, routed)           0.133     1.162    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[15]
+    SLICE_X52Y33         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.273 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.273    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[15]
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.818     1.184    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y33         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
+                         clock pessimism             -0.295     0.889    
+    SLICE_X52Y33         FDRE (Hold_fdre_C_D)         0.105     0.994    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]
+  -------------------------------------------------------------------
+                         required time                         -0.994    
+                         arrival time                           1.273    
+  -------------------------------------------------------------------
+                         slack                                  0.280    
+
+Slack (MET) :             0.281ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.386ns  (logic 0.252ns (65.354%)  route 0.134ns (34.646%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.187ns
+    Source Clock Delay      (SCD):    0.891ns
+    Clock Pessimism Removal (CPR):    0.296ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.555     0.891    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y37         FDRE (Prop_fdre_C_Q)         0.141     1.032 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/Q
+                         net (fo=3, routed)           0.134     1.165    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[31]
+    SLICE_X52Y37         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.276 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]_i_3/O[2]
+                         net (fo=1, routed)           0.000     1.276    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[31]
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.821     1.187    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y37         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/C
+                         clock pessimism             -0.296     0.891    
+    SLICE_X52Y37         FDRE (Hold_fdre_C_D)         0.105     0.996    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]
+  -------------------------------------------------------------------
+                         required time                         -0.996    
+                         arrival time                           1.276    
+  -------------------------------------------------------------------
+                         slack                                  0.281    
+
+Slack (MET) :             0.281ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.386ns  (logic 0.252ns (65.354%)  route 0.134ns (34.646%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.186ns
+    Source Clock Delay      (SCD):    0.890ns
+    Clock Pessimism Removal (CPR):    0.296ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.554     0.890    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y35         FDRE (Prop_fdre_C_Q)         0.141     1.031 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/Q
+                         net (fo=2, routed)           0.134     1.164    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[23]
+    SLICE_X52Y35         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.275 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[24]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.275    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[23]
+    SLICE_X52Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.820     1.186    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y35         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]/C
+                         clock pessimism             -0.296     0.890    
+    SLICE_X52Y35         FDRE (Hold_fdre_C_D)         0.105     0.995    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[23]
+  -------------------------------------------------------------------
+                         required time                         -0.995    
+                         arrival time                           1.275    
+  -------------------------------------------------------------------
+                         slack                                  0.281    
+
+Slack (MET) :             0.281ns  (arrival time - required time)
+  Source:                 PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/C
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Destination:            PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/D
+                            (rising edge-triggered cell FDRE clocked by clk_fpga_0  {rise@0.000ns fall@1984.495ns period=3968.990ns})
+  Path Group:             clk_fpga_0
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk_fpga_0 rise@0.000ns - clk_fpga_0 rise@0.000ns)
+  Data Path Delay:        0.386ns  (logic 0.252ns (65.343%)  route 0.134ns (34.657%))
+  Logic Levels:           1  (CARRY4=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.181ns
+    Source Clock Delay      (SCD):    0.886ns
+    Clock Pessimism Removal (CPR):    0.295ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.310     0.310    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.026     0.336 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.550     0.886    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y30         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X52Y30         FDRE (Prop_fdre_C_Q)         0.141     1.026 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/Q
+                         net (fo=3, routed)           0.134     1.160    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index[3]
+    SLICE_X52Y30         CARRY4 (Prop_carry4_S[2]_O[2])
+                                                      0.111     1.271 r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]_i_1/O[2]
+                         net (fo=1, routed)           0.000     1.271    PicoRV32_BD_i/Out_bank_0/inst/uart/data0[3]
+    SLICE_X52Y30         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk_fpga_0 rise edge)
+                                                      0.000     0.000 r  
+    PS7_X0Y0             PS7                          0.000     0.000 r  PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0]
+                         net (fo=1, routed)           0.337     0.337    PicoRV32_BD_i/processing_system7_0/inst/FCLK_CLK_unbuffered[0]
+    BUFGCTRL_X0Y16       BUFG (Prop_bufg_I_O)         0.029     0.366 r  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/O
+                         net (fo=37, routed)          0.815     1.181    PicoRV32_BD_i/Out_bank_0/inst/uart/UARTclk
+    SLICE_X52Y30         FDRE                                         r  PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/C
+                         clock pessimism             -0.295     0.886    
+    SLICE_X52Y30         FDRE (Hold_fdre_C_D)         0.105     0.991    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]
+  -------------------------------------------------------------------
+                         required time                         -0.991    
+                         arrival time                           1.271    
+  -------------------------------------------------------------------
+                         slack                                  0.281    
 
 
 
@@ -1256,35 +1255,35 @@ Sources:            { PicoRV32_BD_i/processing_system7_0/inst/PS7_i/FCLKCLK[0] }
 
 Check Type        Corner  Lib Pin  Reference Pin  Required(ns)  Actual(ns)  Slack(ns)  Location        Pin
 Min Period        n/a     BUFG/I   n/a            2.155         3968.990    3966.835   BUFGCTRL_X0Y16  PicoRV32_BD_i/processing_system7_0/inst/buffer_fclk_clk_0.FCLK_CLK_0_BUFG/I
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[10]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X57Y35    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y31    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[1]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y31    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[2]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y31    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[3]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y31    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[4]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
-Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y37    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[25]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X56Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/last_tx_send_reg/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X56Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg[0]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X56Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/state_reg[1]/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X56Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/tx_busy_reg/C
-High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X57Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[10]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X53Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[10]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
+Min Period        n/a     FDRE/C   n/a            1.000         3968.990    3967.990   SLICE_X52Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[17]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[10]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[15]/C
+Low Pulse Width   Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[16]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y37    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[29]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y37    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[30]/C
+Low Pulse Width   Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y37    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[31]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X53Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X53Y34    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[0]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[10]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[10]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[11]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
+High Pulse Width  Fast    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y32    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[12]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[13]/C
+High Pulse Width  Slow    FDRE/C   n/a            0.500         1984.495    1983.995   SLICE_X52Y33    PicoRV32_BD_i/Out_bank_0/inst/uart/UART_index_reg[14]/C
 
 
 

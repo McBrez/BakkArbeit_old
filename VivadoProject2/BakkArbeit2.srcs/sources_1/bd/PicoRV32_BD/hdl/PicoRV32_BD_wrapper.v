@@ -1,7 +1,7 @@
 //Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 //--------------------------------------------------------------------------------
 //Tool Version: Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
-//Date        : Thu Feb  8 18:35:09 2018
+//Date        : Thu Feb 15 23:00:51 2018
 //Host        : FREISMUTHDESK running 64-bit major release  (build 9200)
 //Command     : generate_target PicoRV32_BD_wrapper.bd
 //Design      : PicoRV32_BD_wrapper
@@ -31,6 +31,7 @@ module PicoRV32_BD_wrapper
     FIXED_IO_ps_clk,
     FIXED_IO_ps_porb,
     FIXED_IO_ps_srstb,
+    IN_Port,
     OUT_Port,
     UART_out,
     clk,
@@ -56,7 +57,8 @@ module PicoRV32_BD_wrapper
   inout FIXED_IO_ps_clk;
   inout FIXED_IO_ps_porb;
   inout FIXED_IO_ps_srstb;
-  output [31:0]OUT_Port;
+  input [7:0]IN_Port;
+  output [7:0]OUT_Port;
   output UART_out;
   input clk;
   input resetn;
@@ -82,7 +84,8 @@ module PicoRV32_BD_wrapper
   wire FIXED_IO_ps_clk;
   wire FIXED_IO_ps_porb;
   wire FIXED_IO_ps_srstb;
-  wire [31:0]OUT_Port;
+  wire [7:0]IN_Port;
+  wire [7:0]OUT_Port;
   wire UART_out;
   wire clk;
   wire resetn;
@@ -109,6 +112,7 @@ module PicoRV32_BD_wrapper
         .FIXED_IO_ps_clk(FIXED_IO_ps_clk),
         .FIXED_IO_ps_porb(FIXED_IO_ps_porb),
         .FIXED_IO_ps_srstb(FIXED_IO_ps_srstb),
+        .IN_Port(IN_Port),
         .OUT_Port(OUT_Port),
         .UART_out(UART_out),
         .clk(clk),
