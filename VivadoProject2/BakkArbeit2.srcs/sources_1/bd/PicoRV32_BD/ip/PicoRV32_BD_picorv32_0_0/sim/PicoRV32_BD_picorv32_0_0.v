@@ -124,7 +124,7 @@ output wire [35 : 0] trace_data;
     .ENABLE_REGS_DUALPORT(1),
     .LATCHED_MEM_RDATA(0),
     .TWO_STAGE_SHIFT(1),
-    .BARREL_SHIFTER(0),
+    .BARREL_SHIFTER(1),
     .TWO_CYCLE_COMPARE(0),
     .TWO_CYCLE_ALU(0),
     .COMPRESSED_ISA(1),

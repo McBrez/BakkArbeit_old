@@ -60,102 +60,26 @@ proc step_failed { step } {
   close $ch
 }
 
-set_msg_config -id {Common 17-41} -limit 10000000
-set_msg_config -id {Synth 8-256} -limit 10000
-set_msg_config -id {Synth 8-638} -limit 10000
 
-start_step init_design
-set ACTIVE_STEP init_design
+start_step write_bitstream
+set ACTIVE_STEP write_bitstream
 set rc [catch {
-  create_msg_db init_design.pb
-  set_param synth.incrementalSynthesisCache C:/Users/David/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-2324-FREISMUTHDESK/incrSyn
-  create_project -in_memory -part xc7z020clg484-1
-  set_property board_part em.avnet.com:zed:part0:1.3 [current_project]
-  set_property design_mode GateLvl [current_fileset]
-  set_param project.singleFileAddWarning.threshold 0
+  create_msg_db write_bitstream.pb
+  open_checkpoint PicoRV32_BD_wrapper_routed.dcp
   set_property webtalk.parent_dir D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.cache/wt [current_project]
-  set_property parent.project_path D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.xpr [current_project]
-  set_property ip_output_repo D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.cache/ip [current_project]
-  set_property ip_cache_permissions {read write} [current_project]
   set_property XPM_LIBRARIES {XPM_FIFO XPM_MEMORY} [current_project]
-  add_files -quiet D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/synth_1/PicoRV32_BD_wrapper.dcp
-  set_msg_config -source 4 -id {BD 41-1661} -limit 0
-  set_param project.isImplRun true
-  add_files D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/PicoRV32_BD.bd
-  set_param project.isImplRun false
-  read_xdc D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/constrs_1/new/Constraints.xdc
-  set_param project.isImplRun true
-  link_design -top PicoRV32_BD_wrapper -part xc7z020clg484-1
-  set_param project.isImplRun false
-  write_hwdef -force -file PicoRV32_BD_wrapper.hwdef
-  close_msg_db -file init_design.pb
+  catch { write_mem_info -force PicoRV32_BD_wrapper.mmi }
+  write_bitstream -force PicoRV32_BD_wrapper.bit 
+  catch { write_sysdef -hwdef PicoRV32_BD_wrapper.hwdef -bitfile PicoRV32_BD_wrapper.bit -meminfo PicoRV32_BD_wrapper.mmi -file PicoRV32_BD_wrapper.sysdef }
+  catch {write_debug_probes -quiet -force PicoRV32_BD_wrapper}
+  catch {file copy -force PicoRV32_BD_wrapper.ltx debug_nets.ltx}
+  close_msg_db -file write_bitstream.pb
 } RESULT]
 if {$rc} {
-  step_failed init_design
+  step_failed write_bitstream
   return -code error $RESULT
 } else {
-  end_step init_design
-  unset ACTIVE_STEP 
-}
-
-start_step opt_design
-set ACTIVE_STEP opt_design
-set rc [catch {
-  create_msg_db opt_design.pb
-  opt_design 
-  write_checkpoint -force PicoRV32_BD_wrapper_opt.dcp
-  create_report "impl_4_opt_report_drc_0" "report_drc -file PicoRV32_BD_wrapper_drc_opted.rpt -pb PicoRV32_BD_wrapper_drc_opted.pb -rpx PicoRV32_BD_wrapper_drc_opted.rpx"
-  close_msg_db -file opt_design.pb
-} RESULT]
-if {$rc} {
-  step_failed opt_design
-  return -code error $RESULT
-} else {
-  end_step opt_design
-  unset ACTIVE_STEP 
-}
-
-start_step place_design
-set ACTIVE_STEP place_design
-set rc [catch {
-  create_msg_db place_design.pb
-  implement_debug_core 
-  place_design 
-  write_checkpoint -force PicoRV32_BD_wrapper_placed.dcp
-  create_report "impl_4_place_report_io_0" "report_io -file PicoRV32_BD_wrapper_io_placed.rpt"
-  create_report "impl_4_place_report_utilization_0" "report_utilization -file PicoRV32_BD_wrapper_utilization_placed.rpt -pb PicoRV32_BD_wrapper_utilization_placed.pb"
-  create_report "impl_4_place_report_control_sets_0" "report_control_sets -verbose -file PicoRV32_BD_wrapper_control_sets_placed.rpt"
-  close_msg_db -file place_design.pb
-} RESULT]
-if {$rc} {
-  step_failed place_design
-  return -code error $RESULT
-} else {
-  end_step place_design
-  unset ACTIVE_STEP 
-}
-
-start_step route_design
-set ACTIVE_STEP route_design
-set rc [catch {
-  create_msg_db route_design.pb
-  route_design 
-  write_checkpoint -force PicoRV32_BD_wrapper_routed.dcp
-  create_report "impl_4_route_report_drc_0" "report_drc -file PicoRV32_BD_wrapper_drc_routed.rpt -pb PicoRV32_BD_wrapper_drc_routed.pb -rpx PicoRV32_BD_wrapper_drc_routed.rpx"
-  create_report "impl_4_route_report_methodology_0" "report_methodology -file PicoRV32_BD_wrapper_methodology_drc_routed.rpt -pb PicoRV32_BD_wrapper_methodology_drc_routed.pb -rpx PicoRV32_BD_wrapper_methodology_drc_routed.rpx"
-  create_report "impl_4_route_report_power_0" "report_power -file PicoRV32_BD_wrapper_power_routed.rpt -pb PicoRV32_BD_wrapper_power_summary_routed.pb -rpx PicoRV32_BD_wrapper_power_routed.rpx"
-  create_report "impl_4_route_report_route_status_0" "report_route_status -file PicoRV32_BD_wrapper_route_status.rpt -pb PicoRV32_BD_wrapper_route_status.pb"
-  create_report "impl_4_route_report_timing_summary_0" "report_timing_summary -max_paths 10 -file PicoRV32_BD_wrapper_timing_summary_routed.rpt -rpx PicoRV32_BD_wrapper_timing_summary_routed.rpx -warn_on_violation "
-  create_report "impl_4_route_report_incremental_reuse_0" "report_incremental_reuse -file PicoRV32_BD_wrapper_incremental_reuse_routed.rpt"
-  create_report "impl_4_route_report_clock_utilization_0" "report_clock_utilization -file PicoRV32_BD_wrapper_clock_utilization_routed.rpt"
-  close_msg_db -file route_design.pb
-} RESULT]
-if {$rc} {
-  write_checkpoint -force PicoRV32_BD_wrapper_routed_error.dcp
-  step_failed route_design
-  return -code error $RESULT
-} else {
-  end_step route_design
+  end_step write_bitstream
   unset ACTIVE_STEP 
 }
 

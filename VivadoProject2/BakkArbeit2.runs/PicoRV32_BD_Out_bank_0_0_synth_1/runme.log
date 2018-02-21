@@ -1,0 +1,374 @@
+
+*** Running vivado
+    with args -log PicoRV32_BD_Out_bank_0_0.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source PicoRV32_BD_Out_bank_0_0.tcl
+
+
+****** Vivado v2017.4 (64-bit)
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+  **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+    ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+
+source PicoRV32_BD_Out_bank_0_0.tcl -notrace
+Command: synth_design -top PicoRV32_BD_Out_bank_0_0 -part xc7z020clg484-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 4496 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:11 ; elapsed = 00:00:15 . Memory (MB): peak = 405.434 ; gain = 104.855
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'PicoRV32_BD_Out_bank_0_0' [d:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/synth/PicoRV32_BD_Out_bank_0_0.v:57]
+INFO: [Synth 8-638] synthesizing module 'Out_bank' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/imports/new/Out_bank.v:85]
+	Parameter MODULE_STATE_IDLE bound to: 2'b00 
+	Parameter MODULE_STATE_UART_SEND bound to: 2'b01 
+	Parameter MODULE_STATE_RESET bound to: 2'b10 
+INFO: [Synth 8-638] synthesizing module 'UART_block' [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/imports/new/Out_bank.v:22]
+	Parameter IDLE bound to: 2'b00 
+	Parameter START bound to: 2'b01 
+	Parameter SEND bound to: 2'b10 
+	Parameter STOP bound to: 2'b11 
+INFO: [Synth 8-256] done synthesizing module 'UART_block' (1#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/imports/new/Out_bank.v:22]
+INFO: [Synth 8-155] case statement is not full and has no default [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/imports/new/Out_bank.v:133]
+INFO: [Synth 8-256] done synthesizing module 'Out_bank' (2#1) [D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/imports/new/Out_bank.v:85]
+INFO: [Synth 8-256] done synthesizing module 'PicoRV32_BD_Out_bank_0_0' (3#1) [d:/BakkArbeit/git/VivadoProject2/BakkArbeit2.srcs/sources_1/bd/PicoRV32_BD/ip/PicoRV32_BD_Out_bank_0_0/synth/PicoRV32_BD_Out_bank_0_0.v:57]
+WARNING: [Synth 8-3331] design UART_block has unconnected port resetn
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[31]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[30]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[29]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[28]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[27]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[26]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[25]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[24]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[23]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[22]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[21]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[20]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[19]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[18]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[17]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[16]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[15]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[14]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[13]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[12]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[11]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[10]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[9]
+WARNING: [Synth 8-3331] design Out_bank has unconnected port mem_wdata[8]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:12 ; elapsed = 00:00:18 . Memory (MB): peak = 457.695 ; gain = 157.117
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:12 ; elapsed = 00:00:19 . Memory (MB): peak = 457.695 ; gain = 157.117
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z020clg484-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.025 . Memory (MB): peak = 804.109 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 804.109 ; gain = 503.531
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg484-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 804.109 ; gain = 503.531
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:58 . Memory (MB): peak = 804.109 ; gain = 503.531
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "UART_index" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5544] ROM "mem_rdata" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "out_registers" won't be mapped to Block RAM because address size (4) smaller than threshold (5)
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:59 . Memory (MB): peak = 804.109 ; gain = 503.531
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                2 Bit    Registers := 2     
+	                1 Bit    Registers := 8     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   5 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 15    
+	   2 Input      1 Bit        Muxes := 8     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module UART_block 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 3     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 6     
+	   2 Input      1 Bit        Muxes := 1     
+Module Out_bank 
+Detailed RTL Component Info : 
++---Registers : 
+	               17 Bit    Registers := 1     
+	                8 Bit    Registers := 2     
+	                2 Bit    Registers := 1     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   5 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 7     
+	   4 Input      1 Bit        Muxes := 9     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5545] ROM "inst/uart/UART_index" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-5545] ROM "inst/uart/state" won't be mapped to RAM because address size (32) is larger than maximum supported(25)
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[31] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[30] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[29] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[28] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[27] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[26] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[25] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[24] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[23] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[22] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[21] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[20] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[19] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[18] driven by constant 0
+INFO: [Synth 8-3917] design PicoRV32_BD_Out_bank_0_0 has port mem_rdata[17] driven by constant 0
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port resetn
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[31]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[30]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[29]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[28]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[27]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[26]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[25]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[24]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[23]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[22]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[21]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[20]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[19]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[18]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[17]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[16]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[15]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[14]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[13]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[12]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[11]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[10]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[9]
+WARNING: [Synth 8-3331] design PicoRV32_BD_Out_bank_0_0 has unconnected port mem_wdata[8]
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:38 ; elapsed = 00:01:01 . Memory (MB): peak = 804.109 ; gain = 503.531
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:58 ; elapsed = 00:01:21 . Memory (MB): peak = 806.070 ; gain = 505.492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:58 ; elapsed = 00:01:21 . Memory (MB): peak = 806.219 ; gain = 505.641
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:58 ; elapsed = 00:01:22 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    13|
+|2     |LUT1   |     1|
+|3     |LUT2   |    29|
+|4     |LUT3   |     1|
+|5     |LUT4   |    10|
+|6     |LUT5   |    10|
+|7     |LUT6   |    11|
+|8     |FDRE   |    77|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------+-----------+------+
+|      |Instance |Module     |Cells |
++------+---------+-----------+------+
+|1     |top      |           |   152|
+|2     |  inst   |Out_bank   |   152|
+|3     |    uart |UART_block |    81|
++------+---------+-----------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 25 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:58 . Memory (MB): peak = 825.945 ; gain = 178.953
+Synthesis Optimization Complete : Time (s): cpu = 00:01:00 ; elapsed = 00:01:24 . Memory (MB): peak = 825.945 ; gain = 525.367
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+39 Infos, 50 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:03 ; elapsed = 00:01:29 . Memory (MB): peak = 831.500 ; gain = 541.230
+INFO: [Common 17-1381] The checkpoint 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/PicoRV32_BD_Out_bank_0_0_synth_1/PicoRV32_BD_Out_bank_0_0.dcp' has been generated.
+INFO: [Coretcl 2-1174] Renamed 2 cell refs.
+INFO: [Common 17-1381] The checkpoint 'D:/BakkArbeit/git/VivadoProject2/BakkArbeit2.runs/PicoRV32_BD_Out_bank_0_0_synth_1/PicoRV32_BD_Out_bank_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file PicoRV32_BD_Out_bank_0_0_utilization_synth.rpt -pb PicoRV32_BD_Out_bank_0_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 831.500 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Wed Feb 21 00:08:18 2018...

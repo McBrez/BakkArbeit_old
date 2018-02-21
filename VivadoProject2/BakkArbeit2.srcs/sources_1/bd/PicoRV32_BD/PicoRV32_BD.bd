@@ -681,7 +681,9 @@
         <spirit:configurableElementValues>
           <spirit:configurableElementValue spirit:referenceId="bd:xciName">PicoRV32_BD_picorv32_0_0</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="LATCHED_MEM_RDATA">0</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="BARREL_SHIFTER">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="COMPRESSED_ISA">1</spirit:configurableElementValue>
+          <spirit:configurableElementValue spirit:referenceId="CATCH_MISALIGN">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="ENABLE_IRQ">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="REGS_INIT_ZERO">1</spirit:configurableElementValue>
           <spirit:configurableElementValue spirit:referenceId="PROGADDR_RESET">0x00001000</spirit:configurableElementValue>

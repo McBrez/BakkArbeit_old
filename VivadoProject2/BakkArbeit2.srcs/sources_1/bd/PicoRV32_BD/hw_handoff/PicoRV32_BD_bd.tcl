@@ -259,6 +259,8 @@ proc create_root_design { parentCell } {
      return 1
    }
     set_property -dict [ list \
+   CONFIG.BARREL_SHIFTER {1} \
+   CONFIG.CATCH_MISALIGN {1} \
    CONFIG.COMPRESSED_ISA {1} \
    CONFIG.ENABLE_IRQ {1} \
    CONFIG.LATCHED_MEM_RDATA {0} \
